@@ -2,9 +2,9 @@ import reflex as rx
 
 from Back_end.access.modules.auth.model import UserSession
 from Back_end.access.modules.users.model import User
-from Back_end.metas.models.meta import Meta
+from Back_end.access_api.metas.models.meta import Meta
 from Back_end.access.pages.admin import admin_page
-from Back_end.access.pages.login import login_page
+from Back_end.interface.pages.login import login_page
 from Back_end.access.pages.logout import logout_page
 from Back_end.access.states.auth_state import AuthState
 from Back_end.api import api

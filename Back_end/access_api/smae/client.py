@@ -2,7 +2,7 @@ import ssl
 
 import httpx
 
-from Back_end.smae.config import SmaeConfig, get_smae_config
+from Back_end.access_api.smae.config import SmaeConfig, get_smae_config
 
 
 def create_smae_ssl_context() -> ssl.SSLContext:

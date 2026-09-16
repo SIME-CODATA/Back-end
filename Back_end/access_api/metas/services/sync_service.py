@@ -3,8 +3,8 @@ from dataclasses import dataclass
 import reflex as rx
 from sqlmodel import select
 
-from Back_end.metas.models.meta import Meta, utc_now
-from Back_end.smae.services.meta_service import fetch_metas
+from Back_end.access_api.metas.models.meta import Meta, utc_now
+from Back_end.access_api.smae.services.meta_service import fetch_metas
 
 
 @dataclass(frozen=True)

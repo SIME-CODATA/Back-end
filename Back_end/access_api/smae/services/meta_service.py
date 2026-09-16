@@ -1,5 +1,5 @@
-from Back_end.smae.client import SmaeClient
-from Back_end.smae.config import get_smae_config
+from Back_end.access_api.smae.client import SmaeClient
+from Back_end.access_api.smae.config import SmaeConfig, get_smae_config
 
 
 def fetch_metas() -> list[dict]:
