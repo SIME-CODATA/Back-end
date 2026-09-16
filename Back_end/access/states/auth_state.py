@@ -3,6 +3,8 @@ import reflex as rx
 from Back_end.access.modules.auth.service import ( create_session, validate_session, revoke_session,)
 from Back_end.access.modules.users.service import authenticate_user
 
+from typing import Any
+
 SESSION_MAX_AGE = 8 * 60 * 60
 
 
@@ -23,13 +25,13 @@ class AuthState(rx.State):
     _authenticated_user_id: int | None = None
 
     @rx.event
-    def login(self, form_data: dict[str, str]):
+    def login(self, form_data: dict[str, Any]):
         """Autentica o usuário e cria uma sessão válida."""
 
         self.error_message = ""
 
-        email = form_data.get("email", "")
-        password = form_data.get("password", "")
+        email = str(form_data.get("email", "")).strip()
+        password = str(form_data.get("password", ""))
 
         user = authenticate_user(
             email=email,
@@ -45,7 +47,11 @@ class AuthState(rx.State):
         self.session_token = token
         self._authenticated_user_id = user.id
 
-        return rx.redirect("/admin")
+        # Primeiro envia o novo estado/cookie ao navegador.
+        yield
+
+        # Só depois navega para a área protegida.
+        yield rx.redirect("/admin")
 
     @rx.event
     def require_auth(self):

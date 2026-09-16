@@ -1,4 +1,4 @@
-from Back_end.smae.services.meta_service import fetch_metas
+from Back_end.api.smae.services.meta_service import fetch_metas
 
 
 def main():

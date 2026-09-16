@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from Back_end.metas.api import router as metas_router
+from Back_end.access_api.metas.api import router as metas_router
 
 
 api = FastAPI(

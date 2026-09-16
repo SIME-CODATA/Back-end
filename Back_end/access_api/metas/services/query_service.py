@@ -1,7 +1,7 @@
 import reflex as rx
 from sqlmodel import select
 
-from Back_end.metas.models.meta import Meta
+from Back_end.access_api.metas.models.meta import Meta
 
 
 def list_metas() -> list[Meta]:

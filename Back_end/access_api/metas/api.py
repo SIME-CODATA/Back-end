@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from Back_end.metas.services.query_service import list_metas
+from Back_end.access_api.metas.services.query_service import list_metas
 
 
 router = APIRouter(
