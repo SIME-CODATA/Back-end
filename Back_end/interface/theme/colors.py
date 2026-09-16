@@ -1,0 +1,81 @@
+"""Paleta de cores da interface administrativa do Programa de Metas."""
+
+
+# Base
+BLACK = "#000000"
+WHITE = "#FFFFFF"
+
+
+# Identidade principal
+NAVY = "#272361"
+
+BLUE = "#0000AB"
+BLUE_DARK = "#124E8A"
+
+CYAN_LIGHT = "#03A8C5"
+CYAN_MEDIUM = "#6ACADB"
+CYAN_DARK = "#0E7BA8"
+
+
+# Transparências
+FILTER_BLUE = "rgba(41, 37, 97, 0.329)"
+FILTER_BLUE_SHADOW = "rgba(18, 129, 170, 0.2)"
+BLUE_LIGHT = "rgba(41, 37, 97, 0.726)"
+
+
+# Verdes
+GREEN_LIGHT = "#8BC540"
+GREEN_MEDIUM = "#68AD43"
+GREEN_DARK = "#479745"
+
+FOREST_GREEN = "#288140"
+DARK_GREEN = "#016937"
+GREEN = "#3DB54A"
+
+
+# Amarelos e laranjas
+ORANGE_RED = "#EF4C23"
+ORANGE = "#F16622"
+YELLOW_ORANGE = "#F7991C"
+YELLOW = "#FDD106"
+
+
+# Vermelhos
+RED = "#EC2024"
+RED_DARK = "#8B1E39"
+DARK_RED = "#9F1C2D"
+
+
+# Roxos
+PURPLE_DARK = "#544765"
+PURPLE_MEDIUM = "#5C415E"
+PURPLE_MEDIUM_DARK = "#534765"
+PURPLE_RED = "#792D49"
+
+
+# Transparências neutras
+DARK_OVERLAY = "rgba(0, 0, 0, 0.296)"
+DARK_GRAY_TRANSPARENT = "rgba(0, 0, 0, 0.3)"
+LIGHT_TRANSPARENT = "rgba(255, 255, 255, 0.741)"
+
+#---------------------------------------------------------
+
+# Light theme
+PAGE_BACKGROUND = "#F7F9FC"
+SURFACE = WHITE
+
+SIDEBAR_BACKGROUND = NAVY
+SIDEBAR_TEXT = WHITE
+
+PRIMARY = NAVY
+ACCENT = CYAN_LIGHT
+ACCENT_DARK = CYAN_DARK
+
+TEXT_PRIMARY = NAVY
+TEXT_SECONDARY = "#626A7A"
+
+BORDER = "#DCE3EA"
+
+SUCCESS = GREEN_DARK
+WARNING = YELLOW_ORANGE
+DANGER = RED
