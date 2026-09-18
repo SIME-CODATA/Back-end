@@ -1,4 +1,4 @@
-from Back_end.api.metas.services.sync_service import sync_metas
+from Back_end.access_api.metas.services.sync_service import sync_metas
 
 
 def main():

@@ -5,3 +5,5 @@ __pycache__/
 .states
 assets/external/
 .env
+.venv
+scripts/

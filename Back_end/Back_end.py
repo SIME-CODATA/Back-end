@@ -3,6 +3,11 @@ import reflex as rx
 from Back_end.access.modules.auth.model import UserSession
 from Back_end.access.modules.users.model import User
 from Back_end.access_api.metas.models.meta import Meta
+from Back_end.access_api.metas.models.meta_orcamento import MetaOrcamento
+from Back_end.access_api.metas.models.tag import Tag
+from Back_end.access_api.metas.models.meta_tag import MetaTag
+from Back_end.access_api.metas.models.meta_equipe import MetaEquipe
+from Back_end.access_api.metas.models.iniciativa import Iniciativa
 from Back_end.access.pages.admin import admin_page
 from Back_end.interface.pages.login import login_page
 from Back_end.access.pages.logout import logout_page

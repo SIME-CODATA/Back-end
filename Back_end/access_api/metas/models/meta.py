@@ -1,6 +1,8 @@
 from datetime import datetime, timezone
+from typing import Any
 
 from sqlalchemy import Column, DateTime, Integer, Text
+from sqlalchemy.dialects.postgresql import JSONB
 from sqlmodel import Field, SQLModel
 
 
@@ -19,6 +21,7 @@ class Meta(SQLModel, table=True):
         primary_key=True,
     )
 
+    # Identificação no SMAE
     smae_id: int = Field(
         sa_column=Column(
             Integer,
@@ -55,8 +58,27 @@ class Meta(SQLModel, table=True):
         ),
     )
 
-    ativo: bool = Field(default=True)
+    status: str | None = Field(
+        default=None,
+        index=True,
+    )
 
+    ativo: bool = Field(
+        default=True,
+        index=True,
+    )
+
+    # Macro tema
+    macro_tema_smae_id: int | None = Field(
+        default=None,
+        index=True,
+    )
+
+    macro_tema_descricao: str | None = Field(
+        default=None,
+    )
+
+    # Tema / eixo
     tema_smae_id: int | None = Field(
         default=None,
         index=True,
@@ -64,6 +86,37 @@ class Meta(SQLModel, table=True):
 
     tema_descricao: str | None = Field(
         default=None,
+    )
+
+    # Subtema
+    sub_tema_smae_id: int | None = Field(
+        default=None,
+        index=True,
+    )
+
+    sub_tema_descricao: str | None = Field(
+        default=None,
+    )
+
+    # Cronograma
+    cronograma_smae_id: int | None = Field(
+        default=None,
+    )
+
+    atraso_grau: str | None = Field(
+        default=None,
+        index=True,
+    )
+
+    # Cópia sanitizada do retorno completo do SMAE.
+    # Serve como segurança para informações que ainda não foram
+    # normalizadas em tabelas próprias.
+    raw_detail: dict[str, Any] | None = Field(
+        default=None,
+        sa_column=Column(
+            JSONB,
+            nullable=True,
+        ),
     )
 
     created_at: datetime = Field(
