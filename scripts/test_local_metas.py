@@ -1,4 +1,4 @@
-from Back_end.api.metas.services.query_service import list_metas
+from Back_end.access_api.metas.services.query_service import list_metas
 
 
 def main():
