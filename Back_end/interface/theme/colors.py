@@ -61,7 +61,8 @@ LIGHT_TRANSPARENT = "rgba(255, 255, 255, 0.741)"
 #---------------------------------------------------------
 
 # Light theme
-PAGE_BACKGROUND = "#F7F9FC"
+PAGE_BACKGROUND_WHITE = "#F7F9FC"
+PAGE_BACKGROUND_BLACK = "#253A79"
 SURFACE = WHITE
 
 SIDEBAR_BACKGROUND = NAVY
@@ -79,3 +80,24 @@ BORDER = "#DCE3EA"
 SUCCESS = GREEN_DARK
 WARNING = YELLOW_ORANGE
 DANGER = RED
+
+#---------------------------------------------------------
+
+# Gradientes da aplicação
+ADMIN_GRADIENT_DARK = (
+    "linear-gradient("
+    "165deg, "
+    "rgba(18, 129, 170, 1) 0%, "
+    "rgba(30, 83, 133, 1) 35%, "
+    "rgba(41, 37, 97, 1) 75%"
+    ")"
+)
+
+ADMIN_GRADIENT_LIGHT = (
+    "linear-gradient("
+    "150deg, "
+    "rgba(28, 163, 212, 1) 0%, "
+    "rgba(43, 113, 179, 1) 50%, "
+    "rgba(46, 42, 189, 1) 100%"
+    ")"
+)

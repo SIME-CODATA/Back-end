@@ -10,6 +10,10 @@ from Back_end.access_api.metas.models.meta_equipe import MetaEquipe
 from Back_end.access_api.metas.models.iniciativa import Iniciativa
 from Back_end.access.pages.admin import admin_page
 from Back_end.interface.pages.login import login_page
+from Back_end.interface.pages.meta.meta_detail import meta_detail_page
+from Back_end.interface.pages.meta.meta_list import meta_list_page
+from Back_end.interface.state.meta.meta_list_state import MetaListState
+from Back_end.interface.state.meta.meta_detail_state import MetaDetailState
 from Back_end.access.pages.logout import logout_page
 from Back_end.access.states.auth_state import AuthState
 from Back_end.api import api
@@ -36,6 +40,26 @@ app.add_page(
     route="/admin",
     title="Admin | Programa de Metas",
     on_load=AuthState.require_auth,
+)
+
+app.add_page(
+    meta_list_page,
+    route="/admin/metas",
+    title="Metas | Programa de Metas",
+    on_load=[
+        AuthState.require_auth,
+        MetaListState.load_metas,
+    ],
+)
+
+app.add_page(
+    meta_detail_page,
+    route="/admin/metas/[codigo]",
+    title="Ficha da Meta | Programa de Metas",
+    on_load=[
+        AuthState.require_auth,
+        MetaDetailState.load_meta,
+    ],
 )
 
 app.add_page(
