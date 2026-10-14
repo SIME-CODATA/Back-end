@@ -148,19 +148,22 @@ def fetch_iniciativas_atividades( meta_ids: list[int],) -> list[dict]:
     return linhas
 
 
-def fetch_relacionados( *, pdm_id: int | None = None, meta_id: int | None = None, iniciativa_id: int | None = None, atividade_id: int | None = None,) -> dict:
+def fetch_relacionados( *, pdm_id: int | None = None, meta_id: int | None = None, iniciativa_id: int | None = None, atividade_id: int | None = None, ) -> dict:
     """
     Busca metas, obras e projetos relacionados no SMAE.
 
-    Se o SMAE responder 404, retorna uma estrutura vazia
-    em vez de interromper a coleta da meta.
+    É necessário informar ao menos um entre:
+    pdm_id, meta_id, iniciativa_id ou atividade_id.
     """
 
-    config = get_smae_config()
+    if ( pdm_id is None and meta_id is None and iniciativa_id is None and atividade_id is None ):
+        raise ValueError( "Informe ao menos um parâmetro: " "pdm_id, meta_id, iniciativa_id " "ou atividade_id." )
 
-    params: dict[str, int] = {
-        "pdm_id": pdm_id or config.pdm_id,
-    }
+    config = get_smae_config()
+    params: dict[str, int] = {}
+
+    if pdm_id is not None:
+        params["pdm_id"] = pdm_id
 
     if meta_id is not None:
         params["meta_id"] = meta_id
@@ -175,23 +178,51 @@ def fetch_relacionados( *, pdm_id: int | None = None, meta_id: int | None = None
 
     try:
         try:
-            return client.get(
-                "/metas/relacinados",
-                params=params,
-            )
+            return client.get( "/meta/relacionados", params=params, )
 
         except httpx.HTTPStatusError as error:
             if error.response.status_code == 404:
-                return {
-                    "metas": [],
-                    "obras": [],
-                    "projetos": [],
-                }
-
+                return { "metas": [], "obras": [], "projetos": [], }
             raise
 
     finally:
         client.close()
+
+
+def fetch_relacionados_by_meta_ids( meta_ids: list[int], ) -> dict[int, dict]:
+    """
+    Busca os relacionados de várias metas reutilizando
+    uma única sessão autenticada no SMAE.
+    """
+
+    if not meta_ids:
+        return {}
+
+    config = get_smae_config()
+    client = SmaeClient(config)
+
+    resultados: dict[int, dict] = {}
+
+    try:
+        for meta_id in meta_ids:
+            try:
+                response = client.get( "/meta/relacionados", params={     "meta_id": meta_id, }, )
+
+            except httpx.HTTPStatusError as error:
+                if error.response.status_code == 404:
+                    response = { "metas": [], "obras": [], "projetos": [], }
+                else:
+                    raise
+
+            if not isinstance(response, dict):
+                raise RuntimeError( "Resposta inesperada do SMAE " f"para relacionados da meta {meta_id}." )
+
+            resultados[meta_id] = response
+
+    finally:
+        client.close()
+
+    return resultados
 
 
 def fetch_meta_full_context( smae_id: int,) -> dict[str, Any]:

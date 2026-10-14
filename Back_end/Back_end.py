@@ -16,6 +16,8 @@ from Back_end.interface.state.meta.meta_list_state import MetaListState
 from Back_end.interface.state.meta.meta_detail_state import MetaDetailState
 from Back_end.access.pages.logout import logout_page
 from Back_end.access.states.auth_state import AuthState
+from Back_end.interface.pages.meta.meta_print import ( meta_print_page,)
+from Back_end.interface.state.meta.meta_print_state import ( MetaPrintState,)
 from Back_end.api import api
 
 
@@ -50,6 +52,13 @@ app.add_page(
         AuthState.require_auth,
         MetaListState.load_metas,
     ],
+)
+
+app.add_page(
+    meta_print_page,
+    route="/imprimir/metas/[codigo]",
+    on_load=MetaPrintState.load_meta,
+    title="Ficha da Meta",
 )
 
 app.add_page(
