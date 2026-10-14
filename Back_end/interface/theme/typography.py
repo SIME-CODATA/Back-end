@@ -1,8 +1,16 @@
 """Tipografia da interface administrativa do Programa de Metas."""
+import reflex as rx
+app = rx.App(
+    stylesheets=[
+        "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap",
+        "https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+    ],
+)
 
 
 # Família tipográfica
 FONT_FAMILY_PRIMARY = "Roboto, Helvetica, sans-serif"
+FONT_FAMILY_SECUNDARY = "Bebas Neue, sans-serif"
 FONT_FAMILY_DISPLAY = FONT_FAMILY_PRIMARY
 
 

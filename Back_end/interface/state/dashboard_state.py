@@ -2,18 +2,15 @@ from datetime import timedelta, timezone
 from decimal import Decimal
 
 import reflex as rx
+import plotly.graph_objects as go
+from Back_end.interface.components.graphics.meta_distribution_chart import ( build_meta_distribution_figure,)
+from Back_end.interface.components.graphics.budget_donut_chart import ( build_budget_figure )
+from Back_end.access_api.metas.services.dashboard_service import ( get_dashboard_summary,)
 
-from Back_end.access_api.metas.services.dashboard_service import (
-    get_dashboard_summary,
-)
-from Back_end.access_api.metas.services.pdm_sync_service import (
-    sync_pdm,
-)
+from Back_end.access_api.metas.services.pdm_sync_service import ( sync_pdm,)
 
 
-SAO_PAULO_TIMEZONE = timezone(
-    timedelta(hours=-3)
-)
+SAO_PAULO_TIMEZONE = timezone ( timedelta(hours=-3))
 
 
 SITUACAO_ORDER = [
@@ -38,9 +35,7 @@ PRAZO_ORDER = [
 ]
 
 
-def _format_brl(
-    value: Decimal | int | float | None,
-) -> str:
+def _format_brl( value: Decimal | int | float | None,) -> str:
     """Formata um valor monetário no padrão brasileiro."""
 
     decimal_value = Decimal(
@@ -60,21 +55,19 @@ def _format_brl(
 class DashboardState(rx.State):
     """Controla os dados exibidos no dashboard."""
 
-    # --------------------------------------------------
-    # Indicadores básicos
-    # --------------------------------------------------
+    # ========================================================
+    # INDICADORES BÁSICOS
+    # ========================================================
 
     total_metas: int = 0
     total_temas: int = 0
     metas_ativas: int = 0
 
-    ultima_sincronizacao: str = (
-        "Sem atualização"
-    )
+    ultima_sincronizacao: str = "Sem atualização"
 
-    # --------------------------------------------------
-    # Andamento
-    # --------------------------------------------------
+    # ========================================================
+    # ANDAMENTO
+    # ========================================================
 
     metas_atingidas: int = 0
     metas_em_progresso: int = 0
@@ -84,9 +77,9 @@ class DashboardState(rx.State):
     percentual_em_progresso: float = 0.0
     percentual_em_planejamento: float = 0.0
 
-    # --------------------------------------------------
-    # Eixos
-    # --------------------------------------------------
+    # ========================================================
+    # EIXOS
+    # ========================================================
 
     metas_por_eixo: list[
         dict[str, str | int]
@@ -96,9 +89,9 @@ class DashboardState(rx.State):
         dict[str, str | int | float]
     ] = []
 
-    # --------------------------------------------------
-    # Situação / prazo
-    # --------------------------------------------------
+    # ========================================================
+    # SITUAÇÃO / PRAZO
+    # ========================================================
 
     situacao_resumo: list[
         dict[str, str | int]
@@ -108,9 +101,9 @@ class DashboardState(rx.State):
         dict[str, str | int]
     ] = []
 
-    # --------------------------------------------------
-    # Orçamento
-    # --------------------------------------------------
+    # ========================================================
+    # ORÇAMENTO
+    # ========================================================
 
     orcamento_previsao: str = "R$ 0,00"
     orcamento_empenhado: str = "R$ 0,00"
@@ -122,23 +115,52 @@ class DashboardState(rx.State):
     metas_com_previsao: int = 0
     metas_com_empenho: int = 0
     metas_com_liquidacao: int = 0
+    
+    budget_figure: go.Figure = go.Figure()
 
-    # --------------------------------------------------
-    # Interface
-    # --------------------------------------------------
+    # ========================================================
+    # INTERFACE
+    # ========================================================
 
     loading: bool = False
+
     error_message: str = ""
     sync_message: str = ""
+    
+    meta_distribution_figure: go.Figure = go.Figure()
+
+    # ========================================================
+    # MENSAGENS
+    # ========================================================
+
+    @rx.event
+    def clear_sync_message(self):
+        """Fecha a notificação de sincronização."""
+
+        self.sync_message = ""
+
+    @rx.event
+    def clear_error_message(self):
+        """Fecha a notificação de erro."""
+
+        self.error_message = ""
+
+    # ========================================================
+    # APLICAÇÃO DO RESUMO
+    # ========================================================
 
     def _apply_summary(
         self,
         summary: dict,
     ) -> None:
         """
-        Aplica o resumo retornado pelo service
-        ao estado da interface.
+        Aplica ao State os dados retornados pelo
+        serviço de resumo do dashboard.
         """
+
+        # ----------------------------------------------------
+        # Indicadores básicos
+        # ----------------------------------------------------
 
         self.total_metas = summary[
             "total_metas"
@@ -152,9 +174,9 @@ class DashboardState(rx.State):
             "metas_ativas"
         ]
 
-        # ----------------------------------------------
+        # ----------------------------------------------------
         # Andamento
-        # ----------------------------------------------
+        # ----------------------------------------------------
 
         self.metas_atingidas = summary[
             "metas_atingidas"
@@ -180,22 +202,16 @@ class DashboardState(rx.State):
             "percentual_em_planejamento"
         ]
 
-        # ----------------------------------------------
+        # ----------------------------------------------------
         # Eixos
-        # ----------------------------------------------
+        # ----------------------------------------------------
 
         self.eixos_resumo = [
             {
                 "nome": item["nome"],
-                "quantidade": item[
-                    "quantidade"
-                ],
-                "atingidas": item[
-                    "atingidas"
-                ],
-                "em_progresso": item[
-                    "em_progresso"
-                ],
+                "quantidade": item["quantidade"],
+                "atingidas": item["atingidas"],
+                "em_progresso": item["em_progresso"],
                 "em_planejamento": item[
                     "em_planejamento"
                 ],
@@ -203,25 +219,21 @@ class DashboardState(rx.State):
                     "percentual_atingidas"
                 ],
             }
-            for item in summary[
-                "eixos_resumo"
-            ]
+            for item in summary["eixos_resumo"]
         ]
 
-        # Mantemos enquanto o layout antigo existir.
         self.metas_por_eixo = [
             {
                 "nome": eixo,
                 "quantidade": quantidade,
             }
-            for eixo, quantidade in summary[
-                "metas_por_eixo"
-            ].items()
+            for eixo, quantidade
+            in summary["metas_por_eixo"].items()
         ]
 
-        # ----------------------------------------------
+        # ----------------------------------------------------
         # Situação
-        # ----------------------------------------------
+        # ----------------------------------------------------
 
         situacao = summary["situacao"]
 
@@ -236,9 +248,9 @@ class DashboardState(rx.State):
             for nome in SITUACAO_ORDER
         ]
 
-        # ----------------------------------------------
+        # ----------------------------------------------------
         # Prazo
-        # ----------------------------------------------
+        # ----------------------------------------------------
 
         prazo = summary["prazo"]
 
@@ -252,12 +264,25 @@ class DashboardState(rx.State):
             }
             for nome in PRAZO_ORDER
         ]
+        
+        self.meta_distribution_figure = (
+            build_meta_distribution_figure(
+                self.situacao_resumo,
+                self.prazo_resumo,
+            )
+        )
 
-        # ----------------------------------------------
+        # ----------------------------------------------------
         # Orçamento
-        # ----------------------------------------------
+        # ----------------------------------------------------
 
         orcamento = summary["orcamento"]
+        
+        self.budget_figure = build_budget_figure(
+            previsao=orcamento["previsao"],
+            empenhado=orcamento["empenhado"],
+            liquidado=orcamento["liquidado"],
+        )
 
         self.orcamento_previsao = _format_brl(
             orcamento["previsao"]
@@ -291,9 +316,9 @@ class DashboardState(rx.State):
             "metas_com_liquidacao"
         ]
 
-        # ----------------------------------------------
+        # ----------------------------------------------------
         # Última sincronização
-        # ----------------------------------------------
+        # ----------------------------------------------------
 
         synced_at = summary[
             "ultima_sincronizacao"
@@ -306,7 +331,7 @@ class DashboardState(rx.State):
 
             self.ultima_sincronizacao = (
                 local_time.strftime(
-                    "%d/%m/%Y %H:%M"
+                    "%d/%m/%y %H:%M"
                 )
             )
 
@@ -315,9 +340,13 @@ class DashboardState(rx.State):
                 "Sem atualização"
             )
 
+    # ========================================================
+    # CARREGAMENTO INICIAL
+    # ========================================================
+
     @rx.event
     def load_summary(self):
-        """Carrega os dados do dashboard."""
+        """Carrega os dados locais exibidos pelo painel."""
 
         self.loading = True
         self.error_message = ""
@@ -325,9 +354,7 @@ class DashboardState(rx.State):
         yield
 
         try:
-            summary = (
-                get_dashboard_summary()
-            )
+            summary = get_dashboard_summary()
 
             self._apply_summary(
                 summary
@@ -335,7 +362,7 @@ class DashboardState(rx.State):
 
         except Exception as error:
             print(
-                f"Erro ao carregar dashboard: "
+                "Erro ao carregar dashboard: "
                 f"{error}"
             )
 
@@ -347,6 +374,10 @@ class DashboardState(rx.State):
         finally:
             self.loading = False
 
+    # ========================================================
+    # SINCRONIZAÇÃO SMAE
+    # ========================================================
+
     @rx.event
     def refresh_data(self):
         """
@@ -355,17 +386,20 @@ class DashboardState(rx.State):
         """
 
         self.loading = True
+
+        # Apagamos mensagens anteriores antes de iniciar.
         self.error_message = ""
         self.sync_message = ""
 
+        # Faz o frontend receber loading=True imediatamente.
         yield
 
         try:
             result = sync_pdm()
 
-            summary = (
-                get_dashboard_summary()
-            )
+            # Depois da sincronização, buscamos novamente
+            # os números consolidados no PostgreSQL.
+            summary = get_dashboard_summary()
 
             self._apply_summary(
                 summary
@@ -381,8 +415,9 @@ class DashboardState(rx.State):
                 + result.orcamentos_atualizados
             )
 
+            # O título "Atualização concluída" fica
+            # no componente visual da notificação.
             self.sync_message = (
-                "Atualização concluída: "
                 f"{result.metas_novas} novas metas, "
                 f"{result.metas_atualizadas} metas "
                 "alteradas no catálogo, "
@@ -396,7 +431,7 @@ class DashboardState(rx.State):
 
         except Exception as error:
             print(
-                f"Erro ao sincronizar dashboard: "
+                "Erro ao sincronizar dashboard: "
                 f"{error}"
             )
 
