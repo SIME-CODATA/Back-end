@@ -1,32 +1,9 @@
 import reflex as rx
 
+from Back_end.interface.pages.dashboard import dashboard_page
+
 
 def admin_page() -> rx.Component:
-    return rx.center(
-        rx.vstack(
-            rx.heading(
-                "Programa de Metas",
-                size="8",
-            ),
+    """Página inicial da área administrativa."""
 
-            rx.text(
-                "Área Administrativa",
-                size="5",
-            ),
-
-            rx.text(
-                "Sessão autenticada com sucesso.",
-                color_scheme="gray",
-            ),
-
-            rx.button(
-                "Sair",
-                on_click=rx.redirect("/logout"),
-                variant="soft",
-            ),
-
-            spacing="4",
-            align="center",
-        ),
-        min_height="100vh",
-    )
+    return dashboard_page()
