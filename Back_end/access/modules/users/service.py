@@ -3,6 +3,9 @@ from datetime import datetime, timezone
 import reflex as rx
 from sqlmodel import select
 
+from Back_end.access.core.email_policy import (
+    validate_allowed_email,
+)
 from Back_end.access.core.roles import (
     UserRole,
     normalize_role,
@@ -97,7 +100,7 @@ def get_user_by_id(
 def get_user_by_email(
     email: str,
 ) -> User | None:
-    normalized_email = email.strip().lower()
+    normalized_email = validate_allowed_email(email)
 
     if not normalized_email:
         return None
@@ -119,7 +122,7 @@ def create_user(
     """Criação interna, utilizada por seed/scripts."""
 
     normalized_name = name.strip()
-    normalized_email = email.strip().lower()
+    normalized_email = validate_allowed_email(email)
     normalized_role = normalize_role(role)
 
     if not normalized_name:
@@ -197,7 +200,7 @@ def create_managed_user(
     """Cria usuário aplicando as regras de RBAC."""
 
     normalized_name = name.strip()
-    normalized_email = email.strip().lower()
+    normalized_email = validate_allowed_email(email)
     normalized_role = normalize_role(role)
 
     if not normalized_name:
@@ -270,7 +273,7 @@ def update_managed_user(
     """Atualiza usuário aplicando as regras de segurança."""
 
     normalized_name = name.strip()
-    normalized_email = email.strip().lower()
+    normalized_email = validate_allowed_email(email)
     normalized_role = normalize_role(role)
     normalized_password = password.strip()
 
@@ -460,7 +463,7 @@ def authenticate_user(
 ) -> User | None:
     """Valida credenciais e retorna o usuário autenticado."""
 
-    normalized_email = email.strip().lower()
+    normalized_email = validate_allowed_email(email)
 
     if not normalized_email or not password:
         return None

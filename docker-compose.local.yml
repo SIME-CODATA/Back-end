@@ -1,0 +1,45 @@
+services:
+  postgres:
+    image: postgres:18-alpine
+    container_name: pdm_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - pdm_postgres_data:/var/lib/postgresql
+    ports:
+      - "127.0.0.1:5432:5432"
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}",
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pdm_app
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      REFLEX_WEB_WORKDIR: /tmp/reflex-web
+      REFLEX_DB_URL: postgresql+psycopg://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+      ENFORCE_INSTITUTIONAL_EMAIL: ${ENFORCE_INSTITUTIONAL_EMAIL:-false}
+      ALLOWED_EMAIL_DOMAINS: ${ALLOWED_EMAIL_DOMAINS:-prefeitura.sp.gov.br}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+
+volumes:
+  pdm_postgres_data:
+    name: pdm_postgres_data
