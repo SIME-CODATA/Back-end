@@ -1,37 +1,37 @@
 import reflex as rx
 
-from Back_end.interface.theme.semantic import ( BORDER, BORDER_DARK, HEADER_BACKGROUND, HEADER_BACKGROUND_DARK, TEXT_PRIMARY, TEXT_PRIMARY_DARK, TEXT_SECONDARY, TEXT_SECONDARY_DARK, PRIMARY, PRIMARY_HOVER,)
-from Back_end.interface.theme.typography import ( FONT_SIZE_SM, FONT_WEIGHT_MEDIUM, FONT_WEIGHT_SEMIBOLD,)
-
-from Back_end.interface.state.dashboard_state import ( DashboardState,)
+from Back_end.access.states.auth_state import (AuthState,)
+from Back_end.interface.components.user.profile_menu import (profile_menu,)
+from Back_end.interface.theme.semantic import ( BORDER, BORDER_DARK, HEADER_BACKGROUND, HEADER_BACKGROUND_DARK, TEXT_PRIMARY, TEXT_PRIMARY_DARK, TEXT_SECONDARY, TEXT_SECONDARY_DARK, PRIMARY, PRIMARY_HOVER, )
+from Back_end.interface.theme.typography import ( FONT_SIZE_SM, FONT_WEIGHT_SEMIBOLD, )
+from Back_end.interface.state.dashboard_state import ( DashboardState, )
 
 
 # ============================================================
 # CORES REATIVAS AO TEMA
 # ============================================================
 
-
 def primary_text():
-    return rx.color_mode_cond( TEXT_PRIMARY, TEXT_PRIMARY_DARK,)
+    return rx.color_mode_cond( TEXT_PRIMARY, TEXT_PRIMARY_DARK, )
 
 def secondary_text():
-    return rx.color_mode_cond( TEXT_SECONDARY, TEXT_SECONDARY_DARK,)
+    return rx.color_mode_cond( TEXT_SECONDARY, TEXT_SECONDARY_DARK, )
 
 def header_border():
-    return rx.color_mode_cond( BORDER, BORDER_DARK,)
+    return rx.color_mode_cond(BORDER,BORDER_DARK,)
 
 
 # ============================================================
 # NOTIFICAÇÕES
 # ============================================================
 
-
 def sync_notification() -> rx.Component:
     """Notificações globais de sincronização."""
 
     return rx.box(
+
         # ----------------------------------------------------
-        # Sucesso
+        # SUCESSO
         # ----------------------------------------------------
 
         rx.cond(
@@ -60,22 +60,31 @@ def sync_notification() -> rx.Component:
                     rx.vstack(
                         rx.text(
                             "Atualização concluída",
+
                             color=primary_text(),
+
                             font_size=FONT_SIZE_SM,
+
                             font_weight=(
                                 FONT_WEIGHT_SEMIBOLD
                             ),
                         ),
 
                         rx.text(
-                            DashboardState.sync_message,
+                            DashboardState
+                            .sync_message,
+
                             color=secondary_text(),
+
                             font_size="0.78rem",
+
                             line_height="1.35",
                         ),
 
                         spacing="1",
+
                         align="start",
+
                         flex="1",
                     ),
 
@@ -91,13 +100,17 @@ def sync_notification() -> rx.Component:
                         ),
 
                         background="transparent",
+
                         color=secondary_text(),
 
                         padding="0.3rem",
+
                         min_width="auto",
+
                         height="auto",
 
                         cursor="pointer",
+
                         border_radius="6px",
 
                         _hover={
@@ -107,11 +120,14 @@ def sync_notification() -> rx.Component:
                     ),
 
                     width="100%",
+
                     align="start",
+
                     spacing="3",
                 ),
 
                 width="390px",
+
                 max_width="calc(100vw - 2rem)",
 
                 padding="1rem",
@@ -142,11 +158,12 @@ def sync_notification() -> rx.Component:
         ),
 
         # ----------------------------------------------------
-        # Erro
+        # ERRO
         # ----------------------------------------------------
 
         rx.cond(
-            DashboardState.error_message != "",
+            DashboardState.error_message
+            != "",
 
             rx.box(
                 rx.hstack(
@@ -158,7 +175,9 @@ def sync_notification() -> rx.Component:
                         ),
 
                         width="34px",
+
                         height="34px",
+
                         min_width="34px",
 
                         border_radius="50%",
@@ -171,22 +190,31 @@ def sync_notification() -> rx.Component:
                     rx.vstack(
                         rx.text(
                             "Erro na atualização",
+
                             color=primary_text(),
+
                             font_size=FONT_SIZE_SM,
+
                             font_weight=(
                                 FONT_WEIGHT_SEMIBOLD
                             ),
                         ),
 
                         rx.text(
-                            DashboardState.error_message,
+                            DashboardState
+                            .error_message,
+
                             color=secondary_text(),
+
                             font_size="0.78rem",
+
                             line_height="1.35",
                         ),
 
                         spacing="1",
+
                         align="start",
+
                         flex="1",
                     ),
 
@@ -202,13 +230,17 @@ def sync_notification() -> rx.Component:
                         ),
 
                         background="transparent",
+
                         color=secondary_text(),
 
                         padding="0.3rem",
+
                         min_width="auto",
+
                         height="auto",
 
                         cursor="pointer",
+
                         border_radius="6px",
 
                         _hover={
@@ -218,12 +250,17 @@ def sync_notification() -> rx.Component:
                     ),
 
                     width="100%",
+
                     align="start",
+
                     spacing="3",
                 ),
 
                 width="390px",
-                max_width="calc(100vw - 2rem)",
+
+                max_width=(
+                    "calc(100vw - 2rem)"
+                ),
 
                 padding="1rem",
 
@@ -252,18 +289,16 @@ def sync_notification() -> rx.Component:
             ),
         ),
 
-        # ----------------------------------------------------
-        # Posicionamento
-        # ----------------------------------------------------
-
         position="fixed",
 
         top="88px",
+
         right="1.5rem",
 
         z_index="3000",
 
         display="flex",
+
         flex_direction="column",
 
         gap="0.75rem",
@@ -273,23 +308,131 @@ def sync_notification() -> rx.Component:
 
 
 # ============================================================
-# HEADER
+# CONTROLE DE SINCRONIZAÇÃO
 # ============================================================
 
+def sync_controls() -> rx.Component:
+    """
+    Sincronização manual com o SMAE.
+
+    Visitante não possui permissão.
+    """
+
+    return rx.cond(
+        AuthState.can_sync_smae,
+
+        rx.hstack(
+            rx.button(
+                rx.icon(
+                    tag="refresh_cw",
+                    size=15,
+                ),
+
+                rx.cond(
+                    DashboardState.loading,
+                    "Atualizando...",
+                    "Atualizar",
+                ),
+
+                on_click=(
+                    DashboardState.refresh_data
+                ),
+
+                background=PRIMARY,
+
+                color="white",
+
+                border_radius="7px",
+
+                padding_x="1rem",
+
+                height="36px",
+
+                cursor="pointer",
+
+                disabled=(
+                    DashboardState.loading
+                ),
+
+                _hover={
+                    "background":
+                    PRIMARY_HOVER,
+                },
+            ),
+
+            rx.vstack(
+                rx.text(
+                    "Última atualização",
+
+                    color=secondary_text(),
+
+                    font_size="0.55rem",
+
+                    font_weight=(
+                        FONT_WEIGHT_SEMIBOLD
+                    ),
+
+                    text_transform="uppercase",
+
+                    white_space="nowrap",
+                ),
+
+                rx.text(
+                    DashboardState
+                    .ultima_sincronizacao,
+
+                    color=primary_text(),
+
+                    font_size=FONT_SIZE_SM,
+
+                    font_weight=(
+                        FONT_WEIGHT_SEMIBOLD
+                    ),
+
+                    white_space="nowrap",
+                ),
+
+                spacing="0",
+
+                align="start",
+            ),
+
+            rx.box(
+                width="1px",
+
+                height="32px",
+
+                background=header_border(),
+
+                margin_left="0.4rem",
+            ),
+
+            spacing="3",
+
+            align="center",
+        ),
+    )
+
+
+# ============================================================
+# HEADER
+# ============================================================
 
 def header() -> rx.Component:
     """Cabeçalho principal da interface administrativa."""
 
     return rx.box(
         rx.hstack(
+
             # ------------------------------------------------
-            # Logo
+            # LOGO
             # ------------------------------------------------
 
             rx.image(
                 src="/svg/Logo_pdm_adm.svg",
 
                 width="80px",
+
                 height="auto",
 
                 object_fit="contain",
@@ -307,104 +450,19 @@ def header() -> rx.Component:
             rx.spacer(),
 
             # ------------------------------------------------
-            # Sincronização
+            # SINCRONIZAÇÃO
             # ------------------------------------------------
 
-            rx.hstack(
-                rx.button(
-                    rx.icon(
-                        tag="refresh_cw",
-                        size=15,
-                    ),
-
-                    rx.cond(
-                        DashboardState.loading,
-                        "Atualizando...",
-                        "Atualizar",
-                    ),
-
-                    on_click=(
-                        DashboardState.refresh_data
-                    ),
-
-                    background=PRIMARY,
-                    color="white",
-
-                    border_radius="7px",
-
-                    padding_x="1rem",
-
-                    height="36px",
-
-                    cursor="pointer",
-
-                    disabled=DashboardState.loading,
-
-                    _hover={
-                        "background": PRIMARY_HOVER,
-                    },
-                ),
-
-                rx.vstack(
-                    rx.text(
-                        "Última atualização",
-
-                        color=secondary_text(),
-
-                        font_size="0.55rem",
-
-                        font_weight=(
-                            FONT_WEIGHT_SEMIBOLD
-                        ),
-
-                        text_transform="uppercase",
-
-                        white_space="nowrap",
-                    ),
-
-                    rx.text(
-                        DashboardState
-                        .ultima_sincronizacao,
-
-                        color=primary_text(),
-
-                        font_size=FONT_SIZE_SM,
-
-                        font_weight=(
-                            FONT_WEIGHT_SEMIBOLD
-                        ),
-
-                        white_space="nowrap",
-                    ),
-
-                    spacing="0",
-                    align="start",
-                ),
-
-                spacing="3",
-                align="center",
-            ),
+            sync_controls(),
 
             # ------------------------------------------------
-            # Separador
-            # ------------------------------------------------
-
-            rx.box(
-                width="1px",
-                height="32px",
-
-                background=header_border(),
-
-                margin_x="0.4rem",
-            ),
-
-            # ------------------------------------------------
-            # Notificações futuras
+            # NOTIFICAÇÕES FUTURAS
             # ------------------------------------------------
 
             rx.button(
                 rx.icon(
                     tag="bell",
+
                     size=19,
                 ),
 
@@ -415,6 +473,7 @@ def header() -> rx.Component:
                 padding="0.45rem",
 
                 min_width="auto",
+
                 height="auto",
 
                 border_radius="8px",
@@ -423,75 +482,13 @@ def header() -> rx.Component:
             ),
 
             # ------------------------------------------------
-            # Usuário
+            # PERFIL / PAINEL ADMINISTRATIVO
             # ------------------------------------------------
 
-            rx.hstack(
-                rx.center(
-                    rx.text(
-                        "A",
-
-                        font_weight=(
-                            FONT_WEIGHT_SEMIBOLD
-                        ),
-
-                        font_size=FONT_SIZE_SM,
-
-                        color="white",
-                    ),
-
-                    width="36px",
-                    height="36px",
-
-                    min_width="36px",
-
-                    border_radius="50%",
-
-                    background="#272361",
-                ),
-
-                rx.vstack(
-                    rx.text(
-                        "Administrador",
-
-                        color=primary_text(),
-
-                        font_size=FONT_SIZE_SM,
-
-                        font_weight=(
-                            FONT_WEIGHT_MEDIUM
-                        ),
-
-                        white_space="nowrap",
-                    ),
-
-                    rx.text(
-                        "Painel administrativo",
-
-                        color=secondary_text(),
-
-                        font_size="0.72rem",
-
-                        white_space="nowrap",
-                    ),
-
-                    spacing="0",
-                    align="start",
-                ),
-
-                rx.icon(
-                    tag="chevron_down",
-
-                    size=16,
-
-                    color=secondary_text(),
-                ),
-
-                align="center",
-                spacing="3",
-            ),
+            profile_menu(),
 
             width="100%",
+
             height="72px",
 
             padding_x="1.75rem",
@@ -507,18 +504,22 @@ def header() -> rx.Component:
             ),
 
             align="center",
+
             spacing="4",
 
             flex_shrink="0",
         ),
 
-        # ESTE ERA O PEDAÇO QUE ESTAVA FALTANDO
+        # ====================================================
+        # NOTIFICAÇÕES DA SINCRONIZAÇÃO
+        # ====================================================
+
         sync_notification(),
 
         width="100%",
+
         flex_shrink="0",
 
-        # Carrega a informação do header em qualquer
-        # tela administrativa.
+        # O header aparece em toda página administrativa.
         on_mount=DashboardState.load_summary,
     )
