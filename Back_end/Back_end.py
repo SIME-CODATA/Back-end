@@ -21,6 +21,7 @@ from Back_end.interface.state.meta.meta_list_state import (MetaListState,)
 from Back_end.interface.state.meta.meta_detail_state import (MetaDetailState,)
 from Back_end.interface.state.meta.meta_print_state import (MetaPrintState,)
 from Back_end.interface.pages.users.profile import (profile_page,)
+from Back_end.interface.state.users.user_management_state import (UserManagementState,)
 from Back_end.api import (api,)
 
 
@@ -97,7 +98,7 @@ app.add_page(
     users_page,
     route="/admin/usuarios",
     title="Usuários | Programa de Metas",
-    on_load=(AuthState.require_users_access),
+    on_load=[AuthState.require_users_access,UserManagementState.load_users,],
 )
 
 # ============================================================
