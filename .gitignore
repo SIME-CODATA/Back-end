@@ -4,3 +4,6 @@ __pycache__/
 *.db
 .states
 assets/external/
+.env
+.venv
+scripts/
