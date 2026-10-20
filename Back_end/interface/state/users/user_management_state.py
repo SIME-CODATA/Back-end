@@ -402,6 +402,10 @@ class UserManagementState(AuthState):
             )
 
             if self.editor_mode == "create":
+                target_name = self.form_name.strip()
+                target_email = self.form_email.strip()
+                target_role = self.form_role
+
                 create_managed_user(
                     actor_user_id=actor_user_id,
                     name=self.form_name,
@@ -409,6 +413,19 @@ class UserManagementState(AuthState):
                     password=self.form_password,
                     role=self.form_role,
                     is_active=is_active,
+                )
+
+                self._audit(
+                    action="USER_CREATED",
+                    entity_type="user",
+                    entity_id=target_email,
+                    description=(
+                        f"Usuário {target_name} "
+                        f"({target_email}) criado como "
+                        f"{get_role_label(target_role)}, "
+                        f"status "
+                        f"{'ativo' if is_active else 'inativo'}."
+                    ),
                 )
 
                 self.user_success_message = (
@@ -421,15 +438,115 @@ class UserManagementState(AuthState):
                         "Nenhum usuário foi selecionado para edição."
                     )
 
+                target_user_id = self.editing_user_id
+
+                previous_user = next(
+                    (
+                        item
+                        for item in self.users
+                        if int(item["id"])
+                        == target_user_id
+                    ),
+                    None,
+                )
+
+                if previous_user is None:
+                    raise ValueError(
+                        "Usuário não encontrado."
+                    )
+
+                previous_name = str(
+                    previous_user["name"]
+                )
+                previous_email = str(
+                    previous_user["email"]
+                )
+                previous_role = str(
+                    previous_user["role"]
+                )
+                previous_active = bool(
+                    previous_user["is_active"]
+                )
+
+                new_name = self.form_name.strip()
+                new_email = self.form_email.strip()
+                new_role = self.form_role
+                password_changed = bool(
+                    self.form_password
+                )
+
                 update_managed_user(
                     actor_user_id=actor_user_id,
-                    target_user_id=self.editing_user_id,
+                    target_user_id=target_user_id,
                     name=self.form_name,
                     email=self.form_email,
                     role=self.form_role,
                     is_active=is_active,
                     password=self.form_password,
                 )
+
+                general_changes: list[str] = []
+
+                if previous_name != new_name:
+                    general_changes.append(
+                        "nome alterado"
+                    )
+
+                if (
+                    previous_email.casefold()
+                    != new_email.casefold()
+                ):
+                    general_changes.append(
+                        "e-mail alterado"
+                    )
+
+                if password_changed:
+                    general_changes.append(
+                        "senha alterada"
+                    )
+
+                if general_changes:
+                    self._audit(
+                        action="USER_UPDATED",
+                        entity_type="user",
+                        entity_id=target_user_id,
+                        description=(
+                            f"Dados do usuário "
+                            f"{new_name} ({new_email}) "
+                            f"atualizados: "
+                            f"{', '.join(general_changes)}."
+                        ),
+                    )
+
+                if previous_role != new_role:
+                    self._audit(
+                        action="USER_ROLE_CHANGED",
+                        entity_type="user",
+                        entity_id=target_user_id,
+                        description=(
+                            f"Perfil de {new_name} "
+                            f"({new_email}) alterado de "
+                            f"{get_role_label(previous_role)} "
+                            f"para "
+                            f"{get_role_label(new_role)}."
+                        ),
+                    )
+
+                if previous_active != is_active:
+                    self._audit(
+                        action=(
+                            "USER_ENABLED"
+                            if is_active
+                            else "USER_DISABLED"
+                        ),
+                        entity_type="user",
+                        entity_id=target_user_id,
+                        description=(
+                            f"Usuário {new_name} "
+                            f"({new_email}) "
+                            f"{'ativado' if is_active else 'desativado'}."
+                        ),
+                    )
 
                 self.user_success_message = (
                     "Usuário atualizado com sucesso."
@@ -512,9 +629,48 @@ class UserManagementState(AuthState):
         try:
             actor_user_id = self._actor_user_id()
 
+            target_user_id = self.delete_user_id
+
+            target_user = next(
+                (
+                    item
+                    for item in self.users
+                    if int(item["id"])
+                    == target_user_id
+                ),
+                None,
+            )
+
+            if target_user is None:
+                raise ValueError(
+                    "Usuário não encontrado."
+                )
+
+            target_name = str(
+                target_user["name"]
+            )
+            target_email = str(
+                target_user["email"]
+            )
+            target_role = str(
+                target_user["role"]
+            )
+
             delete_managed_user(
                 actor_user_id=actor_user_id,
-                target_user_id=self.delete_user_id,
+                target_user_id=target_user_id,
+            )
+
+            self._audit(
+                action="USER_DELETED",
+                entity_type="user",
+                entity_id=target_user_id,
+                description=(
+                    f"Usuário {target_name} "
+                    f"({target_email}), perfil "
+                    f"{get_role_label(target_role)}, "
+                    "foi excluído."
+                ),
             )
 
             self.user_success_message = (

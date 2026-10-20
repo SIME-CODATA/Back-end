@@ -22,6 +22,7 @@ from Back_end.interface.state.meta.meta_detail_state import (MetaDetailState,)
 from Back_end.interface.state.meta.meta_print_state import (MetaPrintState,)
 from Back_end.interface.pages.users.profile import (profile_page,)
 from Back_end.interface.state.users.user_management_state import (UserManagementState,)
+from Back_end.access.modules.audit.model import AuditLog
 from Back_end.api import (api,)
 
 
