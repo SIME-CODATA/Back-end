@@ -3,6 +3,8 @@ from decimal import Decimal
 
 import reflex as rx
 import plotly.graph_objects as go
+from Back_end.access.core.permissions import Permission
+from Back_end.access.states.auth_state import AuthState
 from Back_end.interface.components.graphics.meta_distribution_chart import ( build_meta_distribution_figure,)
 from Back_end.interface.components.graphics.budget_donut_chart import ( build_budget_figure )
 from Back_end.access_api.metas.services.dashboard_service import ( get_dashboard_summary,)
@@ -379,11 +381,25 @@ class DashboardState(rx.State):
     # ========================================================
 
     @rx.event
-    def refresh_data(self):
+    async def refresh_data(self):
         """
-        Executa a sincronização completa com o SMAE
-        e recarrega os indicadores.
+        Executa a sincronização completa com o SMAE,
+        valida a permissão no backend e registra auditoria.
         """
+
+        auth_state = await self.get_state(
+            AuthState
+        )
+
+        guard_result = (
+            auth_state._require_permission(
+                Permission.SMAE_SYNC
+            )
+        )
+
+        if guard_result is not None:
+            yield guard_result
+            return
 
         self.loading = True
 
@@ -429,10 +445,36 @@ class DashboardState(rx.State):
                 "iniciativas alteradas."
             )
 
+            auth_state._audit(
+                action="SMAE_SYNC",
+                entity_type="smae",
+                description=(
+                    "Sincronização manual concluída: "
+                    f"{result.metas_novas} novas metas, "
+                    f"{result.metas_atualizadas} metas "
+                    "alteradas, "
+                    f"{result.detalhes_atualizados} "
+                    "detalhes atualizados, "
+                    f"{alteracoes_orcamento} "
+                    "orçamentos alterados e "
+                    f"{alteracoes_iniciativas} "
+                    "iniciativas alteradas."
+                ),
+            )
+
         except Exception as error:
             print(
                 "Erro ao sincronizar dashboard: "
                 f"{error}"
+            )
+
+            auth_state._audit(
+                action="SMAE_SYNC_FAILED",
+                entity_type="smae",
+                description=(
+                    "Falha ao executar a sincronização "
+                    "manual com o SMAE."
+                ),
             )
 
             self.error_message = (
