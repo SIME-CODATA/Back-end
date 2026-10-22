@@ -15,6 +15,9 @@ from Back_end.access.core.security import (
     verify_password,
 )
 from Back_end.access.modules.auth.model import UserSession
+from Back_end.access.modules.auth.service import (
+    hash_session_token,
+)
 from Back_end.access.modules.users.model import User
 
 
@@ -90,6 +93,55 @@ def _revoke_user_sessions(
         session.add(session_record)
 
 
+def _revoke_other_user_sessions(
+    session,
+    user_id: int,
+    current_session_token: str,
+) -> None:
+    """
+    Revoga todas as sessões do usuário, exceto
+    a sessão atual usada para trocar a senha.
+    """
+
+    if not current_session_token:
+        raise PermissionError(
+            "Sua sessão não é válida."
+        )
+
+    current_token_hash = hash_session_token(
+        current_session_token
+    )
+
+    current_session = session.exec(
+        select(UserSession).where(
+            UserSession.user_id == user_id,
+            UserSession.token_hash == current_token_hash,
+            UserSession.revoked_at.is_(None),
+        )
+    ).first()
+
+    if current_session is None:
+        raise PermissionError(
+            "Sua sessão não é válida."
+        )
+
+    sessions = session.exec(
+        select(UserSession).where(
+            UserSession.user_id == user_id,
+            UserSession.revoked_at.is_(None),
+        )
+    ).all()
+
+    now = _utc_now()
+
+    for session_record in sessions:
+        if session_record.token_hash == current_token_hash:
+            continue
+
+        session_record.revoked_at = now
+        session.add(session_record)
+
+
 def get_user_by_id(
     user_id: int,
 ) -> User | None:
@@ -131,10 +183,7 @@ def create_user(
     if not normalized_email:
         raise ValueError("O e-mail é obrigatório.")
 
-    _validate_password(
-        password,
-        required=True,
-    )
+    _validate_password(password, required=True)
 
     with rx.session() as session:
         existing_user = session.exec(
@@ -174,10 +223,7 @@ def list_users_for_management(
     """Lista usuários somente para Admin/SuperAdmin."""
 
     with rx.session() as session:
-        _get_manager(
-            session,
-            actor_user_id,
-        )
+        _get_manager(session, actor_user_id)
 
         return list(
             session.exec(
@@ -209,22 +255,14 @@ def create_managed_user(
     if not normalized_email:
         raise ValueError("O e-mail é obrigatório.")
 
-    _validate_password(
-        password,
-        required=True,
-    )
+    _validate_password(password, required=True)
 
     with rx.session() as session:
-        actor = _get_manager(
-            session,
-            actor_user_id,
-        )
+        actor = _get_manager(session, actor_user_id)
 
         if (
-            normalized_role
-            == UserRole.SUPERADMIN.value
-            and actor.role
-            != UserRole.SUPERADMIN.value
+            normalized_role == UserRole.SUPERADMIN.value
+            and actor.role != UserRole.SUPERADMIN.value
         ):
             raise PermissionError(
                 "Somente um SuperAdmin pode criar outro SuperAdmin."
@@ -283,26 +321,14 @@ def update_managed_user(
     if not normalized_email:
         raise ValueError("O e-mail é obrigatório.")
 
-    _validate_password(
-        normalized_password,
-        required=False,
-    )
+    _validate_password(normalized_password, required=False)
 
     with rx.session() as session:
-        actor = _get_manager(
-            session,
-            actor_user_id,
-        )
-
-        target = session.get(
-            User,
-            target_user_id,
-        )
+        actor = _get_manager(session, actor_user_id)
+        target = session.get(User, target_user_id)
 
         if target is None:
-            raise ValueError(
-                "Usuário não encontrado."
-            )
+            raise ValueError("Usuário não encontrado.")
 
         if actor.id == target.id:
             raise ValueError(
@@ -310,20 +336,16 @@ def update_managed_user(
             )
 
         if (
-            target.role
-            == UserRole.SUPERADMIN.value
-            and actor.role
-            != UserRole.SUPERADMIN.value
+            target.role == UserRole.SUPERADMIN.value
+            and actor.role != UserRole.SUPERADMIN.value
         ):
             raise PermissionError(
                 "Admin não pode alterar uma conta SuperAdmin."
             )
 
         if (
-            normalized_role
-            == UserRole.SUPERADMIN.value
-            and actor.role
-            != UserRole.SUPERADMIN.value
+            normalized_role == UserRole.SUPERADMIN.value
+            and actor.role != UserRole.SUPERADMIN.value
         ):
             raise PermissionError(
                 "Somente um SuperAdmin pode conceder esse perfil."
@@ -335,10 +357,7 @@ def update_managed_user(
             )
         ).first()
 
-        if (
-            existing_email is not None
-            and existing_email.id != target.id
-        ):
+        if existing_email is not None and existing_email.id != target.id:
             raise ValueError(
                 "Já existe um usuário cadastrado com este e-mail."
             )
@@ -347,31 +366,19 @@ def update_managed_user(
             target.role == UserRole.SUPERADMIN.value
             and target.is_active
             and (
-                normalized_role
-                != UserRole.SUPERADMIN.value
+                normalized_role != UserRole.SUPERADMIN.value
                 or not is_active
             )
         )
 
-        if (
-            removes_active_superadmin
-            and _active_superadmin_count(session) <= 1
-        ):
+        if removes_active_superadmin and _active_superadmin_count(session) <= 1:
             raise ValueError(
                 "O sistema precisa manter pelo menos um SuperAdmin ativo."
             )
 
-        role_changed = (
-            target.role != normalized_role
-        )
-
-        status_changed = (
-            target.is_active != is_active
-        )
-
-        password_changed = bool(
-            normalized_password
-        )
+        role_changed = target.role != normalized_role
+        status_changed = target.is_active != is_active
+        password_changed = bool(normalized_password)
 
         target.name = normalized_name
         target.email = normalized_email
@@ -379,22 +386,60 @@ def update_managed_user(
         target.is_active = is_active
 
         if password_changed:
-            target.password_hash = hash_password(
-                normalized_password
-            )
+            target.password_hash = hash_password(normalized_password)
 
         session.add(target)
 
-        if (
-            role_changed
-            or status_changed
-            or password_changed
-        ):
-            _revoke_user_sessions(
-                session,
-                target_user_id,
+        if role_changed or status_changed or password_changed:
+            _revoke_user_sessions(session, target_user_id)
+
+        session.commit()
+
+
+def change_own_password(
+    *,
+    user_id: int,
+    current_password: str,
+    new_password: str,
+    current_session_token: str,
+) -> None:
+    """
+    Altera a senha da própria conta.
+
+    A sessão atual é preservada e todas as demais
+    sessões ativas do usuário são revogadas.
+    """
+
+    if not current_password:
+        raise ValueError("Informe sua senha atual.")
+
+    normalized_new_password = new_password.strip()
+    _validate_password(normalized_new_password, required=True)
+
+    with rx.session() as session:
+        user = session.get(User, user_id)
+
+        if user is None or not user.is_active:
+            raise PermissionError(
+                "Sua conta não está disponível."
             )
 
+        if not verify_password(current_password, user.password_hash):
+            raise ValueError("A senha atual está incorreta.")
+
+        if verify_password(normalized_new_password, user.password_hash):
+            raise ValueError(
+                "A nova senha deve ser diferente da senha atual."
+            )
+
+        _revoke_other_user_sessions(
+            session,
+            user_id,
+            current_session_token,
+        )
+
+        user.password_hash = hash_password(normalized_new_password)
+        session.add(user)
         session.commit()
 
 
@@ -405,28 +450,17 @@ def delete_managed_user(
     """Exclusão permanente, restrita ao SuperAdmin."""
 
     with rx.session() as session:
-        actor = _get_manager(
-            session,
-            actor_user_id,
-        )
+        actor = _get_manager(session, actor_user_id)
 
-        if (
-            actor.role
-            != UserRole.SUPERADMIN.value
-        ):
+        if actor.role != UserRole.SUPERADMIN.value:
             raise PermissionError(
                 "Somente um SuperAdmin pode excluir usuários."
             )
 
-        target = session.get(
-            User,
-            target_user_id,
-        )
+        target = session.get(User, target_user_id)
 
         if target is None:
-            raise ValueError(
-                "Usuário não encontrado."
-            )
+            raise ValueError("Usuário não encontrado.")
 
         if actor.id == target.id:
             raise ValueError(
@@ -434,8 +468,7 @@ def delete_managed_user(
             )
 
         if (
-            target.role
-            == UserRole.SUPERADMIN.value
+            target.role == UserRole.SUPERADMIN.value
             and target.is_active
             and _active_superadmin_count(session) <= 1
         ):
@@ -445,8 +478,7 @@ def delete_managed_user(
 
         user_sessions = session.exec(
             select(UserSession).where(
-                UserSession.user_id
-                == target_user_id
+                UserSession.user_id == target_user_id
             )
         ).all()
 
@@ -475,16 +507,10 @@ def authenticate_user(
             )
         ).first()
 
-        if user is None:
+        if user is None or not user.is_active:
             return None
 
-        if not user.is_active:
-            return None
-
-        if not verify_password(
-            password,
-            user.password_hash,
-        ):
+        if not verify_password(password, user.password_hash):
             return None
 
         return user
