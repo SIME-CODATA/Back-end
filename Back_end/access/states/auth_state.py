@@ -1,13 +1,41 @@
+import os
 from typing import Any
 
 import reflex as rx
 from Back_end.access.core.guards import (can_access,)
 from Back_end.access.core.permissions import (Permission,)
 from Back_end.access.core.roles import (UserRole,get_role_label,)
+from Back_end.access.modules.audit.service import (create_audit_log,)
 from Back_end.access.modules.auth.service import (create_session,revoke_session,validate_session,)
 from Back_end.access.modules.users.service import (authenticate_user,get_user_by_id,)
 
 SESSION_MAX_AGE = (8 * 60 * 60)
+
+
+def _env_bool(
+    name: str,
+    default: bool = False,
+) -> bool:
+    """Lê uma variável de ambiente booleana."""
+    value = os.getenv(
+        name,
+        str(default),
+    )
+
+    return value.strip().lower() in {
+        "1",
+        "true",
+        "yes",
+        "on",
+        "sim",
+    }
+
+
+SESSION_COOKIE_SECURE = _env_bool(
+    "SESSION_COOKIE_SECURE",
+    False,
+)
+
 
 class AuthState(rx.State):
     """Controla autenticação, sessão e autorização."""
@@ -27,10 +55,9 @@ class AuthState(rx.State):
         max_age=SESSION_MAX_AGE,
         same_site="strict",
 
-        # Localmente utilizamos HTTP.
-        # No deploy isso será configurado
-        # conforme o ambiente.
-        secure=False,
+        # false no desenvolvimento local (HTTP)
+        # true no ambiente publicado (HTTPS)
+        secure=SESSION_COOKIE_SECURE,
     )
 
     # ========================================================
@@ -132,6 +159,37 @@ class AuthState(rx.State):
         self.current_user_email = (user.email)
         self.current_user_role = (user.role or UserRole.USER.value)
 
+    def _audit(
+        self,
+        *,
+        action: str,
+        entity_type: str = "system",
+        entity_id: str | int | None = None,
+        description: str = "",
+    ) -> None:
+        """
+        Registra auditoria usando o usuário autenticado como ator.
+
+        Falha de auditoria não interrompe a ação principal.
+        """
+        try:
+            create_audit_log(
+                action=action,
+                entity_type=entity_type,
+                entity_id=entity_id,
+                description=description,
+                actor_user_id=self.current_user_id,
+                actor_name=self.current_user_name,
+                actor_email=self.current_user_email,
+                actor_role=self.current_user_role,
+            )
+
+        except Exception as error:
+            print(
+                "Erro ao registrar auditoria: "
+                f"{error}"
+            )
+
     # ========================================================
     # RESTAURAÇÃO DA SESSÃO
     # ========================================================
@@ -225,6 +283,13 @@ class AuthState(rx.State):
         self.session_token = token
         self._set_current_user(user)
 
+        self._audit(
+            action="LOGIN",
+            entity_type="authentication",
+            entity_id=user.id,
+            description="Login realizado com sucesso.",
+        )
+
         # Primeiro envia o cookie.
         yield
 
@@ -255,6 +320,63 @@ class AuthState(rx.State):
     def require_dashboard_access(self,):
         """Protege o painel geral."""
         return self._require_permission(Permission.DASHBOARD_VIEW)
+
+
+    @rx.event
+    def require_metas_access(self,):
+        """Protege as páginas de metas."""
+        return self._require_permission(Permission.METAS_VIEW)
+
+    @rx.event
+    def require_site_access(self,):
+        """Protege o futuro módulo Site."""
+        return self._require_permission(Permission.SITE_VIEW)
+
+    @rx.event
+    def require_users_access(self,):
+        """Protege a administração de usuários."""
+        return self._require_permission(Permission.USERS_VIEW)
+
+    @rx.event
+    def require_media_access(self,):
+        """Protege o banco de imagens."""
+        return self._require_permission(Permission.MEDIA_VIEW)
+
+    @rx.event
+    def require_audit_access(self,):
+        """Protege auditoria e relatórios de acesso."""
+        return self._require_permission(Permission.AUDIT_VIEW)
+
+    @rx.event
+    def require_scheduler_access(self,):
+        """Protege os agendamentos SMAE."""
+        return self._require_permission(Permission.SCHEDULER_VIEW)
+
+    @rx.event
+    def require_database_access(self,):
+        """Protege administração do banco."""
+        return self._require_permission(Permission.DATABASE_VIEW)
+
+    # ========================================================
+    # LOGOUT
+    # ========================================================
+
+    @rx.event
+    def logout(self,):
+        """Encerra a sessão atual."""
+        if (
+            self.current_user_id is None
+            and self.session_token
+        ):
+            self._restore_authenticated_user()
+
+        if self.current_user_id is not None:
+            self._audit(
+                action="LOGOUT",
+                entity_type="authentication",
+                entity_id=self.current_user_id,
+                description="Logout realizado com sucesso.",
+            )
 
 
     @rx.event
