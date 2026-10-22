@@ -1,0 +1,92 @@
+services:
+  traefik:
+    image: traefik:v3.1
+    container_name: pdm_traefik
+    restart: always
+    command:
+      - "--log.level=INFO"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.web.http.redirections.entrypoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
+      - "--entrypoints.web.http.redirections.entrypoint.permanent=true"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.certificadofront.acme.caserver=${LE_ACME_URL}"
+      - "--certificatesresolvers.certificadofront.acme.httpchallenge=true"
+      - "--certificatesresolvers.certificadofront.acme.httpchallenge.entrypoint=web"
+      - "--certificatesresolvers.certificadofront.acme.email=${LE_EMAIL}"
+      - "--certificatesresolvers.certificadofront.acme.storage=/letsencrypt/acme.json"
+    networks:
+      - traefik-net
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - traefik-data:/letsencrypt
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+  postgres:
+    image: postgres:18-alpine
+    container_name: pdm_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - pdm_postgres_data:/var/lib/postgresql
+    networks:
+      - db-net
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}",
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: pdm-admin:latest
+    container_name: pdm_app
+    restart: always
+    env_file:
+      - .env
+    environment:
+      REFLEX_DB_URL: postgresql+psycopg://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+      REFLEX_DEPLOY_URL: https://${HOST_NAME}
+      REFLEX_CORS_ALLOWED_ORIGINS: https://${HOST_NAME}
+      ENFORCE_INSTITUTIONAL_EMAIL: "true"
+      ALLOWED_EMAIL_DOMAINS: ${ALLOWED_EMAIL_DOMAINS:-prefeitura.sp.gov.br}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - traefik-net
+      - db-net
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=pdm_traefik_net"
+      - "traefik.http.routers.pdm.entrypoints=websecure"
+      - "traefik.http.routers.pdm.rule=Host(`${HOST_NAME}`)"
+      - "traefik.http.routers.pdm.tls=true"
+      - "traefik.http.routers.pdm.tls.certresolver=certificadofront"
+      - "traefik.http.services.pdm.loadbalancer.server.port=3000"
+
+networks:
+  traefik-net:
+    name: pdm_traefik_net
+  db-net:
+    name: pdm_db_net
+    internal: true
+
+volumes:
+  traefik-data:
+    name: pdm_traefik_data
+  pdm_postgres_data:
+    name: pdm_postgres_data

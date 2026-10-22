@@ -378,6 +378,49 @@ class AuthState(rx.State):
                 description="Logout realizado com sucesso.",
             )
 
+
+    @rx.event
+    def require_metas_access(self,):
+        """Protege as páginas de metas."""
+        return self._require_permission(Permission.METAS_VIEW)
+
+    @rx.event
+    def require_site_access(self,):
+        """Protege o futuro módulo Site."""
+        return self._require_permission(Permission.SITE_VIEW)
+
+    @rx.event
+    def require_users_access(self,):
+        """Protege a administração de usuários."""
+        return self._require_permission(Permission.USERS_VIEW)
+
+    @rx.event
+    def require_media_access(self,):
+        """Protege o banco de imagens."""
+        return self._require_permission(Permission.MEDIA_VIEW)
+
+    @rx.event
+    def require_audit_access(self,):
+        """Protege auditoria e relatórios de acesso."""
+        return self._require_permission(Permission.AUDIT_VIEW)
+
+    @rx.event
+    def require_scheduler_access(self,):
+        """Protege os agendamentos SMAE."""
+        return self._require_permission(Permission.SCHEDULER_VIEW)
+
+    @rx.event
+    def require_database_access(self,):
+        """Protege administração do banco."""
+        return self._require_permission(Permission.DATABASE_VIEW)
+
+    # ========================================================
+    # LOGOUT
+    # ========================================================
+
+    @rx.event
+    def logout(self,):
+        """Encerra a sessão atual."""
         if self.session_token:
             revoke_session(self.session_token)
 

@@ -282,13 +282,7 @@ def site_submenu() -> rx.Component:
                     "/admin/site/transparencia",
                 ),
             ),
-
-            spacing="0",
-            align="stretch",
-            width="100%",
-            padding_left="1.5rem",
-            padding_right="0.25rem",
-            padding_bottom="0.5rem",
+            spacing="0", align="stretch", width="100%", padding_left="1.5rem", padding_right="0.25rem", padding_bottom="0.5rem",
         ),
         rx.box(),
     )
