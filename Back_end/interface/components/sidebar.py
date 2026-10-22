@@ -186,47 +186,109 @@ def site_submenu_item(label: str,) -> rx.Component:
         align="center",spacing="3",width="100%",padding="0.6rem 0.65rem",border_radius="6px",opacity="0.8",cursor="not-allowed",title=("Página ainda não implementada"),
     )
 
+
+def site_submenu_link(label: str, href: str,) -> rx.Component:
+    """Item funcional do módulo Site."""
+    return rx.link(
+        rx.hstack(
+            rx.box(
+                width="5px",
+                height="5px",
+                min_width="5px",
+                border_radius="50%",
+                background="#1281AA",
+            ),
+            rx.text(
+                label,
+                color=MENU_TEXT,
+                font_size="0.82rem",
+                font_weight="500",
+                white_space="normal",
+            ),
+            align="center",
+            spacing="3",
+            width="100%",
+        ),
+        href=href,
+        title=label,
+        width="100%",
+        padding="0.6rem 0.65rem",
+        border_radius="6px",
+        text_decoration="none",
+        cursor="pointer",
+        _hover={"background": MENU_BACKGROUND_HOVER,},
+    )
+
 # ============================================================
 # SUBMENU SITE
 # ============================================================
 
 def site_submenu() -> rx.Component:
-    """Conteúdos que serão administrados pelo módulo Site."""
+    """Conteúdos administrados pelo módulo Site."""
     return rx.cond(
         SidebarState.show_site_children,
         rx.vstack(
-            rx.cond(SidebarState.visible_items["site_home"],
-                site_submenu_item("Página inicial"),
+            rx.cond(
+                SidebarState.visible_items["site_home"],
+                site_submenu_link(
+                    "Página inicial",
+                    "/admin/site/home",
+                ),
             ),
 
-            rx.cond(SidebarState.visible_items["site_news"],
-                site_submenu_item("Notícias"),
+            rx.cond(
+                SidebarState.visible_items["site_about"],
+                site_submenu_link(
+                    "Sobre o PdM",
+                    "/admin/site/sobre",
+                ),
             ),
 
-            rx.cond(SidebarState.visible_items["site_about"],
-                site_submenu_item("Sobre o PdM"),
+            rx.cond(
+                SidebarState.visible_items["site_history"],
+                site_submenu_link(
+                    "Histórico",
+                    "/admin/site/historico",
+                ),
             ),
 
-            rx.cond(SidebarState.visible_items["site_history"],
-                site_submenu_item("Histórico"),
-            ),
-            
-            rx.cond(SidebarState.visible_items["site_participation"],
-                site_submenu_item("Participação Social"),
-            ),
-
-            rx.cond(SidebarState.visible_items["site_metas"],
-                site_submenu_item("Metas"),
+            rx.cond(
+                SidebarState.visible_items["site_participation"],
+                site_submenu_item(
+                    "Participação Social"
+                ),
             ),
 
-            rx.cond(SidebarState.visible_items["site_regionalization"],
-                site_submenu_item("Regionalização"),
+            rx.cond(
+                SidebarState.visible_items["site_metas"],
+                site_submenu_link(
+                    "Metas",
+                    "/admin/site/metas",
+                ),
             ),
 
-            rx.cond(SidebarState.visible_items["site_transparency"],
-                site_submenu_item( "Transparência " "e Monitoramento"),
+            rx.cond(
+                SidebarState.visible_items["site_regionalization"],
+                site_submenu_link(
+                    "Regionalização",
+                    "/admin/site/regionalizacao",
+                ),
             ),
-            spacing="0", align="stretch", width="100%", padding_left="1.5rem", padding_right="0.25rem", padding_bottom="0.5rem",
+
+            rx.cond(
+                SidebarState.visible_items["site_transparency"],
+                site_submenu_link(
+                    "Transparência e Monitoramento",
+                    "/admin/site/transparencia",
+                ),
+            ),
+
+            spacing="0",
+            align="stretch",
+            width="100%",
+            padding_left="1.5rem",
+            padding_right="0.25rem",
+            padding_bottom="0.5rem",
         ),
         rx.box(),
     )
