@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from Back_end.access_api.metas.api import router as metas_router
+from Back_end.site_cms.api.router import router as site_cms_router
 
 
 api = FastAPI(
@@ -19,3 +20,4 @@ api.add_middleware(
 )
 
 api.include_router(metas_router)
+api.include_router(site_cms_router)
