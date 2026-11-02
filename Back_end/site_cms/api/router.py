@@ -5,12 +5,10 @@ from fastapi import (
 
 from Back_end.site_cms.api.public_service import (
     get_public_home,
-    get_public_meta,
     get_public_know_metas,
     get_public_overview,
     get_public_overview_budget,
     get_public_single_page,
-    list_public_metas,
 )
 
 
@@ -84,35 +82,6 @@ def transparency():
         raise HTTPException(
             status_code=404,
             detail="Transparência não publicada.",
-        )
-
-    return content
-
-
-@router.get("/metas")
-def metas():
-    return {
-        "total": len(
-            list_public_metas()
-        ),
-        "metas": (
-            list_public_metas()
-        ),
-    }
-
-
-@router.get("/metas/{codigo}")
-def meta_detail(
-    codigo: str,
-):
-    content = get_public_meta(
-        codigo
-    )
-
-    if content is None:
-        raise HTTPException(
-            status_code=404,
-            detail="Meta não encontrada ou não publicada.",
         )
 
     return content

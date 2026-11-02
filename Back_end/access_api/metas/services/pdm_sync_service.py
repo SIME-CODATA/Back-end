@@ -57,6 +57,25 @@ def sync_pdm() -> PdmSyncResult:
     iniciativas_result = sync_iniciativas()
 
     # --------------------------------------------------------
+    # RELACIONADOS / GEOLOCALIZAÇÃO
+    # --------------------------------------------------------
+    # Obras, projetos e relações são persistidos localmente para que
+    # o site público nunca dependa de uma chamada ao SMAE em tempo real.
+    from Back_end.access_api.metas.services.related_snapshot_service import (
+        sync_related_snapshots,
+    )
+
+    related_result = sync_related_snapshots()
+
+    print(
+        "[SMAE RELACIONADOS] "
+        f"{related_result.received} metas, "
+        f"{related_result.created} criadas, "
+        f"{related_result.updated} atualizadas, "
+        f"{related_result.unchanged} sem alteração."
+    )
+
+    # --------------------------------------------------------
     # CMS DO SITE
     # --------------------------------------------------------
     #

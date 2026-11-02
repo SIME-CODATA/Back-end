@@ -10,6 +10,7 @@ from Back_end.access_api.metas.models.tag import Tag
 from Back_end.access_api.metas.models.meta_tag import MetaTag
 from Back_end.access_api.metas.models.meta_equipe import MetaEquipe
 from Back_end.access_api.metas.models.iniciativa import Iniciativa
+from Back_end.access_api.metas.models.meta_related_snapshot import MetaRelatedSnapshot
 
 from Back_end.access.pages.admin import admin_page
 from Back_end.access.pages.logout import logout_page

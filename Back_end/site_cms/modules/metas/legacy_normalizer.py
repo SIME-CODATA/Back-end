@@ -8,6 +8,7 @@ from Back_end.site_cms.modules.metas.schema import (
 
 
 _TAG_RE = re.compile(r"<[^>]+>")
+_STRONG_RE = re.compile(r"<strong>(.*?)</strong>", re.IGNORECASE | re.DOTALL)
 
 
 def _plain_text(value: Any) -> str:
@@ -18,6 +19,21 @@ def _plain_text(value: Any) -> str:
         "",
         text,
     ).strip()
+
+
+def _split_listing_title(value: Any) -> tuple[str, str, str]:
+    raw = str(value or "")
+    full = _plain_text(raw)
+    match = _STRONG_RE.search(raw)
+
+    if match is None:
+        return full, "", full
+
+    highlight = _plain_text(match.group(1))
+    remainder_html = raw[:match.start()] + raw[match.end():]
+    complement = _plain_text(remainder_html).lstrip(" ,;:-")
+
+    return full, highlight, complement
 
 
 def _media_reference(
@@ -96,7 +112,11 @@ def normalize_legacy_meta(
         or ""
     )
 
-    payload["title"] = _plain_text(
+    (
+        payload["title"],
+        payload["title_highlight"],
+        payload["title_complement"],
+    ) = _split_listing_title(
         listing.get("titulo")
     )
 
