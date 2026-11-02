@@ -10,6 +10,9 @@ from Back_end.access_api.metas.models.tag import (Tag,)
 from Back_end.access_api.metas.models.iniciativa import (Iniciativa,)
 from Back_end.access_api.metas.services.classification_service import (classify_meta_tags,)
 from Back_end.access_api.smae.services.meta_service import (fetch_relacionados,)
+from Back_end.access_api.metas.services.related_snapshot_service import (
+    get_related_snapshot,
+)
 
 # ============================================================
 # CONFIGURAÇÃO TERRITORIAL
@@ -196,12 +199,21 @@ def get_meta_detail_by_codigo(codigo: str,) -> dict | None:
             "projetos": [],
         }
 
-        if meta.smae_id is not None:
+        # Primeiro usa o snapshot persistido. O fallback HTTP existe apenas
+        # para instalações antigas que ainda não executaram a nova sync.
+        related_snapshot = get_related_snapshot(
+            meta_id=int(meta.id)
+        )
+
+        if related_snapshot is not None:
+            relacionados = dict(
+                related_snapshot.payload or {}
+            )
+
+        elif meta.smae_id is not None:
             try:
-                relacionados = (
-                    fetch_relacionados(
-                        meta_id=meta.smae_id
-                    )
+                relacionados = fetch_relacionados(
+                    meta_id=meta.smae_id
                 )
 
             except Exception as error:
