@@ -7,16 +7,15 @@ from sqlmodel import select
 from Back_end.access_api.metas.models.iniciativa import Iniciativa
 from Back_end.access_api.metas.models.meta import Meta
 from Back_end.access_api.metas.models.meta_orgao import MetaOrgao
+from Back_end.access_api.metas.models.meta_related_snapshot import MetaRelatedSnapshot
 from Back_end.access_api.metas.models.meta_tag import MetaTag
 from Back_end.access_api.metas.models.orgao import Orgao
 from Back_end.access_api.metas.models.tag import Tag
-
-from Back_end.site_cms.modules.metas.code import (
-    canonical_meta_code,
+from Back_end.access_api.metas.services.related_snapshot_service import (
+    normalize_related_payload,
 )
-from Back_end.site_cms.modules.metas.sync_service import (
-    apply_smae_snapshot,
-)
+from Back_end.site_cms.modules.metas.code import canonical_meta_code
+from Back_end.site_cms.modules.metas.sync_service import apply_smae_snapshot
 
 
 ANDAMENTO_TO_SITE = {
@@ -26,33 +25,22 @@ ANDAMENTO_TO_SITE = {
 }
 
 
-def _find_monitoring(
-    descriptions: set[str],
-) -> str | None:
-    for label, normalized in (
-        ANDAMENTO_TO_SITE.items()
-    ):
+def _find_monitoring(descriptions: set[str]) -> str | None:
+    for label, normalized in ANDAMENTO_TO_SITE.items():
         if label in descriptions:
             return normalized
-
     return None
 
 
 def _build_local_snapshots() -> list[dict[str, Any]]:
-    """
-    Monta snapshots somente com dados já sincronizados no PostgreSQL.
+    """Monta snapshots exclusivamente a partir do PostgreSQL local.
 
-    Não faz nova requisição HTTP ao SMAE.
+    A sincronização HTTP acontece antes, em sync_pdm(). Aqui o CMS recebe uma
+    fotografia determinística, inclusive das obras e projetos relacionados.
     """
 
     with rx.session() as session:
-        metas = list(
-            session.exec(
-                select(Meta).order_by(
-                    Meta.codigo
-                )
-            ).all()
-        )
+        metas = list(session.exec(select(Meta).order_by(Meta.codigo)).all())
 
         orgao_rows = session.exec(
             select(
@@ -60,11 +48,9 @@ def _build_local_snapshots() -> list[dict[str, Any]]:
                 Orgao.sigla,
                 Orgao.descricao,
                 MetaOrgao.responsavel,
-            )
-            .join(
+            ).join(
                 Orgao,
-                Orgao.id
-                == MetaOrgao.orgao_id,
+                Orgao.id == MetaOrgao.orgao_id,
             )
         ).all()
 
@@ -72,11 +58,9 @@ def _build_local_snapshots() -> list[dict[str, Any]]:
             select(
                 MetaTag.meta_id,
                 Tag.descricao,
-            )
-            .join(
+            ).join(
                 Tag,
-                Tag.id
-                == MetaTag.tag_id,
+                Tag.id == MetaTag.tag_id,
             )
         ).all()
 
@@ -89,203 +73,102 @@ def _build_local_snapshots() -> list[dict[str, Any]]:
             ).all()
         )
 
-    orgaos_by_meta: dict[
-        int,
-        list[str],
-    ] = defaultdict(list)
+        related_rows = list(
+            session.exec(select(MetaRelatedSnapshot)).all()
+        )
 
-    for (
-        meta_id,
-        sigla,
-        descricao,
-        responsavel,
-    ) in orgao_rows:
+    orgaos_by_meta: dict[int, list[str]] = defaultdict(list)
+    for meta_id, sigla, descricao, responsavel in orgao_rows:
         if not responsavel:
             continue
-
-        value = str(
-            sigla
-            or descricao
-            or ""
-        ).strip()
-
+        value = str(sigla or descricao or "").strip()
         if value:
-            orgaos_by_meta[
-                int(meta_id)
-            ].append(value)
+            orgaos_by_meta[int(meta_id)].append(value)
 
-    tags_by_meta: dict[
-        int,
-        set[str],
-    ] = defaultdict(set)
-
+    tags_by_meta: dict[int, set[str]] = defaultdict(set)
     for meta_id, descricao in tag_rows:
         if descricao:
-            tags_by_meta[
-                int(meta_id)
-            ].add(
-                str(descricao)
-            )
+            tags_by_meta[int(meta_id)].add(str(descricao))
 
-    iniciativas_by_meta: dict[
-        int,
-        list[dict[str, str]],
-    ] = defaultdict(list)
-
+    iniciativas_by_meta: dict[int, list[dict[str, str]]] = defaultdict(list)
     for iniciativa in iniciativas:
-        iniciativas_by_meta[
-            int(iniciativa.meta_id)
-        ].append({
-            "number": str(
-                iniciativa.codigo
-                or ""
-            ),
-            "description": str(
-                iniciativa.titulo
-                or ""
-            ),
-        })
+        iniciativas_by_meta[int(iniciativa.meta_id)].append(
+            {
+                "number": str(iniciativa.codigo or ""),
+                "description": str(iniciativa.titulo or ""),
+            }
+        )
 
-    result: list[
-        dict[str, Any]
-    ] = []
+    related_by_meta_id = {
+        int(row.meta_id): row
+        for row in related_rows
+    }
+
+    result: list[dict[str, Any]] = []
 
     for meta in metas:
         if meta.id is None:
             continue
 
-        code = canonical_meta_code(
-            meta.codigo
-        )
+        meta_id = int(meta.id)
+        code = canonical_meta_code(meta.codigo)
 
-        snapshot: dict[
-            str,
-            Any,
-        ] = {
+        snapshot: dict[str, Any] = {
             "number": code,
-            "title": str(
-                meta.titulo
-                or ""
+            "title": str(meta.titulo or ""),
+            "responsible_agencies": sorted(
+                set(orgaos_by_meta.get(meta_id, [])),
+                key=str.casefold,
             ),
-            "projection": str(
-                meta.contexto
-                or ""
-            ),
-            "responsible_agencies": (
-                sorted(
-                    set(
-                        orgaos_by_meta.get(
-                            int(meta.id),
-                            [],
-                        )
-                    ),
-                    key=str.casefold,
-                )
-            ),
-            "axis_name": str(
-                meta.tema_descricao
-                or ""
-            ),
+            "axis_name": str(meta.tema_descricao or ""),
         }
 
-        monitoring = _find_monitoring(
-            tags_by_meta.get(
-                int(meta.id),
-                set(),
-            )
-        )
-
+        monitoring = _find_monitoring(tags_by_meta.get(meta_id, set()))
         if monitoring:
-            snapshot[
-                "monitoring"
-            ] = monitoring
+            snapshot["monitoring"] = monitoring
 
-        # ----------------------------------------------------
-        # AÇÕES ESTRATÉGICAS
-        # ----------------------------------------------------
-        #
-        # O banco local do SMAE hoje possui código/título das iniciativas,
-        # mas o site antigo possui também:
-        # - concluída
-        # - evolução em destaque
-        # - descrição da evolução
-        #
-        # Portanto não substituímos strategic_actions ainda.
-        # Guardamos a lista encontrada apenas como informação auxiliar
-        # no resultado desta função para futura evolução do mapeamento.
-        # ----------------------------------------------------
+        related_row = related_by_meta_id.get(meta_id)
+        if related_row is not None:
+            related = normalize_related_payload(related_row.payload)
+            snapshot["associated_works"] = related["works"]
+            snapshot["associated_projects"] = related["projects"]
 
-        result.append({
-            "meta_code": code,
-            "smae_meta_id": (
-                meta.smae_id
-            ),
-            "snapshot": snapshot,
-            "available_initiatives": (
-                iniciativas_by_meta.get(
-                    int(meta.id),
-                    [],
-                )
-            ),
-        })
+        # As iniciativas locais ainda não possuem todos os campos editoriais
+        # da ficha (concluída/evolução). Não substituímos strategic_actions
+        # com uma versão mais pobre. O conteúdo legado/CMS continua válido.
+        result.append(
+            {
+                "meta_code": code,
+                "smae_meta_id": meta.smae_id,
+                "snapshot": snapshot,
+                "available_initiatives": iniciativas_by_meta.get(meta_id, []),
+            }
+        )
 
     return result
 
 
 def sync_cms_meta_snapshots_from_local() -> dict[str, Any]:
-    """
-    Atualiza a camada editorial com a última fotografia do SMAE local.
+    """Atualiza a camada editorial preservando overrides do CMS."""
 
-    Personalizações CMS nunca são sobrescritas automaticamente.
-    """
-
-    snapshots = (
-        _build_local_snapshots()
-    )
-
+    snapshots = _build_local_snapshots()
     processed = 0
     changed = 0
     conflicts = 0
     added = 0
-
-    per_meta: list[
-        dict[str, Any]
-    ] = []
+    per_meta: list[dict[str, Any]] = []
 
     for item in snapshots:
         result = apply_smae_snapshot(
-            meta_code=item[
-                "meta_code"
-            ],
-            incoming_snapshot=item[
-                "snapshot"
-            ],
-            smae_meta_id=item[
-                "smae_meta_id"
-            ],
+            meta_code=item["meta_code"],
+            incoming_snapshot=item["snapshot"],
+            smae_meta_id=item["smae_meta_id"],
         )
-
         processed += 1
-
-        changed += len(
-            result[
-                "changed_fields"
-            ]
-        )
-        added += len(
-            result[
-                "added_fields"
-            ]
-        )
-        conflicts += len(
-            result[
-                "conflict_fields"
-            ]
-        )
-
-        per_meta.append(
-            result
-        )
+        changed += len(result["changed_fields"])
+        added += len(result["added_fields"])
+        conflicts += len(result["conflict_fields"])
+        per_meta.append(result)
 
     return {
         "processed": processed,
