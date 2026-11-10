@@ -63,6 +63,10 @@ services:
       REFLEX_CORS_ALLOWED_ORIGINS: https://${HOST_NAME}
       ENFORCE_INSTITUTIONAL_EMAIL: "true"
       ALLOWED_EMAIL_DOMAINS: ${ALLOWED_EMAIL_DOMAINS:-prefeitura.sp.gov.br}
+      MEDIA_STORAGE_PATH: "/app/data/media"
+      MEDIA_PUBLIC_PREFIX: "/backend"
+      MEDIA_MAX_IMAGE_MB: "25"
+      MEDIA_MAX_VIDEO_MB: "500"
     depends_on:
       postgres:
         condition: service_healthy
@@ -77,6 +81,8 @@ services:
       - "traefik.http.routers.pdm.tls=true"
       - "traefik.http.routers.pdm.tls.certresolver=certificadofront"
       - "traefik.http.services.pdm.loadbalancer.server.port=3000"
+    volumes:
+      - pdm_media_data:/app/data/media
 
 networks:
   traefik-net:
@@ -90,3 +96,5 @@ volumes:
     name: pdm_traefik_data
   pdm_postgres_data:
     name: pdm_postgres_data
+  pdm_media_data:
+    name: pdm_media_data
