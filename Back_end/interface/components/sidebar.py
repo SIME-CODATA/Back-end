@@ -332,7 +332,12 @@ def sidebar_navigation() -> rx.Component:
         # ====================================================
         rx.cond(AuthState.can_view_media,
             rx.cond(SidebarState .visible_items["images"],
-                sidebar_future_item(icon="image", label="Banco de imagens",),
+                sidebar_link(
+                    icon="image",
+                    label="Banco de imagens e vídeos",
+                    href="/admin/midias",
+                    active=False,
+                ),
             ),
         ),
 

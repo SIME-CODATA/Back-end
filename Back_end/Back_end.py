@@ -55,6 +55,8 @@ from Back_end.site_cms.modules.metas.overview_page import meta_overview_cms_page
 from Back_end.site_cms.modules.metas.overview_state import MetaOverviewCmsState
 
 from Back_end.site_cms.state.section_editor_state import SectionEditorState
+from Back_end.media_library.pages.page import media_library_page
+from Back_end.media_library.state.state import MediaLibraryState
 
 from Back_end.api import api
 
@@ -224,6 +226,19 @@ app.add_page(
         AuthState.require_metas_access,
         MetaPrintState.load_meta,
     ],
+)
+
+
+
+# ============================================================
+# BANCO DE IMAGENS E VÍDEOS
+# ============================================================
+
+app.add_page(
+    media_library_page,
+    route="/admin/midias",
+    title="Banco de imagens e vídeos | Programa de Metas",
+    on_load=MediaLibraryState.load_page,
 )
 
 
