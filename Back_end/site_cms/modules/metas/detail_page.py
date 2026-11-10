@@ -14,9 +14,6 @@ from Back_end.interface.theme.typography import (
 from Back_end.site_cms.modules.metas.components.detail import (
     action_bar,
     agencies_card,
-    associated_works_card,
-    associated_projects_card,
-    extra_sections_card,
     classification_card,
     conflict_dialog,
     initiatives_card,
@@ -96,42 +93,35 @@ def _editor_content() -> rx.Component:
 
         meta_cms_hero(),
 
-        classification_card(),
-
-        # A organização acompanha a leitura da ficha pública:
-        # conteúdo principal à esquerda e monitoramento à direita.
         rx.grid(
-            rx.vstack(
-                projection_card(),
-                agencies_card(),
-                initiatives_card(),
-                spacing="4",
-                width="100%",
-                align="stretch",
-            ),
-            rx.vstack(
-                status_card(),
-                results_card(),
-                spacing="4",
-                width="100%",
-                align="stretch",
-            ),
+            status_card(),
+            classification_card(),
             columns={
                 "initial": "1",
                 "xl": "2",
             },
             spacing="4",
             width="100%",
-            align_items="start",
+            align_items="stretch",
         ),
 
-        associated_works_card(),
+        rx.grid(
+            projection_card(),
+            agencies_card(),
+            columns={
+                "initial": "1",
+                "xl": "2",
+            },
+            spacing="4",
+            width="100%",
+            align_items="stretch",
+        ),
 
-        associated_projects_card(),
+        initiatives_card(),
+
+        results_card(),
 
         regionalization_card(),
-
-        extra_sections_card(),
 
         action_bar(),
 

@@ -38,9 +38,6 @@ from Back_end.site_cms.modules.metas.sync_service import (
 ActionRow = dict[str, str]
 ResultRow = dict[str, str]
 RegionBlockRow = dict[str, str]
-AssociatedWorkRow = dict[str, str]
-AssociatedProjectRow = dict[str, str]
-ExtraSectionRow = dict[str, str]
 ConflictRow = dict[str, str]
 
 
@@ -199,8 +196,6 @@ class MetaCmsState(AuthState):
 
     number: str = ""
     title: str = ""
-    title_highlight: str = ""
-    title_complement: str = ""
     projection: str = ""
     indicator: str = ""
 
@@ -230,26 +225,12 @@ class MetaCmsState(AuthState):
         RegionBlockRow
     ] = []
 
-    associated_works: list[
-        AssociatedWorkRow
-    ] = []
-
-    associated_projects: list[
-        AssociatedProjectRow
-    ] = []
-
-    extra_sections: list[
-        ExtraSectionRow
-    ] = []
-
     # ========================================================
     # ORIGENS
     # ========================================================
 
     source_number: str = ""
     source_title: str = ""
-    source_title_highlight: str = ""
-    source_title_complement: str = ""
     source_projection: str = ""
     source_strategic_actions: str = ""
     source_indicator: str = ""
@@ -262,8 +243,6 @@ class MetaCmsState(AuthState):
     source_monitoring: str = ""
     source_measured_results: str = ""
     source_regionalization: str = ""
-    source_associated_works: str = ""
-    source_associated_projects: str = ""
 
     # ========================================================
     # CONFLITOS
@@ -430,22 +409,6 @@ class MetaCmsState(AuthState):
                 )
             )
         )
-        self.source_title_highlight = (
-            _source_label(
-                source_map.get(
-                    "title_highlight",
-                    "",
-                )
-            )
-        )
-        self.source_title_complement = (
-            _source_label(
-                source_map.get(
-                    "title_complement",
-                    "",
-                )
-            )
-        )
         self.source_projection = (
             _source_label(
                 source_map.get(
@@ -542,22 +505,6 @@ class MetaCmsState(AuthState):
                 )
             )
         )
-        self.source_associated_works = (
-            _source_label(
-                source_map.get(
-                    "associated_works",
-                    "",
-                )
-            )
-        )
-        self.source_associated_projects = (
-            _source_label(
-                source_map.get(
-                    "associated_projects",
-                    "",
-                )
-            )
-        )
 
     def _apply_content(
         self,
@@ -576,20 +523,6 @@ class MetaCmsState(AuthState):
         self.title = str(
             content.get(
                 "title"
-            )
-            or ""
-        )
-
-        self.title_highlight = str(
-            content.get(
-                "title_highlight"
-            )
-            or ""
-        )
-
-        self.title_complement = str(
-            content.get(
-                "title_complement"
             )
             or ""
         )
@@ -811,57 +744,6 @@ class MetaCmsState(AuthState):
             )
         ]
 
-        self.associated_works = [
-            {
-                "code": str(item.get("code") or ""),
-                "name": str(item.get("name") or ""),
-                "intervention_type": str(item.get("intervention_type") or ""),
-                "subprefectures": _join_lines([
-                    sub.get("name") or ""
-                    for sub in (item.get("subprefectures") or [])
-                    if isinstance(sub, dict)
-                ]),
-                "regions": _join_lines(item.get("regions") or []),
-                "equipment": str(item.get("equipment") or ""),
-                "status": str(item.get("status") or ""),
-                "percent_complete": str(
-                    item.get("percent_complete")
-                    if item.get("percent_complete") is not None
-                    else ""
-                ),
-                "latitude": str((item.get("location") or {}).get("latitude") or ""),
-                "longitude": str((item.get("location") or {}).get("longitude") or ""),
-                "address": str((item.get("location") or {}).get("address") or ""),
-            }
-            for item in (content.get("associated_works") or [])
-            if isinstance(item, dict)
-        ]
-
-        self.associated_projects = [
-            {
-                "code": str(item.get("code") or ""),
-                "name": str(item.get("name") or ""),
-                "portfolio": str(item.get("portfolio") or ""),
-                "stage": str(item.get("stage") or ""),
-                "latitude": str((item.get("location") or {}).get("latitude") or ""),
-                "longitude": str((item.get("location") or {}).get("longitude") or ""),
-                "address": str((item.get("location") or {}).get("address") or ""),
-            }
-            for item in (content.get("associated_projects") or [])
-            if isinstance(item, dict)
-        ]
-
-        self.extra_sections = [
-            {
-                "title": str(item.get("title") or ""),
-                "text": str(item.get("text") or ""),
-                "image_url": _media_url(item.get("image")),
-                "enabled": "true" if item.get("enabled", True) else "false",
-            }
-            for item in (content.get("extra_sections") or [])
-            if isinstance(item, dict)
-        ]
-
     def _content_for_field(
         self,
         field_key: str,
@@ -876,8 +758,6 @@ class MetaCmsState(AuthState):
                 )
             ),
             "title": self.title.strip(),
-            "title_highlight": self.title_highlight.strip(),
-            "title_complement": self.title_complement.strip(),
             "projection": (
                 self.projection.strip()
             ),
@@ -980,54 +860,6 @@ class MetaCmsState(AuthState):
                 for row in (
                     self.measured_results
                 )
-            ],
-            "associated_works": [
-                {
-                    "id": None,
-                    "code": str(row.get("code") or "").strip(),
-                    "name": str(row.get("name") or "").strip(),
-                    "intervention_type": str(row.get("intervention_type") or "").strip(),
-                    "subprefectures": [
-                        {"id": None, "name": name, "parent_id": None}
-                        for name in _split_lines(str(row.get("subprefectures") or ""))
-                    ],
-                    "regions": _split_lines(str(row.get("regions") or "")),
-                    "equipment": str(row.get("equipment") or "").strip(),
-                    "status": str(row.get("status") or "").strip(),
-                    "percent_complete": (
-                        str(row.get("percent_complete") or "").strip() or None
-                    ),
-                    "location": {
-                        "latitude": (str(row.get("latitude") or "").strip() or None),
-                        "longitude": (str(row.get("longitude") or "").strip() or None),
-                        "address": str(row.get("address") or "").strip(),
-                    },
-                }
-                for row in self.associated_works
-            ],
-            "associated_projects": [
-                {
-                    "id": None,
-                    "code": str(row.get("code") or "").strip(),
-                    "name": str(row.get("name") or "").strip(),
-                    "portfolio": str(row.get("portfolio") or "").strip(),
-                    "stage": str(row.get("stage") or "").strip(),
-                    "location": {
-                        "latitude": (str(row.get("latitude") or "").strip() or None),
-                        "longitude": (str(row.get("longitude") or "").strip() or None),
-                        "address": str(row.get("address") or "").strip(),
-                    },
-                }
-                for row in self.associated_projects
-            ],
-            "extra_sections": [
-                {
-                    "title": str(row.get("title") or "").strip(),
-                    "text": str(row.get("text") or "").strip(),
-                    "image": _media_reference(str(row.get("image_url") or "")),
-                    "enabled": str(row.get("enabled") or "true") == "true",
-                }
-                for row in self.extra_sections
             ],
             "regionalization": {
                 "mode": (
@@ -1330,26 +1162,6 @@ class MetaCmsState(AuthState):
         )
 
     @rx.event
-    def set_title_highlight(
-        self,
-        value: str,
-    ):
-        self.title_highlight = value
-        self._mark_field_dirty(
-            "title_highlight"
-        )
-
-    @rx.event
-    def set_title_complement(
-        self,
-        value: str,
-    ):
-        self.title_complement = value
-        self._mark_field_dirty(
-            "title_complement"
-        )
-
-    @rx.event
     def set_projection(
         self,
         value: str,
@@ -1642,122 +1454,6 @@ class MetaCmsState(AuthState):
         self._mark_field_dirty(
             "measured_results"
         )
-
-    # ========================================================
-    # OBRAS ASSOCIADAS
-    # ========================================================
-
-    def _update_work(self, index: int, field: str, value: str) -> None:
-        rows = [dict(row) for row in self.associated_works]
-        if 0 <= index < len(rows):
-            rows[index][field] = value
-            self.associated_works = rows
-            self._mark_field_dirty("associated_works")
-
-    @rx.event
-    def update_work_field(self, index: int, field: str, value: str):
-        self._update_work(index, field, value)
-
-    @rx.event
-    def add_work(self):
-        self.associated_works = [
-            *self.associated_works,
-            {
-                "code": "",
-                "name": "",
-                "intervention_type": "",
-                "subprefectures": "",
-                "regions": "",
-                "equipment": "",
-                "status": "",
-                "percent_complete": "",
-                "latitude": "",
-                "longitude": "",
-                "address": "",
-            },
-        ]
-        self._mark_field_dirty("associated_works")
-
-    @rx.event
-    def remove_work(self, index: int):
-        self.associated_works = [
-            dict(row)
-            for position, row in enumerate(self.associated_works)
-            if position != index
-        ]
-        self._mark_field_dirty("associated_works")
-
-    # ========================================================
-    # PROJETOS ASSOCIADOS
-    # ========================================================
-
-    def _update_project(self, index: int, field: str, value: str) -> None:
-        rows = [dict(row) for row in self.associated_projects]
-        if 0 <= index < len(rows):
-            rows[index][field] = value
-            self.associated_projects = rows
-            self._mark_field_dirty("associated_projects")
-
-    @rx.event
-    def update_project_field(self, index: int, field: str, value: str):
-        self._update_project(index, field, value)
-
-    @rx.event
-    def add_project(self):
-        self.associated_projects = [
-            *self.associated_projects,
-            {
-                "code": "",
-                "name": "",
-                "portfolio": "",
-                "stage": "",
-                "latitude": "",
-                "longitude": "",
-                "address": "",
-            },
-        ]
-        self._mark_field_dirty("associated_projects")
-
-    @rx.event
-    def remove_project(self, index: int):
-        self.associated_projects = [
-            dict(row)
-            for position, row in enumerate(self.associated_projects)
-            if position != index
-        ]
-        self._mark_field_dirty("associated_projects")
-
-    # ========================================================
-    # SEÇÕES EXTRAS
-    # ========================================================
-
-    def _update_extra_section(self, index: int, field: str, value: str) -> None:
-        rows = [dict(row) for row in self.extra_sections]
-        if 0 <= index < len(rows):
-            rows[index][field] = value
-            self.extra_sections = rows
-            self._mark_field_dirty("extra_sections")
-
-    @rx.event
-    def update_extra_section_field(self, index: int, field: str, value: str):
-        self._update_extra_section(index, field, value)
-
-    @rx.event
-    def add_extra_section(self):
-        self.extra_sections = [
-            *self.extra_sections,
-            {"title": "", "text": "", "image_url": "", "enabled": "true"},
-        ]
-        self._mark_field_dirty("extra_sections")
-
-    @rx.event
-    def remove_extra_section(self, index: int):
-        self.extra_sections = [
-            dict(row)
-            for position, row in enumerate(self.extra_sections)
-            if position != index
-        ]
-        self._mark_field_dirty("extra_sections")
 
     # ========================================================
     # REGIONALIZAÇÃO
