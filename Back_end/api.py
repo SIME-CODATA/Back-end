@@ -16,7 +16,7 @@ api.add_middleware(
     allow_origins=[
         "http://localhost:5173",
     ],
-    allow_methods=["GET"],
+    allow_methods=["GET", "POST", "PUT", "OPTIONS"],
     allow_headers=["*"],
 )
 
