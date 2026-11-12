@@ -14,3 +14,8 @@ __all__ = [
     "CmsMetaVersion",
     "CmsMetaSyncConflict",
 ]
+
+from Back_end.site_cms.models.meta_geo_record import CmsMetaGeoRecord
+__all__.append("CmsMetaGeoRecord")
+from Back_end.site_cms.models.meta_geo_version import CmsMetaGeoVersion
+__all__.append("CmsMetaGeoVersion")

@@ -10,7 +10,6 @@ from Back_end.access_api.metas.models.tag import Tag
 from Back_end.access_api.metas.models.meta_tag import MetaTag
 from Back_end.access_api.metas.models.meta_equipe import MetaEquipe
 from Back_end.access_api.metas.models.iniciativa import Iniciativa
-from Back_end.access_api.metas.models.meta_related_snapshot import MetaRelatedSnapshot
 
 from Back_end.access.pages.admin import admin_page
 from Back_end.access.pages.logout import logout_page
@@ -53,10 +52,18 @@ from Back_end.site_cms.modules.metas.detail_page import meta_cms_detail_page
 from Back_end.site_cms.modules.metas.state import MetaCmsState
 from Back_end.site_cms.modules.metas.overview_page import meta_overview_cms_page
 from Back_end.site_cms.modules.metas.overview_state import MetaOverviewCmsState
+from Back_end.site_cms.modules.metas.geografia.page import geo_cms_page
+from Back_end.site_cms.modules.metas.geografia.state import GeoCmsState
 
 from Back_end.site_cms.state.section_editor_state import SectionEditorState
+
+import Back_end.media_library  # noqa: F401
 from Back_end.media_library.pages.page import media_library_page
 from Back_end.media_library.state.state import MediaLibraryState
+
+import Back_end.smae_scheduler  # noqa: F401
+from Back_end.smae_scheduler.page import smae_scheduler_page
+from Back_end.smae_scheduler.state import SmaeSchedulerState
 
 from Back_end.api import api
 
@@ -194,6 +201,15 @@ app.add_page(
 )
 
 
+# Monitoramento territorial / planilha / edição manual
+app.add_page(
+    geo_cms_page,
+    route="/admin/site/metas/[codigo]/territorio",
+    title="Monitoramento Territorial | Programa de Metas",
+    on_load=GeoCmsState.load_page,
+)
+
+
 # ============================================================
 # METAS
 # ============================================================
@@ -229,7 +245,6 @@ app.add_page(
 )
 
 
-
 # ============================================================
 # BANCO DE IMAGENS E VÍDEOS
 # ============================================================
@@ -239,6 +254,18 @@ app.add_page(
     route="/admin/midias",
     title="Banco de imagens e vídeos | Programa de Metas",
     on_load=MediaLibraryState.load_page,
+)
+
+
+# ============================================================
+# AGENDAMENTO SMAE
+# ============================================================
+
+app.add_page(
+    smae_scheduler_page,
+    route="/admin/smae/agendamento",
+    title="Agendamento SMAE | Programa de Metas",
+    on_load=SmaeSchedulerState.load_page,
 )
 
 
