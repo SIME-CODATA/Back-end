@@ -24,7 +24,7 @@ COPY pyproject.toml uv.lock ./
 RUN uv sync --frozen --no-dev --no-install-project
 COPY . .
 RUN uv sync --frozen --no-dev \
-    && chmod +x /app/docker-entrypoint.backend.sh
+    && chmod +x /app/docker-entrypoint.sh
 
 EXPOSE 3000
 ENTRYPOINT ["/app/docker-entrypoint.sh"]

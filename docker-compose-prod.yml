@@ -47,7 +47,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile.backend
+      dockerfile: Dockerfile
     image: pdm-admin:backend
     container_name: pdm_app
     restart: always
