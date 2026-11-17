@@ -16,6 +16,9 @@ from Back_end.interface.theme.typography import (
 from Back_end.site_cms.modules.metas.components.detail import (
     action_bar,
     agencies_card,
+    associated_works_card,
+    associated_projects_card,
+    extra_sections_card,
     classification_card,
     conflict_dialog,
     initiatives_card,

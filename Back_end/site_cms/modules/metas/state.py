@@ -1082,6 +1082,57 @@ class MetaCmsState(AuthState):
             if isinstance(item, dict)
         ]
 
+        self.associated_works = [
+            {
+                "code": str(item.get("code") or ""),
+                "name": str(item.get("name") or ""),
+                "intervention_type": str(item.get("intervention_type") or ""),
+                "subprefectures": _join_lines([
+                    sub.get("name") or ""
+                    for sub in (item.get("subprefectures") or [])
+                    if isinstance(sub, dict)
+                ]),
+                "regions": _join_lines(item.get("regions") or []),
+                "equipment": str(item.get("equipment") or ""),
+                "status": str(item.get("status") or ""),
+                "percent_complete": str(
+                    item.get("percent_complete")
+                    if item.get("percent_complete") is not None
+                    else ""
+                ),
+                "latitude": str((item.get("location") or {}).get("latitude") or ""),
+                "longitude": str((item.get("location") or {}).get("longitude") or ""),
+                "address": str((item.get("location") or {}).get("address") or ""),
+            }
+            for item in (content.get("associated_works") or [])
+            if isinstance(item, dict)
+        ]
+
+        self.associated_projects = [
+            {
+                "code": str(item.get("code") or ""),
+                "name": str(item.get("name") or ""),
+                "portfolio": str(item.get("portfolio") or ""),
+                "stage": str(item.get("stage") or ""),
+                "latitude": str((item.get("location") or {}).get("latitude") or ""),
+                "longitude": str((item.get("location") or {}).get("longitude") or ""),
+                "address": str((item.get("location") or {}).get("address") or ""),
+            }
+            for item in (content.get("associated_projects") or [])
+            if isinstance(item, dict)
+        ]
+
+        self.extra_sections = [
+            {
+                "title": str(item.get("title") or ""),
+                "text": str(item.get("text") or ""),
+                "image_url": _media_url(item.get("image")),
+                "enabled": "true" if item.get("enabled", True) else "false",
+            }
+            for item in (content.get("extra_sections") or [])
+            if isinstance(item, dict)
+        ]
+
     def _content_for_field(
         self,
         field_key: str,
