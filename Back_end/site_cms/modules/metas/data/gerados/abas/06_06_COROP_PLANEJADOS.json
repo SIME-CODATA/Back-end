@@ -1,0 +1,621 @@
+{
+  "arquivo": "base_geo_2026.xlsx",
+  "aba": "06_COROP_PLANEJADOS",
+  "cabecalho_linha": null,
+  "linhas_nao_vazias": 33,
+  "linhas_vinculadas": 0,
+  "linhas": [
+    {
+      "linha": 1,
+      "celulas": {
+        "A": "subprefeitura",
+        "B": "cd_subpref",
+        "C": "sgl_subpref",
+        "D": "meta_1",
+        "E": "meta_2",
+        "F": "meta_11",
+        "G": "meta_12",
+        "H": "meta_13",
+        "I": "meta_23",
+        "J": "meta_52",
+        "K": "meta_63",
+        "L": "meta_64",
+        "M": "meta_65",
+        "N": "meta_72",
+        "O": "meta_73",
+        "P": "meta_83",
+        "Q": "meta_90",
+        "R": "meta_93",
+        "S": "meta_94",
+        "T": "Total_linha"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 2,
+      "celulas": {
+        "A": "Butanta",
+        "B": "10",
+        "C": "BT",
+        "D": "1",
+        "E": "4",
+        "F": "3",
+        "G": "1",
+        "H": "1",
+        "K": "4",
+        "M": "1",
+        "Q": "2",
+        "T": "0"
+      },
+      "formulas": {
+        "T": "=SUM(D2:S2)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 3,
+      "celulas": {
+        "A": "Cidade Ademar",
+        "B": "16",
+        "C": "AD",
+        "D": "1",
+        "G": "1",
+        "K": "1",
+        "P": "2",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 4,
+      "celulas": {
+        "A": "Ermelino Matarazzo",
+        "B": "22",
+        "C": "EM",
+        "E": "1",
+        "G": "1",
+        "K": "1",
+        "M": "1",
+        "P": "1",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 5,
+      "celulas": {
+        "A": "Lapa",
+        "B": "8",
+        "C": "LA",
+        "E": "2",
+        "G": "1",
+        "I": "1",
+        "J": "1",
+        "K": "2",
+        "M": "1",
+        "Q": "2",
+        "R": "2",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 6,
+      "celulas": {
+        "A": "M Boi Mirim",
+        "B": "18",
+        "C": "MB",
+        "G": "1",
+        "H": "1",
+        "K": "1",
+        "P": "1",
+        "Q": "1",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 7,
+      "celulas": {
+        "A": "Freguesia_Brasilândia",
+        "B": "3",
+        "C": "FO",
+        "G": "2",
+        "H": "1",
+        "J": "2",
+        "K": "1",
+        "P": "1",
+        "R": "1",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 8,
+      "celulas": {
+        "A": "Itaquera",
+        "B": "27",
+        "C": "IQ",
+        "E": "1",
+        "G": "2",
+        "H": "1",
+        "I": "2",
+        "K": "3",
+        "L": "1",
+        "M": "1",
+        "N": "1",
+        "O": "1",
+        "P": "1",
+        "Q": "1",
+        "R": "2",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 9,
+      "celulas": {
+        "A": "Sapopemba",
+        "B": "32",
+        "C": "SB",
+        "D": "1",
+        "E": "2",
+        "G": "2",
+        "I": "1",
+        "K": "2",
+        "P": "1",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 10,
+      "celulas": {
+        "A": "Casa Verde/Cachoeirinha",
+        "B": "4",
+        "C": "CV",
+        "D": "1",
+        "G": "3",
+        "I": "1",
+        "M": "1",
+        "O": "1",
+        "P": "1",
+        "Q": "1",
+        "R": "2",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 11,
+      "celulas": {
+        "A": "Aricanduva_Formosa_Carrao",
+        "B": "26",
+        "C": "AF",
+        "E": "1",
+        "I": "1",
+        "K": "1",
+        "O": "1",
+        "Q": "1",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 12,
+      "celulas": {
+        "A": "Campo Limpo",
+        "B": "17",
+        "C": "CL",
+        "D": "1",
+        "E": "1",
+        "H": "1",
+        "K": "1",
+        "M": "1",
+        "O": "1",
+        "P": "1",
+        "Q": "1",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 13,
+      "celulas": {
+        "A": "Capela do Socorro",
+        "B": "19",
+        "C": "CS",
+        "E": "4",
+        "K": "9",
+        "L": "1",
+        "P": "3",
+        "R": "1",
+        "S": "1",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 14,
+      "celulas": {
+        "A": "Cidade Tiradentes",
+        "B": "31",
+        "C": "CT",
+        "D": "1",
+        "E": "1",
+        "F": "1",
+        "I": "1",
+        "J": "1",
+        "K": "2",
+        "P": "1",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 15,
+      "celulas": {
+        "A": "Guaianases",
+        "B": "28",
+        "C": "GU",
+        "K": "1",
+        "O": "1",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 16,
+      "celulas": {
+        "A": "Ipiranga",
+        "B": "13",
+        "C": "IP",
+        "F": "2",
+        "I": "1",
+        "J": "1",
+        "K": "2",
+        "Q": "2",
+        "R": "2",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 17,
+      "celulas": {
+        "A": "Itaim Paulista",
+        "B": "24",
+        "C": "IT",
+        "H": "2",
+        "I": "1",
+        "K": "1",
+        "P": "1",
+        "Q": "1",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 18,
+      "celulas": {
+        "A": "Jabaquara",
+        "B": "15",
+        "C": "JA",
+        "F": "2",
+        "M": "1",
+        "Q": "1",
+        "R": "2",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 19,
+      "celulas": {
+        "A": "Jaçana_Tremembe",
+        "B": "6",
+        "C": "JT",
+        "F": "1",
+        "K": "1",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 20,
+      "celulas": {
+        "A": "Mooca",
+        "B": "25",
+        "C": "MO",
+        "D": "1",
+        "F": "2",
+        "M": "2",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 21,
+      "celulas": {
+        "A": "Parelheiros",
+        "B": "20",
+        "C": "PA",
+        "E": "1",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 22,
+      "celulas": {
+        "A": "Penha",
+        "B": "21",
+        "C": "PE",
+        "F": "1",
+        "I": "2",
+        "K": "1",
+        "M": "2",
+        "Q": "1",
+        "R": "2",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 23,
+      "celulas": {
+        "A": "Perus",
+        "B": "1",
+        "C": "PR",
+        "E": "1",
+        "I": "1",
+        "K": "2",
+        "P": "1",
+        "R": "1",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 24,
+      "celulas": {
+        "A": "Pinheiros",
+        "B": "11",
+        "C": "PI",
+        "E": "1",
+        "K": "1",
+        "L": "1",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 25,
+      "celulas": {
+        "A": "Pirituba_Jaragua",
+        "B": "2",
+        "C": "PJ",
+        "H": "1",
+        "M": "1",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 26,
+      "celulas": {
+        "A": "Santana_Tucuruvi",
+        "B": "5",
+        "C": "ST",
+        "F": "1",
+        "K": "1",
+        "R": "1",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 27,
+      "celulas": {
+        "A": "Santo Amaro",
+        "B": "14",
+        "C": "SA",
+        "E": "1",
+        "K": "1",
+        "N": "1",
+        "Q": "3",
+        "S": "1",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 28,
+      "celulas": {
+        "A": "Sao Mateus",
+        "B": "30",
+        "C": "SM",
+        "F": "1",
+        "H": "1",
+        "K": "3",
+        "P": "1",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 29,
+      "celulas": {
+        "A": "Sao Miguel",
+        "B": "23",
+        "C": "MP",
+        "D": "1",
+        "H": "2",
+        "K": "2",
+        "M": "1",
+        "R": "1",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 30,
+      "celulas": {
+        "A": "Se",
+        "B": "9",
+        "C": "SE",
+        "E": "1",
+        "F": "4",
+        "I": "1",
+        "J": "5",
+        "K": "1",
+        "R": "1",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 31,
+      "celulas": {
+        "A": "Vila Maria_Vila Guilherme",
+        "B": "7",
+        "C": "MG",
+        "E": "1",
+        "F": "1",
+        "K": "2",
+        "L": "1",
+        "Q": "1",
+        "R": "2",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 32,
+      "celulas": {
+        "A": "Vila Mariana",
+        "B": "12",
+        "C": "VM",
+        "E": "1",
+        "F": "1",
+        "H": "2",
+        "R": "2",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 33,
+      "celulas": {
+        "A": "Vila Prudente",
+        "B": "29",
+        "C": "VP",
+        "E": "1",
+        "H": "1",
+        "I": "1",
+        "K": "1",
+        "R": "3",
+        "T": "0"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    }
+  ]
+}

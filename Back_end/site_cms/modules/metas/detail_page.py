@@ -1,5 +1,7 @@
 import reflex as rx
 
+from Back_end.site_cms.modules.metas.visual_detail import visual_meta_editor
+
 from Back_end.interface.layouts.admin_layout import (
     admin_layout,
 )
@@ -91,57 +93,8 @@ def _error_view() -> rx.Component:
 
 
 def _editor_content() -> rx.Component:
-    return rx.vstack(
-        meta_cms_breadcrumb(),
-
-        meta_cms_hero(),
-
-        classification_card(),
-
-        # A organização acompanha a leitura da ficha pública:
-        # conteúdo principal à esquerda e monitoramento à direita.
-        rx.grid(
-            rx.vstack(
-                projection_card(),
-                agencies_card(),
-                initiatives_card(),
-                spacing="4",
-                width="100%",
-                align="stretch",
-            ),
-            rx.vstack(
-                status_card(),
-                results_card(),
-                spacing="4",
-                width="100%",
-                align="stretch",
-            ),
-            columns={
-                "initial": "1",
-                "xl": "2",
-            },
-            spacing="4",
-            width="100%",
-            align_items="start",
-        ),
-
-        associated_works_card(),
-
-        associated_projects_card(),
-
-        regionalization_card(),
-
-        extra_sections_card(),
-
-        action_bar(),
-
-        conflict_dialog(),
-
-        spacing="4",
-        width="100%",
-        align="stretch",
-        padding_bottom="5rem",
-    )
+    # A página mantém a mesma rota e os eventos de persistência do CMS.
+    return visual_meta_editor()
 
 
 def meta_cms_detail_content() -> rx.Component:

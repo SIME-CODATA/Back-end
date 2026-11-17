@@ -1,0 +1,1685 @@
+{
+  "arquivo": "base_geo_2026.xlsx",
+  "aba": "08_RELACAO_MAPAS",
+  "cabecalho_linha": null,
+  "linhas_nao_vazias": 133,
+  "linhas_vinculadas": 0,
+  "linhas": [
+    {
+      "linha": 1,
+      "celulas": {
+        "A": "Número da Meta",
+        "B": "Descrição da Meta",
+        "C": "Status",
+        "D": "Indicador da Legenda",
+        "E": "Nota de Rodapé",
+        "F": "Nota Regionalização"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 2,
+      "celulas": {
+        "A": "1",
+        "B": "Entregar 8 novos parques, para ampliar a oferta de áreas de lazer e fortalecer a cultura de convivência harmoniosa entre as pessoas e a natureza.",
+        "C": "Regionalizada",
+        "D": "Número de novos parques por área.",
+        "E": "O número de parques previsto por área de subprefeitura pode ainda ser alterado ao longo da execução do Programa de Metas 2025-2028."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 3,
+      "celulas": {
+        "A": "2",
+        "B": "Requalificar ou ampliar 25 parques, com a melhoria das instalações e para maior segurança dos frequentadores.",
+        "C": "Regionalizada",
+        "D": "Número de parques requalificados por área.",
+        "E": "O mapa apresenta a regionalização parcial das intervenções. O número de parques requalificados por área de subprefeitura pode ainda ser alterado e a regionalização completa será apresentada ao longo da execução do Programa de Metas 2025-2028."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 4,
+      "celulas": {
+        "A": "3",
+        "B": "Realizar o projeto São Paulo + Verde, que vai promover o plantio de 200 mil árvores e ampliar e diversificar a cobertura vegetal da cidade.",
+        "C": "Regionalizável",
+        "F": "A regionalização do plantio será apresentada ao longo da execução do Programa de Metas 2025-2028."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 5,
+      "celulas": {
+        "A": "4",
+        "B": "Alcançar 11,4% de tratamento de materiais recicláveis, colocando São Paulo em um novo patamar de sustentabilidade.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 6,
+      "celulas": {
+        "A": "5",
+        "B": "Levar atividades de conscientização e educação ambiental a 240 mil pessoas, para ampliar o engajamento da população em práticas sustentáveis.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 7,
+      "celulas": {
+        "A": "6",
+        "B": "Substituir 2.200 ônibus movidos a diesel por veículos de matriz energética mais limpa, reforçando o compromisso da cidade com a preservação ambiental.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 8,
+      "celulas": {
+        "A": "7",
+        "B": "Substituir toda a frota de caminhões da coleta domiciliar de lixo por modelos movidos a biometano ou GNV, para reduzir em mais de 1,5 milhão de litros o consumo médio mensal de óleo diesel.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 9,
+      "celulas": {
+        "A": "8",
+        "B": "Entregar 40 mil habitações de interesse social a famílias de baixa renda, para que tenham lar digno e definitivo.",
+        "C": "Regionalizável",
+        "F": "A regionalização das habitações será apresentada ao longo da execução do Programa de Metas 2025-2028."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 10,
+      "celulas": {
+        "A": "9",
+        "B": "Entregar 100 mil títulos de posse ou propriedade por meio do Pode Entrar - Regularização Fundiária, garantindo a famílias de baixa renda moradia estável, com segurança jurídica.",
+        "C": "Regionalizável",
+        "F": "A regionalização dos títulos de posse ou propriedade será apresentada ao longo da execução do Programa de Metas 2025-2028."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 11,
+      "celulas": {
+        "A": "10",
+        "B": "Beneficiar 50 mil famílias com a urbanização das áreas em que residem, promovendo infraestrutura adequada e melhorias no espaço público.",
+        "C": "Regionalizável",
+        "F": "A regionalização das famílias beneficiadas será apresentada ao longo da execução do Programa de Metas 2025-2028."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 12,
+      "celulas": {
+        "A": "11",
+        "B": "Revitalizar 20 empreendimentos habitacionais sob responsabilidade da SEHAB/COHAB, gerando benefícios para 4 mil famílias e favorecendo o convívio e a integração comunitária.",
+        "C": "Regionalizada",
+        "D": "Número de empreendimentos habitacionais requalificados por área.",
+        "E": "O número de empreendimentos revitalizados por área de subprefeitura pode ainda ser alterado ao longo da execução do Programa de Metas 2025-2028."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 13,
+      "celulas": {
+        "A": "12",
+        "B": "Realizar obras de canalização de córregos e contenção de encostas em 14 áreas prioritárias do Plano Municipal de Redução de Riscos, protegendo famílias que residem em áreas de alto risco.",
+        "C": "Regionalizada",
+        "D": "Número de áreas prioritárias com obras de canalização e contenção.",
+        "E": "O número de obras por área e por subprefeitura pode ainda ser alterado ao longo da execução do Programa de Metas 2025-2028."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 14,
+      "celulas": {
+        "A": "13",
+        "B": "Entregar 8 piscinões e iniciar a construção de outros 6 para reduzir alagamentos e dar mais segurança à população.",
+        "C": "Regionalizada",
+        "D": "Número de reservatórios por área.",
+        "E": "O mapa apresenta a regionalização parcial das construções. o número de piscinões por área de subprefeitura pode ainda ser alterado e a regionalização completa será apresentada ao longo da execução do Programa de Metas 2025-2028."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 15,
+      "celulas": {
+        "A": "14",
+        "B": "Entregar o novo Centro de Operações da SPTrans, para melhorar o monitoramento da frota de ônibus municipal e a qualidade do serviço prestado.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 16,
+      "celulas": {
+        "A": "15",
+        "B": "Iniciar a operação do BRT Aricanduva, para reduzir o tempo de deslocamento entre a Radial Leste, a partir da altura da Estação Carrão do Metrô, e o Terminal São Mateus.",
+        "C": "Regionalizada",
+        "E": "Este mapa apresenta toda a extensão prevista do BRT Aricanduva, podendo haver, ao longo do quadriênio, alterações em alguns trechos."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 17,
+      "celulas": {
+        "A": "16",
+        "B": "Iniciar a operação do trecho I do novo BRT Radial Leste e as obras do trecho II, para reduzir o tempo de deslocamento entre a região e o Centro.",
+        "C": "Regionalizada",
+        "E": "Este mapa apresenta a extensão prevista do BRT Radial Leste, podendo haver, ao longo do quadriênio, alterações em alguns trechos."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 18,
+      "celulas": {
+        "A": "17",
+        "B": "Requalificar 8,3 quilômetros da Avenida Celso Garcia, para facilitar os deslocamentos entre o Terminal Parque Dom Pedro II e a estação Bresser-Mooca do Metrô.",
+        "C": "Regionalizada",
+        "E": "O mapa apresenta a extensão total de 8.3 km da Avenida Celso Garcia a serem requalificados, abrangendo os Lotes 1, 2 e 3."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 19,
+      "celulas": {
+        "A": "18",
+        "B": "Entregar o Corredor Itaquera-Líder, com 9,3 quilômetros de extensão nos dois sentidos, para facilitar a circulação de ônibus em vias essenciais para a mobilidade na Zona Leste.",
+        "C": "Regionalizada",
+        "E": "Este mapa apresenta toda a extensão prevista para o Corredor Itaquera-Líder, incluindo o trecho já em operação, podendo haver, ao longo do quadriênio, alterações em alguns trechos."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 20,
+      "celulas": {
+        "A": "19",
+        "B": "Requalificar a faixa exclusiva da avenida Amador Bueno, na Zona Leste, proporcionando mais segurança, conforto e agilidade para os passageiros.",
+        "C": "Regionalizada",
+        "E": "Este mapa apresenta toda a extensão prevista da respectiva Avenida Amador Bueno."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 21,
+      "celulas": {
+        "A": "20",
+        "B": "Requalificar a faixa exclusiva da avenida Imirim para oferecer mais segurança, conforto e agilidade aos passageiros da Zona Norte.",
+        "C": "Regionalizada",
+        "E": "Este mapa apresenta toda a extensão prevista da faixa exclusiva da Avenida Imirim."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 22,
+      "celulas": {
+        "A": "21",
+        "B": "Requalificar o Corredor Itapecerica, para oferecer mais segurança, conforto e agilidade aos passageiros que se deslocam entre os terminais João Dias e Capelinha.",
+        "C": "Regionalizada",
+        "E": "Este mapa apresenta toda a extensão do Corredor Itapecerica."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 23,
+      "celulas": {
+        "A": "22",
+        "B": "Requalificar a faixa exclusiva da avenida Interlagos, proporcionando mais segurança, conforto e agilidade para os passageiros.",
+        "C": "Regionalizada",
+        "E": "Este mapa apresenta a extensão da faixa exclusiva da Avenida Interlagos."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 24,
+      "celulas": {
+        "A": "23",
+        "B": "Entregar 14 requalificações de terminais urbanos, para maior conforto, segurança e acessibilidade dos passageiros.",
+        "C": "Regionalizada",
+        "D": "Número de terminais urbanos por área.",
+        "E": "O número de terminais urbanos por área de subprefeitura pode ainda ser alterado ao longo da execução do Programa de Metas 2025-2028."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 25,
+      "celulas": {
+        "A": "24",
+        "B": "Entregar o novo Terminal Itaquera, para que a região possa contar com mais linhas de ônibus e seja facilitada a integração com o Metrô e a CPTM.",
+        "C": "Regionalizada"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 26,
+      "celulas": {
+        "A": "25",
+        "B": "Iniciar as obras do novo Terminal Itaim Paulista, que oferecerá integração com a Estação Itaim Paulista da Linha 12-Safira da CPTM.",
+        "C": "Regionalizada",
+        "E": "As possíveis áreas para instalação do terminal estão em estudo."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 27,
+      "celulas": {
+        "A": "26",
+        "B": "Iniciar as obras do novo Terminal Perus, junto à Estação Perus da Linha 7-Rubi da CPTM, para reestruturar a circulação de ônibus dos dois lados da linha férrea.",
+        "C": "Regionalizada",
+        "E": "As possíveis áreas para instalação do terminal estão em estudo."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 28,
+      "celulas": {
+        "A": "27",
+        "B": "Iniciar a construção do Terminal Pedreira/Mar Paulista para integrar linhas de ônibus e transporte hidroviário na Zona Sul.",
+        "C": "Regionalizada"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 29,
+      "celulas": {
+        "A": "28",
+        "B": "Iniciar a construção do Terminal Cocaia para integrar linhas de ônibus e transporte hidroviário na Zona Sul.",
+        "C": "Regionalizada"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 30,
+      "celulas": {
+        "A": "29",
+        "B": "Contratar as obras de dois novos atracadouros na Represa Billings para expandir o Aquático SP e proporcionar à população da Zona Sul uma mobilidade mais sustentável e integrada.",
+        "C": "Regionalizada"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 31,
+      "celulas": {
+        "A": "30",
+        "B": "Elaborar os estudos necessários para viabilização do Aquático Guarapiranga, que vai ampliar o uso do modal hidroviário na região sul.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 32,
+      "celulas": {
+        "A": "31",
+        "B": "Iniciar o prolongamento da Avenida Carlos Caldeira Filho, ligando-a à Estrada do M’Boi Mirim e beneficiando diretamente cerca de 870 mil moradores.",
+        "C": "Regionalizada",
+        "E": "Este mapa apresenta o prolongamento previsto da Avenida Carlos Caldeira, podendo haver, ao longo do quadriênio, alterações em alguns trechos."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 33,
+      "celulas": {
+        "A": "32",
+        "B": "Concluir a duplicação da Avenida Senador Teotônio Vilela, para melhorar a mobilidade na região da Cidade Dutra.",
+        "C": "Regionalizada",
+        "E": "Este mapa apresenta a porção da Avenida Teotônio Vilela com duplicação prevista, podendo haver, ao longo do quadriênio, alterações em alguns trechos."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 34,
+      "celulas": {
+        "A": "33",
+        "B": "Realizar a duplicação da Ponte Jurubatuba, para maior fluidez no trânsito local e segurança nos deslocamentos.",
+        "C": "Regionalizada"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 35,
+      "celulas": {
+        "A": "34",
+        "B": "Realizar as obras do Complexo Viário João Beiçola, para maior fluidez no trânsito local e segurança nos deslocamentos.",
+        "C": "Regionalizada"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 36,
+      "celulas": {
+        "A": "35",
+        "B": "Iniciar as obras da Ponte Graúna-Gaivotas, que estabelecerá nova conexão viária sobre a Represa Billings.",
+        "C": "Regionalizada",
+        "E": "Este mapa apresenta a extensão  prevista da Ponte Graúna-Gaivotas, podendo haver, ao longo do quadriênio, alterações em trechos."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 37,
+      "celulas": {
+        "A": "36",
+        "B": "Entregar o Túnel Cecília Lottenberg, integrando importantes eixos viários e garantindo conexões cicloviárias estratégicas.",
+        "C": "Regionalizada",
+        "E": "Este mapa apresenta a extensão prevista do Túnel Cecília Lottenberg, podendo haver, ao longo do quadriênio, alterações em alguns trechos."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 38,
+      "celulas": {
+        "A": "37",
+        "B": "Iniciar as obras de prolongamento da Avenida Jornalista Roberto Marinho até a Rodovia dos Imigrantes, criando um parque linear, aumentando a área verde e melhorando as condições de mobilidade.",
+        "C": "Regionalizada",
+        "E": "Este mapa apresenta a extensão prevista da Avenida Jornalista Roberto Marinho, podendo haver, ao longo do quadriênio, alterações em alguns trechos."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 39,
+      "celulas": {
+        "A": "38",
+        "B": "Entregar a segunda e a terceira fase da requalificação da Avenida Santo Amaro, para melhorar a segurança e a mobilidade na região.",
+        "C": "Regionalizada",
+        "E": "Este mapa apresenta o trecho da Avenida Santo Amaro a ser requalificado."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 40,
+      "celulas": {
+        "A": "39",
+        "B": "Iniciar as obras de requalificação da Avenida Presidente Juscelino Kubitschek (Boulevard JK), aumentando a arborização e a permeabilidade do solo, tornando-a mais segura e convidativa para pedestres e ciclistas.",
+        "C": "Regionalizada",
+        "E": "Este mapa apresenta o trecho da Avenida Presidente Juscelino Kubitschek a ser requalificado."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 41,
+      "celulas": {
+        "A": "40",
+        "B": "Iniciar o alargamento da Rua Ribeirão Claro, redistribuindo o tráfego local e beneficiando importantes polos econômicos como Vila Olímpia, Itaim Bibi, Moema e Jardins.",
+        "C": "Regionalizada",
+        "E": "Este mapa apresenta a extensão total da Rua Ribeirão Claro."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 42,
+      "celulas": {
+        "A": "41",
+        "B": "Iniciar a construção do novo Túnel Sena Madureira, que irá melhorar a mobilidade na região da Vila Mariana e facilitar o acesso a diversos bairros.",
+        "C": "Regionalizada",
+        "E": "Este mapa apresenta a extensão prevista do Túnel Sena Madureira, podendo haver, ao longo do quadriênio, alterações em alguns trechos."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 43,
+      "celulas": {
+        "A": "42",
+        "B": "Iniciar o prolongamento da Avenida Imperador até a Avenida José Aristodemo Pinotti, promovendo requalificação urbana e garantindo melhor articulação da malha viária na Zona Leste.",
+        "C": "Regionalizada",
+        "E": "Este mapa apresenta o prolongamento da Avenida Imperador, podendo haver, ao longo do quadriênio, alterações em alguns trechos."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 44,
+      "celulas": {
+        "A": "43",
+        "B": "Entregar a Ponte Pirituba-Lapa, que vai melhorar a fluidez do trânsito na região.",
+        "C": "Regionalizada"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 45,
+      "celulas": {
+        "A": "44",
+        "B": "Iniciar as obras de prolongamento da Avenida Marquês de São Vicente (novo Boulevard Marquês de São Vicente), melhorando a mobilidade no centro expandido e conectando-o à Zona Leste.",
+        "C": "Regionalizada",
+        "E": "Este mapa apresenta a extensão total do Novo Boulevard Marquês de São Vicente."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 46,
+      "celulas": {
+        "A": "45",
+        "B": "Atingir 1.000 quilômetros de malha cicloviária, estimulando uma mobilidade que contribui para a preservação ambiental e promove qualidade de vida.",
+        "C": "Regionalizável",
+        "F": "A regionalização das ciclovias será apresentada ao longo da execução."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 47,
+      "celulas": {
+        "A": "46",
+        "B": "Instalar mais 200 quilômetros de Faixa Azul, duplicando a extensão de vias exclusivas para motociclistas, de modo a reduzir acidentes com motos na cidade.",
+        "C": "Regionalizável",
+        "F": "A regionalização das Faixas Azuis será apresentada ao longo da execução."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 48,
+      "celulas": {
+        "A": "47",
+        "B": "Modernizar o sistema semafórico em 1.700 cruzamentos, melhorando a fluidez e a segurança no trânsito.",
+        "C": "Regionalizável",
+        "F": "A regionalização dos cruzamentos será apresentada ao longo da execução do Programa de Metas 2025-2028."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 49,
+      "celulas": {
+        "A": "48",
+        "B": "Entregar um heliponto na Marginal Tietê para atendimento a situações de emergência.",
+        "C": "Regionalizada"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 50,
+      "celulas": {
+        "A": "49",
+        "B": "Recuperar 10 milhões de metros quadrados de vias públicas com asfalto novo, para aumentar a segurança viária e a fluidez do trânsito.",
+        "C": "Regionalizável",
+        "F": "A regionalização das vias recapeadas será apresentada ao longo da execução."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 51,
+      "celulas": {
+        "A": "50",
+        "B": "Pavimentar 400.000 metros quadrados de vias de terra para melhorar a infraestrutura urbana e as condições de mobilidade na cidade.",
+        "C": "Regionalizável",
+        "F": "A regionalização das vias pavimentadas será apresentada ao longo da execução."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 52,
+      "celulas": {
+        "A": "51",
+        "B": "Renovar um milhão de metros quadrados de calçadas para melhorar a acessibilidade e oferecer mais segurança aos pedestres.",
+        "C": "Regionalizável",
+        "F": "A regionalização das calçadas renovadas será apresentada ao longo da execução."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 53,
+      "celulas": {
+        "A": "52",
+        "B": "Realizar 10 ações de requalificação urbana para tornar os espaços públicos mais acessíveis, seguros e adequados à convivência.",
+        "C": "Regionalizada",
+        "D": "Número de requalificações urbanas por área.",
+        "E": "O número de requalificações urbanas por área de subprefeitura pode ainda ser alterado ao longo da execução do Programa de Metas 2025-2028."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 54,
+      "celulas": {
+        "A": "53",
+        "B": "Entregar o calçadão do Triângulo Histórico, iniciar as obras do Quadrilátero da República e da Esplanada da Liberdade e viabilizar a PPP do Novo Parque Dom Pedro II, para impulsionar a transformação da região.",
+        "C": "Regionalizada",
+        "D": "1. Quadrilátero da República\n\n2. Triângulo Histórico\n\n3. Parque Dom Pedro II\n\n4. Esplanada da Liberdade"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 55,
+      "celulas": {
+        "A": "54",
+        "B": "Iniciar as obras do Bonde São Paulo, Veículo Leve Elétrico (VLE) no Centro, para promover a requalificação urbana da região aliando transporte eficiente e preservação ambiental.",
+        "C": "Regionalizada",
+        "E": "Este mapa apresenta o percurso planejado do Bonde São Paulo, podendo haver, ao longo do quadriênio, alterações em alguns trechos."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 56,
+      "celulas": {
+        "A": "55",
+        "B": "Atingir 40 mil câmeras integradas à plataforma de monitoramento do programa Smart Sampa, para ampliar a capacidade de vigilância inteligente, apoiar o trabalho das polícias, prevenir delitos e identificar criminosos e infratores em todas as regiões da cidade.",
+        "C": "Regionalizável",
+        "F": "A regionalização de câmeras será apresentada ao longo da execução."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 57,
+      "celulas": {
+        "A": "56",
+        "B": "Abrir 2 mil novas vagas para Guardas Civis Metropolitanos e modernizar o sistema de comunicação da corporação, para aumentar sua presença no território e capacidade de proteger o patrimônio público e a população.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 58,
+      "celulas": {
+        "A": "57",
+        "B": "Revitalizar 20 estruturas operacionais da GCM, da Defesa Civil e das Juntas do Serviço Militar, para fortalecer a capacidade de atuação das equipes municipais em diversas situações e qualificar o atendimento ao cidadão.",
+        "C": "Regionalizável",
+        "F": "A regionalização será apresentada ao longo da execução do PdM 2025-2028."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 59,
+      "celulas": {
+        "A": "58",
+        "B": "Incorporar 500 armas não letais ao equipamento da Guarda Civil Metropolitana, ampliando sua capacidade de atuação com base em protocolos de uso proporcional da força.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 60,
+      "celulas": {
+        "A": "59",
+        "B": "Ampliar o Programa de Proteção Escolar, com a criação da Diária Especial de Segurança Escolar (DESE) e a presença de guardas em 200 escolas, para prevenir ocorrências e fortalecer vínculos comunitários.",
+        "C": "Regionalizável",
+        "F": "A regionalização será apresentada ao longo da execução do PdM 2025-2028."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 61,
+      "celulas": {
+        "A": "60",
+        "B": "Instalar o Centro de Monitoramento dos Parques Municipais Integrado ao Smart Sampa para reforçar a segurança, melhorar a gestão e garantir tranquilidade aos frequentadores.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 62,
+      "celulas": {
+        "A": "61",
+        "B": "Promover 3 ações estratégicas, com incremento tecnológico e integração ao Smart Sampa, para fortalecer a Política Municipal de Pessoas Desaparecidas, Localização Familiar e Atenção a Familiares.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 63,
+      "celulas": {
+        "A": "62",
+        "B": "Assegurar o atendimento do Programa Guardiã Maria da Penha a 100% das mulheres em medidas protetivas encaminhadas pelo MP e desenvolver 8 ações estratégicas para fortalecer as políticas de prevenção e enfrentamento à violência contra a mulher.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 64,
+      "celulas": {
+        "A": "63",
+        "B": "Ampliar o acesso à saúde com a entrega de 48 novos equipamentos, entre os quais 15 UPAs e 25 UBSs.",
+        "C": "Regionalizada",
+        "D": "Número de equipamentos previstos",
+        "E": "O mapa apresenta a regionalização parcial. O número de equipamentos de saúde por área de subprefeitura pode ainda ser alterado e a regionalização completa será apresentada ao longo da execução do Programa de Metas 2025-2028."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 65,
+      "celulas": {
+        "A": "64",
+        "B": "Entregar 4 unidades do novo Paulistão da Saúde, para facilitar o acesso a um conjunto de serviços no mesmo espaço.",
+        "C": "Regionalizada",
+        "D": "Número de equipamentos previstos",
+        "E": "O mapa apresenta a regionalização parcial. A regionalização completa será apresentada ao longo da execução do Programa de Metas 2025-2028."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 66,
+      "celulas": {
+        "A": "65",
+        "B": "Reformar 8 hospitais, viabilizar melhorias em outros 4 e entregar o novo Hospital Sorocabana, oferecendo ambientes mais modernos e adequados ao cuidado com a população.",
+        "C": "Regionalizada",
+        "D": "Número de hospitais por área ",
+        "E": "Pode haver alteração do quantitativo de hospitais por subprefeitura ao longo do quadriênio."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 67,
+      "celulas": {
+        "A": "66",
+        "B": "Fortalecer o Serviço de Atendimento Móvel de Urgência (SAMU), com 34 novos veículos e a habilitação de 60 motolâncias, além da integração ao sistema Smart Sampa, para qualificar o atendimento emergencial da cidade.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 68,
+      "celulas": {
+        "A": "67",
+        "B": "Ampliar a cobertura da Estratégia Saúde da Família com a criação de 100 novas equipes, para fortalecer a atuação da Prefeitura na atenção integral à saúde.",
+        "C": "Não regionalizável",
+        "D": "NÚMERO DE NOVAS EQUIPES DA ESTRATÉGIA DA SAÚDE DA FAMÍLIA (ESF)."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 69,
+      "celulas": {
+        "A": "68",
+        "B": "Estabelecer a Estratégia de Saúde Digital em todas as regiões da cidade, para ampliar o acesso da população aos serviços por meio da telessaúde.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 70,
+      "celulas": {
+        "A": "69",
+        "B": "Implantar prontuário eletrônico integrado em 100% dos Hospitais Dia, AMAs Especialidades, Ambulatórios de Especialidades e CAPS, para melhor articulação da rede de atendimento e maior agilidade.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 71,
+      "celulas": {
+        "A": "70",
+        "B": "Atingir ou manter a cobertura vacinal preconizada (95%) para quatro vacinas indicadas a crianças de até 1 ano: poliomielite, pneumocócica 10-valente, pentavalente e tríplice viral (SCR), contra sarampo, caxumba e rubéola, reafirmando o compromisso com a saúde na primeira infância.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 72,
+      "celulas": {
+        "A": "71",
+        "B": "Constituir 30 novas equipes do Programa Acompanhante de Idosos e atualizar as diretrizes técnicas para a atenção à saúde dessa população, com foco em longevidade e qualidade de vida.",
+        "C": "Regionalizável",
+        "F": "A regionalização das equipes será apresentada ao longo da execução."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 73,
+      "celulas": {
+        "A": "72",
+        "B": "Entregar 3 Centros TEA nas regiões Leste, Sul e Oeste, garantindo atendimento especializado a crianças, jovens e adultos e aos seus familiares.",
+        "C": "Regionalizada",
+        "E": "O mapa apresenta a regionalização parcial dos Centros TEA. A regionalização completa será apresentada ao longo da execução do Programa de Metas 2025-2028."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 74,
+      "celulas": {
+        "A": "73",
+        "B": "Abrir ou requalificar 15 equipamentos e serviços de atendimento a pessoas com deficiência e TEA, para ampliar e melhorar a atenção especializada em saúde.",
+        "C": "Regionalizada",
+        "D": "Número de serviços ou equipamentos por área",
+        "E": "O mapa apresenta a regionalização parcial. o número de equipamentos e serviços por área de subprefeitura pode ainda ser alterado e a regionalização completa será apresentada ao longo da execução do Programa de Metas 2025-2028."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 75,
+      "celulas": {
+        "A": "74",
+        "B": "Entregar 4 unidades da Casa Mãe Paulistana - Pessoa com Deficiência, para atendimento especializado e multiprofissional a mães e cuidadoras de pessoas com deficiência.",
+        "C": "Regionalizável",
+        "F": "a regionalização das unidades será apresentada ao longo da execução."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 76,
+      "celulas": {
+        "A": "75",
+        "B": "Incentivar, por meio de solução digital, a prática de exercícios físicos e o engajamento da população em atividades coletivas, para promover saúde e bem-estar.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 77,
+      "celulas": {
+        "A": "76",
+        "B": "Entregar um novo Hospital Veterinário, oferecer atendimento 24 horas em alguma das unidades existentes e ampliar o acesso à castração gratuita de cães e gatos, promovendo a saúde animal e facilitando o cuidado responsável.",
+        "C": "Regionalizada"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 78,
+      "celulas": {
+        "A": "77",
+        "B": "Manter a fila da creche zerada, criando todas as vagas necessárias na Educação Infantil para garantir às crianças o cuidado e o desenvolvimento integral desde os primeiros anos de vida.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 79,
+      "celulas": {
+        "A": "78",
+        "B": "Criar o Programa Mamãe Tarifa Zero no sistema municipal de ônibus, oferecendo 2 passagens por dia para pais e mães levarem seus filhos às creches.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 80,
+      "celulas": {
+        "A": "79",
+        "B": "Atender 600 mil alunos no ensino em tempo integral, para que tenham mais oportunidades de dedicação à formação acadêmica e ao desenvolvimento pleno como pessoas.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 81,
+      "celulas": {
+        "A": "80",
+        "B": "Alcançar 70% de alfabetização ao final do segundo ano do ensino fundamental, cumprindo a meta do MEC/INEP e assegurando que as crianças adquiram desde cedo competências essenciais para seu desenvolvimento posterior.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 82,
+      "celulas": {
+        "A": "81",
+        "B": "Atingir o resultado de 6,0 no IDEB para os anos iniciais do Ensino Fundamental, avançando no compromisso com o aprendizado efetivo e a evolução constante.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 83,
+      "celulas": {
+        "A": "82",
+        "B": "Atingir o resultado de 5,0 no IDEB para os anos finais do Ensino Fundamental, avançando no compromisso com o aprendizado efetivo e a evolução constante.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 84,
+      "celulas": {
+        "A": "83",
+        "B": "Inaugurar 12 novos CEUs e viabilizar mais 10, ampliando o acesso a espaços de educação, cultura, esporte e convivência nas regiões que mais precisam de equipamentos públicos integrados.",
+        "C": "Regionalizada",
+        "D": "Número de CEUs por área",
+        "E": "O mapa apresenta a regionalização parcial. o número de CEUs por área de subprefeitura pode ainda ser alterado e a regionalização completa será apresentada ao longo da execução do Programa de Metas 2025-2028."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 85,
+      "celulas": {
+        "A": "84",
+        "B": "Criar a Escola Municipal de Formação de Profissionais da Educação do Futuro, para favorecer a qualificação permanente e valorizar os profissionais.",
+        "C": "Regionalizável",
+        "F": "A regionalização das unidades será apresentada ao longo da execução."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 86,
+      "celulas": {
+        "A": "85",
+        "B": "Entregar 25 novos equipamentos de Segurança Alimentar e Nutricional, para garantir refeições de qualidade à população em situação de vulnerabilidade.",
+        "C": "Regionalizável",
+        "F": "A regionalização das unidades será apresentada ao longo da execução."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 87,
+      "celulas": {
+        "A": "86",
+        "B": "Entregar 10 Vilas Reencontro, dobrando o número de vagas nas vilas e ampliando as oportunidades de reinserção social para a população em situação de rua.",
+        "C": "Regionalizável",
+        "F": "A regionalização das unidades será apresentada ao longo da execução."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 88,
+      "celulas": {
+        "A": "87",
+        "B": "Fortalecer e publicizar o Família Acolhedora, com 6 novos serviços para proteção integral a crianças e adolescentes afastados da família por medida imposta pelo Sistema de Garantia de Direitos (SGD).",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 89,
+      "celulas": {
+        "A": "88",
+        "B": "Apoiar 3 mil pessoas com os auxílios Reencontro Moradia e Reencontro Família, para saída qualificada da situação de rua.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 90,
+      "celulas": {
+        "A": "89",
+        "B": "Priorizar 25 obras, novas ou de reforma, nos cemitérios públicos, para a melhoria dos serviços prestados às famílias.",
+        "C": "Regionalizável",
+        "F": "A regionalização das unidades será apresentada ao longo da execução."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 91,
+      "celulas": {
+        "A": "90",
+        "B": "Requalificar 65 equipamentos esportivos com estruturas mais adequadas para uso da população em suas atividades.",
+        "C": "Regionalizada",
+        "E": "O mapa apresenta a regionalização parcial. O número de equipamentos esportivos requalificados por área de subprefeitura pode ainda ser alterado e a regionalização completa será apresentada ao longo da execução do Programa de Metas 2025-2028."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 92,
+      "celulas": {
+        "A": "91",
+        "B": "Expandir o Programa Rede Olímpica, valorizando a formação de atletas e o esporte de alto rendimento.",
+        "C": "Regionalizável",
+        "F": "A regionalização das unidades será apresentada ao longo da execução."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 93,
+      "celulas": {
+        "A": "92",
+        "B": "Ampliar em 50% o programa Bolsa Atleta Rei Pelé, concedendo 1.800 novas bolsas no quadriênio para a valorização de atletas e paratletas.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 94,
+      "celulas": {
+        "A": "93",
+        "B": "Criar o Programa de Requalificação de Equipamentos Culturais “SP+Cultura - Requalifica” e revitalizar 25 espaços culturais, para que sejam mais adequados às atividades desenvolvidas e confortáveis para o público.",
+        "C": "Regionalizada",
+        "E": "O mapa apresenta a regionalização parcial. O número de equipamentos culturais requalificados por área de subprefeitura pode ainda ser alterado e a regionalização completa será apresentada ao longo da execução do Programa de Metas 2025-2028."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 95,
+      "celulas": {
+        "A": "94",
+        "B": "Abrir 2 novas unidades da Escola Municipal de Iniciação Artística (EMIA), ampliando o acesso à formação cultural de qualidade para crianças e adolescentes e fortalecendo o surgimento de vocações.",
+        "C": "Regionalizada",
+        "F": "Pode haver alteração do quantitativo de equipamentos por subprefeitura ao longo do quadriênio."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 96,
+      "celulas": {
+        "A": "95",
+        "B": "Inaugurar o Memorial dos Aflitos, em honra ao legado da população negra escravizada na cidade e para a promoção de uma cultura antirracista.",
+        "C": "Regionalizada"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 97,
+      "celulas": {
+        "A": "96",
+        "B": "Desenvolver 2 ações estratégicas para promover a segurança jurídica e oferecer maior previsibilidade aos empreendedores.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 98,
+      "celulas": {
+        "A": "97",
+        "B": "Criar o CredSampa, para oferecer R$ 20 milhões em garantias e alavancar até R$ 80 milhões de crédito para empreendedores e pequenos negócios.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 99,
+      "celulas": {
+        "A": "98",
+        "B": "Acelerar 200 startups por meio do Programa de Valorização de Iniciativas Tecnológicas (Vai Tec), para impulsionar o ambiente de inovação na cidade.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 100,
+      "celulas": {
+        "A": "99",
+        "B": "Inaugurar o Polo Sampa Games e acelerar o desenvolvimento de 100 empresas do setor, consolidando São Paulo como polo inovador na indústria de jogos eletrônicos.",
+        "C": "Não regionalizável",
+        "F": "A regionalização das unidades será apresentada ao lomgo da execução."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 101,
+      "celulas": {
+        "A": "100",
+        "B": "Viabilizar um centro de economia criativa na Casa das Retortas, com foco nas indústrias da moda, gastronomia e madeira.",
+        "C": "Regionalizada"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 102,
+      "celulas": {
+        "A": "101",
+        "B": "Abrir 5 novos equipamentos de economia criativa voltados especialmente aos jovens das periferias.",
+        "C": "Regionalizável",
+        "F": "A regionalização das unidades será apresentada ao longo da execução."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 103,
+      "celulas": {
+        "A": "102",
+        "B": "Ampliar o programa Meu Trampo e beneficiar 10 mil jovens com projetos gratuitos de capacitação profissional e geração de renda.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 104,
+      "celulas": {
+        "A": "103",
+        "B": "Dobrar o número de vagas oferecidas pelo Educavest, cursinho pré-vestibulinho municipal gratuito, para ampliar as oportunidades de acesso ao Ensino Técnico.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 105,
+      "celulas": {
+        "A": "104",
+        "B": "Oferecer 100 mil vagas em cursos de qualificação profissional, para facilitar o acesso da população a oportunidades de emprego e renda.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 106,
+      "celulas": {
+        "A": "105",
+        "B": "Modernizar o Portal Cate, oferecendo novos cursos e aperfeiçoando a ferramenta de ensino à distância voltada à qualificação profissional.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 107,
+      "celulas": {
+        "A": "106",
+        "B": "Ampliar os serviços digitais de atendimento ao trabalhador e eliminar processos manuais, para facilitar acesso a oportunidades.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 108,
+      "celulas": {
+        "A": "107",
+        "B": "Criar o Empreende SP, para ampliar o acesso a capacitações, espaços de trabalho e oportunidades de geração de renda por meio do empreendedorismo.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 109,
+      "celulas": {
+        "A": "108",
+        "B": "Criar o Programa de Longevidade Ativa, com 50 mil atendimentos a microempreendedores individuais com mais de 60 anos, oferecendo serviços de formalização, capacitação, consultoria e acesso a espaços de trabalho compartilhados.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 110,
+      "celulas": {
+        "A": "109",
+        "B": "Fortalecer o Programa Sampa+Rural, ampliando o apoio para 1.000 locais de agricultura.",
+        "C": "Regionalizável",
+        "F": "A regionalização das unidades será apresentada ao longo da execução."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 111,
+      "celulas": {
+        "A": "110",
+        "B": "Criar o SP CityPass, cartão de venda combinada de atrativos e experiências, para o crescimento do turismo integrado na cidade.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 112,
+      "celulas": {
+        "A": "111",
+        "B": "Iniciar a construção da Arena Multiuso do Anhembi, fortalecendo a vocação da cidade para receber eventos de diversos tipos.",
+        "C": "Regionalizada"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 113,
+      "celulas": {
+        "A": "112",
+        "B": "Dobrar o número de roteiros do Programa Vai de Roteiro, que promove o turismo local e valoriza a diversidade cultural e histórica dos bairros.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 114,
+      "celulas": {
+        "A": "113",
+        "B": "Realizar 296 ações internacionais que consolidem São Paulo como cidade global junto às 25 maiores economias mundiais.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 115,
+      "celulas": {
+        "A": "114",
+        "B": "Instituir o Orçamento Climático Municipal para que os investimentos estejam alinhados às ações previstas no Plano de Ação Climática.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 116,
+      "celulas": {
+        "A": "115",
+        "B": "Viabilizar 10 novos projetos com o Plano Municipal de Desestatização, que atrai investimento privado para qualificar serviços públicos sem comprometer as finanças da cidade.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 117,
+      "celulas": {
+        "A": "116",
+        "B": "Instituir o Comitê de Governo Local nos 32 territórios, para ampliar o diálogo entre as secretarias e promover ações locais mais integradas.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 118,
+      "celulas": {
+        "A": "117",
+        "B": "Elaborar o Plano Municipal de Cidade Inteligente, Resiliente e Sustentável para nortear a transformação digital e tecnológica de São Paulo.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 119,
+      "celulas": {
+        "A": "118",
+        "B": "Chegar a 95% de serviços disponíveis online no SP156, para facilitar o acesso dos cidadãos e dar mais rapidez às solicitações.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 120,
+      "celulas": {
+        "A": "119",
+        "B": "Criar uma Unidade Avançada de Inteligência Artificial para a melhoria de serviços públicos e impulsionamento de startups.",
+        "C": "Regionalizável",
+        "F": "A regionalização das unidades será apresentada ao longo da execução."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 121,
+      "celulas": {
+        "A": "120",
+        "B": "Estabelecer um Centro de Inovação para ampliar o acesso de empresas, startups e da população em geral às oportunidades do mercado de tecnologia.",
+        "C": "Regionalizada",
+        "E": "Pode haver alteração do quantitativo de equipamentos por subprefeitura ao longo do quadriênio."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 122,
+      "celulas": {
+        "A": "121",
+        "B": "Renovar anualmente as certificações internacionais ISO 37120, 37122 e 37123, garantindo o reconhecimento permanente de São Paulo como cidade inteligente, resiliente e sustentável.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 123,
+      "celulas": {
+        "A": "122",
+        "B": "Facilitar o acesso à informação pública, ampliar a transparência ativa e passiva e fortalecer a participação cidadã por meio de 8 ações estratégicas.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 124,
+      "celulas": {
+        "A": "123",
+        "B": "Aprimorar o compliance da Prefeitura com o novo Programa de Integridade e Boas Práticas (PIBP), alcançando nota mínima 8,0 no Indicador de Maturidade.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 125,
+      "celulas": {
+        "A": "124",
+        "B": "Realizar 7 ações estratégicas para promover a proteção de dados pessoais e fomentar a cultura de privacidade na administração municipal.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 126,
+      "celulas": {
+        "A": "125",
+        "B": "Desenvolver na Secretaria Municipal da Fazenda 2 ferramentas de inteligência artificial para aumentar a produtividade e combater fraudes.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 127,
+      "celulas": {
+        "A": "126",
+        "B": "Constituir 2 fundos imobiliários com propriedades da Prefeitura, para reduzir o déficit previdenciário municipal.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 128,
+      "celulas": {
+        "A": "127",
+        "B": "Aprimorar o Sistema de Gestão Patrimonial de modo a tornar a administração dos imóveis públicos mais eficiente, maximizando os benefícios para a administração pública, inclusive com a redução de despesas com aluguéis.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 129,
+      "celulas": {
+        "A": "128",
+        "B": "Atingir a arrecadação de R$ 9 bilhões entre 2025 e 2028, com a adoção, entre outras, de medidas que modernizem e tornem mais eficiente a gestão da dívida ativa municipal.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 130,
+      "celulas": {
+        "A": "129",
+        "B": "Padronizar processos de compras públicas com a realização de 4 ações estratégicas focadas em transparência, eficiência e sustentabilidade nas aquisições.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 131,
+      "celulas": {
+        "A": "130",
+        "B": "Ampliar e fortalecer as ações da Escola Municipal de Administração Pública de São Paulo (EMASP), para qualificar a atuação dos servidores.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 132,
+      "celulas": {
+        "A": "131",
+        "B": "Oferecer o Recadastramento e a Prova de Vida Digital para os servidores ativos, aposentados e pensionistas da administração direta, proporcionando maior comodidade e segurança aos beneficiários durante o procedimento.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 133,
+      "celulas": {
+        "A": "132",
+        "B": "Desburocratizar os processos de licenciamento edilício, tornando-os mais simples e rápidos.",
+        "C": "Não regionalizável"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    }
+  ]
+}

@@ -87,6 +87,45 @@ def transparency():
     return content
 
 
+@router.get("/metas")
+def metas():
+    return {
+        "total": len(
+            list_public_metas()
+        ),
+        "metas": (
+            list_public_metas()
+        ),
+    }
+
+
+@router.get("/metas/{codigo}")
+def meta_detail(
+    codigo: str,
+):
+    content = get_public_meta(
+        codigo
+    )
+
+    if content is None:
+        raise HTTPException(
+            status_code=404,
+            detail="Meta não encontrada ou não publicada.",
+        )
+
+    return content
+
+
+# Registros geográficos publicados e autorizados, NÃO os dados crus do CMS.
+@router.get("/metas/{codigo}/geografia")
+def meta_geografia(codigo: str):
+    from Back_end.site_cms.modules.metas.geografia.public import get_public_geo
+    content = get_public_geo(codigo)
+    if content is None:
+        raise HTTPException(status_code=404, detail="Meta não encontrada ou não publicada.")
+    return content
+
+
 @router.get("/visao-geral")
 def overview():
     content = (

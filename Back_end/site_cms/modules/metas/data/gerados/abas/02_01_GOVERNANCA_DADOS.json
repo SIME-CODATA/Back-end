@@ -1,0 +1,1607 @@
+{
+  "arquivo": "base_geo_2026.xlsx",
+  "aba": "01_GOVERNANCA_DADOS",
+  "cabecalho_linha": null,
+  "linhas_nao_vazias": 106,
+  "linhas_vinculadas": 0,
+  "linhas": [
+    {
+      "linha": 1,
+      "celulas": {
+        "A": "Governança de Dados"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 2,
+      "celulas": {
+        "A": "Qualidade operacional da regionalização: completude, pendências, inconsistências e duplicidades"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 4,
+      "celulas": {
+        "A": "Total de registros",
+        "D": "Regionalizados",
+        "G": "Sem regionalização",
+        "J": "Sem coordenadas"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 5,
+      "celulas": {
+        "A": "688",
+        "D": "567",
+        "G": "79",
+        "J": "150"
+      },
+      "formulas": {
+        "A": "=COUNTA('02_GESTAO_MONITORES'!B5:B692)",
+        "D": "=COUNTIF('02_GESTAO_MONITORES'!G5:G692,\"Regionalizada\")+COUNTIF('02_GESTAO_MONITORES'!G5:G692,\"Regionalizada, mas sem publicidade\")+COUNTIF('02_GESTAO_MONITORES'!G5:G692,\"Regionalizada Parcialmente\")",
+        "G": "=COUNTIF('02_GESTAO_MONITORES'!G5:G692,\"A ser regionalizada\")+COUNTIF('02_GESTAO_MONITORES'!G5:G692,\"A ser regionalizada devido*publicidade\")",
+        "J": "=A5-COUNTIFS('02_GESTAO_MONITORES'!B5:B692,\"<>\",'02_GESTAO_MONITORES'!O5:O692,\"<>\",'02_GESTAO_MONITORES'!P5:P692,\"<>\")"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 6,
+      "celulas": {
+        "A": "base operacional",
+        "D": "regionalizada total ou parcial",
+        "G": "ação pendente",
+        "J": "latitude ou longitude vazia"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 9,
+      "celulas": {
+        "A": "Inconsistências",
+        "D": "Duplicidades",
+        "G": "% completude",
+        "J": "% executadas"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 10,
+      "celulas": {
+        "A": "41",
+        "D": "2",
+        "G": "0.78197674418604657",
+        "J": "0.30813953488372092"
+      },
+      "formulas": {
+        "A": "=COUNTIFS('02_GESTAO_MONITORES'!B5:B692,\"<>\",'02_GESTAO_MONITORES'!A5:A692,\"\")+COUNTIFS('02_GESTAO_MONITORES'!B5:B692,\"<>\",'02_GESTAO_MONITORES'!C5:C692,\"\")+COUNTIFS('02_GESTAO_MONITORES'!B5:B692,\"<>\",'02_GESTAO_MONITORES'!G5:G692,\"\")",
+        "D": "=SUMPRODUCT(('02_GESTAO_MONITORES'!A5:A692<>\"\")*(COUNTIF('02_GESTAO_MONITORES'!A5:A692,'02_GESTAO_MONITORES'!A5:A692)>1))",
+        "G": "=IF(A5=0,0,1-J5/A5)",
+        "J": "=IF(A5=0,0,COUNTIF('02_GESTAO_MONITORES'!H5:H692,\"Executado\")/A5)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 11,
+      "celulas": {
+        "A": "eixo, status ou código vazio",
+        "D": "código repetido",
+        "G": "coordenadas preenchidas",
+        "J": "estágio informado pelos monitores"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 13,
+      "celulas": {
+        "A": "Última atualização da base: ",
+        "C": "Atualizado em 2026-08-11; base 02_GESTAO_MONITORES revisada até a linha 637"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 16,
+      "celulas": {
+        "A": "Projetos por Secretaria",
+        "D": "Projetos por Situação",
+        "G": "Projetos por Subprefeitura",
+        "J": "Projetos por Distrito (contagem total)",
+        "M": "Base do gráfico - Projetos por Secretaria"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 17,
+      "celulas": {
+        "A": "Secretaria",
+        "B": "Qtde",
+        "D": "Situação",
+        "E": "Qtde",
+        "G": "Subprefeitura",
+        "H": "Qtde",
+        "J": "Distritos com projeto",
+        "K": "Qtde",
+        "M": "Secretaria",
+        "N": "Qtde"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 18,
+      "celulas": {
+        "A": "SMS",
+        "B": "114",
+        "D": "Regionalizada",
+        "E": "543",
+        "G": "Sé",
+        "H": "51",
+        "J": "Distritos distintos preenchidos",
+        "K": "106",
+        "M": "SMS",
+        "N": "113"
+      },
+      "formulas": {
+        "B": "=COUNTIF('02_GESTAO_MONITORES'!$F$5:$F$692,A18)",
+        "E": "=COUNTIF('02_GESTAO_MONITORES'!$G$5:$G$692,D18)",
+        "H": "=COUNTIF('02_GESTAO_MONITORES'!$L$5:$L$692,G18)",
+        "K": "=SUM('02_GESTAO_MONITORES'!S5:S685)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 19,
+      "celulas": {
+        "A": "SVMA",
+        "B": "74",
+        "D": "A ser regionalizada",
+        "E": "77",
+        "G": "Capela do Socorro",
+        "H": "38",
+        "M": "SVMA",
+        "N": "74"
+      },
+      "formulas": {
+        "B": "=COUNTIF('02_GESTAO_MONITORES'!$F$5:$F$692,A19)",
+        "E": "=COUNTIF('02_GESTAO_MONITORES'!$G$5:$G$692,D19)",
+        "H": "=COUNTIF('02_GESTAO_MONITORES'!$L$5:$L$692,G19)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 20,
+      "celulas": {
+        "A": "SEME",
+        "B": "61",
+        "D": "Regionalizada Parcialmente",
+        "E": "15",
+        "G": "Itaquera",
+        "H": "32",
+        "M": "SEME",
+        "N": "54"
+      },
+      "formulas": {
+        "B": "=COUNTIF('02_GESTAO_MONITORES'!$F$5:$F$692,A20)",
+        "E": "=COUNTIF('02_GESTAO_MONITORES'!$G$5:$G$692,D20)",
+        "H": "=COUNTIF('02_GESTAO_MONITORES'!$L$5:$L$692,G20)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 21,
+      "celulas": {
+        "A": "SMC",
+        "B": "45",
+        "D": "Regionalizada, mas sem publicidade",
+        "E": "9",
+        "G": "Butantã",
+        "H": "28",
+        "M": "SMC",
+        "N": "44"
+      },
+      "formulas": {
+        "B": "=COUNTIF('02_GESTAO_MONITORES'!$F$5:$F$692,A21)",
+        "E": "=COUNTIF('02_GESTAO_MONITORES'!$G$5:$G$692,D21)",
+        "H": "=COUNTIF('02_GESTAO_MONITORES'!$L$5:$L$692,G21)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 22,
+      "celulas": {
+        "A": "SMSUB",
+        "B": "46",
+        "D": "A ser regionalizada devido à publicidade",
+        "E": "2",
+        "G": "Lapa",
+        "H": "26",
+        "M": "SMSUB",
+        "N": "40"
+      },
+      "formulas": {
+        "B": "=COUNTIF('02_GESTAO_MONITORES'!$F$5:$F$692,A22)",
+        "E": "=COUNTIF('02_GESTAO_MONITORES'!$G$5:$G$692,D22)",
+        "H": "=COUNTIF('02_GESTAO_MONITORES'!$L$5:$L$692,G22)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 23,
+      "celulas": {
+        "A": "SIURB",
+        "B": "34",
+        "D": "Sem mapa na publicação, mas regionalizável",
+        "E": "1",
+        "G": "Mooca",
+        "H": "20",
+        "M": "SIURB",
+        "N": "34"
+      },
+      "formulas": {
+        "B": "=COUNTIF('02_GESTAO_MONITORES'!$F$5:$F$692,A23)",
+        "E": "=COUNTIF('02_GESTAO_MONITORES'!$G$5:$G$692,D23)",
+        "H": "=COUNTIF('02_GESTAO_MONITORES'!$L$5:$L$692,G23)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 24,
+      "celulas": {
+        "A": "SEHAB",
+        "B": "61",
+        "G": "Campo Limpo",
+        "H": "18",
+        "M": "SEHAB",
+        "N": "31"
+      },
+      "formulas": {
+        "B": "=COUNTIF('02_GESTAO_MONITORES'!$F$5:$F$692,A24)",
+        "H": "=COUNTIF('02_GESTAO_MONITORES'!$L$5:$L$692,G24)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 25,
+      "celulas": {
+        "A": "SME",
+        "B": "31",
+        "G": "Ipiranga",
+        "H": "27",
+        "M": "SME",
+        "N": "28"
+      },
+      "formulas": {
+        "B": "=COUNTIF('02_GESTAO_MONITORES'!$F$5:$F$692,A25)",
+        "H": "=COUNTIF('02_GESTAO_MONITORES'!$L$5:$L$692,G25)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 26,
+      "celulas": {
+        "A": "SP REGULA",
+        "B": "27",
+        "G": "São Mateus",
+        "H": "16",
+        "M": "SP REGULA",
+        "N": "27"
+      },
+      "formulas": {
+        "B": "=COUNTIF('02_GESTAO_MONITORES'!$F$5:$F$692,A26)",
+        "H": "=COUNTIF('02_GESTAO_MONITORES'!$L$5:$L$692,G26)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 27,
+      "celulas": {
+        "A": "SMDHC/SESANA",
+        "B": "26",
+        "G": "Sapopemba",
+        "H": "16",
+        "M": "SMDHC/SESANA",
+        "N": "25"
+      },
+      "formulas": {
+        "B": "=COUNTIF('02_GESTAO_MONITORES'!$F$5:$F$692,A27)",
+        "H": "=COUNTIF('02_GESTAO_MONITORES'!$L$5:$L$692,G27)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 28,
+      "celulas": {
+        "A": "SIURB; SP OBRAS",
+        "B": "22",
+        "G": "Em definição",
+        "H": "15",
+        "M": "SIURB; SP OBRAS",
+        "N": "22"
+      },
+      "formulas": {
+        "B": "=COUNTIF('02_GESTAO_MONITORES'!$F$5:$F$692,A28)",
+        "H": "=COUNTIF('02_GESTAO_MONITORES'!$L$5:$L$692,G28)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 29,
+      "celulas": {
+        "A": "SMSU",
+        "B": "22",
+        "G": "Penha",
+        "H": "15",
+        "M": "SMSU",
+        "N": "22"
+      },
+      "formulas": {
+        "B": "=COUNTIF('02_GESTAO_MONITORES'!$F$5:$F$692,A29)",
+        "H": "=COUNTIF('02_GESTAO_MONITORES'!$L$5:$L$692,G29)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 30,
+      "celulas": {
+        "A": "SME; SMSU",
+        "B": "21",
+        "G": "São Miguel",
+        "H": "0",
+        "M": "SME; SMSU",
+        "N": "21"
+      },
+      "formulas": {
+        "B": "=COUNTIF('02_GESTAO_MONITORES'!$F$5:$F$692,A30)",
+        "H": "=COUNTIF('02_GESTAO_MONITORES'!$L$5:$L$692,G30)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 31,
+      "celulas": {
+        "A": "SMT; SPTRANS; SGM/SEDP",
+        "B": "16",
+        "G": "Cidade Ademar",
+        "H": "14",
+        "M": "SMT; SPTRANS; SGM/SEDP",
+        "N": "16"
+      },
+      "formulas": {
+        "B": "=COUNTIF('02_GESTAO_MONITORES'!$F$5:$F$692,A31)",
+        "H": "=COUNTIF('02_GESTAO_MONITORES'!$L$5:$L$692,G31)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 32,
+      "celulas": {
+        "A": "SMT; SPTRANS",
+        "B": "13",
+        "G": "Cidade Tiradentes",
+        "H": "14",
+        "M": "SMT; SPTRANS",
+        "N": "13"
+      },
+      "formulas": {
+        "B": "=COUNTIF('02_GESTAO_MONITORES'!$F$5:$F$692,A32)",
+        "H": "=COUNTIF('02_GESTAO_MONITORES'!$L$5:$L$692,G32)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 33,
+      "celulas": {
+        "A": "SMUL; SP URBANISMO",
+        "B": "12",
+        "G": "Santo Amaro",
+        "H": "14",
+        "M": "SMUL; SP URBANISMO",
+        "N": "12"
+      },
+      "formulas": {
+        "B": "=COUNTIF('02_GESTAO_MONITORES'!$F$5:$F$692,A33)",
+        "H": "=COUNTIF('02_GESTAO_MONITORES'!$L$5:$L$692,G33)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 34,
+      "celulas": {
+        "A": "SMADS",
+        "B": "12",
+        "G": "Vila Maria-Vila Guilherme",
+        "H": "14",
+        "M": "SMADS",
+        "N": "11"
+      },
+      "formulas": {
+        "B": "=COUNTIF('02_GESTAO_MONITORES'!$F$5:$F$692,A34)",
+        "H": "=COUNTIF('02_GESTAO_MONITORES'!$L$5:$L$692,G34)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 35,
+      "celulas": {
+        "A": "SMPED",
+        "B": "9",
+        "G": "Aricanduva-Formosa-Carrão",
+        "H": "13",
+        "M": "SMPED",
+        "N": "9"
+      },
+      "formulas": {
+        "B": "=COUNTIF('02_GESTAO_MONITORES'!$F$5:$F$692,A35)",
+        "H": "=COUNTIF('02_GESTAO_MONITORES'!$L$5:$L$692,G35)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 36,
+      "celulas": {
+        "A": "SMC; SMDET",
+        "B": "9",
+        "G": "Casa Verde-Cachoeirinha",
+        "H": "13",
+        "M": "SMC; SMDET",
+        "N": "8"
+      },
+      "formulas": {
+        "B": "=COUNTIF('02_GESTAO_MONITORES'!$F$5:$F$692,A36)",
+        "H": "=COUNTIF('02_GESTAO_MONITORES'!$L$5:$L$692,G36)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 37,
+      "celulas": {
+        "A": "SIURB; SP OBRAS; SMUL; SP URBANISMO",
+        "B": "5",
+        "G": "Itaim Paulista",
+        "H": "13",
+        "M": "SIURB; SP OBRAS; SMUL; SP URBANISMO",
+        "N": "5"
+      },
+      "formulas": {
+        "B": "=COUNTIF('02_GESTAO_MONITORES'!$F$5:$F$692,A37)",
+        "H": "=COUNTIF('02_GESTAO_MONITORES'!$L$5:$L$692,G37)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 38,
+      "celulas": {
+        "A": "SEDP",
+        "B": "2",
+        "G": "Perus",
+        "H": "13",
+        "M": "SEDP",
+        "N": "2"
+      },
+      "formulas": {
+        "B": "=COUNTIF('02_GESTAO_MONITORES'!$F$5:$F$692,A38)",
+        "H": "=COUNTIF('02_GESTAO_MONITORES'!$L$5:$L$692,G38)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 39,
+      "celulas": {
+        "A": "SMDET; ADESAMPA",
+        "B": "3",
+        "G": "Pinheiros",
+        "H": "13",
+        "M": "SMDET; ADESAMPA",
+        "N": "2"
+      },
+      "formulas": {
+        "B": "=COUNTIF('02_GESTAO_MONITORES'!$F$5:$F$692,A39)",
+        "H": "=COUNTIF('02_GESTAO_MONITORES'!$L$5:$L$692,G39)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 40,
+      "celulas": {
+        "A": "SMIT; SMDET; ADESAMPA",
+        "B": "2",
+        "G": "Vila Mariana",
+        "H": "13",
+        "M": "SMIT; SMDET; ADESAMPA",
+        "N": "2"
+      },
+      "formulas": {
+        "B": "=COUNTIF('02_GESTAO_MONITORES'!$F$5:$F$692,A40)",
+        "H": "=COUNTIF('02_GESTAO_MONITORES'!$L$5:$L$692,G40)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 41,
+      "celulas": {
+        "A": "SMT/SEMTRA",
+        "B": "2",
+        "G": "Freguesia-Brasilândia",
+        "H": "18",
+        "M": "SMT/SEMTRA",
+        "N": "2"
+      },
+      "formulas": {
+        "B": "=COUNTIF('02_GESTAO_MONITORES'!$F$5:$F$692,A41)",
+        "H": "=COUNTIF('02_GESTAO_MONITORES'!$L$5:$L$692,G41)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 42,
+      "celulas": {
+        "A": "SEHAB;COHAB",
+        "B": "1",
+        "G": "M'Boi Mirim",
+        "H": "12",
+        "M": "SEHAB;COHAB",
+        "N": "1"
+      },
+      "formulas": {
+        "B": "=COUNTIF('02_GESTAO_MONITORES'!$F$5:$F$692,A42)",
+        "H": "=COUNTIF('02_GESTAO_MONITORES'!$L$5:$L$692,G42)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 43,
+      "celulas": {
+        "A": "SGM/FUNDAÇÃO PAULISTANA; SMDET",
+        "B": "1",
+        "G": "Jabaquara",
+        "H": "17",
+        "M": "SGM/FUNDAÇÃO PAULISTANA; SMDET",
+        "N": "1"
+      },
+      "formulas": {
+        "B": "=COUNTIF('02_GESTAO_MONITORES'!$F$5:$F$692,A43)",
+        "H": "=COUNTIF('02_GESTAO_MONITORES'!$L$5:$L$692,G43)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 44,
+      "celulas": {
+        "A": "SGM/SPTURIS",
+        "B": "1",
+        "G": "Santana-Tucuruvi",
+        "H": "11",
+        "M": "SGM/SPTURIS",
+        "N": "1"
+      },
+      "formulas": {
+        "B": "=COUNTIF('02_GESTAO_MONITORES'!$F$5:$F$692,A44)",
+        "H": "=COUNTIF('02_GESTAO_MONITORES'!$L$5:$L$692,G44)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 45,
+      "celulas": {
+        "A": "SMC; SP URBANISMO",
+        "B": "1",
+        "G": "Ermelino Matarazzo",
+        "H": "9",
+        "M": "SMC; SP URBANISMO",
+        "N": "1"
+      },
+      "formulas": {
+        "B": "=COUNTIF('02_GESTAO_MONITORES'!$F$5:$F$692,A45)",
+        "H": "=COUNTIF('02_GESTAO_MONITORES'!$L$5:$L$692,G45)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 46,
+      "celulas": {
+        "A": "SMUL; SP URBANISMO; SMT; SPTRANS",
+        "B": "1",
+        "G": "Pirituba-Jaraguá",
+        "H": "19",
+        "M": "SMUL; SP URBANISMO; SMT; SPTRANS",
+        "N": "1"
+      },
+      "formulas": {
+        "B": "=COUNTIF('02_GESTAO_MONITORES'!$F$5:$F$692,A46)",
+        "H": "=COUNTIF('02_GESTAO_MONITORES'!$L$5:$L$692,G46)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 47,
+      "celulas": {
+        "G": "Vila Prudente",
+        "H": "9"
+      },
+      "formulas": {
+        "H": "=COUNTIF('02_GESTAO_MONITORES'!$L$5:$L$692,G47)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 48,
+      "celulas": {
+        "A": "Projetos por Secretaria - secretaria e quantidade identificadas"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 49,
+      "celulas": {
+        "A": "Ranking",
+        "B": "Secretaria",
+        "C": "Qtde",
+        "D": "Barra visual"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 50,
+      "celulas": {
+        "A": "1",
+        "B": "SMS",
+        "C": "113",
+        "D": "113"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 51,
+      "celulas": {
+        "A": "2",
+        "B": "SVMA",
+        "C": "74",
+        "D": "74"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 52,
+      "celulas": {
+        "A": "3",
+        "B": "SEME",
+        "C": "54",
+        "D": "54"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 53,
+      "celulas": {
+        "A": "4",
+        "B": "SMC",
+        "C": "44",
+        "D": "44"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 54,
+      "celulas": {
+        "A": "5",
+        "B": "SMSUB",
+        "C": "40",
+        "D": "40"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 55,
+      "celulas": {
+        "A": "6",
+        "B": "SIURB",
+        "C": "34",
+        "D": "34"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 56,
+      "celulas": {
+        "A": "7",
+        "B": "SEHAB",
+        "C": "31",
+        "D": "31"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 57,
+      "celulas": {
+        "A": "8",
+        "B": "SME",
+        "C": "28",
+        "D": "28"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 58,
+      "celulas": {
+        "A": "9",
+        "B": "SP REGULA",
+        "C": "27",
+        "D": "27"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 59,
+      "celulas": {
+        "A": "10",
+        "B": "SMDHC/SESANA",
+        "C": "25",
+        "D": "25"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 60,
+      "celulas": {
+        "A": "11",
+        "B": "SIURB; SP OBRAS",
+        "C": "22",
+        "D": "22"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 61,
+      "celulas": {
+        "A": "12",
+        "B": "SMSU",
+        "C": "22",
+        "D": "22"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 62,
+      "celulas": {
+        "A": "13",
+        "B": "SME; SMSU",
+        "C": "21",
+        "D": "21"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 63,
+      "celulas": {
+        "A": "14",
+        "B": "SMT; SPTRANS; SGM/SEDP",
+        "C": "16",
+        "D": "16"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 64,
+      "celulas": {
+        "A": "15",
+        "B": "SMT; SPTRANS",
+        "C": "13",
+        "D": "13"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 65,
+      "celulas": {
+        "A": "16",
+        "B": "SMUL; SP URBANISMO",
+        "C": "12",
+        "D": "12"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 66,
+      "celulas": {
+        "A": "17",
+        "B": "SMADS",
+        "C": "11",
+        "D": "11"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 67,
+      "celulas": {
+        "A": "18",
+        "B": "SMPED",
+        "C": "9",
+        "D": "9"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 68,
+      "celulas": {
+        "A": "19",
+        "B": "SMC; SMDET",
+        "C": "8",
+        "D": "8"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 69,
+      "celulas": {
+        "A": "20",
+        "B": "SIURB; SP OBRAS; SMUL; SP URBANISMO",
+        "C": "5",
+        "D": "5"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 70,
+      "celulas": {
+        "A": "21",
+        "B": "SEDP",
+        "C": "2",
+        "D": "2"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 71,
+      "celulas": {
+        "A": "22",
+        "B": "SMDET; ADESAMPA",
+        "C": "2",
+        "D": "2"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 72,
+      "celulas": {
+        "A": "23",
+        "B": "SMIT; SMDET; ADESAMPA",
+        "C": "2",
+        "D": "2"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 73,
+      "celulas": {
+        "A": "24",
+        "B": "SMT/SEMTRA",
+        "C": "2",
+        "D": "2"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 74,
+      "celulas": {
+        "A": "25",
+        "B": "SEHAB;COHAB",
+        "C": "1",
+        "D": "1"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 75,
+      "celulas": {
+        "A": "26",
+        "B": "SGM/FUNDAÇÃO PAULISTANA; SMDET",
+        "C": "1",
+        "D": "1"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 76,
+      "celulas": {
+        "A": "27",
+        "B": "SGM/SPTURIS",
+        "C": "1",
+        "D": "1"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 77,
+      "celulas": {
+        "A": "28",
+        "B": "SMC; SP URBANISMO",
+        "C": "1",
+        "D": "1"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 78,
+      "celulas": {
+        "A": "29",
+        "B": "SMUL; SP URBANISMO; SMT; SPTRANS",
+        "C": "1",
+        "D": "1"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 86,
+      "celulas": {
+        "A": "Visão global integrada das demais abas"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 88,
+      "celulas": {
+        "A": "Registros geográficos PDM",
+        "D": "Geometrias OK",
+        "G": "Metas em relação de mapas",
+        "J": "Total meta 104 por zonas"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 89,
+      "celulas": {
+        "A": "421",
+        "D": "413",
+        "G": "132",
+        "J": "69229"
+      },
+      "formulas": {
+        "A": "=COUNTA('03_GEO_PDM'!B2:B2000)",
+        "D": "=COUNTIF('03_GEO_PDM'!J2:J2000,\"OK\")",
+        "G": "=COUNTA('08_RELACAO_MAPAS'!A2:A2000)",
+        "J": "='04_COROP_ZONAS'!B8"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 91,
+      "celulas": {
+        "A": "Dimensão",
+        "D": "Leitura para gestão"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 92,
+      "celulas": {
+        "A": "Dimensão",
+        "B": "Indicador",
+        "C": "Valor",
+        "D": "Leitura para gestão"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 93,
+      "celulas": {
+        "A": "Base operacional",
+        "B": "Linhas em 02_GESTAO_MONITORES",
+        "C": "688",
+        "D": "Volume monitorado"
+      },
+      "formulas": {
+        "C": "=A5"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 94,
+      "celulas": {
+        "A": "Base operacional",
+        "B": "Ações executadas",
+        "C": "212",
+        "D": "Entrega registrada por monitores"
+      },
+      "formulas": {
+        "C": "=COUNTIF('02_GESTAO_MONITORES'!H5:H692,\"Executado\")"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 95,
+      "celulas": {
+        "A": "Qualidade geográfica",
+        "B": "Sem latitude ou longitude",
+        "C": "150",
+        "D": "Prioridade de saneamento"
+      },
+      "formulas": {
+        "C": "=J5"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 96,
+      "celulas": {
+        "A": "Qualidade geográfica",
+        "B": "Validação espacial OK",
+        "C": "413",
+        "D": "Prontos para mapa"
+      },
+      "formulas": {
+        "C": "=COUNTIF('03_GEO_PDM'!J2:J2000,\"OK\")"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 97,
+      "celulas": {
+        "A": "Qualidade geográfica",
+        "B": "Validação espacial Revisar",
+        "C": "8",
+        "D": "Exigem checagem técnica"
+      },
+      "formulas": {
+        "C": "=COUNTIF('03_GEO_PDM'!J2:J2000,\"Revisar\")"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 98,
+      "celulas": {
+        "A": "Publicação",
+        "B": "Metas regionalizadas na relação de mapas",
+        "C": "52",
+        "D": "Prontas para leitura pública"
+      },
+      "formulas": {
+        "C": "=COUNTIF('08_RELACAO_MAPAS'!C2:C2000,\"Regionalizada\")"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 99,
+      "celulas": {
+        "A": "Publicação",
+        "B": "Metas regionalizáveis",
+        "C": "23",
+        "D": "Podem requerer atualização"
+      },
+      "formulas": {
+        "C": "=COUNTIF('08_RELACAO_MAPAS'!C2:C2000,\"Regionalizável\")"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 100,
+      "celulas": {
+        "A": "Publicação",
+        "B": "Metas não regionalizáveis",
+        "C": "57",
+        "D": "Monitorar justificativa"
+      },
+      "formulas": {
+        "C": "=COUNTIF('08_RELACAO_MAPAS'!C2:C2000,\"Não regionalizável\")"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 101,
+      "celulas": {
+        "A": "Coropléticos",
+        "B": "Total executado por subprefeituras",
+        "C": "5969668.1699999981",
+        "D": "Volume das metas executadas regionalizadas"
+      },
+      "formulas": {
+        "C": "=SUM('05_COROP_EXECUTADO'!D2:U34)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 102,
+      "celulas": {
+        "A": "Coropléticos",
+        "B": "Total planejado por subprefeituras",
+        "C": "0",
+        "D": "Volume das metas planejadas regionalizadas"
+      },
+      "formulas": {
+        "C": "=SUM('06_COROP_PLANEJADOS'!D2:S33)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 103,
+      "celulas": {
+        "A": "Coropléticos",
+        "B": "Subprefeituras com execução",
+        "C": "0",
+        "D": "Cobertura territorial da execução"
+      },
+      "formulas": {
+        "C": "=COUNTIF('05_COROP_EXECUTADO'!V2:V34,\">0\")"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 104,
+      "celulas": {
+        "A": "Coropléticos",
+        "B": "Subprefeituras com planejamento",
+        "C": "0",
+        "D": "Cobertura territorial do planejamento"
+      },
+      "formulas": {
+        "C": "=COUNTIF('06_COROP_PLANEJADOS'!T2:T33,\">0\")"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 107,
+      "celulas": {
+        "A": "Leituras complementares para publicação e território"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 108,
+      "celulas": {
+        "A": "Status na relação de mapas",
+        "B": "Qtde",
+        "D": "Zona",
+        "E": "Meta 104"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 109,
+      "celulas": {
+        "A": "Regionalizada",
+        "B": "52",
+        "D": "Centro",
+        "E": "7838"
+      },
+      "formulas": {
+        "B": "=COUNTIF('08_RELACAO_MAPAS'!$C$2:$C$2000,A109)",
+        "D": "='04_COROP_ZONAS'!A2",
+        "E": "='04_COROP_ZONAS'!B2"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 110,
+      "celulas": {
+        "A": "Regionalizável",
+        "B": "23",
+        "D": "Leste",
+        "E": "20351"
+      },
+      "formulas": {
+        "B": "=COUNTIF('08_RELACAO_MAPAS'!$C$2:$C$2000,A110)",
+        "D": "='04_COROP_ZONAS'!A3",
+        "E": "='04_COROP_ZONAS'!B3"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 111,
+      "celulas": {
+        "A": "Não regionalizável",
+        "B": "57",
+        "D": "Norte",
+        "E": "13436"
+      },
+      "formulas": {
+        "B": "=COUNTIF('08_RELACAO_MAPAS'!$C$2:$C$2000,A111)",
+        "D": "='04_COROP_ZONAS'!A4",
+        "E": "='04_COROP_ZONAS'!B4"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 112,
+      "celulas": {
+        "D": "Oeste",
+        "E": "10694"
+      },
+      "formulas": {
+        "D": "='04_COROP_ZONAS'!A5",
+        "E": "='04_COROP_ZONAS'!B5"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 113,
+      "celulas": {
+        "D": "Sul",
+        "E": "6285"
+      },
+      "formulas": {
+        "D": "='04_COROP_ZONAS'!A6",
+        "E": "='04_COROP_ZONAS'!B6"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 114,
+      "celulas": {
+        "A": "Cruzamento Buffer 150m"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 115,
+      "celulas": {
+        "A": "Indicador",
+        "B": "Valor",
+        "C": "Fórmula/Origem",
+        "D": "Leitura para gestão"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 116,
+      "celulas": {
+        "A": "Pontos no buffer 150m",
+        "B": "463",
+        "C": "09_BUFFER_150M",
+        "D": "Total de pontos importados da análise espacial"
+      },
+      "formulas": {
+        "B": "=COUNTA('09_BUFFER_150M'!C2:C464)"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 117,
+      "celulas": {
+        "A": "Códigos vinculados à aba 02",
+        "B": "463",
+        "C": "geocodigo x codigo",
+        "D": "Registros do buffer encontrados na operação dos monitores"
+      },
+      "formulas": {
+        "B": "=COUNTIF('09_BUFFER_150M'!P2:P464,\"Sim\")"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 118,
+      "celulas": {
+        "A": "Códigos ausentes na aba 02",
+        "B": "0",
+        "C": "geocodigo x codigo",
+        "D": "Devem ser revisados antes de publicar/automatizar"
+      },
+      "formulas": {
+        "B": "=COUNTIF('09_BUFFER_150M'!P2:P464,\"Não\")"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 119,
+      "celulas": {
+        "A": "Subprefeituras OK pelo buffer",
+        "B": "445",
+        "C": "comparação 02 x origem buffer",
+        "D": "Subprefeitura atual da aba 02 confere com a base do buffer"
+      },
+      "formulas": {
+        "B": "=COUNTIF('09_BUFFER_150M'!W2:W464,\"OK\")+COUNTIF('09_BUFFER_150M'!W2:W464,\"OK - atenção raio 150m\")"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 120,
+      "celulas": {
+        "A": "Subprefeituras a revisar",
+        "B": "17",
+        "C": "comparação 02 x origem buffer",
+        "D": "Divergência entre subprefeitura operacional e base do buffer"
+      },
+      "formulas": {
+        "B": "=COUNTIF('09_BUFFER_150M'!W2:W464,\"Revisar subprefeitura\")"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 121,
+      "celulas": {
+        "A": "Pontos próximos a outra subprefeitura",
+        "B": "53",
+        "C": "subprefeituras_proximas_150m",
+        "D": "Atenção a pontos perto de divisa administrativa"
+      },
+      "formulas": {
+        "B": "=COUNTIFS('09_BUFFER_150M'!H2:H464,\"<>Nenhuma outra subprefeitura no raio de 150 m\",'09_BUFFER_150M'!H2:H464,\"<>\")"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 122,
+      "celulas": {
+        "A": "Cobertura do buffer sobre registros georreferenciados",
+        "B": "0.86059479553903351",
+        "C": "buffer / registros com coordenadas",
+        "D": "Quanto da base com coordenada já possui validação 150m"
+      },
+      "formulas": {
+        "B": "=IF((A5-J5)=0,0,B116/(A5-J5))"
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 123,
+      "celulas": {
+        "A": "Aba automatizada",
+        "B": "Sim",
+        "C": "09_BUFFER_150M!P:W",
+        "D": "Colunas finais puxam dados atuais da 02_GESTAO_MONITORES"
+      },
+      "formulas": {
+        "B": "=\"Sim\""
+      },
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "arquivo": "base_geo_2026.xlsx",
+  "aba": "04_COROP_ZONAS",
+  "cabecalho_linha": null,
+  "linhas_nao_vazias": 8,
+  "linhas_vinculadas": 0,
+  "linhas": [
+    {
+      "linha": 1,
+      "celulas": {
+        "A": "zona",
+        "B": "meta 104"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 2,
+      "celulas": {
+        "A": "Centro",
+        "B": "7838"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 3,
+      "celulas": {
+        "A": "Leste",
+        "B": "20351"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 4,
+      "celulas": {
+        "A": "Norte",
+        "B": "13436"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 5,
+      "celulas": {
+        "A": "Oeste",
+        "B": "10694"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 6,
+      "celulas": {
+        "A": "Sul",
+        "B": "6285"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 7,
+      "celulas": {
+        "A": "Supra",
+        "B": "10625"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 8,
+      "celulas": {
+        "A": "Total",
+        "B": "69229"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    }
+  ]
+}
