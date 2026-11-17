@@ -59,6 +59,8 @@ from Back_end.site_cms.modules.metas.geografia.state import GeoCmsState
 from Back_end.site_cms.modules.metas.fontes_page import fontes_mapa_page, FontesMetaState
 
 from Back_end.site_cms.state.section_editor_state import SectionEditorState
+from Back_end.media_library.pages.page import media_library_page
+from Back_end.media_library.state.state import MediaLibraryState
 
 import Back_end.media_library  # noqa: F401
 from Back_end.media_library.pages.page import media_library_page
@@ -254,6 +256,19 @@ app.add_page(
         AuthState.require_metas_access,
         MetaPrintState.load_meta,
     ],
+)
+
+
+
+# ============================================================
+# BANCO DE IMAGENS E VÍDEOS
+# ============================================================
+
+app.add_page(
+    media_library_page,
+    route="/admin/midias",
+    title="Banco de imagens e vídeos | Programa de Metas",
+    on_load=MediaLibraryState.load_page,
 )
 
 
