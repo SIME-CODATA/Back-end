@@ -1,10 +1,19 @@
 from __future__ import annotations
 
 import json
+import uuid
+import re
 from copy import deepcopy
 from typing import Any
 
 import reflex as rx
+
+from Back_end.media_library.service.service import (
+    get_asset,
+    list_assets,
+    public_asset_url,
+    save_asset,
+)
 
 from Back_end.access.core.guards import (
     can_access,
@@ -38,42 +47,51 @@ from Back_end.site_cms.modules.metas.sync_service import (
 ActionRow = dict[str, str]
 ResultRow = dict[str, str]
 RegionBlockRow = dict[str, str]
+AssociatedWorkRow = dict[str, str]
+AssociatedProjectRow = dict[str, str]
+ExtraSectionRow = dict[str, str]
 ConflictRow = dict[str, str]
 
 
-def _media_url(
-    value: Any,
-) -> str:
-    if not isinstance(
-        value,
-        dict,
-    ):
+def _media_url(value: Any) -> str:
+    """Preserva a identidade da mídia cadastrada, sem perder URLs antigas."""
+    if not isinstance(value, dict):
         return ""
-
-    return str(
-        value.get(
-            "legacy_source"
-        )
-        or value.get("url")
-        or ""
-    )
+    media_id = value.get("media_id")
+    if media_id not in (None, ""):
+        return f"media:{media_id}"
+    return str(value.get("legacy_source") or value.get("url") or "")
 
 
-def _media_reference(
-    value: str,
-) -> dict[str, Any] | None:
-    normalized = str(
-        value
-        or ""
-    ).strip()
-
+def _media_reference(value: str) -> dict[str, Any] | None:
+    normalized = str(value or "").strip()
     if not normalized:
         return None
+    if normalized.startswith("media:"):
+        try:
+            media_id = int(normalized.split(":", 1)[1])
+            if media_id > 0:
+                return {"media_id": media_id, "legacy_source": None}
+        except (ValueError, IndexError):
+            pass
+        return None
+    return {"media_id": None, "legacy_source": normalized}
 
-    return {
-        "media_id": None,
-        "legacy_source": normalized,
-    }
+
+def _media_preview(value: str) -> str:
+    ref = str(value or "").strip()
+    if ref.startswith("media:"):
+        try:
+            return public_asset_url(int(ref.split(":", 1)[1]))
+        except ValueError:
+            return ""
+    if ref.startswith("http://programademetas.prefeitura.sp.gov.br"):
+        return "https://" + ref.removeprefix("http://")
+    return ref
+
+
+def re_hex_color(value: str) -> bool:
+    return bool(re.fullmatch(r"#[0-9A-Fa-f]{6}", str(value or "")))
 
 
 def _split_lines(
@@ -196,6 +214,8 @@ class MetaCmsState(AuthState):
 
     number: str = ""
     title: str = ""
+    title_highlight: str = ""
+    title_complement: str = ""
     projection: str = ""
     indicator: str = ""
 
@@ -225,12 +245,26 @@ class MetaCmsState(AuthState):
         RegionBlockRow
     ] = []
 
+    associated_works: list[
+        AssociatedWorkRow
+    ] = []
+
+    associated_projects: list[
+        AssociatedProjectRow
+    ] = []
+
+    extra_sections: list[
+        ExtraSectionRow
+    ] = []
+
     # ========================================================
     # ORIGENS
     # ========================================================
 
     source_number: str = ""
     source_title: str = ""
+    source_title_highlight: str = ""
+    source_title_complement: str = ""
     source_projection: str = ""
     source_strategic_actions: str = ""
     source_indicator: str = ""
@@ -243,6 +277,8 @@ class MetaCmsState(AuthState):
     source_monitoring: str = ""
     source_measured_results: str = ""
     source_regionalization: str = ""
+    source_associated_works: str = ""
+    source_associated_projects: str = ""
 
     # ========================================================
     # CONFLITOS
@@ -259,6 +295,17 @@ class MetaCmsState(AuthState):
     # ========================================================
 
     publication_note: str = ""
+
+    # Editor visual da ficha, sem alterar o modelo de banco.
+    visual_region_tab: str = "executed"
+    visual_open_action_index: int = -1
+    visual_result_index: int = 0
+    visual_show_advanced: bool = False
+    visual_show_title_fields: bool = False
+    visual_media_picker: str = ""
+    visual_media_assets: list[dict[str, str]] = []
+    visual_media_uploading: bool = False
+    visual_media_message: str = ""
 
     # ========================================================
     # PERMISSÕES
@@ -338,6 +385,220 @@ class MetaCmsState(AuthState):
         )
 
     # ========================================================
+    # PREVIA E BANCO DE MIDIA
+    # ========================================================
+
+    @rx.var
+    def visual_axis_color(self) -> str:
+        color = str(self.axis_primary_color or "").strip()
+        return color if re_hex_color(color) else "#3DB54A"
+
+    @rx.var
+    def visual_axis_secondary(self) -> str:
+        color = str(self.axis_secondary_color or "").strip()
+        return color if re_hex_color(color) else "#288140"
+
+    @rx.var
+    def visual_axis_phrase_one(self) -> str:
+        phrases = _split_lines(self.axis_phrases_text)
+        return phrases[0] if phrases else ""
+
+    @rx.var
+    def visual_axis_phrase_two(self) -> str:
+        phrases = _split_lines(self.axis_phrases_text)
+        return " ".join(phrases[1:]) if len(phrases) > 1 else ""
+
+    @rx.var
+    def visual_result_value(self) -> str:
+        if not self.measured_results:
+            return "Item não cadastrado"
+        index = min(self.visual_result_index, len(self.measured_results) - 1)
+        return str(self.measured_results[index].get("value") or "Item não cadastrado")
+
+    @rx.var
+    def visual_result_period(self) -> str:
+        if not self.measured_results:
+            return "Sem resultado"
+        index = min(self.visual_result_index, len(self.measured_results) - 1)
+        first = self.measured_results[index]
+        return f"{first.get('month') or ''}/{first.get('year') or ''}".strip("/")
+
+    @rx.var
+    def visual_has_many_results(self) -> bool:
+        return len(self.measured_results) > 1
+
+    @rx.event
+    def visual_previous_result(self):
+        if self.measured_results:
+            self.visual_result_index = (
+                self.visual_result_index - 1
+            ) % len(self.measured_results)
+
+    @rx.event
+    def visual_next_result(self):
+        if self.measured_results:
+            self.visual_result_index = (
+                self.visual_result_index + 1
+            ) % len(self.measured_results)
+
+    @rx.var
+    def visual_active_image(self) -> str:
+        for row in self.regionalization_blocks:
+            if row.get("key") == self.visual_region_tab:
+                return str(row.get("image_preview") or "")
+        return ""
+
+    @rx.var
+    def visual_active_text(self) -> str:
+        for row in self.regionalization_blocks:
+            if row.get("key") == self.visual_region_tab:
+                return str(row.get("text") or "")
+        return ""
+
+    @rx.var
+    def visual_active_footer(self) -> str:
+        for row in self.regionalization_blocks:
+            if row.get("key") == self.visual_region_tab:
+                return str(row.get("footer") or "")
+        return ""
+
+    @rx.var
+    def visual_media_count(self) -> int:
+        return len(self.visual_media_assets)
+
+    @rx.event
+    def set_visual_region_tab(self, slot: str):
+        if slot in {"planned", "executed"}:
+            self.visual_region_tab = slot
+
+    @rx.event
+    def set_visual_region_executed(self, checked: bool):
+        self.visual_region_tab = "executed" if checked else "planned"
+
+    @rx.event
+    def toggle_visual_advanced(self):
+        self.visual_show_advanced = not self.visual_show_advanced
+
+    @rx.event
+    def toggle_visual_title_fields(self):
+        self.visual_show_title_fields = not self.visual_show_title_fields
+
+    @rx.event
+    def toggle_visual_action(self, index: int):
+        self.visual_open_action_index = (
+            -1 if self.visual_open_action_index == index else index
+        )
+
+    @rx.event
+    def toggle_region_media_picker(self, slot: str):
+        if slot in {"planned", "executed"}:
+            self.visual_media_picker = (
+                "" if self.visual_media_picker == slot else slot
+            )
+
+    def _reload_visual_media(self):
+        if not can_access(self.current_user_role, Permission.MEDIA_VIEW):
+            self.visual_media_assets = []
+            return
+        try:
+            assets = list_assets(media_type="image")
+            self.visual_media_assets = [
+                {
+                    "id": str(asset.id),
+                    "name": str(asset.name),
+                    "url": public_asset_url(int(asset.id)),
+                }
+                for asset in reversed(assets[-24:]) if asset.id is not None
+            ]
+        except Exception as exc:
+            print(f"[CMS METAS] Falha ao consultar Banco de Mídia: {exc}")
+            self.visual_media_assets = []
+            self.visual_media_message = (
+                "Não foi possível consultar as imagens. Verifique o Banco de Mídia."
+            )
+
+    def _assign_region_asset(self, slot: str, asset_id: int):
+        if slot not in {"planned", "executed"}:
+            raise ValueError("Imagem de regionalização inválida.")
+        asset = get_asset(asset_id)
+        if asset is None or asset.media_type != "image":
+            raise ValueError("Imagem não encontrada ou inativa no Banco de Mídia.")
+        for i, row in enumerate(self.regionalization_blocks):
+            if row.get("key") == slot:
+                self._update_region_block(i, "image_url", f"media:{asset_id}")
+                self._update_region_block(i, "enabled", "true")
+                self.regionalization_mode = "custom"
+                self._mark_field_dirty("regionalization")
+                self.visual_region_tab = slot
+                self.visual_media_picker = ""
+                return
+        raise ValueError("Bloco de imagem não encontrado na Meta.")
+
+    @rx.event
+    def choose_region_media(self, slot: str, asset_id: str):
+        if not self._require_edit():
+            return
+        if not can_access(self.current_user_role, Permission.MEDIA_VIEW):
+            self.visual_media_message = "Sem permissão para selecionar mídias."
+            return
+        try:
+            self._assign_region_asset(slot, int(asset_id))
+            self.visual_media_message = "Imagem selecionada. Salve o rascunho."
+        except (ValueError, TypeError) as exc:
+            self.visual_media_message = str(exc)
+
+    async def _upload_region_image(self, slot: str, files: list[rx.UploadFile]):
+        if not self._require_edit():
+            return
+        if not can_access(self.current_user_role, Permission.MEDIA_ADD):
+            self.visual_media_message = "Sem permissão para enviar imagens."
+            return
+        if slot not in {"planned", "executed"} or len(files or []) != 1:
+            self.visual_media_message = "Selecione uma imagem para o campo correto."
+            return
+        if self.visual_media_uploading:
+            return
+        self.visual_media_uploading = True
+        self.visual_media_message = ""
+        try:
+            incoming = files[0]
+            original_name = str(incoming.filename or "imagem")
+            content = await incoming.read()
+            asset = save_asset(
+                original_name=original_name,
+                content=content,
+                name=f"meta_{self.meta_code}_{slot}_{uuid.uuid4().hex[:10]}",
+                folder="imagens",
+                alt_text=f"Meta {self.meta_code}: mapa {'planejado' if slot == 'planned' else 'executado'}",
+                description="Regionalização da ficha de Meta",
+                actor_user_id=None,
+            )
+            if asset.id is None:
+                raise ValueError("A mídia foi salva sem identificador.")
+            self._assign_region_asset(slot, int(asset.id))
+            self._reload_visual_media()
+            self.visual_media_message = (
+                "Imagem enviada e selecionada. Clique em Salvar rascunho."
+            )
+        except (ValueError, OSError, RuntimeError) as exc:
+            self.visual_media_message = f"Não foi possível enviar a imagem: {exc}"
+        except Exception as exc:
+            print(f"[CMS METAS] Erro inesperado no envio de imagem: {exc}")
+            self.visual_media_message = (
+                "Falha no envio. Confira a conexão com o Banco de Mídia e os logs."
+            )
+        finally:
+            self.visual_media_uploading = False
+
+    @rx.event
+    async def upload_region_planned(self, files: list[rx.UploadFile]):
+        await self._upload_region_image("planned", files)
+
+    @rx.event
+    async def upload_region_executed(self, files: list[rx.UploadFile]):
+        await self._upload_region_image("executed", files)
+
+    # ========================================================
     # HELPERS
     # ========================================================
 
@@ -405,6 +666,22 @@ class MetaCmsState(AuthState):
             _source_label(
                 source_map.get(
                     "title",
+                    "",
+                )
+            )
+        )
+        self.source_title_highlight = (
+            _source_label(
+                source_map.get(
+                    "title_highlight",
+                    "",
+                )
+            )
+        )
+        self.source_title_complement = (
+            _source_label(
+                source_map.get(
+                    "title_complement",
                     "",
                 )
             )
@@ -505,6 +782,22 @@ class MetaCmsState(AuthState):
                 )
             )
         )
+        self.source_associated_works = (
+            _source_label(
+                source_map.get(
+                    "associated_works",
+                    "",
+                )
+            )
+        )
+        self.source_associated_projects = (
+            _source_label(
+                source_map.get(
+                    "associated_projects",
+                    "",
+                )
+            )
+        )
 
     def _apply_content(
         self,
@@ -523,6 +816,20 @@ class MetaCmsState(AuthState):
         self.title = str(
             content.get(
                 "title"
+            )
+            or ""
+        )
+
+        self.title_highlight = str(
+            content.get(
+                "title_highlight"
+            )
+            or ""
+        )
+
+        self.title_complement = str(
+            content.get(
+                "title_complement"
             )
             or ""
         )
@@ -694,54 +1001,85 @@ class MetaCmsState(AuthState):
             or ""
         )
 
+        # Garante dois slots de imagem sem eliminar blocos editoriais existentes.
+        original_blocks = [
+            item for item in (regionalization.get("blocks") or [])
+            if isinstance(item, dict)
+        ]
+        by_key = {str(item.get("key") or ""): item for item in original_blocks}
+        base_blocks = []
+        for slot, title in (("planned", "Planejada"), ("executed", "Executada")):
+            base_blocks.append(by_key.get(slot) or {
+                "key": slot, "title": title, "enabled": True,
+                "image": None, "text": "", "footer": "", "buttons": []
+            })
+        base_blocks.extend(
+            item for item in original_blocks
+            if str(item.get("key") or "") not in {"planned", "executed"}
+        )
+
         self.regionalization_blocks = [
             {
-                "key": str(
-                    item.get(
-                        "key"
-                    )
-                    or ""
-                ),
-                "title": str(
-                    item.get(
-                        "title"
-                    )
-                    or ""
-                ),
-                "enabled": (
-                    "true"
-                    if item.get(
-                        "enabled",
-                        True,
-                    )
-                    else "false"
-                ),
-                "image_url": (
-                    _media_url(
-                        item.get(
-                            "image"
-                        )
-                    )
-                ),
-                "text": str(
-                    item.get(
-                        "text"
-                    )
-                    or ""
-                ),
-                "footer": str(
-                    item.get(
-                        "footer"
-                    )
-                    or ""
-                ),
+                "key": str(item.get("key") or ""),
+                "title": str(item.get("title") or ""),
+                "enabled": "true" if item.get("enabled", True) else "false",
+                "image_url": _media_url(item.get("image")),
+                "image_preview": _media_preview(_media_url(item.get("image"))),
+                "text": str(item.get("text") or ""),
+                "footer": str(item.get("footer") or ""),
             }
-            for item in (
-                regionalization.get(
-                    "blocks"
-                )
-                or []
-            )
+            for item in base_blocks
+        ]
+
+        self.associated_works = [
+            {
+                "code": str(item.get("code") or ""),
+                "name": str(item.get("name") or ""),
+                "intervention_type": str(item.get("intervention_type") or ""),
+                "subprefectures": _join_lines([
+                    sub.get("name") or ""
+                    for sub in (item.get("subprefectures") or [])
+                    if isinstance(sub, dict)
+                ]),
+                "regions": _join_lines(item.get("regions") or []),
+                "equipment": str(item.get("equipment") or ""),
+                "status": str(item.get("status") or ""),
+                "percent_complete": str(
+                    item.get("percent_complete")
+                    if item.get("percent_complete") is not None
+                    else ""
+                ),
+                "latitude": str((item.get("location") or {}).get("latitude") or ""),
+                "longitude": str((item.get("location") or {}).get("longitude") or ""),
+                "address": str((item.get("location") or {}).get("address") or ""),
+            }
+            for item in (content.get("associated_works") or [])
+            if isinstance(item, dict)
+        ]
+
+        self.associated_projects = [
+            {
+                "code": str(item.get("code") or ""),
+                "name": str(item.get("name") or ""),
+                "portfolio": str(item.get("portfolio") or ""),
+                "stage": str(item.get("stage") or ""),
+                "latitude": str((item.get("location") or {}).get("latitude") or ""),
+                "longitude": str((item.get("location") or {}).get("longitude") or ""),
+                "address": str((item.get("location") or {}).get("address") or ""),
+            }
+            for item in (content.get("associated_projects") or [])
+            if isinstance(item, dict)
+        ]
+
+        self.extra_sections = [
+            {
+                "title": str(item.get("title") or ""),
+                "text": str(item.get("text") or ""),
+                "image_url": _media_url(item.get("image")),
+                "enabled": "true" if item.get("enabled", True) else "false",
+            }
+            for item in (content.get("extra_sections") or [])
+            if isinstance(item, dict)
         ]
 
     def _content_for_field(
@@ -758,6 +1096,8 @@ class MetaCmsState(AuthState):
                 )
             ),
             "title": self.title.strip(),
+            "title_highlight": self.title_highlight.strip(),
+            "title_complement": self.title_complement.strip(),
             "projection": (
                 self.projection.strip()
             ),
@@ -860,6 +1200,54 @@ class MetaCmsState(AuthState):
                 for row in (
                     self.measured_results
                 )
+            ],
+            "associated_works": [
+                {
+                    "id": None,
+                    "code": str(row.get("code") or "").strip(),
+                    "name": str(row.get("name") or "").strip(),
+                    "intervention_type": str(row.get("intervention_type") or "").strip(),
+                    "subprefectures": [
+                        {"id": None, "name": name, "parent_id": None}
+                        for name in _split_lines(str(row.get("subprefectures") or ""))
+                    ],
+                    "regions": _split_lines(str(row.get("regions") or "")),
+                    "equipment": str(row.get("equipment") or "").strip(),
+                    "status": str(row.get("status") or "").strip(),
+                    "percent_complete": (
+                        str(row.get("percent_complete") or "").strip() or None
+                    ),
+                    "location": {
+                        "latitude": (str(row.get("latitude") or "").strip() or None),
+                        "longitude": (str(row.get("longitude") or "").strip() or None),
+                        "address": str(row.get("address") or "").strip(),
+                    },
+                }
+                for row in self.associated_works
+            ],
+            "associated_projects": [
+                {
+                    "id": None,
+                    "code": str(row.get("code") or "").strip(),
+                    "name": str(row.get("name") or "").strip(),
+                    "portfolio": str(row.get("portfolio") or "").strip(),
+                    "stage": str(row.get("stage") or "").strip(),
+                    "location": {
+                        "latitude": (str(row.get("latitude") or "").strip() or None),
+                        "longitude": (str(row.get("longitude") or "").strip() or None),
+                        "address": str(row.get("address") or "").strip(),
+                    },
+                }
+                for row in self.associated_projects
+            ],
+            "extra_sections": [
+                {
+                    "title": str(row.get("title") or "").strip(),
+                    "text": str(row.get("text") or "").strip(),
+                    "image": _media_reference(str(row.get("image_url") or "")),
+                    "enabled": str(row.get("enabled") or "true") == "true",
+                }
+                for row in self.extra_sections
             ],
             "regionalization": {
                 "mode": (
@@ -1039,6 +1427,14 @@ class MetaCmsState(AuthState):
         self.dirty_fields = []
 
         self._refresh_conflicts()
+        self.visual_region_tab = "executed"
+        self.visual_open_action_index = -1
+        self.visual_result_index = 0
+        self.visual_show_advanced = False
+        self.visual_show_title_fields = False
+        self.visual_media_picker = ""
+        self.visual_media_message = ""
+        self._reload_visual_media()
 
         return True
 
@@ -1159,6 +1555,26 @@ class MetaCmsState(AuthState):
         self.title = value
         self._mark_field_dirty(
             "title"
+        )
+
+    @rx.event
+    def set_title_highlight(
+        self,
+        value: str,
+    ):
+        self.title_highlight = value
+        self._mark_field_dirty(
+            "title_highlight"
+        )
+
+    @rx.event
+    def set_title_complement(
+        self,
+        value: str,
+    ):
+        self.title_complement = value
+        self._mark_field_dirty(
+            "title_complement"
         )
 
     @rx.event
@@ -1456,6 +1872,122 @@ class MetaCmsState(AuthState):
         )
 
     # ========================================================
+    # OBRAS ASSOCIADAS
+    # ========================================================
+
+    def _update_work(self, index: int, field: str, value: str) -> None:
+        rows = [dict(row) for row in self.associated_works]
+        if 0 <= index < len(rows):
+            rows[index][field] = value
+            self.associated_works = rows
+            self._mark_field_dirty("associated_works")
+
+    @rx.event
+    def update_work_field(self, index: int, field: str, value: str):
+        self._update_work(index, field, value)
+
+    @rx.event
+    def add_work(self):
+        self.associated_works = [
+            *self.associated_works,
+            {
+                "code": "",
+                "name": "",
+                "intervention_type": "",
+                "subprefectures": "",
+                "regions": "",
+                "equipment": "",
+                "status": "",
+                "percent_complete": "",
+                "latitude": "",
+                "longitude": "",
+                "address": "",
+            },
+        ]
+        self._mark_field_dirty("associated_works")
+
+    @rx.event
+    def remove_work(self, index: int):
+        self.associated_works = [
+            dict(row)
+            for position, row in enumerate(self.associated_works)
+            if position != index
+        ]
+        self._mark_field_dirty("associated_works")
+
+    # ========================================================
+    # PROJETOS ASSOCIADOS
+    # ========================================================
+
+    def _update_project(self, index: int, field: str, value: str) -> None:
+        rows = [dict(row) for row in self.associated_projects]
+        if 0 <= index < len(rows):
+            rows[index][field] = value
+            self.associated_projects = rows
+            self._mark_field_dirty("associated_projects")
+
+    @rx.event
+    def update_project_field(self, index: int, field: str, value: str):
+        self._update_project(index, field, value)
+
+    @rx.event
+    def add_project(self):
+        self.associated_projects = [
+            *self.associated_projects,
+            {
+                "code": "",
+                "name": "",
+                "portfolio": "",
+                "stage": "",
+                "latitude": "",
+                "longitude": "",
+                "address": "",
+            },
+        ]
+        self._mark_field_dirty("associated_projects")
+
+    @rx.event
+    def remove_project(self, index: int):
+        self.associated_projects = [
+            dict(row)
+            for position, row in enumerate(self.associated_projects)
+            if position != index
+        ]
+        self._mark_field_dirty("associated_projects")
+
+    # ========================================================
+    # SEÇÕES EXTRAS
+    # ========================================================
+
+    def _update_extra_section(self, index: int, field: str, value: str) -> None:
+        rows = [dict(row) for row in self.extra_sections]
+        if 0 <= index < len(rows):
+            rows[index][field] = value
+            self.extra_sections = rows
+            self._mark_field_dirty("extra_sections")
+
+    @rx.event
+    def update_extra_section_field(self, index: int, field: str, value: str):
+        self._update_extra_section(index, field, value)
+
+    @rx.event
+    def add_extra_section(self):
+        self.extra_sections = [
+            *self.extra_sections,
+            {"title": "", "text": "", "image_url": "", "enabled": "true"},
+        ]
+        self._mark_field_dirty("extra_sections")
+
+    @rx.event
+    def remove_extra_section(self, index: int):
+        self.extra_sections = [
+            dict(row)
+            for position, row in enumerate(self.extra_sections)
+            if position != index
+        ]
+        self._mark_field_dirty("extra_sections")
+
+    # ========================================================
     # REGIONALIZAÇÃO
     # ========================================================
 
@@ -1477,11 +2009,9 @@ class MetaCmsState(AuthState):
             <= index
             < len(rows)
         ):
-            rows[
-                index
-            ][
-                field
-            ] = value
+            rows[index][field] = value
+            if field == "image_url":
+                rows[index]["image_preview"] = _media_preview(value)
 
             self.regionalization_blocks = (
                 rows
@@ -1524,6 +2054,7 @@ class MetaCmsState(AuthState):
                 "title": "",
                 "enabled": "true",
                 "image_url": "",
+                "image_preview": "",
                 "text": "",
                 "footer": "",
             },

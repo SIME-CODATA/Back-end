@@ -125,7 +125,7 @@ def meta_cms_hero() -> rx.Component:
             ),
 
             textarea_input(
-                label="Título",
+                label="Título completo",
                 source=(
                     MetaCmsState
                     .source_title
@@ -139,6 +139,97 @@ def meta_cms_hero() -> rx.Component:
                     .set_title
                 ),
                 min_height="110px",
+            ),
+
+            rx.grid(
+                rx.vstack(
+                    rx.hstack(
+                        rx.text(
+                            "Trecho destacado",
+                            color=TEXT_PRIMARY,
+                            font_size="0.78rem",
+                            font_weight="600",
+                        ),
+                        source_badge(MetaCmsState.source_title_highlight),
+                        spacing="2",
+                    ),
+                    rx.text_area(
+                        value=MetaCmsState.title_highlight,
+                        on_change=MetaCmsState.set_title_highlight,
+                        min_height="90px",
+                        width="100%",
+                    ),
+                    spacing="2",
+                    width="100%",
+                    align="stretch",
+                ),
+                rx.vstack(
+                    rx.hstack(
+                        rx.text(
+                            "Complemento do título",
+                            color=TEXT_PRIMARY,
+                            font_size="0.78rem",
+                            font_weight="600",
+                        ),
+                        source_badge(MetaCmsState.source_title_complement),
+                        spacing="2",
+                    ),
+                    rx.text_area(
+                        value=MetaCmsState.title_complement,
+                        on_change=MetaCmsState.set_title_complement,
+                        min_height="90px",
+                        width="100%",
+                    ),
+                    spacing="2",
+                    width="100%",
+                    align="stretch",
+                ),
+                columns={"initial": "1", "xl": "2"},
+                spacing="4",
+                width="100%",
+            ),
+
+            rx.box(
+                rx.vstack(
+                    rx.hstack(
+                        rx.badge(
+                            "META ",
+                            MetaCmsState.number,
+                            variant="solid",
+                            color_scheme="green",
+                        ),
+                        rx.spacer(),
+                        rx.badge(
+                            MetaCmsState.monitoring,
+                            variant="soft",
+                            color_scheme="green",
+                        ),
+                        width="100%",
+                    ),
+                    rx.text(
+                        MetaCmsState.title_highlight,
+                        font_weight="800",
+                        font_size="1rem",
+                        color=rx.cond(
+                            MetaCmsState.axis_primary_color != "",
+                            MetaCmsState.axis_primary_color,
+                            "#288140",
+                        ),
+                    ),
+                    rx.text(
+                        MetaCmsState.title_complement,
+                        font_size="0.95rem",
+                        color=TEXT_PRIMARY,
+                    ),
+                    spacing="2",
+                    align="stretch",
+                    width="100%",
+                ),
+                background="#F6FBF7",
+                border=f"1px solid {BORDER}",
+                border_radius="10px",
+                padding="1rem",
+                width="100%",
             ),
 
             spacing="4",
@@ -1026,6 +1117,387 @@ def regionalization_card() -> rx.Component:
         description=(
             "A regionalização deixa de ficar presa a três "
             "objetos fixos. Os blocos pertencem ao próprio CMS."
+        ),
+    )
+
+
+def _work_row(item, index) -> rx.Component:
+    return rx.box(
+        rx.vstack(
+            rx.hstack(
+                rx.text(
+                    "Obra ",
+                    index + 1,
+                    color=TEXT_PRIMARY,
+                    font_weight="700",
+                    font_size="0.8rem",
+                ),
+                rx.spacer(),
+                rx.button(
+                    rx.icon(tag="trash_2", size=13),
+                    "Remover",
+                    size="1",
+                    variant="soft",
+                    color_scheme="red",
+                    on_click=lambda: MetaCmsState.remove_work(index),
+                ),
+                width="100%",
+                align="center",
+            ),
+            rx.grid(
+                rx.input(
+                    placeholder="Código",
+                    value=item["code"],
+                    on_change=lambda value: MetaCmsState.update_work_field(
+                        index, "code", value
+                    ),
+                ),
+                rx.input(
+                    placeholder="Status",
+                    value=item["status"],
+                    on_change=lambda value: MetaCmsState.update_work_field(
+                        index, "status", value
+                    ),
+                ),
+                rx.input(
+                    placeholder="Percentual concluído",
+                    value=item["percent_complete"],
+                    on_change=lambda value: MetaCmsState.update_work_field(
+                        index, "percent_complete", value
+                    ),
+                ),
+                columns={"initial": "1", "md": "3"},
+                spacing="3",
+                width="100%",
+            ),
+            rx.input(
+                placeholder="Nome da obra/intervenção",
+                value=item["name"],
+                on_change=lambda value: MetaCmsState.update_work_field(
+                    index, "name", value
+                ),
+                width="100%",
+            ),
+            rx.grid(
+                rx.input(
+                    placeholder="Tipo obra/intervenção",
+                    value=item["intervention_type"],
+                    on_change=lambda value: MetaCmsState.update_work_field(
+                        index, "intervention_type", value
+                    ),
+                ),
+                rx.input(
+                    placeholder="Equipamento",
+                    value=item["equipment"],
+                    on_change=lambda value: MetaCmsState.update_work_field(
+                        index, "equipment", value
+                    ),
+                ),
+                columns={"initial": "1", "md": "2"},
+                spacing="3",
+                width="100%",
+            ),
+            rx.grid(
+                rx.text_area(
+                    placeholder="Subprefeituras, uma por linha",
+                    value=item["subprefectures"],
+                    on_change=lambda value: MetaCmsState.update_work_field(
+                        index, "subprefectures", value
+                    ),
+                    min_height="80px",
+                    width="100%",
+                ),
+                rx.text_area(
+                    placeholder="Regiões, uma por linha",
+                    value=item["regions"],
+                    on_change=lambda value: MetaCmsState.update_work_field(
+                        index, "regions", value
+                    ),
+                    min_height="80px",
+                    width="100%",
+                ),
+                columns={"initial": "1", "md": "2"},
+                spacing="3",
+                width="100%",
+            ),
+            rx.grid(
+                rx.input(
+                    placeholder="Latitude",
+                    value=item["latitude"],
+                    on_change=lambda value: MetaCmsState.update_work_field(
+                        index, "latitude", value
+                    ),
+                ),
+                rx.input(
+                    placeholder="Longitude",
+                    value=item["longitude"],
+                    on_change=lambda value: MetaCmsState.update_work_field(
+                        index, "longitude", value
+                    ),
+                ),
+                columns={"initial": "1", "md": "2"},
+                spacing="3",
+                width="100%",
+            ),
+            rx.input(
+                placeholder="Endereço / referência geográfica",
+                value=item["address"],
+                on_change=lambda value: MetaCmsState.update_work_field(
+                    index, "address", value
+                ),
+                width="100%",
+            ),
+            spacing="3",
+            width="100%",
+            align="stretch",
+        ),
+        padding="0.95rem",
+        border=f"1px solid {BORDER}",
+        border_radius="9px",
+        width="100%",
+    )
+
+
+def associated_works_card() -> rx.Component:
+    return cms_card(
+        "Obras associadas",
+        rx.hstack(
+            source_badge(MetaCmsState.source_associated_works),
+            rx.spacer(),
+            rx.button(
+                rx.icon(tag="plus", size=14),
+                "Adicionar obra",
+                size="2",
+                variant="soft",
+                on_click=MetaCmsState.add_work,
+            ),
+            width="100%",
+            align="center",
+        ),
+        rx.vstack(
+            rx.foreach(MetaCmsState.associated_works, _work_row),
+            spacing="3",
+            width="100%",
+            align="stretch",
+        ),
+        description=(
+            "Sincronizadas de /meta/relacionados e persistidas localmente. "
+            "Qualquer edição aqui vira override do CMS e deixa de ser "
+            "sobrescrita automaticamente pelo SMAE."
+        ),
+    )
+
+
+def _project_row(item, index) -> rx.Component:
+    return rx.box(
+        rx.vstack(
+            rx.hstack(
+                rx.text(
+                    "Projeto ", index + 1,
+                    color=TEXT_PRIMARY,
+                    font_weight="700",
+                    font_size="0.8rem",
+                ),
+                rx.spacer(),
+                rx.button(
+                    rx.icon(tag="trash_2", size=13),
+                    "Remover",
+                    size="1",
+                    variant="soft",
+                    color_scheme="red",
+                    on_click=lambda: MetaCmsState.remove_project(index),
+                ),
+                width="100%",
+            ),
+            rx.grid(
+                rx.input(
+                    placeholder="Código",
+                    value=item["code"],
+                    on_change=lambda value: MetaCmsState.update_project_field(
+                        index, "code", value
+                    ),
+                ),
+                rx.input(
+                    placeholder="Etapa",
+                    value=item["stage"],
+                    on_change=lambda value: MetaCmsState.update_project_field(
+                        index, "stage", value
+                    ),
+                ),
+                columns={"initial": "1", "md": "2"},
+                spacing="3",
+                width="100%",
+            ),
+            rx.input(
+                placeholder="Nome do projeto",
+                value=item["name"],
+                on_change=lambda value: MetaCmsState.update_project_field(
+                    index, "name", value
+                ),
+                width="100%",
+            ),
+            rx.input(
+                placeholder="Portfólio",
+                value=item["portfolio"],
+                on_change=lambda value: MetaCmsState.update_project_field(
+                    index, "portfolio", value
+                ),
+                width="100%",
+            ),
+            rx.grid(
+                rx.input(
+                    placeholder="Latitude",
+                    value=item["latitude"],
+                    on_change=lambda value: MetaCmsState.update_project_field(
+                        index, "latitude", value
+                    ),
+                ),
+                rx.input(
+                    placeholder="Longitude",
+                    value=item["longitude"],
+                    on_change=lambda value: MetaCmsState.update_project_field(
+                        index, "longitude", value
+                    ),
+                ),
+                columns={"initial": "1", "md": "2"},
+                spacing="3",
+                width="100%",
+            ),
+            rx.input(
+                placeholder="Endereço / referência geográfica",
+                value=item["address"],
+                on_change=lambda value: MetaCmsState.update_project_field(
+                    index, "address", value
+                ),
+                width="100%",
+            ),
+            spacing="3",
+            width="100%",
+            align="stretch",
+        ),
+        padding="0.95rem",
+        border=f"1px solid {BORDER}",
+        border_radius="9px",
+        width="100%",
+    )
+
+
+def associated_projects_card() -> rx.Component:
+    return cms_card(
+        "Projetos associados",
+        rx.hstack(
+            source_badge(MetaCmsState.source_associated_projects),
+            rx.spacer(),
+            rx.button(
+                rx.icon(tag="plus", size=14),
+                "Adicionar projeto",
+                size="2",
+                variant="soft",
+                on_click=MetaCmsState.add_project,
+            ),
+            width="100%",
+            align="center",
+        ),
+        rx.vstack(
+            rx.foreach(MetaCmsState.associated_projects, _project_row),
+            spacing="3",
+            width="100%",
+            align="stretch",
+        ),
+        description=(
+            "Projetos vinculados no SMAE também entram no snapshot local e "
+            "podem receber override editorial."
+        ),
+    )
+
+
+def _extra_section_row(item, index) -> rx.Component:
+    return rx.box(
+        rx.vstack(
+            rx.hstack(
+                rx.text(
+                    "Seção extra ",
+                    index + 1,
+                    color=TEXT_PRIMARY,
+                    font_weight="700",
+                    font_size="0.8rem",
+                ),
+                rx.spacer(),
+                rx.button(
+                    rx.icon(tag="trash_2", size=13),
+                    "Remover",
+                    size="1",
+                    variant="soft",
+                    color_scheme="red",
+                    on_click=lambda: MetaCmsState.remove_extra_section(index),
+                ),
+                width="100%",
+            ),
+            rx.input(
+                placeholder="Título da seção",
+                value=item["title"],
+                on_change=lambda value: MetaCmsState.update_extra_section_field(
+                    index, "title", value
+                ),
+                width="100%",
+            ),
+            rx.input(
+                placeholder="Imagem opcional (URL / referência de mídia)",
+                value=item["image_url"],
+                on_change=lambda value: MetaCmsState.update_extra_section_field(
+                    index, "image_url", value
+                ),
+                width="100%",
+            ),
+            rx.text_area(
+                placeholder="Texto opcional",
+                value=item["text"],
+                on_change=lambda value: MetaCmsState.update_extra_section_field(
+                    index, "text", value
+                ),
+                min_height="110px",
+                width="100%",
+            ),
+            spacing="3",
+            width="100%",
+            align="stretch",
+        ),
+        padding="0.95rem",
+        border=f"1px solid {BORDER}",
+        border_radius="9px",
+        width="100%",
+    )
+
+
+def extra_sections_card() -> rx.Component:
+    return cms_card(
+        "Seções extras opcionais",
+        rx.hstack(
+            rx.text(
+                "Conteúdo que não existe no SMAE também pode entrar na ficha.",
+                color=TEXT_SECONDARY,
+                font_size="0.74rem",
+            ),
+            rx.spacer(),
+            rx.button(
+                rx.icon(tag="plus", size=14),
+                "Adicionar seção",
+                size="2",
+                variant="soft",
+                on_click=MetaCmsState.add_extra_section,
+            ),
+            width="100%",
+            align="center",
+        ),
+        rx.vstack(
+            rx.foreach(MetaCmsState.extra_sections, _extra_section_row),
+            spacing="3",
+            width="100%",
+            align="stretch",
+        ),
+        description=(
+            "Serve para textos, imagens ou explicações específicas de uma Meta "
+            "sem exigir mudança no SMAE."
         ),
     )
 

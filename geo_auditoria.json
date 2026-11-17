@@ -1,0 +1,22 @@
+{
+  "registros": 681,
+  "metas_cobertas": 88,
+  "com_coordenadas_validas": 530,
+  "com_geometria_wkt": 27,
+  "sinalizados_publicaveis_na_origem": 517,
+  "codigos_repetidos": {
+    "11/11.01.25.01": 2
+  },
+  "avisos": [
+    {
+      "linha": 97,
+      "codigo": "08.00.07",
+      "tipo": "coordenada_fora_area_sp"
+    },
+    {
+      "linha": 588,
+      "codigo": "90.02.31.01",
+      "tipo": "coordenada_invalida"
+    }
+  ]
+}

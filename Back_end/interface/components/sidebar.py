@@ -382,5 +382,5 @@ def sidebar() -> rx.Component:
         background=MENU_BACKGROUND, border_top_right_radius="20px", border_bottom_right_radius="15px",
         width=rx.cond(SidebarState.expanded, MENU_WIDTH_OPEN, MENU_WIDTH_CLOSED,),
         min_width=rx.cond(SidebarState.expanded, MENU_WIDTH_OPEN, MENU_WIDTH_CLOSED,),
-        height="96vh", overflow="hidden", margin_top="1rem", margin_bottom="1rem", box_shadow=("3px 3px 13px -10px " "rgba(255, 255, 255, 0.65)"), font_family=FONT_FAMILY_PRIMARY, transition=( "width 0.25s ease, " "min-width 0.25s ease"),
+        height="calc(100dvh - 2rem)", max_height="calc(100dvh - 2rem)", min_height="0", overflow="hidden", margin_top="1rem", margin_bottom="1rem", box_shadow=("3px 3px 13px -10px " "rgba(255, 255, 255, 0.65)"), font_family=FONT_FAMILY_PRIMARY, transition=( "width 0.25s ease, " "min-width 0.25s ease"),
     )

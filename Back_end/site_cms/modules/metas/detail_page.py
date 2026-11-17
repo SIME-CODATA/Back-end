@@ -1,5 +1,7 @@
 import reflex as rx
 
+from Back_end.site_cms.modules.metas.visual_detail import visual_meta_editor
+
 from Back_end.interface.layouts.admin_layout import (
     admin_layout,
 )
@@ -88,50 +90,8 @@ def _error_view() -> rx.Component:
 
 
 def _editor_content() -> rx.Component:
-    return rx.vstack(
-        meta_cms_breadcrumb(),
-
-        meta_cms_hero(),
-
-        rx.grid(
-            status_card(),
-            classification_card(),
-            columns={
-                "initial": "1",
-                "xl": "2",
-            },
-            spacing="4",
-            width="100%",
-            align_items="stretch",
-        ),
-
-        rx.grid(
-            projection_card(),
-            agencies_card(),
-            columns={
-                "initial": "1",
-                "xl": "2",
-            },
-            spacing="4",
-            width="100%",
-            align_items="stretch",
-        ),
-
-        initiatives_card(),
-
-        results_card(),
-
-        regionalization_card(),
-
-        action_bar(),
-
-        conflict_dialog(),
-
-        spacing="4",
-        width="100%",
-        align="stretch",
-        padding_bottom="5rem",
-    )
+    # A página mantém a mesma rota e os eventos de persistência do CMS.
+    return visual_meta_editor()
 
 
 def meta_cms_detail_content() -> rx.Component:

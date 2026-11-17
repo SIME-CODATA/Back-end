@@ -4,6 +4,8 @@ from typing import Any
 META_FIELD_KEYS = [
     "number",
     "title",
+    "title_highlight",
+    "title_complement",
     "projection",
     "strategic_actions",
     "indicator",
@@ -16,12 +18,17 @@ META_FIELD_KEYS = [
     "monitoring",
     "measured_results",
     "regionalization",
+    "associated_works",
+    "associated_projects",
+    "extra_sections",
 ]
 
 
 FIELD_LABELS = {
     "number": "Número da Meta",
     "title": "Título",
+    "title_highlight": "Trecho destacado do título",
+    "title_complement": "Complemento do título",
     "projection": "Projeção",
     "strategic_actions": "Ações estratégicas",
     "indicator": "Indicador",
@@ -34,6 +41,9 @@ FIELD_LABELS = {
     "monitoring": "Monitoramento",
     "measured_results": "Resultados apurados",
     "regionalization": "Regionalização",
+    "associated_works": "Obras associadas",
+    "associated_projects": "Projetos associados",
+    "extra_sections": "Seções extras",
 }
 
 
@@ -41,6 +51,8 @@ def empty_meta_payload() -> dict[str, Any]:
     return {
         "number": "",
         "title": "",
+        "title_highlight": "",
+        "title_complement": "",
         "projection": "",
         "strategic_actions": [],
         "indicator": "",
@@ -57,4 +69,7 @@ def empty_meta_payload() -> dict[str, Any]:
             "note": None,
             "blocks": [],
         },
+        "associated_works": [],
+        "associated_projects": [],
+        "extra_sections": [],
     }

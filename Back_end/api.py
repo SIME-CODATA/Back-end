@@ -3,6 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from Back_end.access_api.metas.api import router as metas_router
 from Back_end.site_cms.api.router import router as site_cms_router
+from Back_end.site_cms.api.meta_router import router as site_metas_router
+from Back_end.site_cms.modules.metas.fontes_api import fontes_router
 from Back_end.media_library.api.api import router as media_router
 
 
@@ -20,6 +22,9 @@ api.add_middleware(
     allow_headers=["*"],
 )
 
+api.include_router(media_router)
 api.include_router(metas_router)
+api.include_router(site_metas_router)
+site_cms_router.include_router(fontes_router)
 api.include_router(site_cms_router)
 api.include_router(media_router)
