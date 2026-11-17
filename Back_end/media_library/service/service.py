@@ -103,9 +103,9 @@ def detect_media(original_name: str, content: bytes) -> tuple[str, str, str]:
 
     valid = False
     if ext == ".png":
-        valid = content.startswith(b"\\x89PNG\\r\\n\\x1a\\n")
+        valid = content.startswith(b"\x89PNG\r\n\x1a\n")
     elif ext in {".jpg", ".jpeg"}:
-        valid = len(content) >= 3 and content[:3] == b"\\xff\\xd8\\xff"
+        valid = len(content) >= 3 and content[:3] == b"\xff\xd8\xff"
     elif ext == ".mp4":
         valid = len(content) >= 12 and content[4:8] == b"ftyp"
     elif ext == ".svg":

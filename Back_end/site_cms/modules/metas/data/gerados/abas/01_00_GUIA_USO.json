@@ -1,0 +1,216 @@
+{
+  "arquivo": "base_geo_2026.xlsx",
+  "aba": "00_GUIA_USO",
+  "cabecalho_linha": null,
+  "linhas_nao_vazias": 19,
+  "linhas_vinculadas": 0,
+  "linhas": [
+    {
+      "linha": 1,
+      "celulas": {
+        "A": "Guia de Uso da Planilha"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 2,
+      "celulas": {
+        "A": "Orientações práticas para monitores, analistas e gestores preencherem dados com rastreabilidade"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 4,
+      "celulas": {
+        "A": "Etapa",
+        "B": "Orientação para preenchimento"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 5,
+      "celulas": {
+        "A": "1. Onde realizar o preenchimento",
+        "B": "Utilize sempre a aba 02_GESTAO_MONITORES, que é a interface principal para atualização das informações pelos monitores. Evite editar diretamente outras abas da planilha. Caso seja necessário realizar alguma correção em outra aba, deixe uma indicação clara da alteração (comentário, destaque em cor ou anotação) e comunique a equipe responsável. Para suporte as informações 01_REGIONALIZACAO_HISTORICO servem de base para as novas atualizações, não preencha ela!!!"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 6,
+      "celulas": {
+        "A": "2. Antes de iniciar",
+        "B": "Antes de inserir um novo registro, verifique se ele já existe na base para evitar duplicidades. Sempre trabalhe utilizando a versão oficial da planilha armazenada no SharePoint/OneDrive, evitando cópias locais. Caso identifique comportamentos inesperados, erros, conflitos de sincronização ou qualquer situação incomum, comunique imediatamente a equipe responsável pela governança da base."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 7,
+      "celulas": {
+        "A": "3. Campos preenchidos automaticamente",
+        "B": "Os campos Código do Registro, Eixo, Meta, Ação Estratégica, Status, Executado e demais campos que contenham fórmulas ou validações são preenchidos automaticamente. Nunca altere esses campos manualmente, pois isso pode comprometer a integridade da planilha e das análises produzidas."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 8,
+      "celulas": {
+        "A": "4. Campos que devem ser atualizados",
+        "B": "Atualize sempre os campos destinados ao monitoramento, como Estágio da Ação, Subprefeitura, Distrito, Endereço, Latitude, Longitude, Observações e demais informações operacionais disponíveis. Sempre priorize informações verificadas em fontes oficiais."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 9,
+      "celulas": {
+        "A": "5. Como preencher o endereço",
+        "B": "Utilize sempre o endereço completo, contendo logradouro, número, bairro, município, UF e CEP. Exemplo: Viaduto do Chá, 15, Centro, São Paulo – SP, CEP 01002-020. Esse padrão facilita a localização correta dos registros e reduz inconsistências na geocodificação."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 10,
+      "celulas": {
+        "A": "6. Por que utilizar o endereço completo",
+        "B": "O endereço padronizado reduz ambiguidades e aumenta a precisão da geocodificação utilizada pelo Google Maps, R, QGIS e outros serviços de localização. Quanto melhor o endereço informado, maior será a qualidade dos mapas, indicadores e análises espaciais produzidos."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 11,
+      "celulas": {
+        "A": "7. O que evitar no endereço",
+        "B": "Não utilize descrições vagas como \"próximo ao metrô\", \"Zona Sul\", \"sem número\", \"esquina com...\", \"ao lado de...\" ou apenas o nome da avenida. Sempre informe o endereço oficial. Caso o endereço completo não esteja disponível, registre a melhor referência possível no campo de observações e informe obrigatoriamente as coordenadas de Latitude e Longitude para garantir a localização do registro."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 12,
+      "celulas": {
+        "A": "8. Código do registro",
+        "B": "Quando houver necessidade de criar um novo código, utilize o padrão institucional, por exemplo:  01.00.08 composto por Meta, Ação Estratégica e Empreendimento e número sequencial do empreendimento ou registro da unidade. Caso o código seja gerado automaticamente pela planilha, não o altere manualmente."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 13,
+      "celulas": {
+        "A": "9. Uso de siglas institucionais",
+        "B": "Utilize apenas siglas oficiais e consolidadas, como UBS, UPA, CAPS, CRAS, CREAS, CEU, EMEI e EMEF, sempre respeitando a nomenclatura oficial do equipamento ou serviço. Evite criar abreviações próprias."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 14,
+      "celulas": {
+        "A": "10. Coordenadas geográficas",
+        "B": "Informe Latitude e Longitude em graus decimais (exemplo: -23.55052 e -46.63331). Não utilize coordenadas em graus, minutos e segundos (GMS). Para obter as coordenadas no Google Maps, localize o endereço ou equipamento, clique com o botão direito sobre o ponto desejado e copie os valores apresentados na primeira linha do menu. Cole cada valor no respectivo campo da planilha."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 15,
+      "celulas": {
+        "A": "11. Padronização das informações",
+        "B": "Utilize sempre a grafia oficial dos equipamentos, programas, órgãos públicos e logradouros. Evite escrever nomes diferentes para um mesmo equipamento, utilizar abreviações desnecessárias ou preencher campos inteiramente em letras maiúsculas. A padronização melhora a qualidade das análises e reduz registros duplicados."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 16,
+      "celulas": {
+        "A": "12. Informações incompletas ou não confirmadas",
+        "B": "Caso alguma informação ainda não esteja confirmada, não faça estimativas. Deixe o campo em branco quando necessário e registre a pendência no campo de observações ou conforme o fluxo de governança de dados adotado pela equipe. É preferível uma informação ausente a uma informação incorreta."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 17,
+      "celulas": {
+        "A": "13. Controle de qualidade antes de finalizar",
+        "B": "Antes de concluir o preenchimento, revise o registro verificando possíveis erros de digitação, campos obrigatórios em branco, duplicidades, inconsistências entre endereço, distrito, subprefeitura e coordenadas geográficas. Essa conferência reduz retrabalho e melhora a confiabilidade dos indicadores produzidos."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 18,
+      "celulas": {
+        "A": "14. Versionamento e integridade da planilha",
+        "B": "Não altere a estrutura da planilha (colunas, abas, fórmulas, validações, filtros ou listas de apoio) sem comunicar a equipe responsável. Alterações estruturais podem comprometer a automação, a sincronização e a consolidação dos dados."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 19,
+      "celulas": {
+        "A": "15. Princípio da qualidade dos dados",
+        "B": "Toda informação registrada deve ser completa, consistente, verificável, atualizada e reproduzível. Em caso de dúvida, priorize a qualidade da base: não estime informações, não altere campos automáticos e comunique inconsistências à equipe responsável. Dados de qualidade geram indicadores, mapas e análises mais confiáveis para o monitoramento do Plano de Metas."
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 20,
+      "celulas": {
+        "A": "16. Nosso objetivo",
+        "B": "Pense nesta planilha como o código-fonte da regionalização do Plano de Metas. Cada registro qualificado contribui para revelar onde as políticas públicas acontecem, como se distribuem pelo território e quais regiões demandam maior atenção. Quando os dados são completos, padronizados e confiáveis, deixam de ser apenas informações administrativas e passam a apoiar uma leitura territorial mais precisa da cidade. A regionalização depende da qualidade de cada registro: é ela que permite transformar dados em mapas, mapas em conhecimento e conhecimento em melhores instrumentos para acompanhar a implementação das políticas públicas em São Paulo. 🌎📍💻"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    }
+  ]
+}

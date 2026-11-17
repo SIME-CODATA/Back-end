@@ -1,0 +1,1168 @@
+{
+  "arquivo": "base_geo_2026.xlsx",
+  "aba": "99_LISTAS",
+  "cabecalho_linha": null,
+  "linhas_nao_vazias": 105,
+  "linhas_vinculadas": 0,
+  "linhas": [
+    {
+      "linha": 1,
+      "celulas": {
+        "A": "Eixo",
+        "B": "Status",
+        "C": "Subprefeitura",
+        "D": "Distrito",
+        "E": "Tipo_Mapa",
+        "F": "Tipo_Geometria",
+        "G": "Estagio_Acao",
+        "H": "Secretarias",
+        "I": "Validacao_Espacial"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 2,
+      "celulas": {
+        "A": "Viver São Paulo",
+        "B": "Regionalizada",
+        "C": "-",
+        "D": "-",
+        "E": "Coroplético",
+        "F": "Ponto",
+        "G": "Planejado",
+        "H": "SVMA",
+        "I": "OK"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 3,
+      "celulas": {
+        "A": "Universo SP",
+        "B": "Regionalizada, mas sem publicidade",
+        "C": "Cidade Ademar",
+        "D": "Água Rasa",
+        "E": "Zoom",
+        "G": "Executado",
+        "H": "SVMA; SMSUB",
+        "I": "Revisar"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 4,
+      "celulas": {
+        "A": "Cidade Empreendedora",
+        "B": "Regionalizada Parcialmente",
+        "C": "Sapopemba",
+        "D": "Alto de Pinheiros",
+        "E": "Universo SP",
+        "F": "-",
+        "H": "SEHAB"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 5,
+      "celulas": {
+        "A": "Capital do Futuro",
+        "B": "A ser regionalizada",
+        "C": "Campo Limpo",
+        "D": "Anhanguera",
+        "E": "Não produzido (faltam dados)",
+        "F": "Linha",
+        "H": "SEHAB; SMSUB; SIURB"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 6,
+      "celulas": {
+        "B": "Sem mapa na publicação, mas regionalizável",
+        "C": "Casa Verde-Cachoeirinha",
+        "D": "Aricanduva",
+        "E": "Pontos",
+        "F": "Numérico",
+        "H": "SEHAB; COHAB"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 7,
+      "celulas": {
+        "B": "A ser regionalizada devido à publicidade",
+        "C": "Mooca",
+        "D": "Artur Alvim",
+        "F": "Polígono",
+        "H": "SIURB"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 8,
+      "celulas": {
+        "C": "Cidade Tiradentes",
+        "D": "Barra Funda",
+        "H": "SMT"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 9,
+      "celulas": {
+        "C": "Butantã",
+        "D": "Bela Vista",
+        "H": "SIURB; SP OBRAS"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 10,
+      "celulas": {
+        "C": "São Miguel",
+        "D": "Belém",
+        "H": "SMT; SPTRANS"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 11,
+      "celulas": {
+        "C": "São Mateus",
+        "D": "Bom Retiro",
+        "H": "SMT; SPTRANS; SGM/SEDP"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 12,
+      "celulas": {
+        "C": "Perus",
+        "D": "Brasilândia",
+        "H": "SIURB; SP OBRAS; SMUL; SP URBANISMO"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 13,
+      "celulas": {
+        "C": "Capela do Socorro",
+        "D": "Brás",
+        "H": "SMT/SEMTRA"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 14,
+      "celulas": {
+        "C": "Lapa",
+        "D": "Butantã",
+        "H": "SP REGULA"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 15,
+      "celulas": {
+        "C": "Ermelino Matarazzo",
+        "D": "Cachoeirinha",
+        "H": "SMSUB"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 16,
+      "celulas": {
+        "C": "Sé",
+        "D": "Cambuci",
+        "H": "SMUL; SP URBANISMO"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 17,
+      "celulas": {
+        "C": "Santo Amaro",
+        "D": "Campo Belo",
+        "H": "SEDP"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 18,
+      "celulas": {
+        "C": "Vila Prudente",
+        "D": "Campo Grande",
+        "H": "SMUL; SP URBANISMO; SMT; SPTRANS"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 19,
+      "celulas": {
+        "C": "Itaim Paulista",
+        "D": "Campo Limpo",
+        "H": "SMSU"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 20,
+      "celulas": {
+        "C": "Freguesia-Brasilândia",
+        "D": "Cangaíba",
+        "H": "SME; SMSU"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 21,
+      "celulas": {
+        "C": "Aricanduva-Formosa-Carrão",
+        "D": "Capão Redondo",
+        "H": "SMS"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 22,
+      "celulas": {
+        "C": "Penha",
+        "D": "Carrão",
+        "H": "SMPED"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 23,
+      "celulas": {
+        "C": "Parelheiros",
+        "D": "Casa Verde",
+        "H": "SME"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 24,
+      "celulas": {
+        "C": "Itaquera",
+        "D": "Cidade Ademar",
+        "H": "SMDHC/SESANA"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 25,
+      "celulas": {
+        "C": "Pirituba-Jaraguá",
+        "D": "Cidade Dutra",
+        "H": "SMADS"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 26,
+      "celulas": {
+        "C": "Vila Mariana",
+        "D": "Cidade Líder",
+        "H": "SEME"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 27,
+      "celulas": {
+        "D": "Cidade Tiradentes",
+        "H": "SMC"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 28,
+      "celulas": {
+        "C": "Vila Maria-Vila Guilherme",
+        "D": "Consolação",
+        "H": "SMDET; ADESAMPA"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 29,
+      "celulas": {
+        "C": "Santana-Tucuruvi",
+        "D": "Cursino",
+        "H": "SMC; SP URBANISMO"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 30,
+      "celulas": {
+        "C": "Jaçanã-Tremembé",
+        "D": "Ermelino Matarazzo",
+        "H": "SMC; SMDET"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 31,
+      "celulas": {
+        "C": "Ipiranga",
+        "D": "Freguesia do Ó",
+        "H": "SGM/SPTURIS"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 32,
+      "celulas": {
+        "C": "Jabaquara",
+        "D": "Grajaú",
+        "H": "SMIT; SMDET; ADESAMPA"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 33,
+      "celulas": {
+        "C": "M'Boi Mirim",
+        "D": "Guaianases",
+        "H": "SMIT"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 34,
+      "celulas": {
+        "C": "Em verificação com monitor",
+        "D": "Iguatemi",
+        "H": "SGM/FUNDAÇÃO PAULISTANA; SMDET"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 35,
+      "celulas": {
+        "C": "Pinheiros",
+        "D": "Ipiranga"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 36,
+      "celulas": {
+        "C": "Aricanduva-Formosa-Carrão; São Mateus",
+        "D": "Itaim Bibi"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 37,
+      "celulas": {
+        "C": "Sé; Mooca; Penha",
+        "D": "Itaim Paulista"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 38,
+      "celulas": {
+        "C": "Sé; Mooca",
+        "D": "Itaquera"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 39,
+      "celulas": {
+        "C": "Penha; Ermelino Matarazzo",
+        "D": "Jabaquara"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 40,
+      "celulas": {
+        "C": "Casa Verde-Cachoeirinha; Santana-Tucuruvi",
+        "D": "Jaçanã"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 41,
+      "celulas": {
+        "C": "M'Boi Mirim; Campo Limpo",
+        "D": "Jaguara"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 42,
+      "celulas": {
+        "C": "Cidade Ademar; Santo Amaro; Capela do Socorro",
+        "D": "Jaguaré"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 43,
+      "celulas": {
+        "C": "Pinheiros; Vila Mariana",
+        "D": "Jaraguá"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 44,
+      "celulas": {
+        "C": "Guaianases",
+        "D": "Jardim Ângela"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 45,
+      "celulas": {
+        "C": "Em definição",
+        "D": "Jardim Helena"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 46,
+      "celulas": {
+        "C": "Vila Maria/Vila Guilherme",
+        "D": "Jardim Paulista"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 47,
+      "celulas": {
+        "D": "Jardim São Luís"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 48,
+      "celulas": {
+        "D": "José Bonifácio"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 49,
+      "celulas": {
+        "D": "Lajeado"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 50,
+      "celulas": {
+        "D": "Lapa"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 51,
+      "celulas": {
+        "D": "Liberdade"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 52,
+      "celulas": {
+        "D": "Limão"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 53,
+      "celulas": {
+        "D": "Mandaqui"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 54,
+      "celulas": {
+        "D": "Marsilac"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 55,
+      "celulas": {
+        "D": "Moema"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 56,
+      "celulas": {
+        "D": "Mooca"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 57,
+      "celulas": {
+        "D": "Morumbi"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 58,
+      "celulas": {
+        "D": "Parelheiros"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 59,
+      "celulas": {
+        "D": "Pari"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 60,
+      "celulas": {
+        "D": "Parque do Carmo"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 61,
+      "celulas": {
+        "D": "Pedreira"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 62,
+      "celulas": {
+        "D": "Penha"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 63,
+      "celulas": {
+        "D": "Perdizes"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 64,
+      "celulas": {
+        "D": "Perus"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 65,
+      "celulas": {
+        "D": "Pinheiros"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 66,
+      "celulas": {
+        "D": "Pirituba"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 67,
+      "celulas": {
+        "D": "Ponte Rasa"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 68,
+      "celulas": {
+        "D": "Raposo Tavares"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 69,
+      "celulas": {
+        "D": "República"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 70,
+      "celulas": {
+        "D": "Rio Pequeno"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 71,
+      "celulas": {
+        "D": "Sacomã"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 72,
+      "celulas": {
+        "D": "Santa Cecília"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 73,
+      "celulas": {
+        "D": "Santana"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 74,
+      "celulas": {
+        "D": "Santo Amaro"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 75,
+      "celulas": {
+        "D": "São Domingos"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 76,
+      "celulas": {
+        "D": "São Lucas"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 77,
+      "celulas": {
+        "D": "São Mateus"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 78,
+      "celulas": {
+        "D": "São Miguel Paulista"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 79,
+      "celulas": {
+        "D": "São Rafael"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 80,
+      "celulas": {
+        "D": "Sapopemba"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 81,
+      "celulas": {
+        "D": "Saúde"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 82,
+      "celulas": {
+        "D": "Sé"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 83,
+      "celulas": {
+        "D": "Socorro"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 84,
+      "celulas": {
+        "D": "Tatuapé"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 85,
+      "celulas": {
+        "D": "Tremembé"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 86,
+      "celulas": {
+        "D": "Tucuruvi"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 87,
+      "celulas": {
+        "D": "Vila Andrade"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 88,
+      "celulas": {
+        "D": "Vila Curuçá"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 89,
+      "celulas": {
+        "D": "Vila Formosa"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 90,
+      "celulas": {
+        "D": "Vila Guilherme"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 91,
+      "celulas": {
+        "D": "Vila Jacuí"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 92,
+      "celulas": {
+        "D": "Vila Leopoldina"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 93,
+      "celulas": {
+        "D": "Vila Maria"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 94,
+      "celulas": {
+        "D": "Vila Mariana"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 95,
+      "celulas": {
+        "D": "Vila Matilde"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 96,
+      "celulas": {
+        "D": "Vila Medeiros"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 97,
+      "celulas": {
+        "D": "Vila Prudente"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 98,
+      "celulas": {
+        "D": "Vila Sônia"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 99,
+      "celulas": {
+        "D": "Sé; Brás; Belém; Tatuapé"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 100,
+      "celulas": {
+        "D": "Sé; Brás; Belém; Tatuapé; Vila Matilde"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 101,
+      "celulas": {
+        "D": "Cidade Líder; Itaquera"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 102,
+      "celulas": {
+        "D": "Penha; Ponte Rasa"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 103,
+      "celulas": {
+        "D": "Cachoeirinha; Casa Verde; Santana"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 104,
+      "celulas": {
+        "D": "Jardim São Luís; Capão Redondo"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    },
+    {
+      "linha": 105,
+      "celulas": {
+        "D": "Cidade Dutra; Socorro; Campo Grande; Cidade Ademar"
+      },
+      "formulas": {},
+      "campos": {},
+      "meta": null,
+      "tipo": "dado"
+    }
+  ]
+}

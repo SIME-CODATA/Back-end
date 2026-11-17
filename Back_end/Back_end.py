@@ -1,5 +1,7 @@
 import reflex as rx
 
+from Back_end.interface.theme.typography import FONT_STYLESHEETS
+
 from Back_end.access.modules.auth.model import UserSession
 from Back_end.access.modules.users.model import User
 from Back_end.access.modules.audit.model import AuditLog
@@ -54,6 +56,7 @@ from Back_end.site_cms.modules.metas.overview_page import meta_overview_cms_page
 from Back_end.site_cms.modules.metas.overview_state import MetaOverviewCmsState
 from Back_end.site_cms.modules.metas.geografia.page import geo_cms_page
 from Back_end.site_cms.modules.metas.geografia.state import GeoCmsState
+from Back_end.site_cms.modules.metas.fontes_page import fontes_mapa_page, FontesMetaState
 
 from Back_end.site_cms.state.section_editor_state import SectionEditorState
 
@@ -74,6 +77,7 @@ from Back_end.api import api
 
 app = rx.App(
     api_transformer=api,
+    stylesheets=FONT_STYLESHEETS,
 )
 
 
@@ -207,6 +211,14 @@ app.add_page(
     route="/admin/site/metas/[codigo]/territorio",
     title="Monitoramento Territorial | Programa de Metas",
     on_load=GeoCmsState.load_page,
+)
+
+
+app.add_page(
+    fontes_mapa_page,
+    route="/admin/site/metas/[codigo]/mapa",
+    title="Mapa e fontes da Meta | Programa de Metas",
+    on_load=FontesMetaState.carregar,
 )
 
 

@@ -1,11 +1,9 @@
 """Tipografia da interface administrativa do Programa de Metas."""
-import reflex as rx
-app = rx.App(
-    stylesheets=[
-        "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap",
-        "https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
-    ],
-)
+# Fontes da interface: configuradas no App principal, sem criar outro rx.App().
+FONT_STYLESHEETS = [
+    "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap",
+    "https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap",
+]
 
 
 # Família tipográfica

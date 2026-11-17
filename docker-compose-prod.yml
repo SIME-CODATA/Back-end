@@ -39,11 +39,7 @@ services:
     networks:
       - db-net
     healthcheck:
-      test:
-        [
-          "CMD-SHELL",
-          "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}",
-        ]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
       interval: 5s
       timeout: 5s
       retries: 20
@@ -51,18 +47,22 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile
-    image: pdm-admin:latest
+      dockerfile: Dockerfile.backend
+    image: pdm-admin:backend
     container_name: pdm_app
     restart: always
     env_file:
       - .env
     environment:
-      REFLEX_DB_URL: postgresql+psycopg://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
-      REFLEX_DEPLOY_URL: https://${HOST_NAME}
-      REFLEX_CORS_ALLOWED_ORIGINS: https://${HOST_NAME}
+      REFLEX_DB_URL: "postgresql+psycopg://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}"
+      REFLEX_DEPLOY_URL: "https://${HOST_NAME}"
+      REFLEX_API_URL: "https://${HOST_NAME}"
+      REFLEX_FRONTEND_PATH: "/backend"
+      REFLEX_BACKEND_PATH: "/backend"
+      REFLEX_CORS_ALLOWED_ORIGINS: "https://${HOST_NAME}"
+      REFLEX_USE_NPM: "1"
       ENFORCE_INSTITUTIONAL_EMAIL: "true"
-      ALLOWED_EMAIL_DOMAINS: ${ALLOWED_EMAIL_DOMAINS:-prefeitura.sp.gov.br}
+      ALLOWED_EMAIL_DOMAINS: "${ALLOWED_EMAIL_DOMAINS:-prefeitura.sp.gov.br}"
       MEDIA_STORAGE_PATH: "/app/data/media"
       MEDIA_PUBLIC_PREFIX: "/backend"
       MEDIA_MAX_IMAGE_MB: "25"
@@ -76,11 +76,30 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=pdm_traefik_net"
-      - "traefik.http.routers.pdm.entrypoints=websecure"
-      - "traefik.http.routers.pdm.rule=Host(`${HOST_NAME}`)"
-      - "traefik.http.routers.pdm.tls=true"
-      - "traefik.http.routers.pdm.tls.certresolver=certificadofront"
-      - "traefik.http.services.pdm.loadbalancer.server.port=3000"
+      # CMS: /backend/*, incluindo WebSocket /backend/_event
+      - "traefik.http.routers.pdm-admin.entrypoints=websecure"
+      - "traefik.http.routers.pdm-admin.rule=Host(`${HOST_NAME}`) && (Path(`/backend`) || PathPrefix(`/backend/`))"
+      - "traefik.http.routers.pdm-admin.priority=100"
+      - "traefik.http.routers.pdm-admin.tls=true"
+      - "traefik.http.routers.pdm-admin.tls.certresolver=certificadofront"
+      - "traefik.http.routers.pdm-admin.service=pdm-service"
+      # FastAPI publica: mantém /api/site/* sem roubar a raiz do domínio
+      - "traefik.http.routers.pdm-site.entrypoints=websecure"
+      - "traefik.http.routers.pdm-site.rule=Host(`${HOST_NAME}`) && (Path(`/api/site`) || PathPrefix(`/api/site/`))"
+      - "traefik.http.routers.pdm-site.priority=150"
+      - "traefik.http.routers.pdm-site.tls=true"
+      - "traefik.http.routers.pdm-site.tls.certresolver=certificadofront"
+      - "traefik.http.routers.pdm-site.service=pdm-service"
+      # Banco de Mídia: /backend/api/media/* -> /api/media/* no FastAPI
+      - "traefik.http.routers.pdm-media.entrypoints=websecure"
+      - "traefik.http.routers.pdm-media.rule=Host(`${HOST_NAME}`) && (Path(`/backend/api/media`) || PathPrefix(`/backend/api/media/`))"
+      - "traefik.http.routers.pdm-media.priority=200"
+      - "traefik.http.routers.pdm-media.tls=true"
+      - "traefik.http.routers.pdm-media.tls.certresolver=certificadofront"
+      - "traefik.http.routers.pdm-media.service=pdm-service"
+      - "traefik.http.routers.pdm-media.middlewares=pdm-strip-backend-media"
+      - "traefik.http.middlewares.pdm-strip-backend-media.stripprefix.prefixes=/backend"
+      - "traefik.http.services.pdm-service.loadbalancer.server.port=3000"
     volumes:
       - pdm_media_data:/app/data/media
 
