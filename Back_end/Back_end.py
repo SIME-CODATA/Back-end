@@ -346,3 +346,13 @@ app.add_page(
     title="Saindo | Programa de Metas",
     on_load=AuthState.logout,
 )
+from Back_end.site_cms.modules.metas.camadas_geo.page import camadas_geo_admin_page
+from Back_end.site_cms.modules.metas.camadas_geo.state import CamadasGeoState
+
+# Gerenciador de arquivos GEO, separado do Excel
+app.add_page(
+    camadas_geo_admin_page,
+    route="/admin/site/camadas-geo",
+    title="Camadas GEO | Programa de Metas",
+    on_load=CamadasGeoState.load_page,
+)

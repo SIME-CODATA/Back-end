@@ -33,6 +33,12 @@ from Back_end.site_cms.modules.metas.content_service import (
     set_manual_field,
     use_smae_field,
 )
+from Back_end.site_cms.modules.metas.bulk_service import (
+    apply_bulk_operation,
+)
+from Back_end.site_cms.modules.metas.schema import (
+    FIELD_LABELS,
+)
 from Back_end.site_cms.modules.metas.list_service import (
     CmsMetaListItem,
     list_cms_metas,
@@ -189,6 +195,17 @@ class MetaCmsState(AuthState):
     list_loading: bool = False
     list_error: str = ""
 
+    # Gestão de publicação e origem sem abrir cada ficha.
+    bulk_field: str = "title"
+    bulk_filter: str = "todos"
+    bulk_selected_codes: list[str] = []
+    bulk_confirm_codes: list[str] = []
+    bulk_confirm_action: str = ""
+    bulk_publication_note: str = ""
+    bulk_message: str = ""
+    bulk_error: str = ""
+    bulk_working: bool = False
+
     # ========================================================
     # META ATUAL
     # ========================================================
@@ -330,51 +347,49 @@ class MetaCmsState(AuthState):
         )
 
     @rx.var
-    def filtered_metas(
-        self,
-    ) -> list[CmsMetaListItem]:
-        term = (
-            self.search_text
-            .strip()
-            .casefold()
-        )
-
-        if not term:
-            return self.metas
-
-        result: list[
-            CmsMetaListItem
-        ] = []
-
+    def filtered_metas(self) -> list[CmsMetaListItem]:
+        term = self.search_text.strip().casefold()
+        result: list[CmsMetaListItem] = []
         for meta in self.metas:
-            if (
-                term
-                in str(
-                    meta.get(
-                        "codigo",
-                        "",
-                    )
-                ).casefold()
-                or term
-                in str(
-                    meta.get(
-                        "titulo",
-                        "",
-                    )
-                ).casefold()
-                or term
-                in str(
-                    meta.get(
-                        "eixo",
-                        "",
-                    )
-                ).casefold()
+            if self.bulk_filter != "todos" and meta["status"] != self.bulk_filter:
+                continue
+            if term and not any(
+                term in str(meta.get(key, "")).casefold()
+                for key in ("codigo", "titulo", "eixo")
             ):
-                result.append(
-                    meta
-                )
-
+                continue
+            result.append(meta)
         return result
+
+    @rx.var
+    def bulk_published_count(self) -> int:
+        return sum(item["status"] == "Publicado" for item in self.metas)
+
+    @rx.var
+    def bulk_pending_count(self) -> int:
+        return sum(item["status"] == "Rascunho pendente" for item in self.metas)
+
+    @rx.var
+    def bulk_unpublished_count(self) -> int:
+        return sum(item["status"] == "Não publicado" for item in self.metas)
+
+    @rx.var
+    def bulk_selected_count(self) -> int:
+        return len(self.bulk_selected_codes)
+
+    @rx.var
+    def bulk_confirm_count(self) -> int:
+        return len(self.bulk_confirm_codes)
+
+    @rx.var
+    def bulk_field_label(self) -> str:
+        return FIELD_LABELS.get(self.bulk_field, self.bulk_field)
+
+    @rx.var
+    def bulk_action_label(self) -> str:
+        return {"cms": "Fixar campo no CMS",
+                "smae": "Voltar a usar o SMAE",
+                "publish": "Publicar rascunhos"}.get(self.bulk_confirm_action, "")
 
     @rx.var
     def conflict_count(
@@ -1507,13 +1522,16 @@ class MetaCmsState(AuthState):
         self.list_loading = True
         self.list_error = ""
         self.search_text = ""
+        self.bulk_selected_codes = []
+        self.bulk_confirm_codes = []
+        self.bulk_confirm_action = ""
+        self.bulk_message = ""
+        self.bulk_error = ""
 
         yield
 
         try:
-            self.metas = (
-                list_cms_metas()
-            )
+            self.metas = list_cms_metas(self.bulk_field)
         except Exception as error:
             print(
                 "Erro ao listar metas CMS: "
@@ -1583,6 +1601,161 @@ class MetaCmsState(AuthState):
         value: str,
     ):
         self.search_text = value
+
+    # ========================================================
+    # GESTÃO EM LOTE (SOMENTE CMS DE METAS)
+    # ========================================================
+
+    @rx.event
+    def bulk_set_field(self, value: str):
+        redirect = self._require_permission(Permission.SITE_VIEW)
+        if redirect is not None:
+            return redirect
+        if value not in FIELD_LABELS:
+            return
+        self.bulk_field = value
+        self.bulk_selected_codes = []
+        self.bulk_confirm_codes = []
+        self.bulk_confirm_action = ""
+        self.bulk_message = ""
+        self.bulk_error = ""
+        try:
+            self.metas = list_cms_metas(value)
+        except Exception as exc:
+            print(f"[CMS METAS] Falha ao consultar campo: {exc}")
+            self.bulk_error = "Não foi possível consultar o campo selecionado."
+
+    @rx.event
+    def bulk_set_filter(self, value: str):
+        if value in {"todos", "Publicado", "Rascunho pendente", "Não publicado"}:
+            self.bulk_filter = value
+            self.bulk_selected_codes = []
+            self.bulk_confirm_action = ""
+            self.bulk_confirm_codes = []
+            self.metas = [{**row, "selected": False} for row in self.metas]
+
+    @rx.event
+    def bulk_toggle(self, code: str, checked: bool):
+        valid = {row["codigo"] for row in self.metas}
+        if code not in valid:
+            return
+        selected = set(self.bulk_selected_codes)
+        if checked:
+            selected.add(code)
+        else:
+            selected.discard(code)
+        self.bulk_selected_codes = sorted(selected)
+        self.metas = [
+            {**row, "selected": row["codigo"] in selected}
+            for row in self.metas
+        ]
+        self.bulk_confirm_action = ""
+        self.bulk_confirm_codes = []
+
+    @rx.event
+    def bulk_select_visible(self):
+        selected = set(self.bulk_selected_codes)
+        selected.update(row["codigo"] for row in self.filtered_metas)
+        self.bulk_selected_codes = sorted(selected)
+        self.metas = [
+            {**row, "selected": row["codigo"] in selected}
+            for row in self.metas
+        ]
+        self.bulk_confirm_action = ""
+        self.bulk_confirm_codes = []
+
+    @rx.event
+    def bulk_clear_selection(self):
+        self.bulk_selected_codes = []
+        self.bulk_confirm_codes = []
+        self.bulk_confirm_action = ""
+        self.metas = [{**row, "selected": False} for row in self.metas]
+
+    @rx.event
+    def bulk_set_publication_note(self, value: str):
+        self.bulk_publication_note = value[:500]
+
+    @rx.event
+    def bulk_request(self, action: str):
+        self.bulk_error = ""
+        self.bulk_message = ""
+        if action not in {"cms", "smae", "publish"}:
+            self.bulk_error = "Ação inválida."
+            return
+        permission = Permission.SITE_PUBLISH if action == "publish" else Permission.SITE_EDIT
+        if not can_access(self.current_user_role, permission):
+            self.bulk_error = "Seu perfil não tem permissão para esta ação."
+            return
+        if not self.bulk_selected_codes:
+            self.bulk_error = "Selecione pelo menos uma meta na lista."
+            return
+        if len(self.bulk_selected_codes) > 200:
+            self.bulk_error = "O limite por operação é 200 metas."
+            return
+        self.bulk_confirm_codes = list(self.bulk_selected_codes)
+        self.bulk_confirm_action = action
+
+    @rx.event
+    def bulk_cancel(self):
+        self.bulk_confirm_codes = []
+        self.bulk_confirm_action = ""
+
+    @rx.event
+    def bulk_execute(self):
+        action = self.bulk_confirm_action
+        if action not in {"cms", "smae", "publish"} or not self.bulk_confirm_codes:
+            self.bulk_error = "Nenhuma operação foi confirmada."
+            return
+        permission = Permission.SITE_PUBLISH if action == "publish" else Permission.SITE_EDIT
+        redirect = self._require_permission(permission)
+        if redirect is not None:
+            yield redirect
+            return
+        self.bulk_error = ""
+        self.bulk_message = ""
+        self.bulk_working = True
+        yield
+        try:
+            codes = list(self.bulk_confirm_codes)
+            result = apply_bulk_operation(
+                codes=codes, action=action, field_key=self.bulk_field,
+                actor_user_id=self.current_user_id,
+                note=self.bulk_publication_note if action == "publish" else "",
+            )
+            changed = result["changed"]
+            skipped = result["skipped"]
+            # Rastreabilidade por Meta, sem comprometer operação já confirmada se o log falhar.
+            for item in changed:
+                try:
+                    self._audit(
+                        action="SITE_META_BULK_PUBLISHED" if action == "publish" else "SITE_META_BULK_SOURCE_CHANGED",
+                        entity_type="cms_meta", entity_id=item["id"],
+                        description=(f"Operação em lote '{action}' na Meta {item['codigo']}. "
+                                     f"Campo: {self.bulk_field}. Total selecionado: {len(codes)}."),
+                    )
+                except Exception as exc:
+                    print(f"[CMS METAS] Falha no registro da auditoria: {exc}")
+            self.metas = list_cms_metas(self.bulk_field)
+            self.bulk_selected_codes = []
+            self.bulk_confirm_codes = []
+            self.bulk_confirm_action = ""
+            if action == "publish":
+                self.bulk_publication_note = ""
+            self.bulk_message = (
+                f"Operação concluída. {len(changed)} meta(s) atualizada(s); "
+                f"{len(skipped)} já estavam na situação desejada."
+            )
+        except (ValueError, RuntimeError) as exc:
+            self.bulk_error = str(exc)
+        except Exception as exc:
+            print(f"[CMS METAS] Erro na operação em lote: {exc}")
+            self.bulk_error = (
+                "Falha inesperada. Recarregue a listagem e confira o estado das metas "
+                "antes de repetir a operação."
+            )
+        finally:
+            self.bulk_working = False
+            yield
 
     # ========================================================
     # SETTERS SIMPLES

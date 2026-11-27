@@ -1,3 +1,4 @@
+from Back_end.site_cms.api.camadas_2026_11_19 import router as camadas_geo_router
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -28,3 +29,6 @@ api.include_router(site_metas_router)
 site_cms_router.include_router(fontes_router)
 api.include_router(site_cms_router)
 api.include_router(media_router)
+api.include_router(camadas_geo_router)
+from Back_end.site_cms.api.camadas_ativas_router import router as camadas_geo_ativas_router
+api.include_router(camadas_geo_ativas_router)

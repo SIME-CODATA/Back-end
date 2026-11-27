@@ -1,0 +1,8345 @@
+{
+ "type": "FeatureCollection",
+ "name": "metas_pdm_2026_11",
+ "bbox": [
+  -46.7758902,
+  -23.7777695,
+  -46.4411129,
+  -23.4741662
+ ],
+ "metadata": {
+  "titulo": "Metas PDM – Linhas e Polígonos (novembro/2026)",
+  "descricao": "Consolidação das metas georreferenciadas do PDM (camadas de linhas e polígonos) no município de São Paulo, a partir do projeto QGIS linhas_polígono_11_2026.qgz, da camada metas_zoom_linhas.gpkg e dos KMLs META_53, Linha1 e Linha2. Sem pontos.",
+  "data": "2026-11-19",
+  "idioma": "pt-BR",
+  "palavras_chave": [
+   "PDM",
+   "metas",
+   "São Paulo",
+   "regionalização",
+   "zoom",
+   "obras",
+   "mobilidade",
+   "planejamento urbano"
+  ],
+  "fonte": "metas_zoom_linhas.gpkg (camada linhas, EPSG:31983); META_53.kml; Linha1.kml; Linha2.kml (EPSG:4326, Z descartado); atributos das metas 53.x.x e 54 da planilha colada; projeto linhas_polígono_11_2026.qgz (QGIS 3.44.8)",
+  "crs": "EPSG:4326 (WGS84), coordenadas em graus decimais [longitude, latitude]",
+  "licenca": "Não informada",
+  "total_feicoes": 25,
+  "camadas": {
+   "linhas": {
+    "identificador": "Metas PDM – Linhas",
+    "descricao": "Metas do PDM com geometria linear (corredores, avenidas, pontes, túneis, bonde). 21 feições: 19 linhas da camada 'linhas' de metas_zoom_linhas.gpkg e as 2 linhas do Bonde São Paulo (meta 54), vindas de Linha1.kml (vermelha) e Linha2.kml (azul).",
+    "feicoes": 21
+   },
+   "poligonos": {
+    "identificador": "Metas PDM – Polígonos",
+    "descricao": "Metas do PDM com geometria de área (meta 53): Triângulo Histórico, Quadrilátero da República, Esplanada Liberdade e Parque Dom Pedro II. 4 feições, vindas de META_53.kml.",
+    "feicoes": 4
+   }
+  },
+  "limitacoes": "Linha2.kml tem 165 segmentos em 3 cores de CAD; só os 95 amarelos (o laço completo do Bonde) foram usados. Os segmentos ciano e verde ficaram de fora. Linha 1 está em 2 partes por vãos de 7 a 12 m no CAD.",
+  "campos": {
+   "Código": {
+    "titulo": "Código",
+    "descricao": "Código hierárquico do item (ex.: 53.01.01 = meta 53, ação 01, trecho 01). Para metas simples, igual ao número da meta."
+   },
+   "Meta": {
+    "titulo": "Meta",
+    "descricao": "Número da meta do PDM à qual a feição pertence."
+   },
+   "Eixo": {
+    "titulo": "Eixo",
+    "descricao": "Eixo temático da meta (ex.: Universo SP)."
+   },
+   "Tipo": {
+    "titulo": "Tipo",
+    "descricao": "Natureza do registro (ex.: Meta)."
+   },
+   "Ação Estratégica": {
+    "titulo": "Ação Estratégica",
+    "descricao": "Ação estratégica vinculada. Sem preenchimento na origem."
+   },
+   "Descrição da Meta": {
+    "titulo": "Descrição da Meta",
+    "descricao": "Texto da meta ou do indicador associado. Nas feições 53.x.x e 54 vem da planilha como indicador (ex.: 'Número de ações estratégicas concluídas.')."
+   },
+   "Descrição Projeto": {
+    "titulo": "Descrição do Projeto",
+    "descricao": "Nome do projeto/obra representado pela feição."
+   },
+   "Secretaria": {
+    "titulo": "Secretaria",
+    "descricao": "Secretarias e órgãos responsáveis, separados por ponto e vírgula."
+   },
+   "Trecho": {
+    "titulo": "Trecho",
+    "descricao": "Identifica o trecho quando a mesma meta tem mais de uma linha (meta 54: Linha 1 vermelha e Linha 2 azul). Vazio nas demais."
+   },
+   "Subprefeitura": {
+    "titulo": "Subprefeitura",
+    "descricao": "Subprefeitura(s) abrangida(s), separadas por ponto e vírgula."
+   },
+   "Distrito": {
+    "titulo": "Distrito",
+    "descricao": "Distrito(s) abrangido(s), separados por ponto e vírgula."
+   },
+   "Subprefeituras": {
+    "titulo": "Subprefeituras (plural)",
+    "descricao": "Campo legado, vazio em todos os registros. Usar 'Subprefeitura'."
+   },
+   "Distritos": {
+    "titulo": "Distritos (plural)",
+    "descricao": "Campo legado, vazio em todos os registros. Usar 'Distrito'."
+   },
+   "Endereço": {
+    "titulo": "Endereço",
+    "descricao": "Endereço de referência. 'Vide WKT' indica que o local é definido pela própria geometria."
+   },
+   "Latitude_WGS": {
+    "titulo": "Latitude WGS84",
+    "descricao": "Latitude (graus decimais, WGS84/EPSG:4326) de um ponto de referência da feição."
+   },
+   "Longitude_WGS": {
+    "titulo": "Longitude WGS84",
+    "descricao": "Longitude (graus decimais, WGS84/EPSG:4326) de um ponto de referência da feição."
+   },
+   "Latitude_UTM": {
+    "titulo": "Latitude UTM (Y)",
+    "descricao": "Coordenada Y (northing, metros) do ponto de referência em SIRGAS 2000 / UTM 23S (EPSG:31983). Calculada a partir de Latitude/Longitude_WGS nas feições novas."
+   },
+   "Longitude_UTM": {
+    "titulo": "Longitude UTM (X)",
+    "descricao": "Coordenada X (easting, metros) do ponto de referência em SIRGAS 2000 / UTM 23S (EPSG:31983)."
+   },
+   "Meta é regionalizável?": {
+    "titulo": "Meta é regionalizável?",
+    "descricao": "Indica se a meta pode ser regionalizada (ex.: 'Sim, no planejamento')."
+   },
+   "Já tem local(is) definido(s)?": {
+    "titulo": "Já tem local(is) definido(s)?",
+    "descricao": "Sim/Não: se os locais da meta já estão definidos."
+   },
+   "Localização é públicável?": {
+    "titulo": "Localização é publicável?",
+    "descricao": "Sim/Não: se a localização pode ser divulgada."
+   },
+   "Status Regionalização": {
+    "titulo": "Status Regionalização",
+    "descricao": "Situação da regionalização (ex.: Regionalizada)."
+   },
+   "Status Execução": {
+    "titulo": "Status Execução",
+    "descricao": "Planejado ou Executado. Preenchido apenas para as feições da planilha 53.x.x e 54; vazio nas demais (sem informação na origem)."
+   },
+   "Tipo de Mapa": {
+    "titulo": "Tipo de Mapa",
+    "descricao": "Tipo de mapa em que a feição é usada (ex.: Zoom)."
+   },
+   "Tipo de Dado": {
+    "titulo": "Tipo de Dado",
+    "descricao": "Linha ou Polígono, conforme a geometria."
+   },
+   "Temos arquivo georreferenciado?": {
+    "titulo": "Temos arquivo georreferenciado?",
+    "descricao": "Sim/Não."
+   },
+   "Arquivo Geo": {
+    "titulo": "Arquivo Geo",
+    "descricao": "Nome do arquivo geográfico de origem (este GeoPackage)."
+   },
+   "Informações complementares": {
+    "titulo": "Informações complementares",
+    "descricao": "Observações livres, em geral a extensão informada pela secretaria. Pode divergir de 'Extensão (km)', que é medida na geometria."
+   },
+   "Extensão (km)": {
+    "titulo": "Extensão (km)",
+    "descricao": "Comprimento medido na geometria em EPSG:31983 (planimétrico), em km. Só para linhas."
+   },
+   "Área (ha)": {
+    "titulo": "Área (ha)",
+    "descricao": "Área medida na geometria em EPSG:31983, em hectares. Só para polígonos."
+   },
+   "WKT": {
+    "titulo": "WKT (WGS84)",
+    "descricao": "Geometria em texto WKT, EPSG:4326, 8 casas decimais. Regenerada a partir da geometria em 19/11/2026."
+   },
+   "auxiliary_storage_labeling_positionx": {
+    "titulo": "Posição X do rótulo (QGIS)",
+    "descricao": "Posição manual X do rótulo no QGIS (auxiliary storage), EPSG:31983."
+   },
+   "auxiliary_storage_labeling_positiony": {
+    "titulo": "Posição Y do rótulo (QGIS)",
+    "descricao": "Posição manual Y do rótulo no QGIS (auxiliary storage), EPSG:31983."
+   }
+  },
+  "notas_revisao": [
+   {
+    "item": "Escopo",
+    "observacao": "Somente linhas e polígonos. Pontos removidos."
+   },
+   {
+    "item": "Polígonos da meta 53",
+    "observacao": "Geometrias de META_53.kml (Z descartado). Substituem os polígonos aproximados da planilha (diferença de 27 a 52 m nas duas primeiras) e os pontos de 53.03.01 e 53.04.01."
+   },
+   {
+    "item": "Esplanada Liberdade (53.03.01)",
+    "observacao": "Agora é polígono. A linha provisória que existia em metas_zoom_linhas.gpkg foi removida da camada linhas. Código ajustado de '53' para '53.03.01'. Secretaria: usada 'SEDP' (planilha); a linha antiga dizia 'SIURB; SP OBRAS'."
+   },
+   {
+    "item": "Bonde São Paulo (meta 54)",
+    "observacao": "Substituída a geometria simplificada da planilha pelas de Linha1.kml e Linha2.kml: dois registros com o mesmo código 54, distinguidos pelo campo Trecho."
+   },
+   {
+    "item": "Linha2.kml",
+    "observacao": "165 segmentos em 3 cores de CAD. Usados os 95 amarelos (laço completo, 6,17 km, melhor correspondência com a linha da planilha). Ciano (3,81 km) e verde (0,46 km) parecem eixos auxiliares e ficaram de fora; avisar se devem entrar."
+   },
+   {
+    "item": "Linha1.kml",
+    "observacao": "71 segmentos fundidos em 2 partes (6,24 km). Sobram vãos de 7 a 12 m no CAD, não fechados por não inventar traçado."
+   },
+   {
+    "item": "Pontos de referência (meta 54)",
+    "observacao": "Linha 1: ponto da planilha encaixado na linha. Linha 2: ponto médio da linha."
+   },
+   {
+    "item": "Meta 17 (Avenida Celso Garcia)",
+    "observacao": "O campo WKT original era cópia da meta 19 (Amador Bueno). WKT regenerado da geometria. A geometria estava correta."
+   },
+   {
+    "item": "Extensões divergentes",
+    "observacao": "Meta 17: informado 2,7 km, medido 8,45 km. Meta 22: informado 9,1 km, medido 7,50 km. Meta 20: informado 4,6 km, medido 4,93 km. 'Informações complementares' mantido."
+   },
+   {
+    "item": "Campos preenchidos por padrão",
+    "observacao": "Nas feições novas: Tipo='Meta', Tipo de Mapa='Zoom', Temos arquivo georreferenciado?='Sim', Meta é regionalizável?='Sim, no planejamento' (planilha dizia 'No planejamento'), seguindo o padrão das linhas originais."
+   },
+   {
+    "item": "Status Execução",
+    "observacao": "Campo novo (Planejado/Executado). Só existe para as feições da planilha; as 19 linhas originais ficam vazias."
+   },
+   {
+    "item": "Nome 'Calçado Quadrilátero República'",
+    "observacao": "Possível erro de digitação (Calçadão?). Mantido como veio."
+   },
+   {
+    "item": "CRS",
+    "observacao": "GeoPackage em EPSG:31983; GeoJSON em EPSG:4326 (RFC 7946). KMLs em WGS84."
+   }
+  ]
+ },
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "camada": "linhas",
+    "Código": "15",
+    "Meta": 15,
+    "Eixo": "Universo SP",
+    "Tipo": "Meta",
+    "Ação Estratégica": null,
+    "Descrição da Meta": "Iniciar a operação do BRT Aricanduva, para reduzir o tempo de deslocamento entre a Radial Leste, a partir da altura da Estação Carrão do Metrô, e o Terminal São Mateus.",
+    "Descrição Projeto": "BRT Aricanduva",
+    "Trecho": null,
+    "Secretaria": "SIURB; SP OBRAS",
+    "Subprefeitura": "Aricanduva/Formosa/Carrão; São Mateus",
+    "Distrito": "Carrão; Aricanduva; São Mateus",
+    "Subprefeituras": null,
+    "Distritos": null,
+    "Endereço": "Vide WKT",
+    "Latitude_WGS": -23.572436,
+    "Longitude_WGS": -46.504215,
+    "Latitude_UTM": 7392303.48,
+    "Longitude_UTM": 346491.39,
+    "Meta é regionalizável?": "Sim, no planejamento",
+    "Já tem local(is) definido(s)?": "Sim",
+    "Localização é públicável?": "Sim",
+    "Status Regionalização": "Regionalizada",
+    "Status Execução": null,
+    "Tipo de Mapa": "Zoom",
+    "Tipo de Dado": "Linha",
+    "Temos arquivo georreferenciado?": "Sim",
+    "Arquivo Geo": "metas_pdm_2026_11.gpkg",
+    "Informações complementares": "Extensão de 13,6 km",
+    "Extensão (km)": 13.68,
+    "Área (ha)": null,
+    "WKT": "MULTILINESTRING ((-46.47551107 -23.61166802, -46.47524576 -23.61109809, -46.47469312 -23.61029211, -46.47383242 -23.60972783, -46.47286782 -23.60911667, -46.47265523 -23.60864160, -46.47230204 -23.60714206, -46.47180384 -23.60657423, -46.47122474 -23.60572090, -46.47070366 -23.60310169, -46.47029007 -23.60083926, -46.46968185 -23.59969993, -46.46853112 -23.59863733, -46.46717141 -23.59740972, -46.46625466 -23.59646411, -46.46564908 -23.59553939, -46.46574055 -23.59444111, -46.46617163 -23.59364974, -46.46678788 -23.59319066, -46.46761336 -23.59294436, -46.46846658 -23.59284084, -46.46906154 -23.59281138, -46.46955339 -23.59280672, -46.47032988 -23.59279937, -46.47089924 -23.59279398, -46.47177876 -23.59273788, -46.47351182 -23.59262608, -46.47536738 -23.59189269, -46.47688165 -23.59073320, -46.47822079 -23.59012416, -46.47956215 -23.58970582, -46.48056411 -23.58902827, -46.48176682 -23.58780009, -46.48276741 -23.58700334, -46.48398279 -23.58689637, -46.48556297 -23.58694710, -46.48667390 -23.58682286, -46.48757476 -23.58636099, -46.48824172 -23.58582973, -46.48885453 -23.58508434, -46.48959315 -23.58402762, -46.49051086 -23.58277827, -46.49097939 -23.58220466, -46.49127676 -23.58184049, -46.49194180 -23.58114227, -46.49280963 -23.58006045, -46.49393887 -23.57921462, -46.49522807 -23.57877281, -46.49670263 -23.57871093, -46.49785392 -23.57872395, -46.49852071 -23.57858125, -46.49895087 -23.57840299, -46.49946609 -23.57818336, -46.49987721 -23.57791687, -46.50052012 -23.57755295, -46.50118753 -23.57706933, -46.50219871 -23.57613572, -46.50269787 -23.57559953, -46.50343616 -23.57451891, -46.50389345 -23.57377488, -46.50422045 -23.57293674, -46.50421484 -23.57243586, -46.50428427 -23.57171951, -46.50422086 -23.57069424, -46.50426172 -23.56973966, -46.50468906 -23.56863812, -46.50543147 -23.56791525, -46.50658639 -23.56706918, -46.50775626 -23.56526859, -46.50846287 -23.56368724, -46.50902446 -23.56301379, -46.51115504 -23.56149021, -46.51586375 -23.55686403, -46.51764646 -23.55436574, -46.51884724 -23.55301803, -46.52396296 -23.55008142, -46.52501005 -23.54887840, -46.52590435 -23.54789152, -46.52672538 -23.54728708, -46.52775069 -23.54644204, -46.52905389 -23.54502172, -46.52966877 -23.54449081, -46.53162546 -23.54363668, -46.53347832 -23.54275952, -46.53478696 -23.54181628, -46.53574131 -23.54122033, -46.53614512 -23.54109894, -46.53646050 -23.54104688, -46.53685169 -23.54107002, -46.53894452 -23.54108328, -46.54069747 -23.54054116, -46.54231993 -23.53988102, -46.54443457 -23.53901975, -46.54466248 -23.53894380, -46.54526499 -23.53872839, -46.54592963 -23.53851652, -46.54677423 -23.53805606, -46.54705318 -23.53752003, -46.54725100 -23.53673087, -46.54734838 -23.53620504, -46.54777303 -23.53491261))",
+    "auxiliary_storage_labeling_positionx": null,
+    "auxiliary_storage_labeling_positiony": null
+   },
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -46.4755111,
+       -23.611668
+      ],
+      [
+       -46.4752458,
+       -23.6110981
+      ],
+      [
+       -46.4746931,
+       -23.6102921
+      ],
+      [
+       -46.4738324,
+       -23.6097278
+      ],
+      [
+       -46.4728678,
+       -23.6091167
+      ],
+      [
+       -46.4726552,
+       -23.6086416
+      ],
+      [
+       -46.472302,
+       -23.6071421
+      ],
+      [
+       -46.4718038,
+       -23.6065742
+      ],
+      [
+       -46.4712247,
+       -23.6057209
+      ],
+      [
+       -46.4707037,
+       -23.6031017
+      ],
+      [
+       -46.4702901,
+       -23.6008393
+      ],
+      [
+       -46.4696819,
+       -23.5996999
+      ],
+      [
+       -46.4685311,
+       -23.5986373
+      ],
+      [
+       -46.4671714,
+       -23.5974097
+      ],
+      [
+       -46.4662547,
+       -23.5964641
+      ],
+      [
+       -46.4656491,
+       -23.5955394
+      ],
+      [
+       -46.4657405,
+       -23.5944411
+      ],
+      [
+       -46.4661716,
+       -23.5936497
+      ],
+      [
+       -46.4667879,
+       -23.5931907
+      ],
+      [
+       -46.4676134,
+       -23.5929444
+      ],
+      [
+       -46.4684666,
+       -23.5928408
+      ],
+      [
+       -46.4690615,
+       -23.5928114
+      ],
+      [
+       -46.4695534,
+       -23.5928067
+      ],
+      [
+       -46.4703299,
+       -23.5927994
+      ],
+      [
+       -46.4708992,
+       -23.592794
+      ],
+      [
+       -46.4717788,
+       -23.5927379
+      ],
+      [
+       -46.4735118,
+       -23.5926261
+      ],
+      [
+       -46.4753674,
+       -23.5918927
+      ],
+      [
+       -46.4768817,
+       -23.5907332
+      ],
+      [
+       -46.4782208,
+       -23.5901242
+      ],
+      [
+       -46.4795622,
+       -23.5897058
+      ],
+      [
+       -46.4805641,
+       -23.5890283
+      ],
+      [
+       -46.4817668,
+       -23.5878001
+      ],
+      [
+       -46.4827674,
+       -23.5870033
+      ],
+      [
+       -46.4839828,
+       -23.5868964
+      ],
+      [
+       -46.485563,
+       -23.5869471
+      ],
+      [
+       -46.4866739,
+       -23.5868229
+      ],
+      [
+       -46.4875748,
+       -23.586361
+      ],
+      [
+       -46.4882417,
+       -23.5858297
+      ],
+      [
+       -46.4888545,
+       -23.5850843
+      ],
+      [
+       -46.4895932,
+       -23.5840276
+      ],
+      [
+       -46.4905109,
+       -23.5827783
+      ],
+      [
+       -46.4909794,
+       -23.5822047
+      ],
+      [
+       -46.4912768,
+       -23.5818405
+      ],
+      [
+       -46.4919418,
+       -23.5811423
+      ],
+      [
+       -46.4928096,
+       -23.5800605
+      ],
+      [
+       -46.4939389,
+       -23.5792146
+      ],
+      [
+       -46.4952281,
+       -23.5787728
+      ],
+      [
+       -46.4967026,
+       -23.5787109
+      ],
+      [
+       -46.4978539,
+       -23.5787239
+      ],
+      [
+       -46.4985207,
+       -23.5785812
+      ],
+      [
+       -46.4989509,
+       -23.578403
+      ],
+      [
+       -46.4994661,
+       -23.5781834
+      ],
+      [
+       -46.4998772,
+       -23.5779169
+      ],
+      [
+       -46.5005201,
+       -23.577553
+      ],
+      [
+       -46.5011875,
+       -23.5770693
+      ],
+      [
+       -46.5021987,
+       -23.5761357
+      ],
+      [
+       -46.5026979,
+       -23.5755995
+      ],
+      [
+       -46.5034362,
+       -23.5745189
+      ],
+      [
+       -46.5038935,
+       -23.5737749
+      ],
+      [
+       -46.5042204,
+       -23.5729367
+      ],
+      [
+       -46.5042148,
+       -23.5724359
+      ],
+      [
+       -46.5042843,
+       -23.5717195
+      ],
+      [
+       -46.5042209,
+       -23.5706942
+      ],
+      [
+       -46.5042617,
+       -23.5697397
+      ],
+      [
+       -46.5046891,
+       -23.5686381
+      ],
+      [
+       -46.5054315,
+       -23.5679153
+      ],
+      [
+       -46.5065864,
+       -23.5670692
+      ],
+      [
+       -46.5077563,
+       -23.5652686
+      ],
+      [
+       -46.5084629,
+       -23.5636872
+      ],
+      [
+       -46.5090245,
+       -23.5630138
+      ],
+      [
+       -46.511155,
+       -23.5614902
+      ],
+      [
+       -46.5158637,
+       -23.556864
+      ],
+      [
+       -46.5176465,
+       -23.5543657
+      ],
+      [
+       -46.5188472,
+       -23.553018
+      ],
+      [
+       -46.523963,
+       -23.5500814
+      ],
+      [
+       -46.52501,
+       -23.5488784
+      ],
+      [
+       -46.5259043,
+       -23.5478915
+      ],
+      [
+       -46.5267254,
+       -23.5472871
+      ],
+      [
+       -46.5277507,
+       -23.546442
+      ],
+      [
+       -46.5290539,
+       -23.5450217
+      ],
+      [
+       -46.5296688,
+       -23.5444908
+      ],
+      [
+       -46.5316255,
+       -23.5436367
+      ],
+      [
+       -46.5334783,
+       -23.5427595
+      ],
+      [
+       -46.534787,
+       -23.5418163
+      ],
+      [
+       -46.5357413,
+       -23.5412203
+      ],
+      [
+       -46.5361451,
+       -23.5410989
+      ],
+      [
+       -46.5364605,
+       -23.5410469
+      ],
+      [
+       -46.5368517,
+       -23.54107
+      ],
+      [
+       -46.5389445,
+       -23.5410833
+      ],
+      [
+       -46.5406975,
+       -23.5405412
+      ],
+      [
+       -46.5423199,
+       -23.539881
+      ],
+      [
+       -46.5444346,
+       -23.5390197
+      ],
+      [
+       -46.5446625,
+       -23.5389438
+      ],
+      [
+       -46.545265,
+       -23.5387284
+      ],
+      [
+       -46.5459296,
+       -23.5385165
+      ],
+      [
+       -46.5467742,
+       -23.5380561
+      ],
+      [
+       -46.5470532,
+       -23.53752
+      ],
+      [
+       -46.547251,
+       -23.5367309
+      ],
+      [
+       -46.5473484,
+       -23.536205
+      ],
+      [
+       -46.547773,
+       -23.5349126
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "camada": "linhas",
+    "Código": "16",
+    "Meta": 16,
+    "Eixo": "Universo SP",
+    "Tipo": "Meta",
+    "Ação Estratégica": null,
+    "Descrição da Meta": "Iniciar a operação do trecho I do novo BRT Radial Leste e as obras do trecho II, para reduzir o tempo de deslocamento entre a região e o Centro.",
+    "Descrição Projeto": "Radial Leste Trecho 1",
+    "Trecho": null,
+    "Secretaria": "SIURB; SP OBRAS",
+    "Subprefeitura": "Sé; Mooca",
+    "Distrito": "Sé; Brás, Belém; Tatuapé; Vila Matilde",
+    "Subprefeituras": null,
+    "Distritos": null,
+    "Endereço": "Vide WKT",
+    "Latitude_WGS": -23.544378,
+    "Longitude_WGS": -46.593288,
+    "Latitude_UTM": 7395312.22,
+    "Longitude_UTM": 337365.19,
+    "Meta é regionalizável?": "Sim, no planejamento",
+    "Já tem local(is) definido(s)?": "Sim",
+    "Localização é públicável?": "Sim",
+    "Status Regionalização": "Regionalizada",
+    "Status Execução": null,
+    "Tipo de Mapa": "Zoom",
+    "Tipo de Dado": "Linha",
+    "Temos arquivo georreferenciado?": "Sim",
+    "Arquivo Geo": "metas_pdm_2026_11.gpkg",
+    "Informações complementares": "Extensão do Trecho I: 9 km;\nTrecho II: 9,8 km",
+    "Extensão (km)": 9.9,
+    "Área (ha)": null,
+    "WKT": "MULTILINESTRING ((-46.62874666 -23.54836844, -46.62892212 -23.54812271, -46.62966129 -23.54713220), (-46.58061109 -23.54194772, -46.59328776 -23.54437798, -46.59796303 -23.54544175, -46.60277931 -23.54806365, -46.61094827 -23.55255123, -46.61272976 -23.55298302, -46.61696545 -23.55258206, -46.62167839 -23.55211325, -46.62346970 -23.55185092, -46.62460253 -23.55166715, -46.62518295 -23.55101704, -46.62558396 -23.55058644, -46.62583229 -23.55053156, -46.62605144 -23.55058968, -46.62624360 -23.55057954, -46.62635567 -23.55046161, -46.62677921 -23.54972807, -46.62672036 -23.54920511, -46.62664984 -23.54879912, -46.62697894 -23.54832005, -46.62750260 -23.54806615, -46.62801414 -23.54810107, -46.62861620 -23.54827248, -46.62874666 -23.54836844), (-46.62874666 -23.54836844, -46.62888200 -23.54846800, -46.62906798 -23.54861668, -46.62926106 -23.54888800, -46.62919592 -23.54907047, -46.62893938 -23.54916580, -46.62865506 -23.54914458, -46.62850019 -23.54898510, -46.62847597 -23.54879202, -46.62856565 -23.54862194, -46.62874666 -23.54836844), (-46.54237337 -23.53374461, -46.55420324 -23.53612705, -46.55820754 -23.53685225, -46.56244810 -23.53774898, -46.56481230 -23.53826877, -46.57147076 -23.53941219, -46.57475169 -23.54041652, -46.57789192 -23.54085410, -46.57948219 -23.54168945, -46.58062804 -23.54194773))",
+    "auxiliary_storage_labeling_positionx": 342494.17897220235,
+    "auxiliary_storage_labeling_positiony": 7396029.485725751
+   },
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -46.6287467,
+       -23.5483684
+      ],
+      [
+       -46.6289221,
+       -23.5481227
+      ],
+      [
+       -46.6296613,
+       -23.5471322
+      ]
+     ],
+     [
+      [
+       -46.5806111,
+       -23.5419477
+      ],
+      [
+       -46.5932878,
+       -23.544378
+      ],
+      [
+       -46.597963,
+       -23.5454417
+      ],
+      [
+       -46.6027793,
+       -23.5480637
+      ],
+      [
+       -46.6109483,
+       -23.5525512
+      ],
+      [
+       -46.6127298,
+       -23.552983
+      ],
+      [
+       -46.6169654,
+       -23.5525821
+      ],
+      [
+       -46.6216784,
+       -23.5521132
+      ],
+      [
+       -46.6234697,
+       -23.5518509
+      ],
+      [
+       -46.6246025,
+       -23.5516671
+      ],
+      [
+       -46.6251829,
+       -23.551017
+      ],
+      [
+       -46.625584,
+       -23.5505864
+      ],
+      [
+       -46.6258323,
+       -23.5505316
+      ],
+      [
+       -46.6260514,
+       -23.5505897
+      ],
+      [
+       -46.6262436,
+       -23.5505795
+      ],
+      [
+       -46.6263557,
+       -23.5504616
+      ],
+      [
+       -46.6267792,
+       -23.5497281
+      ],
+      [
+       -46.6267204,
+       -23.5492051
+      ],
+      [
+       -46.6266498,
+       -23.5487991
+      ],
+      [
+       -46.6269789,
+       -23.54832
+      ],
+      [
+       -46.6275026,
+       -23.5480661
+      ],
+      [
+       -46.6280141,
+       -23.5481011
+      ],
+      [
+       -46.6286162,
+       -23.5482725
+      ],
+      [
+       -46.6287467,
+       -23.5483684
+      ]
+     ],
+     [
+      [
+       -46.6287467,
+       -23.5483684
+      ],
+      [
+       -46.628882,
+       -23.548468
+      ],
+      [
+       -46.629068,
+       -23.5486167
+      ],
+      [
+       -46.6292611,
+       -23.548888
+      ],
+      [
+       -46.6291959,
+       -23.5490705
+      ],
+      [
+       -46.6289394,
+       -23.5491658
+      ],
+      [
+       -46.6286551,
+       -23.5491446
+      ],
+      [
+       -46.6285002,
+       -23.5489851
+      ],
+      [
+       -46.628476,
+       -23.548792
+      ],
+      [
+       -46.6285657,
+       -23.5486219
+      ],
+      [
+       -46.6287467,
+       -23.5483684
+      ]
+     ],
+     [
+      [
+       -46.5423734,
+       -23.5337446
+      ],
+      [
+       -46.5542032,
+       -23.5361271
+      ],
+      [
+       -46.5582075,
+       -23.5368522
+      ],
+      [
+       -46.5624481,
+       -23.537749
+      ],
+      [
+       -46.5648123,
+       -23.5382688
+      ],
+      [
+       -46.5714708,
+       -23.5394122
+      ],
+      [
+       -46.5747517,
+       -23.5404165
+      ],
+      [
+       -46.5778919,
+       -23.5408541
+      ],
+      [
+       -46.5794822,
+       -23.5416894
+      ],
+      [
+       -46.580628,
+       -23.5419477
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "camada": "linhas",
+    "Código": "17",
+    "Meta": 17,
+    "Eixo": "Universo SP",
+    "Tipo": "Meta",
+    "Ação Estratégica": null,
+    "Descrição da Meta": "Requalificar 8,3 quilômetros da Avenida Celso Garcia, para facilitar os deslocamentos entre o Terminal Parque Dom Pedro II e a estação Bresser-Mooca do Metrô.",
+    "Descrição Projeto": "Avenida Celso Garcia",
+    "Trecho": null,
+    "Secretaria": "SMT; SPTRANS",
+    "Subprefeitura": "Sé; Mooca",
+    "Distrito": "Sé; Brás, Belém; Tatuapé",
+    "Subprefeituras": null,
+    "Distritos": null,
+    "Endereço": "Vide WKT",
+    "Latitude_WGS": -23.537209,
+    "Longitude_WGS": -46.594601,
+    "Latitude_UTM": 7396104.651,
+    "Longitude_UTM": 337222.256,
+    "Meta é regionalizável?": "Sim, no planejamento",
+    "Já tem local(is) definido(s)?": "Sim",
+    "Localização é públicável?": "Sim",
+    "Status Regionalização": "Regionalizada",
+    "Status Execução": null,
+    "Tipo de Mapa": "Zoom",
+    "Tipo de Dado": "Linha",
+    "Temos arquivo georreferenciado?": "Sim",
+    "Arquivo Geo": "metas_pdm_2026_11.gpkg",
+    "Informações complementares": "Extensão de 2,7 km",
+    "Extensão (km)": 8.45,
+    "Área (ha)": null,
+    "WKT": "MULTILINESTRING ((-46.60803587 -23.53913652, -46.60858511 -23.53921498, -46.61170553 -23.54004030, -46.61275118 -23.54054428, -46.61571930 -23.54233617, -46.61585725 -23.54252392, -46.62030158 -23.54524513, -46.62427153 -23.54706686, -46.62527958 -23.54765115, -46.62615798 -23.54826253, -46.62794267 -23.54930519, -46.62850548 -23.54946239, -46.62934522 -23.54938171, -46.62947969 -23.54895967, -46.63019163 -23.54788094, -46.63006967 -23.54721353), (-46.60803587 -23.53913652, -46.60157326 -23.53823832, -46.59831969 -23.53809628, -46.59460133 -23.53720852, -46.59138650 -23.53692444, -46.58941112 -23.53671138, -46.58592516 -23.53603668, -46.58394978 -23.53546851, -46.58267159 -23.53529095, -46.58081241 -23.53500686, -46.57810111 -23.53497135, -46.57546727 -23.53521993, -46.57174891 -23.53593015, -46.56938620 -23.53507789, -46.56435092 -23.53319579, -46.55406616 -23.52966182))",
+    "auxiliary_storage_labeling_positionx": 331922.7382459977,
+    "auxiliary_storage_labeling_positiony": 7395090.531390996
+   },
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -46.6080359,
+       -23.5391365
+      ],
+      [
+       -46.6085851,
+       -23.539215
+      ],
+      [
+       -46.6117055,
+       -23.5400403
+      ],
+      [
+       -46.6127512,
+       -23.5405443
+      ],
+      [
+       -46.6157193,
+       -23.5423362
+      ],
+      [
+       -46.6158573,
+       -23.5425239
+      ],
+      [
+       -46.6203016,
+       -23.5452451
+      ],
+      [
+       -46.6242715,
+       -23.5470669
+      ],
+      [
+       -46.6252796,
+       -23.5476512
+      ],
+      [
+       -46.626158,
+       -23.5482625
+      ],
+      [
+       -46.6279427,
+       -23.5493052
+      ],
+      [
+       -46.6285055,
+       -23.5494624
+      ],
+      [
+       -46.6293452,
+       -23.5493817
+      ],
+      [
+       -46.6294797,
+       -23.5489597
+      ],
+      [
+       -46.6301916,
+       -23.5478809
+      ],
+      [
+       -46.6300697,
+       -23.5472135
+      ]
+     ],
+     [
+      [
+       -46.6080359,
+       -23.5391365
+      ],
+      [
+       -46.6015733,
+       -23.5382383
+      ],
+      [
+       -46.5983197,
+       -23.5380963
+      ],
+      [
+       -46.5946013,
+       -23.5372085
+      ],
+      [
+       -46.5913865,
+       -23.5369244
+      ],
+      [
+       -46.5894111,
+       -23.5367114
+      ],
+      [
+       -46.5859252,
+       -23.5360367
+      ],
+      [
+       -46.5839498,
+       -23.5354685
+      ],
+      [
+       -46.5826716,
+       -23.535291
+      ],
+      [
+       -46.5808124,
+       -23.5350069
+      ],
+      [
+       -46.5781011,
+       -23.5349714
+      ],
+      [
+       -46.5754673,
+       -23.5352199
+      ],
+      [
+       -46.5717489,
+       -23.5359301
+      ],
+      [
+       -46.5693862,
+       -23.5350779
+      ],
+      [
+       -46.5643509,
+       -23.5331958
+      ],
+      [
+       -46.5540662,
+       -23.5296618
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "camada": "linhas",
+    "Código": "18",
+    "Meta": 18,
+    "Eixo": "Universo SP",
+    "Tipo": "Meta",
+    "Ação Estratégica": null,
+    "Descrição da Meta": "Entregar o Corredor Itaquera-Líder, com 9,3 quilômetros de extensão nos dois sentidos, para facilitar a circulação de ônibus em vias essenciais para a mobilidade na Zona Leste. ",
+    "Descrição Projeto": "Corredor Itaquera-Líder",
+    "Trecho": null,
+    "Secretaria": "SMT; SPTRANS",
+    "Subprefeitura": "Aricanduva/Formosa/Carrão; Itaquera",
+    "Distrito": "Cidade Líder; Itaquera",
+    "Subprefeituras": null,
+    "Distritos": null,
+    "Endereço": "Vide WKT",
+    "Latitude_WGS": -23.55452,
+    "Longitude_WGS": -46.483063,
+    "Latitude_UTM": 7394309.82,
+    "Longitude_UTM": 348629.83,
+    "Meta é regionalizável?": "Sim, no planejamento",
+    "Já tem local(is) definido(s)?": "Sim",
+    "Localização é públicável?": "Sim",
+    "Status Regionalização": "Regionalizada",
+    "Status Execução": null,
+    "Tipo de Mapa": "Zoom",
+    "Tipo de Dado": "Linha",
+    "Temos arquivo georreferenciado?": "Sim",
+    "Arquivo Geo": "metas_pdm_2026_11.gpkg",
+    "Informações complementares": "Extensão de 9,3 km",
+    "Extensão (km)": 9.35,
+    "Área (ha)": null,
+    "WKT": "MULTILINESTRING ((-46.46223799 -23.55049498, -46.46309428 -23.55070177, -46.46353866 -23.55110316, -46.46526640 -23.55289991, -46.46628616 -23.55384458, -46.46850639 -23.55570826, -46.46988508 -23.55633940, -46.47167736 -23.55694268, -46.47227421 -23.55708008, -46.47283724 -23.55705677, -46.47353786 -23.55699450, -46.47467612 -23.55694389, -46.47656660 -23.55677703, -46.47728839 -23.55653158, -46.47836930 -23.55599644, -46.47880503 -23.55561065, -46.47944422 -23.55493657, -46.48011447 -23.55469169, -46.48225936 -23.55443266, -46.48306255 -23.55452046, -46.48433364 -23.55479461, -46.48523751 -23.55461900, -46.48662957 -23.55415244, -46.48898177 -23.55391518, -46.49135938 -23.55363006, -46.49244360 -23.55340490, -46.49380744 -23.55272381, -46.49660761 -23.55090772, -46.49699270 -23.55064158, -46.49750664 -23.55032652, -46.49800151 -23.55012687, -46.49854371 -23.54995440, -46.49918280 -23.54980944, -46.49957096 -23.54980569, -46.49998542 -23.54984938, -46.50039944 -23.54984538, -46.50066747 -23.54983837, -46.50090041 -23.54981228, -46.50136601 -23.54973609, -46.50226991 -23.54946447, -46.50286374 -23.54926774, -46.50338034 -23.54911934, -46.50398706 -23.54902343, -46.50458100 -23.54892223, -46.50504591 -23.54884612, -46.50587330 -23.54879043, -46.50623696 -23.54890621, -46.50693146 -23.54918051, -46.50730341 -23.54939680, -46.50756464 -23.54960902, -46.50782613 -23.54984499, -46.50813934 -23.55008063, -46.50847732 -23.55022049, -46.50927967 -23.55023654, -46.51039032 -23.55024599, -46.51109121 -23.55035857, -46.51140520 -23.55054985, -46.51208471 -23.55113963, -46.51239903 -23.55147053, -46.51307828 -23.55203647, -46.51342508 -23.55274895, -46.51382331 -23.55358122, -46.51419022 -23.55393608, -46.51473329 -23.55419132, -46.51527908 -23.55440075, -46.51574701 -23.55458692, -46.51670847 -23.55493543, -46.51743314 -23.55518781, -46.51743773 -23.55519284, -46.51884630 -23.55673766, -46.52098870 -23.55793576, -46.52124356 -23.55810250, -46.52148381 -23.55828546, -46.52165913 -23.55859729), (-46.45298856 -23.53455962, -46.45281705 -23.53441601, -46.45250623 -23.53439489, -46.45210529 -23.53488196, -46.45225115 -23.53543654, -46.45293282 -23.53624376, -46.45334094 -23.53681188, -46.45382113 -23.53757284, -46.45405004 -23.53806306, -46.45528407 -23.53989400, -46.45653333 -23.53918178, -46.45665631 -23.53963985, -46.45674343 -23.54040855, -46.45703990 -23.54099269, -46.45822599 -23.54212036, -46.45840909 -23.54239806, -46.45869923 -23.54262941, -46.45914083 -23.54290694, -46.45970225 -23.54311525, -46.46013759 -23.54347385, -46.46040265 -23.54389021, -46.46047820 -23.54416792, -46.46095994 -23.54563009, -46.46136766 -23.54720213, -46.46161378 -23.54818102, -46.46220844 -23.55016139, -46.46226375 -23.55049474))",
+    "auxiliary_storage_labeling_positionx": null,
+    "auxiliary_storage_labeling_positiony": null
+   },
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -46.462238,
+       -23.550495
+      ],
+      [
+       -46.4630943,
+       -23.5507018
+      ],
+      [
+       -46.4635387,
+       -23.5511032
+      ],
+      [
+       -46.4652664,
+       -23.5528999
+      ],
+      [
+       -46.4662862,
+       -23.5538446
+      ],
+      [
+       -46.4685064,
+       -23.5557083
+      ],
+      [
+       -46.4698851,
+       -23.5563394
+      ],
+      [
+       -46.4716774,
+       -23.5569427
+      ],
+      [
+       -46.4722742,
+       -23.5570801
+      ],
+      [
+       -46.4728372,
+       -23.5570568
+      ],
+      [
+       -46.4735379,
+       -23.5569945
+      ],
+      [
+       -46.4746761,
+       -23.5569439
+      ],
+      [
+       -46.4765666,
+       -23.556777
+      ],
+      [
+       -46.4772884,
+       -23.5565316
+      ],
+      [
+       -46.4783693,
+       -23.5559964
+      ],
+      [
+       -46.478805,
+       -23.5556107
+      ],
+      [
+       -46.4794442,
+       -23.5549366
+      ],
+      [
+       -46.4801145,
+       -23.5546917
+      ],
+      [
+       -46.4822594,
+       -23.5544327
+      ],
+      [
+       -46.4830626,
+       -23.5545205
+      ],
+      [
+       -46.4843336,
+       -23.5547946
+      ],
+      [
+       -46.4852375,
+       -23.554619
+      ],
+      [
+       -46.4866296,
+       -23.5541524
+      ],
+      [
+       -46.4889818,
+       -23.5539152
+      ],
+      [
+       -46.4913594,
+       -23.5536301
+      ],
+      [
+       -46.4924436,
+       -23.5534049
+      ],
+      [
+       -46.4938074,
+       -23.5527238
+      ],
+      [
+       -46.4966076,
+       -23.5509077
+      ],
+      [
+       -46.4969927,
+       -23.5506416
+      ],
+      [
+       -46.4975066,
+       -23.5503265
+      ],
+      [
+       -46.4980015,
+       -23.5501269
+      ],
+      [
+       -46.4985437,
+       -23.5499544
+      ],
+      [
+       -46.4991828,
+       -23.5498094
+      ],
+      [
+       -46.499571,
+       -23.5498057
+      ],
+      [
+       -46.4999854,
+       -23.5498494
+      ],
+      [
+       -46.5003994,
+       -23.5498454
+      ],
+      [
+       -46.5006675,
+       -23.5498384
+      ],
+      [
+       -46.5009004,
+       -23.5498123
+      ],
+      [
+       -46.501366,
+       -23.5497361
+      ],
+      [
+       -46.5022699,
+       -23.5494645
+      ],
+      [
+       -46.5028637,
+       -23.5492677
+      ],
+      [
+       -46.5033803,
+       -23.5491193
+      ],
+      [
+       -46.5039871,
+       -23.5490234
+      ],
+      [
+       -46.504581,
+       -23.5489222
+      ],
+      [
+       -46.5050459,
+       -23.5488461
+      ],
+      [
+       -46.5058733,
+       -23.5487904
+      ],
+      [
+       -46.506237,
+       -23.5489062
+      ],
+      [
+       -46.5069315,
+       -23.5491805
+      ],
+      [
+       -46.5073034,
+       -23.5493968
+      ],
+      [
+       -46.5075646,
+       -23.549609
+      ],
+      [
+       -46.5078261,
+       -23.549845
+      ],
+      [
+       -46.5081393,
+       -23.5500806
+      ],
+      [
+       -46.5084773,
+       -23.5502205
+      ],
+      [
+       -46.5092797,
+       -23.5502365
+      ],
+      [
+       -46.5103903,
+       -23.550246
+      ],
+      [
+       -46.5110912,
+       -23.5503586
+      ],
+      [
+       -46.5114052,
+       -23.5505499
+      ],
+      [
+       -46.5120847,
+       -23.5511396
+      ],
+      [
+       -46.512399,
+       -23.5514705
+      ],
+      [
+       -46.5130783,
+       -23.5520365
+      ],
+      [
+       -46.5134251,
+       -23.552749
+      ],
+      [
+       -46.5138233,
+       -23.5535812
+      ],
+      [
+       -46.5141902,
+       -23.5539361
+      ],
+      [
+       -46.5147333,
+       -23.5541913
+      ],
+      [
+       -46.5152791,
+       -23.5544008
+      ],
+      [
+       -46.515747,
+       -23.5545869
+      ],
+      [
+       -46.5167085,
+       -23.5549354
+      ],
+      [
+       -46.5174331,
+       -23.5551878
+      ],
+      [
+       -46.5174377,
+       -23.5551928
+      ],
+      [
+       -46.5188463,
+       -23.5567377
+      ],
+      [
+       -46.5209887,
+       -23.5579358
+      ],
+      [
+       -46.5212436,
+       -23.5581025
+      ],
+      [
+       -46.5214838,
+       -23.5582855
+      ],
+      [
+       -46.5216591,
+       -23.5585973
+      ]
+     ],
+     [
+      [
+       -46.4529886,
+       -23.5345596
+      ],
+      [
+       -46.452817,
+       -23.534416
+      ],
+      [
+       -46.4525062,
+       -23.5343949
+      ],
+      [
+       -46.4521053,
+       -23.534882
+      ],
+      [
+       -46.4522511,
+       -23.5354365
+      ],
+      [
+       -46.4529328,
+       -23.5362438
+      ],
+      [
+       -46.4533409,
+       -23.5368119
+      ],
+      [
+       -46.4538211,
+       -23.5375728
+      ],
+      [
+       -46.45405,
+       -23.5380631
+      ],
+      [
+       -46.4552841,
+       -23.539894
+      ],
+      [
+       -46.4565333,
+       -23.5391818
+      ],
+      [
+       -46.4566563,
+       -23.5396398
+      ],
+      [
+       -46.4567434,
+       -23.5404086
+      ],
+      [
+       -46.4570399,
+       -23.5409927
+      ],
+      [
+       -46.458226,
+       -23.5421204
+      ],
+      [
+       -46.4584091,
+       -23.5423981
+      ],
+      [
+       -46.4586992,
+       -23.5426294
+      ],
+      [
+       -46.4591408,
+       -23.5429069
+      ],
+      [
+       -46.4597022,
+       -23.5431153
+      ],
+      [
+       -46.4601376,
+       -23.5434738
+      ],
+      [
+       -46.4604026,
+       -23.5438902
+      ],
+      [
+       -46.4604782,
+       -23.5441679
+      ],
+      [
+       -46.4609599,
+       -23.5456301
+      ],
+      [
+       -46.4613677,
+       -23.5472021
+      ],
+      [
+       -46.4616138,
+       -23.548181
+      ],
+      [
+       -46.4622084,
+       -23.5501614
+      ],
+      [
+       -46.4622638,
+       -23.5504947
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "camada": "linhas",
+    "Código": "19",
+    "Meta": 19,
+    "Eixo": "Universo SP",
+    "Tipo": "Meta",
+    "Ação Estratégica": null,
+    "Descrição da Meta": "Requalificar a Av. Amador Bueno, na Zona Leste, proporcionando mais segurança, conforto e agilidade para os passageiros. ",
+    "Descrição Projeto": "Requalificação Amador Bueno",
+    "Trecho": null,
+    "Secretaria": "SIURB; SP OBRAS",
+    "Subprefeitura": "Penha; Ermelino Matarazzo",
+    "Distrito": "Penha; Ponte Rasa",
+    "Subprefeituras": null,
+    "Distritos": null,
+    "Endereço": "Vide WKT",
+    "Latitude_WGS": -23.523049,
+    "Longitude_WGS": -46.521992,
+    "Latitude_UTM": 7397753.125,
+    "Longitude_UTM": 344618.894,
+    "Meta é regionalizável?": "Sim, no planejamento",
+    "Já tem local(is) definido(s)?": "Sim",
+    "Localização é públicável?": "Sim",
+    "Status Regionalização": "Regionalizada",
+    "Status Execução": null,
+    "Tipo de Mapa": "Zoom",
+    "Tipo de Dado": "Linha",
+    "Temos arquivo georreferenciado?": "Sim",
+    "Arquivo Geo": "metas_pdm_2026_11.gpkg",
+    "Informações complementares": "Extensão de 5,0 km",
+    "Extensão (km)": 4.95,
+    "Área (ha)": null,
+    "WKT": "MULTILINESTRING ((-46.54501530 -23.52329062, -46.54117425 -23.52280562, -46.54021864 -23.52217490, -46.53961595 -23.52204034, -46.53864394 -23.52218267, -46.53763771 -23.52229411, -46.53677720 -23.52256024, -46.53608501 -23.52273883, -46.53541957 -23.52303426, -46.53507419 -23.52318600, -46.53477871 -23.52325917, -46.53349101 -23.52319380, -46.53266010 -23.52309268, -46.53203939 -23.52286458, -46.53109455 -23.52242887, -46.53025841 -23.52187498, -46.52974812 -23.52167701, -46.52865344 -23.52146136, -46.52786650 -23.52150032, -46.52726021 -23.52178732, -46.52643382 -23.52207649, -46.52541406 -23.52248465, -46.52415446 -23.52265313, -46.52199154 -23.52304903, -46.52028217 -23.52312820, -46.51792098 -23.52247983, -46.51554998 -23.52097273, -46.51401366 -23.51989468, -46.51225975 -23.51903733, -46.51189938 -23.51861924, -46.51018151 -23.51794889, -46.50841253 -23.51576442, -46.50392694 -23.51291916, -46.50162313 -23.51208261))",
+    "auxiliary_storage_labeling_positionx": null,
+    "auxiliary_storage_labeling_positiony": null
+   },
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -46.5450153,
+       -23.5232906
+      ],
+      [
+       -46.5411742,
+       -23.5228056
+      ],
+      [
+       -46.5402186,
+       -23.5221749
+      ],
+      [
+       -46.5396159,
+       -23.5220403
+      ],
+      [
+       -46.5386439,
+       -23.5221827
+      ],
+      [
+       -46.5376377,
+       -23.5222941
+      ],
+      [
+       -46.5367772,
+       -23.5225602
+      ],
+      [
+       -46.536085,
+       -23.5227388
+      ],
+      [
+       -46.5354196,
+       -23.5230343
+      ],
+      [
+       -46.5350742,
+       -23.523186
+      ],
+      [
+       -46.5347787,
+       -23.5232592
+      ],
+      [
+       -46.533491,
+       -23.5231938
+      ],
+      [
+       -46.5326601,
+       -23.5230927
+      ],
+      [
+       -46.5320394,
+       -23.5228646
+      ],
+      [
+       -46.5310945,
+       -23.5224289
+      ],
+      [
+       -46.5302584,
+       -23.521875
+      ],
+      [
+       -46.5297481,
+       -23.521677
+      ],
+      [
+       -46.5286534,
+       -23.5214614
+      ],
+      [
+       -46.5278665,
+       -23.5215003
+      ],
+      [
+       -46.5272602,
+       -23.5217873
+      ],
+      [
+       -46.5264338,
+       -23.5220765
+      ],
+      [
+       -46.5254141,
+       -23.5224846
+      ],
+      [
+       -46.5241545,
+       -23.5226531
+      ],
+      [
+       -46.5219915,
+       -23.523049
+      ],
+      [
+       -46.5202822,
+       -23.5231282
+      ],
+      [
+       -46.517921,
+       -23.5224798
+      ],
+      [
+       -46.51555,
+       -23.5209727
+      ],
+      [
+       -46.5140137,
+       -23.5198947
+      ],
+      [
+       -46.5122598,
+       -23.5190373
+      ],
+      [
+       -46.5118994,
+       -23.5186192
+      ],
+      [
+       -46.5101815,
+       -23.5179489
+      ],
+      [
+       -46.5084125,
+       -23.5157644
+      ],
+      [
+       -46.5039269,
+       -23.5129192
+      ],
+      [
+       -46.5016231,
+       -23.5120826
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "camada": "linhas",
+    "Código": "20",
+    "Meta": 20,
+    "Eixo": "Universo SP",
+    "Tipo": "Meta",
+    "Ação Estratégica": null,
+    "Descrição da Meta": "Requalificar a Av. Imirim para oferecer mais segurança, conforto e agilidade aos passageiros da Zona Norte. ",
+    "Descrição Projeto": "Requalificação Av. Imirim",
+    "Trecho": null,
+    "Secretaria": "SIURB; SP OBRAS",
+    "Subprefeitura": "Casa Verde-Cachoeirinha",
+    "Distrito": "Casa verde; Cachoeirinha",
+    "Subprefeituras": null,
+    "Distritos": null,
+    "Endereço": "Vide WKT",
+    "Latitude_WGS": -23.486604,
+    "Longitude_WGS": -46.652849,
+    "Latitude_UTM": 7401641.179,
+    "Longitude_UTM": 331210.71,
+    "Meta é regionalizável?": "Sim, no planejamento",
+    "Já tem local(is) definido(s)?": "Sim",
+    "Localização é públicável?": "Sim",
+    "Status Regionalização": "Regionalizada",
+    "Status Execução": null,
+    "Tipo de Mapa": "Zoom",
+    "Tipo de Dado": "Linha",
+    "Temos arquivo georreferenciado?": "Sim",
+    "Arquivo Geo": "metas_pdm_2026_11.gpkg",
+    "Informações complementares": "Extensão de 4,6 km",
+    "Extensão (km)": 4.93,
+    "Área (ha)": null,
+    "WKT": "MULTILINESTRING ((-46.63691180 -23.49632425, -46.63744016 -23.49651995, -46.63855199 -23.49774674, -46.64050962 -23.49859308, -46.64069983 -23.49859107, -46.64109049 -23.49850955, -46.64152997 -23.49830367, -46.64201145 -23.49787544, -46.64269142 -23.49675880, -46.64286184 -23.49651447, -46.64309444 -23.49632108, -46.64571310 -23.49452860, -46.64816829 -23.49309388, -46.64842402 -23.49296216, -46.64953306 -23.49171194, -46.65069506 -23.49022378, -46.65155856 -23.48857880, -46.65234938 -23.48783765, -46.65265037 -23.48729779, -46.65278707 -23.48704348, -46.65284873 -23.48660420, -46.65303461 -23.48535859, -46.65324511 -23.48474227, -46.65322010 -23.48453096, -46.65474147 -23.48225975, -46.65507292 -23.48192081, -46.65547875 -23.48171525, -46.65596315 -23.48108054, -46.65623105 -23.48058230, -46.65618990 -23.48042277, -46.65664491 -23.48012380, -46.65937533 -23.47970257, -46.66106369 -23.48005612, -46.66178327 -23.47988848, -46.66258456 -23.47865178, -46.66248067 -23.47795109, -46.66250547 -23.47769797, -46.66288816 -23.47698692, -46.66291642 -23.47656347, -46.66337993 -23.47605282, -46.66706184 -23.47434154, -46.66994624 -23.47416618))",
+    "auxiliary_storage_labeling_positionx": null,
+    "auxiliary_storage_labeling_positiony": null
+   },
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -46.6369118,
+       -23.4963242
+      ],
+      [
+       -46.6374402,
+       -23.4965199
+      ],
+      [
+       -46.638552,
+       -23.4977467
+      ],
+      [
+       -46.6405096,
+       -23.4985931
+      ],
+      [
+       -46.6406998,
+       -23.4985911
+      ],
+      [
+       -46.6410905,
+       -23.4985096
+      ],
+      [
+       -46.64153,
+       -23.4983037
+      ],
+      [
+       -46.6420114,
+       -23.4978754
+      ],
+      [
+       -46.6426914,
+       -23.4967588
+      ],
+      [
+       -46.6428618,
+       -23.4965145
+      ],
+      [
+       -46.6430944,
+       -23.4963211
+      ],
+      [
+       -46.6457131,
+       -23.4945286
+      ],
+      [
+       -46.6481683,
+       -23.4930939
+      ],
+      [
+       -46.648424,
+       -23.4929622
+      ],
+      [
+       -46.6495331,
+       -23.4917119
+      ],
+      [
+       -46.6506951,
+       -23.4902238
+      ],
+      [
+       -46.6515586,
+       -23.4885788
+      ],
+      [
+       -46.6523494,
+       -23.4878377
+      ],
+      [
+       -46.6526504,
+       -23.4872978
+      ],
+      [
+       -46.6527871,
+       -23.4870435
+      ],
+      [
+       -46.6528487,
+       -23.4866042
+      ],
+      [
+       -46.6530346,
+       -23.4853586
+      ],
+      [
+       -46.6532451,
+       -23.4847423
+      ],
+      [
+       -46.6532201,
+       -23.484531
+      ],
+      [
+       -46.6547415,
+       -23.4822598
+      ],
+      [
+       -46.6550729,
+       -23.4819208
+      ],
+      [
+       -46.6554788,
+       -23.4817152
+      ],
+      [
+       -46.6559631,
+       -23.4810805
+      ],
+      [
+       -46.6562311,
+       -23.4805823
+      ],
+      [
+       -46.6561899,
+       -23.4804228
+      ],
+      [
+       -46.6566449,
+       -23.4801238
+      ],
+      [
+       -46.6593753,
+       -23.4797026
+      ],
+      [
+       -46.6610637,
+       -23.4800561
+      ],
+      [
+       -46.6617833,
+       -23.4798885
+      ],
+      [
+       -46.6625846,
+       -23.4786518
+      ],
+      [
+       -46.6624807,
+       -23.4779511
+      ],
+      [
+       -46.6625055,
+       -23.477698
+      ],
+      [
+       -46.6628882,
+       -23.4769869
+      ],
+      [
+       -46.6629164,
+       -23.4765635
+      ],
+      [
+       -46.6633799,
+       -23.4760528
+      ],
+      [
+       -46.6670618,
+       -23.4743415
+      ],
+      [
+       -46.6699462,
+       -23.4741662
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "camada": "linhas",
+    "Código": "21",
+    "Meta": 21,
+    "Eixo": "Universo SP",
+    "Tipo": "Meta",
+    "Ação Estratégica": null,
+    "Descrição da Meta": "Requalificar o Corredor Itapecerica, para oferecer mais segurança, conforto e agilidade aos passageiros que se deslocam entre os terminais João Dias e Capelinha. ",
+    "Descrição Projeto": "Corredor Itapecerica / João Dias / Santo Amaro",
+    "Trecho": null,
+    "Secretaria": "SIURB; SP OBRAS",
+    "Subprefeitura": "M'Boi Mirim; Campo Limpo",
+    "Distrito": "Jardim São Luís; Capão Redondo",
+    "Subprefeituras": null,
+    "Distritos": null,
+    "Endereço": "Vide WKT",
+    "Latitude_WGS": -23.648009,
+    "Longitude_WGS": -46.748206,
+    "Latitude_UTM": 7383651.481,
+    "Longitude_UTM": 321688.911,
+    "Meta é regionalizável?": "Sim, no planejamento",
+    "Já tem local(is) definido(s)?": "Sim",
+    "Localização é públicável?": "Sim",
+    "Status Regionalização": "Regionalizada",
+    "Status Execução": null,
+    "Tipo de Mapa": "Zoom",
+    "Tipo de Dado": "Linha",
+    "Temos arquivo georreferenciado?": "Sim",
+    "Arquivo Geo": "metas_pdm_2026_11.gpkg",
+    "Informações complementares": "Extensão de 3,5 km",
+    "Extensão (km)": 3.54,
+    "Área (ha)": null,
+    "WKT": "MULTILINESTRING ((-46.74559600 -23.64487500, -46.74570100 -23.64496700, -46.74602600 -23.64523000, -46.74628100 -23.64548000, -46.74646300 -23.64567000, -46.74667000 -23.64595100, -46.74679000 -23.64617100, -46.74693300 -23.64652700, -46.74703400 -23.64680400, -46.74718300 -23.64716900, -46.74729800 -23.64737100, -46.74756700 -23.64766600, -46.74782200 -23.64786600, -46.74820600 -23.64800900, -46.74897900 -23.64832600, -46.74973300 -23.64862500, -46.75018000 -23.64890700, -46.75059800 -23.64920200, -46.75102000 -23.64944400, -46.75151000 -23.64954500, -46.75207700 -23.64932900, -46.75252800 -23.64912200, -46.75299400 -23.64898600, -46.75350300 -23.64892500, -46.75416600 -23.64896000, -46.75471300 -23.64912700, -46.75515500 -23.64936000, -46.75623000 -23.65021300, -46.75704800 -23.65087400, -46.75749900 -23.65132400, -46.75774300 -23.65161600, -46.75795700 -23.65185200, -46.75853100 -23.65253100, -46.75910700 -23.65324800, -46.75948000 -23.65361300, -46.75971200 -23.65387300, -46.75999400 -23.65420300, -46.76018200 -23.65445600, -46.76043200 -23.65474400, -46.76087900 -23.65508200, -46.76190600 -23.65568900), (-46.73388700 -23.64361100, -46.73500100 -23.64351400, -46.73602300 -23.64305000, -46.73643200 -23.64297300, -46.73752700 -23.64275700, -46.73888500 -23.64250700, -46.73963000 -23.64238800, -46.74008100 -23.64237900, -46.74069600 -23.64242800, -46.74115700 -23.64253300, -46.74160800 -23.64269600, -46.74205500 -23.64295600, -46.74225200 -23.64328500, -46.74244900 -23.64367700, -46.74263600 -23.64395000, -46.74298200 -23.64415200, -46.74333700 -23.64418300, -46.74381300 -23.64418700, -46.74421300 -23.64417400, -46.74479200 -23.64435000, -46.74507100 -23.64446000, -46.74527700 -23.64459200, -46.74556500 -23.64485100))",
+    "auxiliary_storage_labeling_positionx": 315173.62796536466,
+    "auxiliary_storage_labeling_positiony": 7382493.625977572
+   },
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -46.745596,
+       -23.644875
+      ],
+      [
+       -46.745701,
+       -23.644967
+      ],
+      [
+       -46.746026,
+       -23.64523
+      ],
+      [
+       -46.746281,
+       -23.64548
+      ],
+      [
+       -46.746463,
+       -23.64567
+      ],
+      [
+       -46.74667,
+       -23.645951
+      ],
+      [
+       -46.74679,
+       -23.646171
+      ],
+      [
+       -46.746933,
+       -23.646527
+      ],
+      [
+       -46.747034,
+       -23.646804
+      ],
+      [
+       -46.747183,
+       -23.647169
+      ],
+      [
+       -46.747298,
+       -23.647371
+      ],
+      [
+       -46.747567,
+       -23.647666
+      ],
+      [
+       -46.747822,
+       -23.647866
+      ],
+      [
+       -46.748206,
+       -23.648009
+      ],
+      [
+       -46.748979,
+       -23.648326
+      ],
+      [
+       -46.749733,
+       -23.648625
+      ],
+      [
+       -46.75018,
+       -23.648907
+      ],
+      [
+       -46.750598,
+       -23.649202
+      ],
+      [
+       -46.75102,
+       -23.649444
+      ],
+      [
+       -46.75151,
+       -23.649545
+      ],
+      [
+       -46.752077,
+       -23.649329
+      ],
+      [
+       -46.752528,
+       -23.649122
+      ],
+      [
+       -46.752994,
+       -23.648986
+      ],
+      [
+       -46.753503,
+       -23.648925
+      ],
+      [
+       -46.754166,
+       -23.64896
+      ],
+      [
+       -46.754713,
+       -23.649127
+      ],
+      [
+       -46.755155,
+       -23.64936
+      ],
+      [
+       -46.75623,
+       -23.650213
+      ],
+      [
+       -46.757048,
+       -23.650874
+      ],
+      [
+       -46.757499,
+       -23.651324
+      ],
+      [
+       -46.757743,
+       -23.651616
+      ],
+      [
+       -46.757957,
+       -23.651852
+      ],
+      [
+       -46.758531,
+       -23.652531
+      ],
+      [
+       -46.759107,
+       -23.653248
+      ],
+      [
+       -46.75948,
+       -23.653613
+      ],
+      [
+       -46.759712,
+       -23.653873
+      ],
+      [
+       -46.759994,
+       -23.654203
+      ],
+      [
+       -46.760182,
+       -23.654456
+      ],
+      [
+       -46.760432,
+       -23.654744
+      ],
+      [
+       -46.760879,
+       -23.655082
+      ],
+      [
+       -46.761906,
+       -23.655689
+      ]
+     ],
+     [
+      [
+       -46.733887,
+       -23.643611
+      ],
+      [
+       -46.735001,
+       -23.643514
+      ],
+      [
+       -46.736023,
+       -23.64305
+      ],
+      [
+       -46.736432,
+       -23.642973
+      ],
+      [
+       -46.737527,
+       -23.642757
+      ],
+      [
+       -46.738885,
+       -23.642507
+      ],
+      [
+       -46.73963,
+       -23.642388
+      ],
+      [
+       -46.740081,
+       -23.642379
+      ],
+      [
+       -46.740696,
+       -23.642428
+      ],
+      [
+       -46.741157,
+       -23.642533
+      ],
+      [
+       -46.741608,
+       -23.642696
+      ],
+      [
+       -46.742055,
+       -23.642956
+      ],
+      [
+       -46.742252,
+       -23.643285
+      ],
+      [
+       -46.742449,
+       -23.643677
+      ],
+      [
+       -46.742636,
+       -23.64395
+      ],
+      [
+       -46.742982,
+       -23.644152
+      ],
+      [
+       -46.743337,
+       -23.644183
+      ],
+      [
+       -46.743813,
+       -23.644187
+      ],
+      [
+       -46.744213,
+       -23.644174
+      ],
+      [
+       -46.744792,
+       -23.64435
+      ],
+      [
+       -46.745071,
+       -23.64446
+      ],
+      [
+       -46.745277,
+       -23.644592
+      ],
+      [
+       -46.745565,
+       -23.644851
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "camada": "linhas",
+    "Código": "22",
+    "Meta": 22,
+    "Eixo": "Universo SP",
+    "Tipo": "Meta",
+    "Ação Estratégica": null,
+    "Descrição da Meta": "Requalificar a Av. Interlagos, proporcionando mais segurança, conforto e agilidade para os passageiros. ",
+    "Descrição Projeto": "Requalificação Av. Interlagos",
+    "Trecho": null,
+    "Secretaria": "SIURB; SP OBRAS",
+    "Subprefeitura": "Cidade Ademar; Santo Amaro; Capela do Socorro",
+    "Distrito": "Cidade Ademar; Campo Grande; Cidade Dutra",
+    "Subprefeituras": null,
+    "Distritos": null,
+    "Endereço": "Vide WKT",
+    "Latitude_WGS": -23.682008,
+    "Longitude_WGS": -46.68964,
+    "Latitude_UTM": 7379958.237,
+    "Longitude_UTM": 327708.191,
+    "Meta é regionalizável?": "Sim, no planejamento",
+    "Já tem local(is) definido(s)?": "Sim",
+    "Localização é públicável?": "Sim",
+    "Status Regionalização": "Regionalizada",
+    "Status Execução": null,
+    "Tipo de Mapa": "Zoom",
+    "Tipo de Dado": "Linha",
+    "Temos arquivo georreferenciado?": "Sim",
+    "Arquivo Geo": "metas_pdm_2026_11.gpkg",
+    "Informações complementares": "Extensão de 9,1 km",
+    "Extensão (km)": 7.5,
+    "Área (ha)": null,
+    "WKT": "MULTILINESTRING ((-46.70397342 -23.71129705, -46.70393699 -23.71054951, -46.70367000 -23.70981200, -46.70264700 -23.70887800, -46.70244800 -23.70838000, -46.70262300 -23.70770600, -46.70284500 -23.70676400, -46.70259200 -23.70568600, -46.70251100 -23.70516100, -46.70148000 -23.70139500, -46.69999604 -23.69579251, -46.69810885 -23.69142887, -46.69735130 -23.68883227, -46.69695356 -23.68839744, -46.69620388 -23.68777786, -46.69421661 -23.68679567, -46.69321096 -23.68573324, -46.69170637 -23.68413946, -46.68964037 -23.68200844, -46.68848131 -23.68102852, -46.68729130 -23.68021749, -46.68626634 -23.67938352, -46.68487431 -23.67828252, -46.67998429 -23.67651149, -46.67938525 -23.67598947, -46.67761623 -23.67327246, -46.67746422 -23.67237850, -46.67783824 -23.67024045, -46.67766817 -23.66782949, -46.67761318 -23.66729643, -46.67771522 -23.66651249, -46.67921520 -23.66135339, -46.67985914 -23.65400636))",
+    "auxiliary_storage_labeling_positionx": null,
+    "auxiliary_storage_labeling_positiony": null
+   },
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -46.7039734,
+       -23.7112971
+      ],
+      [
+       -46.703937,
+       -23.7105495
+      ],
+      [
+       -46.70367,
+       -23.709812
+      ],
+      [
+       -46.702647,
+       -23.708878
+      ],
+      [
+       -46.702448,
+       -23.70838
+      ],
+      [
+       -46.702623,
+       -23.707706
+      ],
+      [
+       -46.702845,
+       -23.706764
+      ],
+      [
+       -46.702592,
+       -23.705686
+      ],
+      [
+       -46.702511,
+       -23.705161
+      ],
+      [
+       -46.70148,
+       -23.701395
+      ],
+      [
+       -46.699996,
+       -23.6957925
+      ],
+      [
+       -46.6981089,
+       -23.6914289
+      ],
+      [
+       -46.6973513,
+       -23.6888323
+      ],
+      [
+       -46.6969536,
+       -23.6883974
+      ],
+      [
+       -46.6962039,
+       -23.6877779
+      ],
+      [
+       -46.6942166,
+       -23.6867957
+      ],
+      [
+       -46.693211,
+       -23.6857332
+      ],
+      [
+       -46.6917064,
+       -23.6841395
+      ],
+      [
+       -46.6896404,
+       -23.6820084
+      ],
+      [
+       -46.6884813,
+       -23.6810285
+      ],
+      [
+       -46.6872913,
+       -23.6802175
+      ],
+      [
+       -46.6862663,
+       -23.6793835
+      ],
+      [
+       -46.6848743,
+       -23.6782825
+      ],
+      [
+       -46.6799843,
+       -23.6765115
+      ],
+      [
+       -46.6793852,
+       -23.6759895
+      ],
+      [
+       -46.6776162,
+       -23.6732725
+      ],
+      [
+       -46.6774642,
+       -23.6723785
+      ],
+      [
+       -46.6778382,
+       -23.6702404
+      ],
+      [
+       -46.6776682,
+       -23.6678295
+      ],
+      [
+       -46.6776132,
+       -23.6672964
+      ],
+      [
+       -46.6777152,
+       -23.6665125
+      ],
+      [
+       -46.6792152,
+       -23.6613534
+      ],
+      [
+       -46.6798591,
+       -23.6540064
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "camada": "linhas",
+    "Código": "31",
+    "Meta": 31,
+    "Eixo": "Universo SP",
+    "Tipo": "Meta",
+    "Ação Estratégica": null,
+    "Descrição da Meta": "Iniciar o prolongamento da Avenida Carlos Caldeira Filho, ligando-a à Estrada do M’Boi Mirim e beneficiando diretamente cerca de 870 mil moradores. ",
+    "Descrição Projeto": "Prolongamento Avenida Carlos Caldeira Filho",
+    "Trecho": null,
+    "Secretaria": "SIURB; SP OBRAS",
+    "Subprefeitura": "M'Boi Mirim; Campo Limpo",
+    "Distrito": "Jardim Ângela; Capão Redondo",
+    "Subprefeituras": null,
+    "Distritos": null,
+    "Endereço": "Vide WKT",
+    "Latitude_WGS": -23.67686,
+    "Longitude_WGS": -46.774839,
+    "Latitude_UTM": 7380422.873,
+    "Longitude_UTM": 319011.613,
+    "Meta é regionalizável?": "Sim, no planejamento",
+    "Já tem local(is) definido(s)?": "Sim",
+    "Localização é públicável?": "Sim",
+    "Status Regionalização": "Regionalizada",
+    "Status Execução": null,
+    "Tipo de Mapa": "Zoom",
+    "Tipo de Dado": "Linha",
+    "Temos arquivo georreferenciado?": "Sim",
+    "Arquivo Geo": "metas_pdm_2026_11.gpkg",
+    "Informações complementares": null,
+    "Extensão (km)": 3.05,
+    "Área (ha)": null,
+    "WKT": "MULTILINESTRING ((-46.77142700 -23.66440020, -46.77175960 -23.66521580, -46.77212430 -23.66582500, -46.77238180 -23.66666030, -46.77276810 -23.66710250, -46.77297190 -23.66740710, -46.77325090 -23.66798680, -46.77360490 -23.66866490, -46.77402330 -23.66941170, -46.77406630 -23.67000120, -46.77410920 -23.67069890, -46.77419500 -23.67146530, -46.77425940 -23.67225140, -46.77435590 -23.67295890, -46.77415210 -23.67356810, -46.77421650 -23.67428540, -46.77436670 -23.67478650, -46.77475290 -23.67563160, -46.77483870 -23.67616220, -46.77483870 -23.67685980, -46.77494600 -23.67741990, -46.77496750 -23.67784240, -46.77537520 -23.67893300, -46.77558980 -23.67957170, -46.77589020 -23.68056400, -46.77584720 -23.68087850, -46.77575070 -23.68117320, -46.77523570 -23.68153680, -46.77481730 -23.68213610, -46.77446320 -23.68255860, -46.77430230 -23.68296140, -46.77409840 -23.68353130, -46.77390530 -23.68396360, -46.77371220 -23.68445490, -46.77359420 -23.68482820, -46.77326160 -23.68582060, -46.77305780 -23.68645920, -46.77298270 -23.68708800, -46.77328310 -23.68793290, -46.77358350 -23.68889580, -46.77417360 -23.69017300))",
+    "auxiliary_storage_labeling_positionx": 314085.06438384857,
+    "auxiliary_storage_labeling_positiony": 7380090.897940263
+   },
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -46.771427,
+       -23.6644002
+      ],
+      [
+       -46.7717596,
+       -23.6652158
+      ],
+      [
+       -46.7721243,
+       -23.665825
+      ],
+      [
+       -46.7723818,
+       -23.6666603
+      ],
+      [
+       -46.7727681,
+       -23.6671025
+      ],
+      [
+       -46.7729719,
+       -23.6674071
+      ],
+      [
+       -46.7732509,
+       -23.6679868
+      ],
+      [
+       -46.7736049,
+       -23.6686649
+      ],
+      [
+       -46.7740233,
+       -23.6694117
+      ],
+      [
+       -46.7740663,
+       -23.6700012
+      ],
+      [
+       -46.7741092,
+       -23.6706989
+      ],
+      [
+       -46.774195,
+       -23.6714653
+      ],
+      [
+       -46.7742594,
+       -23.6722514
+      ],
+      [
+       -46.7743559,
+       -23.6729589
+      ],
+      [
+       -46.7741521,
+       -23.6735681
+      ],
+      [
+       -46.7742165,
+       -23.6742854
+      ],
+      [
+       -46.7743667,
+       -23.6747865
+      ],
+      [
+       -46.7747529,
+       -23.6756316
+      ],
+      [
+       -46.7748387,
+       -23.6761622
+      ],
+      [
+       -46.7748387,
+       -23.6768598
+      ],
+      [
+       -46.774946,
+       -23.6774199
+      ],
+      [
+       -46.7749675,
+       -23.6778424
+      ],
+      [
+       -46.7753752,
+       -23.678933
+      ],
+      [
+       -46.7755898,
+       -23.6795717
+      ],
+      [
+       -46.7758902,
+       -23.680564
+      ],
+      [
+       -46.7758472,
+       -23.6808785
+      ],
+      [
+       -46.7757507,
+       -23.6811732
+      ],
+      [
+       -46.7752357,
+       -23.6815368
+      ],
+      [
+       -46.7748173,
+       -23.6821361
+      ],
+      [
+       -46.7744632,
+       -23.6825586
+      ],
+      [
+       -46.7743023,
+       -23.6829614
+      ],
+      [
+       -46.7740984,
+       -23.6835313
+      ],
+      [
+       -46.7739053,
+       -23.6839636
+      ],
+      [
+       -46.7737122,
+       -23.6844549
+      ],
+      [
+       -46.7735942,
+       -23.6848282
+      ],
+      [
+       -46.7732616,
+       -23.6858206
+      ],
+      [
+       -46.7730578,
+       -23.6864592
+      ],
+      [
+       -46.7729827,
+       -23.687088
+      ],
+      [
+       -46.7732831,
+       -23.6879329
+      ],
+      [
+       -46.7735835,
+       -23.6888958
+      ],
+      [
+       -46.7741736,
+       -23.690173
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "camada": "linhas",
+    "Código": "32",
+    "Meta": 32,
+    "Eixo": "Universo SP",
+    "Tipo": "Meta",
+    "Ação Estratégica": null,
+    "Descrição da Meta": "Concluir a duplicação da Avenida Senador Teotônio Vilela, para melhorar a mobilidade na região da Cidade Dutra. ",
+    "Descrição Projeto": "Duplicação Avenida Senador Teotônio Vilela",
+    "Trecho": null,
+    "Secretaria": "SIURB; SP OBRAS",
+    "Subprefeitura": "Parelheiros",
+    "Distrito": "Parelheiros",
+    "Subprefeituras": null,
+    "Distritos": null,
+    "Endereço": "Vide WKT",
+    "Latitude_WGS": -23.774471,
+    "Longitude_WGS": -46.721639,
+    "Latitude_UTM": 7369679.569,
+    "Longitude_UTM": 324568.471,
+    "Meta é regionalizável?": "Sim, no planejamento",
+    "Já tem local(is) definido(s)?": "Sim",
+    "Localização é públicável?": "Sim",
+    "Status Regionalização": "Regionalizada",
+    "Status Execução": null,
+    "Tipo de Mapa": "Zoom",
+    "Tipo de Dado": "Linha",
+    "Temos arquivo georreferenciado?": "Sim",
+    "Arquivo Geo": "metas_pdm_2026_11.gpkg",
+    "Informações complementares": null,
+    "Extensão (km)": 0.74,
+    "Área (ha)": null,
+    "WKT": "MULTILINESTRING ((-46.71972950 -23.77229090, -46.72099550 -23.77394040, -46.72163920 -23.77447060, -46.72262620 -23.77529530, -46.72290520 -23.77555060, -46.72305540 -23.77610040, -46.72307690 -23.77672880, -46.72296960 -23.77741610, -46.72320560 -23.77776950))",
+    "auxiliary_storage_labeling_positionx": 321229.98330761964,
+    "auxiliary_storage_labeling_positiony": 7367129.001152236
+   },
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -46.7197295,
+       -23.7722909
+      ],
+      [
+       -46.7209955,
+       -23.7739404
+      ],
+      [
+       -46.7216392,
+       -23.7744706
+      ],
+      [
+       -46.7226262,
+       -23.7752953
+      ],
+      [
+       -46.7229052,
+       -23.7755506
+      ],
+      [
+       -46.7230554,
+       -23.7761004
+      ],
+      [
+       -46.7230769,
+       -23.7767288
+      ],
+      [
+       -46.7229696,
+       -23.7774161
+      ],
+      [
+       -46.7232056,
+       -23.7777695
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "camada": "linhas",
+    "Código": "35",
+    "Meta": 35,
+    "Eixo": "Universo SP",
+    "Tipo": "Meta",
+    "Ação Estratégica": null,
+    "Descrição da Meta": "Iniciar as obras da Ponte Graúna-Gaivotas, que estabelecerá nova conexão viária sobre a Represa Billings. ",
+    "Descrição Projeto": "Ponte Graúna-Gaivotas",
+    "Trecho": null,
+    "Secretaria": "SIURB; SP OBRAS",
+    "Subprefeitura": "Capela do Socorro",
+    "Distrito": "Cidade Dutra; Grajaú",
+    "Subprefeituras": null,
+    "Distritos": null,
+    "Endereço": "Vide WKT",
+    "Latitude_WGS": -23.731824,
+    "Longitude_WGS": -46.668328,
+    "Latitude_UTM": 7374467.224,
+    "Longitude_UTM": 329946.406,
+    "Meta é regionalizável?": "Sim, no planejamento",
+    "Já tem local(is) definido(s)?": "Sim",
+    "Localização é públicável?": "Sim",
+    "Status Regionalização": "Regionalizada",
+    "Status Execução": null,
+    "Tipo de Mapa": "Zoom",
+    "Tipo de Dado": "Linha",
+    "Temos arquivo georreferenciado?": "Sim",
+    "Arquivo Geo": "metas_pdm_2026_11.gpkg",
+    "Informações complementares": null,
+    "Extensão (km)": 2.34,
+    "Área (ha)": null,
+    "WKT": "MULTILINESTRING ((-46.67560240 -23.72098000, -46.67491570 -23.72261050, -46.67326350 -23.72361240, -46.66832820 -23.73182350, -46.66755580 -23.73408240, -46.66680470 -23.73579140, -46.66573190 -23.73799130, -46.66676180 -23.73920910))",
+    "auxiliary_storage_labeling_positionx": null,
+    "auxiliary_storage_labeling_positiony": null
+   },
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -46.6756024,
+       -23.72098
+      ],
+      [
+       -46.6749157,
+       -23.7226105
+      ],
+      [
+       -46.6732635,
+       -23.7236124
+      ],
+      [
+       -46.6683282,
+       -23.7318235
+      ],
+      [
+       -46.6675558,
+       -23.7340824
+      ],
+      [
+       -46.6668047,
+       -23.7357914
+      ],
+      [
+       -46.6657319,
+       -23.7379913
+      ],
+      [
+       -46.6667618,
+       -23.7392091
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "camada": "linhas",
+    "Código": "36",
+    "Meta": 36,
+    "Eixo": "Universo SP",
+    "Tipo": "Meta",
+    "Ação Estratégica": null,
+    "Descrição da Meta": "Entregar o Túnel Cecília Lottenberg, integrando importantes eixos viários e garantindo conexões cicloviárias estratégicas. ",
+    "Descrição Projeto": "Túnel Cecília Lottenberg",
+    "Trecho": null,
+    "Secretaria": "SIURB; SP OBRAS; SMUL; SP URBANISMO",
+    "Subprefeitura": "Santo Amaro",
+    "Distrito": "Santo Amaro",
+    "Subprefeituras": null,
+    "Distritos": null,
+    "Endereço": "Vide WKT",
+    "Latitude_WGS": -23.633842,
+    "Longitude_WGS": -46.71184,
+    "Latitude_UTM": 7385265.296,
+    "Longitude_UTM": 325380.049,
+    "Meta é regionalizável?": "Sim, no planejamento",
+    "Já tem local(is) definido(s)?": "Sim",
+    "Localização é públicável?": "Sim",
+    "Status Regionalização": "Regionalizada",
+    "Status Execução": null,
+    "Tipo de Mapa": "Zoom",
+    "Tipo de Dado": "Linha",
+    "Temos arquivo georreferenciado?": "Sim",
+    "Arquivo Geo": "metas_pdm_2026_11.gpkg",
+    "Informações complementares": null,
+    "Extensão (km)": 0.73,
+    "Área (ha)": null,
+    "WKT": "MULTILINESTRING ((-46.70792430 -23.62833780, -46.71184030 -23.63384220))",
+    "auxiliary_storage_labeling_positionx": null,
+    "auxiliary_storage_labeling_positiony": null
+   },
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -46.7079243,
+       -23.6283378
+      ],
+      [
+       -46.7118403,
+       -23.6338422
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "camada": "linhas",
+    "Código": "37",
+    "Meta": 37,
+    "Eixo": "Universo SP",
+    "Tipo": "Meta",
+    "Ação Estratégica": null,
+    "Descrição da Meta": "Iniciar as obras de prolongamento da Avenida Jornalista Roberto Marinho até a Rodovia dos Imigrantes, criando um parque fluvial, aumentando a área verde e melhorando as condições de mobilidade",
+    "Descrição Projeto": "Prolongamento Roberto Marinho",
+    "Trecho": null,
+    "Secretaria": "SIURB; SP OBRAS; SMUL; SP URBANISMO ",
+    "Subprefeitura": "Jabaquara",
+    "Distrito": "Jabaquara",
+    "Subprefeituras": null,
+    "Distritos": null,
+    "Endereço": "Vide WKT",
+    "Latitude_WGS": -23.653165,
+    "Longitude_WGS": -46.649475,
+    "Latitude_UTM": 7383200.287,
+    "Longitude_UTM": 331767.692,
+    "Meta é regionalizável?": "Sim, no planejamento",
+    "Já tem local(is) definido(s)?": "Sim",
+    "Localização é públicável?": "Sim",
+    "Status Regionalização": "Regionalizada",
+    "Status Execução": null,
+    "Tipo de Mapa": "Zoom",
+    "Tipo de Dado": "Linha",
+    "Temos arquivo georreferenciado?": "Sim",
+    "Arquivo Geo": "metas_pdm_2026_11.gpkg",
+    "Informações complementares": null,
+    "Extensão (km)": 4.14,
+    "Área (ha)": null,
+    "WKT": "MULTILINESTRING ((-46.66078320 -23.63918990, -46.66007510 -23.64106710, -46.65892710 -23.64326870, -46.65695300 -23.64431050, -46.65594450 -23.64552920, -46.65497890 -23.64659060, -46.65372360 -23.64775030, -46.65302630 -23.64908690, -46.65186750 -23.65060040, -46.65007580 -23.65187800, -46.64947500 -23.65316540, -46.64847720 -23.65404980, -46.64717900 -23.65463950, -46.64613830 -23.65538640, -46.64563410 -23.65667370, -46.64482940 -23.65848190, -46.64369220 -23.65992650, -46.64133180 -23.66157740, -46.64094560 -23.66228500, -46.63353200 -23.66084040))",
+    "auxiliary_storage_labeling_positionx": null,
+    "auxiliary_storage_labeling_positiony": null
+   },
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -46.6607832,
+       -23.6391899
+      ],
+      [
+       -46.6600751,
+       -23.6410671
+      ],
+      [
+       -46.6589271,
+       -23.6432687
+      ],
+      [
+       -46.656953,
+       -23.6443105
+      ],
+      [
+       -46.6559445,
+       -23.6455292
+      ],
+      [
+       -46.6549789,
+       -23.6465906
+      ],
+      [
+       -46.6537236,
+       -23.6477503
+      ],
+      [
+       -46.6530263,
+       -23.6490869
+      ],
+      [
+       -46.6518675,
+       -23.6506004
+      ],
+      [
+       -46.6500758,
+       -23.651878
+      ],
+      [
+       -46.649475,
+       -23.6531654
+      ],
+      [
+       -46.6484772,
+       -23.6540498
+      ],
+      [
+       -46.647179,
+       -23.6546395
+      ],
+      [
+       -46.6461383,
+       -23.6553864
+      ],
+      [
+       -46.6456341,
+       -23.6566737
+      ],
+      [
+       -46.6448294,
+       -23.6584819
+      ],
+      [
+       -46.6436922,
+       -23.6599265
+      ],
+      [
+       -46.6413318,
+       -23.6615774
+      ],
+      [
+       -46.6409456,
+       -23.662285
+      ],
+      [
+       -46.633532,
+       -23.6608404
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "camada": "linhas",
+    "Código": "38",
+    "Meta": 38,
+    "Eixo": "Universo SP",
+    "Tipo": "Meta",
+    "Ação Estratégica": null,
+    "Descrição da Meta": "Entregar a segunda e a terceira fase da requalificação da Avenida Santo Amaro, para melhorar a segurança e a mobilidade na região.",
+    "Descrição Projeto": "Requalificação Av. Santo Amaro",
+    "Trecho": null,
+    "Secretaria": "SIURB; SP OBRAS",
+    "Subprefeitura": "Pinheiros",
+    "Distrito": "Itaim Bibi",
+    "Subprefeituras": null,
+    "Distritos": null,
+    "Endereço": "Vide WKT",
+    "Latitude_WGS": -23.601846,
+    "Longitude_WGS": -46.674163,
+    "Latitude_UTM": 7388854.073,
+    "Longitude_UTM": 329182.709,
+    "Meta é regionalizável?": "Sim, no planejamento",
+    "Já tem local(is) definido(s)?": "Sim",
+    "Localização é públicável?": "Sim",
+    "Status Regionalização": "Regionalizada",
+    "Status Execução": null,
+    "Tipo de Mapa": "Zoom",
+    "Tipo de Dado": "Linha",
+    "Temos arquivo georreferenciado?": "Sim",
+    "Arquivo Geo": "metas_pdm_2026_11.gpkg",
+    "Informações complementares": null,
+    "Extensão (km)": 1.57,
+    "Área (ha)": null,
+    "WKT": "MULTILINESTRING ((-46.67302540 -23.59502330, -46.67324000 -23.59584920, -46.67384080 -23.59716660, -46.67386220 -23.59795320, -46.67390510 -23.59848410, -46.67392660 -23.60058800, -46.67416260 -23.60184650, -46.67499950 -23.60442230, -46.67667320 -23.60864960))",
+    "auxiliary_storage_labeling_positionx": null,
+    "auxiliary_storage_labeling_positiony": null
+   },
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -46.6730254,
+       -23.5950233
+      ],
+      [
+       -46.67324,
+       -23.5958492
+      ],
+      [
+       -46.6738408,
+       -23.5971666
+      ],
+      [
+       -46.6738622,
+       -23.5979532
+      ],
+      [
+       -46.6739051,
+       -23.5984841
+      ],
+      [
+       -46.6739266,
+       -23.600588
+      ],
+      [
+       -46.6741626,
+       -23.6018465
+      ],
+      [
+       -46.6749995,
+       -23.6044223
+      ],
+      [
+       -46.6766732,
+       -23.6086496
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "camada": "linhas",
+    "Código": "39",
+    "Meta": 39,
+    "Eixo": "Universo SP",
+    "Tipo": "Meta",
+    "Ação Estratégica": null,
+    "Descrição da Meta": "Iniciar as obras de requalificação da Avenida Juscelino Kubitschek (Boulevard JK), aumentando a arborização e a permeabilidade do solo, tornando-a mais segura e convidativa para pedestres e ciclistas.",
+    "Descrição Projeto": "Boulevard JK",
+    "Trecho": null,
+    "Secretaria": "SIURB; SP OBRAS; SMUL; SP URBANISMO",
+    "Subprefeitura": "Pinheiros",
+    "Distrito": "Itaim Bibi",
+    "Subprefeituras": null,
+    "Distritos": null,
+    "Endereço": "Vide WKT",
+    "Latitude_WGS": -23.589717,
+    "Longitude_WGS": -46.678479,
+    "Latitude_UTM": 7390192.096,
+    "Longitude_UTM": 328726.439,
+    "Meta é regionalizável?": "Sim, no planejamento",
+    "Já tem local(is) definido(s)?": "Sim",
+    "Localização é públicável?": "Sim",
+    "Status Regionalização": "Regionalizada",
+    "Status Execução": null,
+    "Tipo de Mapa": "Zoom",
+    "Tipo de Dado": "Linha",
+    "Temos arquivo georreferenciado?": "Sim",
+    "Arquivo Geo": "metas_pdm_2026_11.gpkg",
+    "Informações complementares": null,
+    "Extensão (km)": 0.6,
+    "Área (ha)": null,
+    "WKT": "MULTILINESTRING ((-46.67847920 -23.58971740, -46.68412250 -23.59123150))",
+    "auxiliary_storage_labeling_positionx": null,
+    "auxiliary_storage_labeling_positiony": null
+   },
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -46.6784792,
+       -23.5897174
+      ],
+      [
+       -46.6841225,
+       -23.5912315
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "camada": "linhas",
+    "Código": "40",
+    "Meta": 40,
+    "Eixo": "Universo SP",
+    "Tipo": "Meta",
+    "Ação Estratégica": null,
+    "Descrição da Meta": "Iniciar o alargamento da Rua Ribeirão Claro, redistribuindo o tráfego local e beneficiando importantes polos econômicos como Vila Olímpia, Itaim Bibi, Moema e Jardins. ",
+    "Descrição Projeto": "Alargamento Ribeirão Claro",
+    "Trecho": null,
+    "Secretaria": "SIURB; SP OBRAS; SMUL; SP URBANISMO",
+    "Subprefeitura": "Pinheiros",
+    "Distrito": "Itaim Bibi",
+    "Subprefeituras": null,
+    "Distritos": null,
+    "Endereço": "Vide WKT",
+    "Latitude_WGS": -23.602655,
+    "Longitude_WGS": -46.680143,
+    "Latitude_UTM": 7388757.405,
+    "Longitude_UTM": 328573.48,
+    "Meta é regionalizável?": "Sim, no planejamento",
+    "Já tem local(is) definido(s)?": "Sim",
+    "Localização é públicável?": "Sim",
+    "Status Regionalização": "Regionalizada",
+    "Status Execução": null,
+    "Tipo de Mapa": "Zoom",
+    "Tipo de Dado": "Linha",
+    "Temos arquivo georreferenciado?": "Sim",
+    "Arquivo Geo": "metas_pdm_2026_11.gpkg",
+    "Informações complementares": null,
+    "Extensão (km)": 0.58,
+    "Área (ha)": null,
+    "WKT": "MULTILINESTRING ((-46.67758832 -23.59801587, -46.68014273 -23.60265482))",
+    "auxiliary_storage_labeling_positionx": null,
+    "auxiliary_storage_labeling_positiony": null
+   },
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -46.6775883,
+       -23.5980159
+      ],
+      [
+       -46.6801427,
+       -23.6026548
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "camada": "linhas",
+    "Código": "41",
+    "Meta": 41,
+    "Eixo": "Universo SP",
+    "Tipo": "Meta",
+    "Ação Estratégica": null,
+    "Descrição da Meta": "Iniciar a construção do novo Túnel Sena Madureira, que irá melhorar a mobilidade na região da Vila Mariana e facilitar o acesso a diversos bairros. ",
+    "Descrição Projeto": "Túnel Sena Madureira",
+    "Trecho": null,
+    "Secretaria": "SIURB; SP OBRAS",
+    "Subprefeitura": "Vila Mariana",
+    "Distrito": "Vila Mariana",
+    "Subprefeituras": null,
+    "Distritos": null,
+    "Endereço": "Vide WKT",
+    "Latitude_WGS": -23.593039,
+    "Longitude_WGS": -46.633957,
+    "Latitude_UTM": 7389876.834,
+    "Longitude_UTM": 333274.6,
+    "Meta é regionalizável?": "Sim, no planejamento",
+    "Já tem local(is) definido(s)?": "Sim",
+    "Localização é públicável?": "Sim",
+    "Status Regionalização": "Regionalizada",
+    "Status Execução": null,
+    "Tipo de Mapa": "Zoom",
+    "Tipo de Dado": "Linha",
+    "Temos arquivo georreferenciado?": "Sim",
+    "Arquivo Geo": "metas_pdm_2026_11.gpkg",
+    "Informações complementares": null,
+    "Extensão (km)": 1.32,
+    "Área (ha)": null,
+    "WKT": "MULTILINESTRING ((-46.63962160 -23.59360930, -46.63814100 -23.59338320, -46.63705740 -23.59270480, -46.63642440 -23.59254750, -46.63569490 -23.59275390, -46.63497600 -23.59310790, -46.63395680 -23.59303910, -46.63313070 -23.59309810, -46.63214360 -23.59327500, -46.63074890 -23.59427790, -46.62981550 -23.59498580, -46.62795940 -23.59587070))",
+    "auxiliary_storage_labeling_positionx": 333562.14043833164,
+    "auxiliary_storage_labeling_positiony": 7389891.540261995
+   },
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -46.6396216,
+       -23.5936093
+      ],
+      [
+       -46.638141,
+       -23.5933832
+      ],
+      [
+       -46.6370574,
+       -23.5927048
+      ],
+      [
+       -46.6364244,
+       -23.5925475
+      ],
+      [
+       -46.6356949,
+       -23.5927539
+      ],
+      [
+       -46.634976,
+       -23.5931079
+      ],
+      [
+       -46.6339568,
+       -23.5930391
+      ],
+      [
+       -46.6331307,
+       -23.5930981
+      ],
+      [
+       -46.6321436,
+       -23.593275
+      ],
+      [
+       -46.6307489,
+       -23.5942779
+      ],
+      [
+       -46.6298155,
+       -23.5949858
+      ],
+      [
+       -46.6279594,
+       -23.5958707
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "camada": "linhas",
+    "Código": "42",
+    "Meta": 42,
+    "Eixo": "Universo SP",
+    "Tipo": "Meta",
+    "Ação Estratégica": null,
+    "Descrição da Meta": "Iniciar o prolongamento da Avenida Imperador até a Avenida José Aristodemo Pinotti, promovendo requalificação urbana e garantindo melhor articulação da malha viária na Zona Leste. ",
+    "Descrição Projeto": "Polongamento Av. Imperador / Av. Aristodemo Pinotti",
+    "Trecho": null,
+    "Secretaria": "SIURB; SP OBRAS",
+    "Subprefeitura": "São Miguel",
+    "Distrito": "São Miguel",
+    "Subprefeituras": null,
+    "Distritos": null,
+    "Endereço": "Vide WKT",
+    "Latitude_WGS": -23.513419,
+    "Longitude_WGS": -46.442486,
+    "Latitude_UTM": 7398903.351,
+    "Longitude_UTM": 352726.139,
+    "Meta é regionalizável?": "Sim, no planejamento",
+    "Já tem local(is) definido(s)?": "Sim",
+    "Localização é públicável?": "Sim",
+    "Status Regionalização": "Regionalizada",
+    "Status Execução": null,
+    "Tipo de Mapa": "Zoom",
+    "Tipo de Dado": "Linha",
+    "Temos arquivo georreferenciado?": "Sim",
+    "Arquivo Geo": "metas_pdm_2026_11.gpkg",
+    "Informações complementares": null,
+    "Extensão (km)": 0.33,
+    "Área (ha)": null,
+    "WKT": "MULTILINESTRING ((-46.44385410 -23.51352680, -46.44331230 -23.51346290, -46.44248620 -23.51341860, -46.44180490 -23.51326120, -46.44139720 -23.51294640, -46.44111290 -23.51243970))",
+    "auxiliary_storage_labeling_positionx": null,
+    "auxiliary_storage_labeling_positiony": null
+   },
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -46.4438541,
+       -23.5135268
+      ],
+      [
+       -46.4433123,
+       -23.5134629
+      ],
+      [
+       -46.4424862,
+       -23.5134186
+      ],
+      [
+       -46.4418049,
+       -23.5132612
+      ],
+      [
+       -46.4413972,
+       -23.5129464
+      ],
+      [
+       -46.4411129,
+       -23.5124397
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "camada": "linhas",
+    "Código": "44",
+    "Meta": 44,
+    "Eixo": "Universo SP",
+    "Tipo": "Meta",
+    "Ação Estratégica": null,
+    "Descrição da Meta": "Iniciar as obras de prolongamento da Avenida Marquês de São Vicente (novo Boulevard Marquês de São Vicente), melhorando a mobilidade no centro expandido e conectando-o a à Zona Leste. ",
+    "Descrição Projeto": "Boulevard Marquês de São Vicente",
+    "Trecho": null,
+    "Secretaria": "SIURB; SP OBRAS; SMUL; SP URBANISMO",
+    "Subprefeitura": "Sé; Mooca",
+    "Distrito": "Bom Retiro; Pari; Belém",
+    "Subprefeituras": null,
+    "Distritos": null,
+    "Endereço": "Vide WKT",
+    "Latitude_WGS": -23.526253,
+    "Longitude_WGS": -46.611747,
+    "Latitude_UTM": 7397298.281,
+    "Longitude_UTM": 335458.073,
+    "Meta é regionalizável?": "Sim, no planejamento",
+    "Já tem local(is) definido(s)?": "Sim",
+    "Localização é públicável?": "Sim",
+    "Status Regionalização": "Regionalizada",
+    "Status Execução": null,
+    "Tipo de Mapa": "Zoom",
+    "Tipo de Dado": "Linha",
+    "Temos arquivo georreferenciado?": "Sim",
+    "Arquivo Geo": "metas_pdm_2026_11.gpkg",
+    "Informações complementares": null,
+    "Extensão (km)": 6.85,
+    "Área (ha)": null,
+    "WKT": "MULTILINESTRING ((-46.64439480 -23.52038990, -46.64360090 -23.52076370, -46.63919140 -23.52158020, -46.63812920 -23.52154090, -46.63720650 -23.52097030, -46.63650910 -23.52011440, -46.63608000 -23.51966190, -46.63552210 -23.51954390, -46.63450290 -23.52007510, -46.63301150 -23.52102930, -46.63218540 -23.52163920, -46.62794750 -23.52231800, -46.62522240 -23.52262300, -46.62307660 -23.52280990, -46.62024420 -23.52287870, -46.61969710 -23.52297710, -46.61730450 -23.52407890, -46.61174700 -23.52625290, -46.60827080 -23.52930230, -46.60711210 -23.53031550, -46.60617870 -23.53080740, -46.60214470 -23.53085650, -46.60043880 -23.53066960, -46.59939810 -23.53067950, -46.59728450 -23.53106310, -46.59682320 -23.53177130, -46.59585760 -23.53276480, -46.59475250 -23.53341410, -46.59400150 -23.53381730, -46.59196300 -23.53421080, -46.59010690 -23.53338450, -46.58931300 -23.53287300, -46.58877660 -23.53250910, -46.58377690 -23.53155490))",
+    "auxiliary_storage_labeling_positionx": null,
+    "auxiliary_storage_labeling_positiony": null
+   },
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -46.6443948,
+       -23.5203899
+      ],
+      [
+       -46.6436009,
+       -23.5207637
+      ],
+      [
+       -46.6391914,
+       -23.5215802
+      ],
+      [
+       -46.6381292,
+       -23.5215409
+      ],
+      [
+       -46.6372065,
+       -23.5209703
+      ],
+      [
+       -46.6365091,
+       -23.5201144
+      ],
+      [
+       -46.63608,
+       -23.5196619
+      ],
+      [
+       -46.6355221,
+       -23.5195439
+      ],
+      [
+       -46.6345029,
+       -23.5200751
+      ],
+      [
+       -46.6330115,
+       -23.5210293
+      ],
+      [
+       -46.6321854,
+       -23.5216392
+      ],
+      [
+       -46.6279475,
+       -23.522318
+      ],
+      [
+       -46.6252224,
+       -23.522623
+      ],
+      [
+       -46.6230766,
+       -23.5228099
+      ],
+      [
+       -46.6202442,
+       -23.5228787
+      ],
+      [
+       -46.6196971,
+       -23.5229771
+      ],
+      [
+       -46.6173045,
+       -23.5240789
+      ],
+      [
+       -46.611747,
+       -23.5262529
+      ],
+      [
+       -46.6082708,
+       -23.5293023
+      ],
+      [
+       -46.6071121,
+       -23.5303155
+      ],
+      [
+       -46.6061787,
+       -23.5308074
+      ],
+      [
+       -46.6021447,
+       -23.5308565
+      ],
+      [
+       -46.6004388,
+       -23.5306696
+      ],
+      [
+       -46.5993981,
+       -23.5306795
+      ],
+      [
+       -46.5972845,
+       -23.5310631
+      ],
+      [
+       -46.5968232,
+       -23.5317713
+      ],
+      [
+       -46.5958576,
+       -23.5327648
+      ],
+      [
+       -46.5947525,
+       -23.5334141
+      ],
+      [
+       -46.5940015,
+       -23.5338173
+      ],
+      [
+       -46.591963,
+       -23.5342108
+      ],
+      [
+       -46.5901069,
+       -23.5333845
+      ],
+      [
+       -46.589313,
+       -23.532873
+      ],
+      [
+       -46.5887766,
+       -23.5325091
+      ],
+      [
+       -46.5837769,
+       -23.5315549
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "camada": "poligonos",
+    "Código": "53.01.01",
+    "Meta": 53,
+    "Eixo": "Universo SP",
+    "Tipo": "Meta",
+    "Ação Estratégica": null,
+    "Descrição da Meta": "Número de ações estratégicas concluídas.",
+    "Descrição Projeto": "Calçadão Triângulo Histórico",
+    "Trecho": null,
+    "Secretaria": "SIURB; SP OBRAS",
+    "Subprefeitura": "Sé",
+    "Distrito": "Sé",
+    "Subprefeituras": null,
+    "Distritos": null,
+    "Endereço": "Rua da Quitanda, Glicério",
+    "Latitude_WGS": -23.547536,
+    "Longitude_WGS": -46.635078,
+    "Latitude_UTM": 7394914.478,
+    "Longitude_UTM": 333102.656,
+    "Meta é regionalizável?": "Sim, no planejamento",
+    "Já tem local(is) definido(s)?": "Sim",
+    "Localização é públicável?": "Sim",
+    "Status Regionalização": "Regionalizada",
+    "Status Execução": "Planejado",
+    "Tipo de Mapa": "Zoom",
+    "Tipo de Dado": "Polígono",
+    "Temos arquivo georreferenciado?": "Sim",
+    "Arquivo Geo": "metas_pdm_2026_11.gpkg",
+    "Informações complementares": null,
+    "Extensão (km)": null,
+    "Área (ha)": 19.16,
+    "WKT": "MULTIPOLYGON (((-46.63545371 -23.54508449, -46.63683095 -23.54739476, -46.63755250 -23.54901520, -46.63736103 -23.54955189, -46.63408616 -23.55006414, -46.63367635 -23.54934054, -46.63310071 -23.54941432, -46.63299318 -23.54905869, -46.63361217 -23.54521265, -46.63401496 -23.54446184, -46.63468615 -23.54415309, -46.63545371 -23.54508449)))",
+    "auxiliary_storage_labeling_positionx": null,
+    "auxiliary_storage_labeling_positiony": null
+   },
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -46.6354537,
+        -23.5450845
+       ],
+       [
+        -46.6368309,
+        -23.5473948
+       ],
+       [
+        -46.6375525,
+        -23.5490152
+       ],
+       [
+        -46.637361,
+        -23.5495519
+       ],
+       [
+        -46.6340862,
+        -23.5500641
+       ],
+       [
+        -46.6336763,
+        -23.5493405
+       ],
+       [
+        -46.6331007,
+        -23.5494143
+       ],
+       [
+        -46.6329932,
+        -23.5490587
+       ],
+       [
+        -46.6336122,
+        -23.5452127
+       ],
+       [
+        -46.634015,
+        -23.5444618
+       ],
+       [
+        -46.6346861,
+        -23.5441531
+       ],
+       [
+        -46.6354537,
+        -23.5450845
+       ]
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "camada": "poligonos",
+    "Código": "53.02.01",
+    "Meta": 53,
+    "Eixo": "Universo SP",
+    "Tipo": "Meta",
+    "Ação Estratégica": null,
+    "Descrição da Meta": "Número de ações estratégicas concluídas.",
+    "Descrição Projeto": "Calçado Quadrilátero República",
+    "Trecho": null,
+    "Secretaria": "SIURB; SP OBRAS",
+    "Subprefeitura": "Sé",
+    "Distrito": "República",
+    "Subprefeituras": null,
+    "Distritos": null,
+    "Endereço": "Rua Barão de Itapetininga, República",
+    "Latitude_WGS": -23.54482,
+    "Longitude_WGS": -46.640697,
+    "Latitude_UTM": 7395208.691,
+    "Longitude_UTM": 332525.559,
+    "Meta é regionalizável?": "Sim, no planejamento",
+    "Já tem local(is) definido(s)?": "Sim",
+    "Localização é públicável?": "Sim",
+    "Status Regionalização": "Regionalizada",
+    "Status Execução": "Executado",
+    "Tipo de Mapa": "Zoom",
+    "Tipo de Dado": "Polígono",
+    "Temos arquivo georreferenciado?": "Sim",
+    "Arquivo Geo": "metas_pdm_2026_11.gpkg",
+    "Informações complementares": null,
+    "Extensão (km)": null,
+    "Área (ha)": 17.66,
+    "WKT": "MULTIPOLYGON (((-46.64288854 -23.54691697, -46.64168453 -23.54661038, -46.64112262 -23.54621821, -46.64045377 -23.54697830, -46.63975559 -23.54750870, -46.63884278 -23.54602231, -46.63925850 -23.54559204, -46.63792118 -23.54370492, -46.64034474 -23.54240800, -46.64338481 -23.54489289, -46.64288854 -23.54691697)))",
+    "auxiliary_storage_labeling_positionx": null,
+    "auxiliary_storage_labeling_positiony": null
+   },
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -46.6428885,
+        -23.546917
+       ],
+       [
+        -46.6416845,
+        -23.5466104
+       ],
+       [
+        -46.6411226,
+        -23.5462182
+       ],
+       [
+        -46.6404538,
+        -23.5469783
+       ],
+       [
+        -46.6397556,
+        -23.5475087
+       ],
+       [
+        -46.6388428,
+        -23.5460223
+       ],
+       [
+        -46.6392585,
+        -23.545592
+       ],
+       [
+        -46.6379212,
+        -23.5437049
+       ],
+       [
+        -46.6403447,
+        -23.542408
+       ],
+       [
+        -46.6433848,
+        -23.5448929
+       ],
+       [
+        -46.6428885,
+        -23.546917
+       ]
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "camada": "poligonos",
+    "Código": "53.03.01",
+    "Meta": 53,
+    "Eixo": "Universo SP",
+    "Tipo": "Meta",
+    "Ação Estratégica": null,
+    "Descrição da Meta": "Número de ações estratégicas concluídas.",
+    "Descrição Projeto": "Esplanada Liberdade",
+    "Trecho": null,
+    "Secretaria": "SEDP",
+    "Subprefeitura": "Sé",
+    "Distrito": "Sé",
+    "Subprefeituras": null,
+    "Distritos": null,
+    "Endereço": "Avenida Radial Leste-Oeste, Glicério",
+    "Latitude_WGS": -23.556538,
+    "Longitude_WGS": -46.634639,
+    "Latitude_UTM": 7393918.122,
+    "Longitude_UTM": 333158.842,
+    "Meta é regionalizável?": "Sim, no planejamento",
+    "Já tem local(is) definido(s)?": "Sim",
+    "Localização é públicável?": "Sim",
+    "Status Regionalização": "Regionalizada",
+    "Status Execução": "Planejado",
+    "Tipo de Mapa": "Zoom",
+    "Tipo de Dado": "Polígono",
+    "Temos arquivo georreferenciado?": "Sim",
+    "Arquivo Geo": "metas_pdm_2026_11.gpkg",
+    "Informações complementares": null,
+    "Extensão (km)": null,
+    "Área (ha)": 1.91,
+    "WKT": "MULTIPOLYGON (((-46.63615794 -23.55610410, -46.63627629 -23.55669002, -46.63454734 -23.55679837, -46.63286383 -23.55670972, -46.63290615 -23.55625948, -46.63422323 -23.55628255, -46.63526805 -23.55625610, -46.63615794 -23.55610410)))",
+    "auxiliary_storage_labeling_positionx": null,
+    "auxiliary_storage_labeling_positiony": null
+   },
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -46.6361579,
+        -23.5561041
+       ],
+       [
+        -46.6362763,
+        -23.55669
+       ],
+       [
+        -46.6345473,
+        -23.5567984
+       ],
+       [
+        -46.6328638,
+        -23.5567097
+       ],
+       [
+        -46.6329061,
+        -23.5562595
+       ],
+       [
+        -46.6342232,
+        -23.5562826
+       ],
+       [
+        -46.635268,
+        -23.5562561
+       ],
+       [
+        -46.6361579,
+        -23.5561041
+       ]
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "camada": "poligonos",
+    "Código": "53.04.01",
+    "Meta": 53,
+    "Eixo": "Universo SP",
+    "Tipo": "Meta",
+    "Ação Estratégica": null,
+    "Descrição da Meta": "Número de ações estratégicas concluídas.",
+    "Descrição Projeto": "Novo Parque Dom Pedro II",
+    "Trecho": null,
+    "Secretaria": "SEDP",
+    "Subprefeitura": "Sé",
+    "Distrito": "Sé",
+    "Subprefeituras": null,
+    "Distritos": null,
+    "Endereço": "Avenida do Estado, Glicério",
+    "Latitude_WGS": -23.547509,
+    "Longitude_WGS": -46.628575,
+    "Latitude_UTM": 7394925.024,
+    "Longitude_UTM": 333766.526,
+    "Meta é regionalizável?": "Sim, no planejamento",
+    "Já tem local(is) definido(s)?": "Sim",
+    "Localização é públicável?": "Sim",
+    "Status Regionalização": "Regionalizada",
+    "Status Execução": "Executado",
+    "Tipo de Mapa": "Zoom",
+    "Tipo de Dado": "Polígono",
+    "Temos arquivo georreferenciado?": "Sim",
+    "Arquivo Geo": "metas_pdm_2026_11.gpkg",
+    "Informações complementares": null,
+    "Extensão (km)": null,
+    "Área (ha)": 32.11,
+    "WKT": "MULTIPOLYGON (((-46.63115080 -23.54640713, -46.62729309 -23.55215656, -46.62677271 -23.55319274, -46.62617620 -23.55223530, -46.62641528 -23.55160549, -46.62706489 -23.55013713, -46.62528130 -23.54985179, -46.62635124 -23.54798145, -46.62656025 -23.54490021, -46.62890748 -23.54512555, -46.62892595 -23.54322325, -46.62947056 -23.54319608, -46.63105575 -23.54493703, -46.63232128 -23.54483535, -46.63194634 -23.54572946, -46.63240357 -23.54634700, -46.63215205 -23.54699474, -46.63115080 -23.54640713)))",
+    "auxiliary_storage_labeling_positionx": null,
+    "auxiliary_storage_labeling_positiony": null
+   },
+   "geometry": {
+    "type": "MultiPolygon",
+    "coordinates": [
+     [
+      [
+       [
+        -46.6311508,
+        -23.5464071
+       ],
+       [
+        -46.6272931,
+        -23.5521566
+       ],
+       [
+        -46.6267727,
+        -23.5531927
+       ],
+       [
+        -46.6261762,
+        -23.5522353
+       ],
+       [
+        -46.6264153,
+        -23.5516055
+       ],
+       [
+        -46.6270649,
+        -23.5501371
+       ],
+       [
+        -46.6252813,
+        -23.5498518
+       ],
+       [
+        -46.6263512,
+        -23.5479815
+       ],
+       [
+        -46.6265602,
+        -23.5449002
+       ],
+       [
+        -46.6289075,
+        -23.5451256
+       ],
+       [
+        -46.6289259,
+        -23.5432233
+       ],
+       [
+        -46.6294706,
+        -23.5431961
+       ],
+       [
+        -46.6310557,
+        -23.544937
+       ],
+       [
+        -46.6323213,
+        -23.5448353
+       ],
+       [
+        -46.6319463,
+        -23.5457295
+       ],
+       [
+        -46.6324036,
+        -23.546347
+       ],
+       [
+        -46.632152,
+        -23.5469947
+       ],
+       [
+        -46.6311508,
+        -23.5464071
+       ]
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "camada": "linhas",
+    "Código": "54",
+    "Meta": 54,
+    "Eixo": "Universo SP",
+    "Tipo": "Meta",
+    "Ação Estratégica": null,
+    "Descrição da Meta": "Ordem de serviço de obra emitida.",
+    "Descrição Projeto": "Bonde São Paulo",
+    "Trecho": "Linha 1 (vermelha)",
+    "Secretaria": "SMUL; SP URBANISMO; SMT; SPTRANS",
+    "Subprefeitura": "Sé",
+    "Distrito": "Sé, República; Bom Retiro",
+    "Subprefeituras": null,
+    "Distritos": null,
+    "Endereço": "Avenida Cásper Líbero, República",
+    "Latitude_WGS": -23.541678,
+    "Longitude_WGS": -46.636791,
+    "Latitude_UTM": 7395561.188,
+    "Longitude_UTM": 332920.368,
+    "Meta é regionalizável?": "Sim, no planejamento",
+    "Já tem local(is) definido(s)?": "Sim",
+    "Localização é públicável?": "Sim",
+    "Status Regionalização": "Regionalizada",
+    "Status Execução": "Planejado",
+    "Tipo de Mapa": "Zoom",
+    "Tipo de Dado": "Linha",
+    "Temos arquivo georreferenciado?": "Sim",
+    "Arquivo Geo": "metas_pdm_2026_11.gpkg",
+    "Informações complementares": null,
+    "Extensão (km)": 6.24,
+    "Área (ha)": null,
+    "WKT": "MULTILINESTRING ((-46.64406265 -23.54019604, -46.64325788 -23.54064591, -46.64324700 -23.54065180, -46.64323594 -23.54065739, -46.64322471 -23.54066270, -46.64321332 -23.54066770, -46.64320178 -23.54067241, -46.64319010 -23.54067680, -46.64317828 -23.54068089, -46.64317041 -23.54068361, -46.64316262 -23.54068655, -46.64315493 -23.54068968, -46.64314734 -23.54069302, -46.64313985 -23.54069655, -46.64313248 -23.54070029, -46.64312522 -23.54070421, -46.64282373 -23.54087274, -46.64281660 -23.54087686, -46.64280960 -23.54088116, -46.64280274 -23.54088565, -46.64279602 -23.54089031, -46.64278944 -23.54089515, -46.64278302 -23.54090016, -46.64277676 -23.54090534, -46.64276737 -23.54091311, -46.64275774 -23.54092062, -46.64274788 -23.54092788, -46.64273780 -23.54093488, -46.64272751 -23.54094160, -46.64271701 -23.54094805, -46.64270631 -23.54095423, -46.64039428 -23.54224660, -46.64037901 -23.54225510, -46.64036371 -23.54226355, -46.64034837 -23.54227194, -46.64033300 -23.54228029, -46.64031760 -23.54228858, -46.64030217 -23.54229683, -46.64028670 -23.54230502, -46.64026851 -23.54231466, -46.64025036 -23.54232437, -46.64023226 -23.54233415, -46.64021420 -23.54234401, -46.64019619 -23.54235394, -46.64017822 -23.54236393, -46.64016031 -23.54237400, -46.63904699 -23.54300263, -46.63903283 -23.54301004, -46.63901817 -23.54301656, -46.63900307 -23.54302218, -46.63898760 -23.54302685, -46.63897182 -23.54303057, -46.63895581 -23.54303331, -46.63893964 -23.54303507, -46.63892338 -23.54303583, -46.63890710 -23.54303559, -46.63889088 -23.54303436, -46.63887477 -23.54303213, -46.63885887 -23.54302892, -46.63884323 -23.54302475, -46.63882792 -23.54301962, -46.63881302 -23.54301357, -46.63879859 -23.54300662, -46.63878469 -23.54299880, -46.63808101 -23.54257268, -46.63806230 -23.54256077, -46.63804421 -23.54254807, -46.63802678 -23.54253461, -46.63801004 -23.54252041, -46.63799404 -23.54250552, -46.63797880 -23.54248995, -46.63796437 -23.54247376, -46.63794984 -23.54245746, -46.63793450 -23.54244181, -46.63791839 -23.54242683, -46.63790154 -23.54241257, -46.63788398 -23.54239904, -46.63786575 -23.54238629, -46.63784690 -23.54237433, -46.63689054 -23.54179771, -46.63687812 -23.54178970, -46.63686626 -23.54178100, -46.63685500 -23.54177164, -46.63684440 -23.54176166, -46.63683449 -23.54175109, -46.63682530 -23.54173998, -46.63681688 -23.54172836, -46.63680925 -23.54171629, -46.63680245 -23.54170380, -46.63679650 -23.54169095, -46.63679142 -23.54167778, -46.63678724 -23.54166435, -46.63678396 -23.54165071, -46.63576695 -23.53669025, -46.63576695 -23.53669025, -46.63576230 -23.53667102, -46.63575629 -23.53665211, -46.63574897 -23.53663360, -46.63574034 -23.53661558, -46.63573046 -23.53659811, -46.63571937 -23.53658127, -46.63570711 -23.53656513, -46.63569474 -23.53654885, -46.63568357 -23.53653186, -46.63567363 -23.53651423, -46.63566497 -23.53649603, -46.63565763 -23.53647734, -46.63565164 -23.53645825, -46.63564702 -23.53643884, -46.63564702 -23.53643884, -46.63560435 -23.53622610, -46.63560435 -23.53622610, -46.63560006 -23.53620561, -46.63559543 -23.53618519, -46.63559045 -23.53616483, -46.63558513 -23.53614455, -46.63557947 -23.53612434, -46.63557346 -23.53610422, -46.63556712 -23.53608419, -46.63556712 -23.53608419, -46.63541860 -23.53562840, -46.63541860 -23.53562840, -46.63541429 -23.53561330, -46.63541112 -23.53559796, -46.63540912 -23.53558245, -46.63540827 -23.53556685, -46.63540861 -23.53555123, -46.63541011 -23.53553567, -46.63541277 -23.53552025, -46.63541659 -23.53550503, -46.63542154 -23.53549009, -46.63542759 -23.53547551, -46.63543473 -23.53546134, -46.63544291 -23.53544766, -46.63545209 -23.53543454, -46.63546224 -23.53542204, -46.63547331 -23.53541021, -46.63548523 -23.53539911, -46.63549795 -23.53538880, -46.63551142 -23.53537933, -46.63552557 -23.53537074, -46.63554033 -23.53536307, -46.63555563 -23.53535636, -46.63557139 -23.53535065, -46.63558755 -23.53534595, -46.63671488 -23.53505717, -46.63671488 -23.53505717, -46.63673083 -23.53505254, -46.63674641 -23.53504691, -46.63676152 -23.53504032, -46.63677612 -23.53503279, -46.63679012 -23.53502436, -46.63680347 -23.53501506, -46.63681610 -23.53500495, -46.63682795 -23.53499407, -46.63683896 -23.53498247, -46.63684909 -23.53497020, -46.63685829 -23.53495732, -46.63686652 -23.53494390, -46.63687373 -23.53492998, -46.63687989 -23.53491565, -46.63688498 -23.53490096, -46.63688897 -23.53488598, -46.63689184 -23.53487079, -46.63689358 -23.53485546, -46.63689418 -23.53484005, -46.63689364 -23.53482463, -46.63689195 -23.53480929, -46.63688914 -23.53479409, -46.63688520 -23.53477911, -46.63681561 -23.53454868, -46.63681561 -23.53454868, -46.63681054 -23.53452950, -46.63680685 -23.53451006, -46.63680454 -23.53449043, -46.63680363 -23.53447071, -46.63680411 -23.53445098, -46.63680600 -23.53443132, -46.63680927 -23.53441181, -46.63681392 -23.53439254, -46.63681993 -23.53437360, -46.63682727 -23.53435506, -46.63683590 -23.53433699, -46.63684580 -23.53431949, -46.63685692 -23.53430262, -46.63686921 -23.53428646, -46.63688262 -23.53427107, -46.63689709 -23.53425653, -46.63691256 -23.53424289, -46.63692246 -23.53423523, -46.63691767 -23.53424416, -46.63690520 -23.53427210, -46.63689486 -23.53430077, -46.63688669 -23.53433003, -46.63688073 -23.53435975, -46.63687701 -23.53438977, -46.63687555 -23.53441995, -46.63687635 -23.53445016, -46.63687942 -23.53448024, -46.63688472 -23.53451005, -46.63689225 -23.53453946, -46.63689225 -23.53453946, -46.63698176 -23.53484191, -46.63698176 -23.53484191, -46.63698774 -23.53485979, -46.63699498 -23.53487727, -46.63700345 -23.53489428, -46.63701311 -23.53491073, -46.63702393 -23.53492657, -46.63703584 -23.53494172, -46.63704881 -23.53495612, -46.63706277 -23.53496970, -46.63707767 -23.53498240, -46.63709344 -23.53499418, -46.63711002 -23.53500498, -46.63712732 -23.53501475, -46.63714529 -23.53502346, -46.63716384 -23.53503106, -46.63718288 -23.53503752, -46.63720235 -23.53504282, -46.63722215 -23.53504692, -46.63724220 -23.53504982, -46.63726241 -23.53505150, -46.63728270 -23.53505196, -46.63730298 -23.53505119, -46.64010553 -23.53485928, -46.64013884 -23.53485802, -46.64017217 -23.53485878, -46.64020537 -23.53486157, -46.64023830 -23.53486638, -46.64027081 -23.53487317, -46.64030277 -23.53488193, -46.64033403 -23.53489261, -46.64036445 -23.53490517, -46.64039392 -23.53491956, -46.64042228 -23.53493570, -46.64044944 -23.53495354, -46.64044944 -23.53495354, -46.64152514 -23.53571066, -46.64152514 -23.53571066, -46.64153515 -23.53571790, -46.64154494 -23.53572539, -46.64155452 -23.53573311, -46.64156386 -23.53574107, -46.64157297 -23.53574926, -46.64158184 -23.53575768, -46.64159046 -23.53576630, -46.64159046 -23.53576630, -46.64159967 -23.53577552, -46.64160914 -23.53578450, -46.64161887 -23.53579324, -46.64162885 -23.53580174, -46.64163908 -23.53580999, -46.64164954 -23.53581798, -46.64166023 -23.53582571, -46.64166023 -23.53582571, -46.64586434 -23.53878144, -46.64587706 -23.53879101, -46.64588905 -23.53880136, -46.64590026 -23.53881242, -46.64591064 -23.53882415, -46.64592015 -23.53883649, -46.64592874 -23.53884940, -46.64593637 -23.53886280, -46.64594301 -23.53887665, -46.64594863 -23.53889088, -46.64595320 -23.53890542, -46.64595670 -23.53892021, -46.64595912 -23.53893518, -46.64596045 -23.53895028, -46.64596067 -23.53896541, -46.64595980 -23.53898053, -46.64595783 -23.53899556, -46.64595477 -23.53901044, -46.64595063 -23.53902509, -46.64594544 -23.53903945, -46.64593921 -23.53905346, -46.64593199 -23.53906706, -46.64592378 -23.53908018, -46.64591465 -23.53909276, -46.64590462 -23.53910474, -46.64589374 -23.53911608, -46.64588206 -23.53912673, -46.64586963 -23.53913663, -46.64585652 -23.53914573, -46.64584277 -23.53915401, -46.64503310 -23.53960635, -46.64503310 -23.53960635, -46.64500482 -23.53962227, -46.64497665 -23.53963837, -46.64494861 -23.53965464, -46.64492068 -23.53967109, -46.64489288 -23.53968771, -46.64486519 -23.53970450, -46.64483764 -23.53972147, -46.64425814 -23.54008086, -46.64423058 -23.54009783, -46.64420289 -23.54011463, -46.64417508 -23.54013126, -46.64414715 -23.54014771, -46.64411910 -23.54016400, -46.64409093 -23.54018010, -46.64406264 -23.54019603), (-46.63860751 -23.53180492, -46.63860267 -23.53181368, -46.63859784 -23.53182244, -46.63859301 -23.53183120, -46.63858819 -23.53183997, -46.63858337 -23.53184874, -46.63857856 -23.53185751, -46.63857375 -23.53186628, -46.63857375 -23.53186628, -46.63801753 -23.53288225, -46.63801357 -23.53288935, -46.63800948 -23.53289641, -46.63800528 -23.53290340, -46.63800096 -23.53291033, -46.63799652 -23.53291720, -46.63799198 -23.53292400, -46.63798731 -23.53293074, -46.63798731 -23.53293074, -46.63752918 -23.53358186, -46.63752918 -23.53358186, -46.63752320 -23.53359015, -46.63751702 -23.53359831, -46.63751064 -23.53360634, -46.63750406 -23.53361423, -46.63749729 -23.53362198, -46.63749033 -23.53362959, -46.63748319 -23.53363705, -46.63747493 -23.53364569, -46.63746690 -23.53365452, -46.63745911 -23.53366353, -46.63745157 -23.53367271, -46.63744427 -23.53368206, -46.63743723 -23.53369158, -46.63743044 -23.53370125, -46.63743044 -23.53370125, -46.63718162 -23.53406583, -46.63718162 -23.53406583, -46.63717109 -23.53408026, -46.63715962 -23.53409408, -46.63714727 -23.53410722, -46.63713406 -23.53411964, -46.63712006 -23.53413130, -46.63710532 -23.53414215, -46.63708988 -23.53415215, -46.63707381 -23.53416126, -46.63705717 -23.53416946, -46.63704002 -23.53417670, -46.63702242 -23.53418296, -46.63702242 -23.53418296, -46.63700247 -23.53419011, -46.63698306 -23.53419845, -46.63696429 -23.53420794, -46.63694623 -23.53421854, -46.63692896 -23.53423020, -46.63692246 -23.53423523, -46.63693220 -23.53421708, -46.63707556 -23.53397156, -46.63708667 -23.53395081, -46.63709619 -23.53392940, -46.63710405 -23.53390742, -46.63711022 -23.53388499, -46.63711468 -23.53386221, -46.63711740 -23.53383921, -46.63711836 -23.53381608, -46.63711756 -23.53379295, -46.63711501 -23.53376993, -46.63711071 -23.53374713, -46.63710470 -23.53372466, -46.63710470 -23.53372466, -46.63650970 -23.53179569, -46.63650970 -23.53179569, -46.63650202 -23.53176880, -46.63649549 -23.53174166, -46.63649013 -23.53171430, -46.63648593 -23.53168677, -46.63648291 -23.53165911, -46.63648106 -23.53163136, -46.63648040 -23.53160356, -46.63648040 -23.53160356, -46.63647993 -23.53140725, -46.63647993 -23.53140725, -46.63647956 -23.53139218, -46.63647854 -23.53137714, -46.63647687 -23.53136215, -46.63647454 -23.53134723, -46.63647157 -23.53133241, -46.63646795 -23.53131772, -46.63646370 -23.53130317, -46.63646370 -23.53130317, -46.63471315 -23.52575809, -46.63471315 -23.52575809, -46.63470900 -23.52574304, -46.63470598 -23.52572776, -46.63470411 -23.52571232, -46.63470340 -23.52569681, -46.63470384 -23.52568128, -46.63470544 -23.52566582, -46.63470820 -23.52565049, -46.63471208 -23.52563538, -46.63471709 -23.52562055, -46.63472319 -23.52560607, -46.63473035 -23.52559202, -46.63473855 -23.52557845, -46.63474773 -23.52556543, -46.63475787 -23.52555303, -46.63476891 -23.52554129, -46.63478080 -23.52553029, -46.63479348 -23.52552006, -46.63480689 -23.52551067, -46.63482097 -23.52550214, -46.63483565 -23.52549453, -46.63485087 -23.52548787, -46.63486654 -23.52548219, -46.63488261 -23.52547751, -46.63488261 -23.52547751, -46.63843363 -23.52456676, -46.63843363 -23.52456676, -46.63845542 -23.52456036, -46.63847664 -23.52455250, -46.63849717 -23.52454321, -46.63851689 -23.52453254, -46.63853571 -23.52452056, -46.63855352 -23.52450733, -46.63857022 -23.52449293, -46.63962901 -23.52350930, -46.63964407 -23.52349622, -46.63966004 -23.52348409, -46.63967685 -23.52347298, -46.63969443 -23.52346293, -46.63971270 -23.52345399, -46.63973158 -23.52344619, -46.63975098 -23.52343957, -46.63977082 -23.52343417, -46.63979101 -23.52343000, -46.63981145 -23.52342708, -46.63983206 -23.52342543, -46.63985274 -23.52342506, -46.63987341 -23.52342596, -46.63989396 -23.52342813, -46.63991431 -23.52343157, -46.63993436 -23.52343625, -46.63995403 -23.52344216, -46.63997322 -23.52344927, -46.63999186 -23.52345755, -46.64041426 -23.52366142, -46.64042297 -23.52366557, -46.64043172 -23.52366965, -46.64044051 -23.52367364, -46.64044935 -23.52367755, -46.64045822 -23.52368138, -46.64046714 -23.52368514, -46.64047610 -23.52368881, -46.64048505 -23.52369247, -46.64049395 -23.52369622, -46.64050282 -23.52370006, -46.64051164 -23.52370398, -46.64052042 -23.52370798, -46.64052915 -23.52371206, -46.64053784 -23.52371622, -46.64132406 -23.52409768, -46.64134450 -23.52410848, -46.64136404 -23.52412061, -46.64138259 -23.52413400, -46.64140004 -23.52414858, -46.64141631 -23.52416429, -46.64143131 -23.52418103, -46.64144497 -23.52419872, -46.64145722 -23.52421728, -46.64146798 -23.52423659, -46.64147721 -23.52425658, -46.64148486 -23.52427712, -46.64149089 -23.52429811, -46.64149526 -23.52431946, -46.64149796 -23.52434103, -46.64149896 -23.52436273, -46.64149896 -23.52436273, -46.64151474 -23.52650024, -46.64151474 -23.52650024, -46.64151474 -23.52650024, -46.64151474 -23.52650024, -46.64151413 -23.52652017, -46.64151201 -23.52654001, -46.64150839 -23.52655967, -46.64150330 -23.52657905, -46.64149674 -23.52659805, -46.64148876 -23.52661658, -46.64147940 -23.52663455, -46.64098697 -23.52750080, -46.64098697 -23.52750080, -46.64097948 -23.52751398, -46.64097203 -23.52752718, -46.64096459 -23.52754039, -46.64095718 -23.52755361, -46.64094979 -23.52756685, -46.64094243 -23.52758009, -46.64093509 -23.52759335, -46.64093509 -23.52759335, -46.63860751 -23.53180492))",
+    "auxiliary_storage_labeling_positionx": null,
+    "auxiliary_storage_labeling_positiony": null
+   },
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -46.6440626,
+       -23.540196
+      ],
+      [
+       -46.6432579,
+       -23.5406459
+      ],
+      [
+       -46.643247,
+       -23.5406518
+      ],
+      [
+       -46.6432359,
+       -23.5406574
+      ],
+      [
+       -46.6432247,
+       -23.5406627
+      ],
+      [
+       -46.6432133,
+       -23.5406677
+      ],
+      [
+       -46.6432018,
+       -23.5406724
+      ],
+      [
+       -46.6431901,
+       -23.5406768
+      ],
+      [
+       -46.6431783,
+       -23.5406809
+      ],
+      [
+       -46.6431704,
+       -23.5406836
+      ],
+      [
+       -46.6431626,
+       -23.5406865
+      ],
+      [
+       -46.6431549,
+       -23.5406897
+      ],
+      [
+       -46.6431473,
+       -23.540693
+      ],
+      [
+       -46.6431399,
+       -23.5406966
+      ],
+      [
+       -46.6431325,
+       -23.5407003
+      ],
+      [
+       -46.6431252,
+       -23.5407042
+      ],
+      [
+       -46.6428237,
+       -23.5408727
+      ],
+      [
+       -46.6428166,
+       -23.5408769
+      ],
+      [
+       -46.6428096,
+       -23.5408812
+      ],
+      [
+       -46.6428027,
+       -23.5408856
+      ],
+      [
+       -46.642796,
+       -23.5408903
+      ],
+      [
+       -46.6427894,
+       -23.5408951
+      ],
+      [
+       -46.642783,
+       -23.5409002
+      ],
+      [
+       -46.6427768,
+       -23.5409053
+      ],
+      [
+       -46.6427674,
+       -23.5409131
+      ],
+      [
+       -46.6427577,
+       -23.5409206
+      ],
+      [
+       -46.6427479,
+       -23.5409279
+      ],
+      [
+       -46.6427378,
+       -23.5409349
+      ],
+      [
+       -46.6427275,
+       -23.5409416
+      ],
+      [
+       -46.642717,
+       -23.5409481
+      ],
+      [
+       -46.6427063,
+       -23.5409542
+      ],
+      [
+       -46.6403943,
+       -23.5422466
+      ],
+      [
+       -46.640379,
+       -23.5422551
+      ],
+      [
+       -46.6403637,
+       -23.5422635
+      ],
+      [
+       -46.6403484,
+       -23.5422719
+      ],
+      [
+       -46.640333,
+       -23.5422803
+      ],
+      [
+       -46.6403176,
+       -23.5422886
+      ],
+      [
+       -46.6403022,
+       -23.5422968
+      ],
+      [
+       -46.6402867,
+       -23.542305
+      ],
+      [
+       -46.6402685,
+       -23.5423147
+      ],
+      [
+       -46.6402504,
+       -23.5423244
+      ],
+      [
+       -46.6402323,
+       -23.5423342
+      ],
+      [
+       -46.6402142,
+       -23.542344
+      ],
+      [
+       -46.6401962,
+       -23.5423539
+      ],
+      [
+       -46.6401782,
+       -23.5423639
+      ],
+      [
+       -46.6401603,
+       -23.542374
+      ],
+      [
+       -46.639047,
+       -23.5430026
+      ],
+      [
+       -46.6390328,
+       -23.54301
+      ],
+      [
+       -46.6390182,
+       -23.5430166
+      ],
+      [
+       -46.6390031,
+       -23.5430222
+      ],
+      [
+       -46.6389876,
+       -23.5430269
+      ],
+      [
+       -46.6389718,
+       -23.5430306
+      ],
+      [
+       -46.6389558,
+       -23.5430333
+      ],
+      [
+       -46.6389396,
+       -23.5430351
+      ],
+      [
+       -46.6389234,
+       -23.5430358
+      ],
+      [
+       -46.6389071,
+       -23.5430356
+      ],
+      [
+       -46.6388909,
+       -23.5430344
+      ],
+      [
+       -46.6388748,
+       -23.5430321
+      ],
+      [
+       -46.6388589,
+       -23.5430289
+      ],
+      [
+       -46.6388432,
+       -23.5430247
+      ],
+      [
+       -46.6388279,
+       -23.5430196
+      ],
+      [
+       -46.638813,
+       -23.5430136
+      ],
+      [
+       -46.6387986,
+       -23.5430066
+      ],
+      [
+       -46.6387847,
+       -23.5429988
+      ],
+      [
+       -46.638081,
+       -23.5425727
+      ],
+      [
+       -46.6380623,
+       -23.5425608
+      ],
+      [
+       -46.6380442,
+       -23.5425481
+      ],
+      [
+       -46.6380268,
+       -23.5425346
+      ],
+      [
+       -46.63801,
+       -23.5425204
+      ],
+      [
+       -46.637994,
+       -23.5425055
+      ],
+      [
+       -46.6379788,
+       -23.54249
+      ],
+      [
+       -46.6379644,
+       -23.5424738
+      ],
+      [
+       -46.6379498,
+       -23.5424575
+      ],
+      [
+       -46.6379345,
+       -23.5424418
+      ],
+      [
+       -46.6379184,
+       -23.5424268
+      ],
+      [
+       -46.6379015,
+       -23.5424126
+      ],
+      [
+       -46.637884,
+       -23.542399
+      ],
+      [
+       -46.6378658,
+       -23.5423863
+      ],
+      [
+       -46.6378469,
+       -23.5423743
+      ],
+      [
+       -46.6368905,
+       -23.5417977
+      ],
+      [
+       -46.6368781,
+       -23.5417897
+      ],
+      [
+       -46.6368663,
+       -23.541781
+      ],
+      [
+       -46.636855,
+       -23.5417716
+      ],
+      [
+       -46.6368444,
+       -23.5417617
+      ],
+      [
+       -46.6368345,
+       -23.5417511
+      ],
+      [
+       -46.6368253,
+       -23.54174
+      ],
+      [
+       -46.6368169,
+       -23.5417284
+      ],
+      [
+       -46.6368093,
+       -23.5417163
+      ],
+      [
+       -46.6368024,
+       -23.5417038
+      ],
+      [
+       -46.6367965,
+       -23.5416909
+      ],
+      [
+       -46.6367914,
+       -23.5416778
+      ],
+      [
+       -46.6367872,
+       -23.5416644
+      ],
+      [
+       -46.636784,
+       -23.5416507
+      ],
+      [
+       -46.6357669,
+       -23.5366903
+      ],
+      [
+       -46.6357669,
+       -23.5366903
+      ],
+      [
+       -46.6357623,
+       -23.536671
+      ],
+      [
+       -46.6357563,
+       -23.5366521
+      ],
+      [
+       -46.635749,
+       -23.5366336
+      ],
+      [
+       -46.6357403,
+       -23.5366156
+      ],
+      [
+       -46.6357305,
+       -23.5365981
+      ],
+      [
+       -46.6357194,
+       -23.5365813
+      ],
+      [
+       -46.6357071,
+       -23.5365651
+      ],
+      [
+       -46.6356947,
+       -23.5365489
+      ],
+      [
+       -46.6356836,
+       -23.5365319
+      ],
+      [
+       -46.6356736,
+       -23.5365142
+      ],
+      [
+       -46.635665,
+       -23.536496
+      ],
+      [
+       -46.6356576,
+       -23.5364773
+      ],
+      [
+       -46.6356516,
+       -23.5364583
+      ],
+      [
+       -46.635647,
+       -23.5364388
+      ],
+      [
+       -46.635647,
+       -23.5364388
+      ],
+      [
+       -46.6356044,
+       -23.5362261
+      ],
+      [
+       -46.6356044,
+       -23.5362261
+      ],
+      [
+       -46.6356001,
+       -23.5362056
+      ],
+      [
+       -46.6355954,
+       -23.5361852
+      ],
+      [
+       -46.6355905,
+       -23.5361648
+      ],
+      [
+       -46.6355851,
+       -23.5361445
+      ],
+      [
+       -46.6355795,
+       -23.5361243
+      ],
+      [
+       -46.6355735,
+       -23.5361042
+      ],
+      [
+       -46.6355671,
+       -23.5360842
+      ],
+      [
+       -46.6355671,
+       -23.5360842
+      ],
+      [
+       -46.6354186,
+       -23.5356284
+      ],
+      [
+       -46.6354186,
+       -23.5356284
+      ],
+      [
+       -46.6354143,
+       -23.5356133
+      ],
+      [
+       -46.6354111,
+       -23.535598
+      ],
+      [
+       -46.6354091,
+       -23.5355824
+      ],
+      [
+       -46.6354083,
+       -23.5355668
+      ],
+      [
+       -46.6354086,
+       -23.5355512
+      ],
+      [
+       -46.6354101,
+       -23.5355357
+      ],
+      [
+       -46.6354128,
+       -23.5355202
+      ],
+      [
+       -46.6354166,
+       -23.535505
+      ],
+      [
+       -46.6354215,
+       -23.5354901
+      ],
+      [
+       -46.6354276,
+       -23.5354755
+      ],
+      [
+       -46.6354347,
+       -23.5354613
+      ],
+      [
+       -46.6354429,
+       -23.5354477
+      ],
+      [
+       -46.6354521,
+       -23.5354345
+      ],
+      [
+       -46.6354622,
+       -23.535422
+      ],
+      [
+       -46.6354733,
+       -23.5354102
+      ],
+      [
+       -46.6354852,
+       -23.5353991
+      ],
+      [
+       -46.635498,
+       -23.5353888
+      ],
+      [
+       -46.6355114,
+       -23.5353793
+      ],
+      [
+       -46.6355256,
+       -23.5353707
+      ],
+      [
+       -46.6355403,
+       -23.5353631
+      ],
+      [
+       -46.6355556,
+       -23.5353564
+      ],
+      [
+       -46.6355714,
+       -23.5353506
+      ],
+      [
+       -46.6355875,
+       -23.5353459
+      ],
+      [
+       -46.6367149,
+       -23.5350572
+      ],
+      [
+       -46.6367149,
+       -23.5350572
+      ],
+      [
+       -46.6367308,
+       -23.5350525
+      ],
+      [
+       -46.6367464,
+       -23.5350469
+      ],
+      [
+       -46.6367615,
+       -23.5350403
+      ],
+      [
+       -46.6367761,
+       -23.5350328
+      ],
+      [
+       -46.6367901,
+       -23.5350244
+      ],
+      [
+       -46.6368035,
+       -23.5350151
+      ],
+      [
+       -46.6368161,
+       -23.535005
+      ],
+      [
+       -46.6368279,
+       -23.5349941
+      ],
+      [
+       -46.636839,
+       -23.5349825
+      ],
+      [
+       -46.6368491,
+       -23.5349702
+      ],
+      [
+       -46.6368583,
+       -23.5349573
+      ],
+      [
+       -46.6368665,
+       -23.5349439
+      ],
+      [
+       -46.6368737,
+       -23.53493
+      ],
+      [
+       -46.6368799,
+       -23.5349156
+      ],
+      [
+       -46.636885,
+       -23.534901
+      ],
+      [
+       -46.636889,
+       -23.534886
+      ],
+      [
+       -46.6368918,
+       -23.5348708
+      ],
+      [
+       -46.6368936,
+       -23.5348555
+      ],
+      [
+       -46.6368942,
+       -23.53484
+      ],
+      [
+       -46.6368936,
+       -23.5348246
+      ],
+      [
+       -46.636892,
+       -23.5348093
+      ],
+      [
+       -46.6368891,
+       -23.5347941
+      ],
+      [
+       -46.6368852,
+       -23.5347791
+      ],
+      [
+       -46.6368156,
+       -23.5345487
+      ],
+      [
+       -46.6368156,
+       -23.5345487
+      ],
+      [
+       -46.6368105,
+       -23.5345295
+      ],
+      [
+       -46.6368068,
+       -23.5345101
+      ],
+      [
+       -46.6368045,
+       -23.5344904
+      ],
+      [
+       -46.6368036,
+       -23.5344707
+      ],
+      [
+       -46.6368041,
+       -23.534451
+      ],
+      [
+       -46.636806,
+       -23.5344313
+      ],
+      [
+       -46.6368093,
+       -23.5344118
+      ],
+      [
+       -46.6368139,
+       -23.5343925
+      ],
+      [
+       -46.6368199,
+       -23.5343736
+      ],
+      [
+       -46.6368273,
+       -23.5343551
+      ],
+      [
+       -46.6368359,
+       -23.534337
+      ],
+      [
+       -46.6368458,
+       -23.5343195
+      ],
+      [
+       -46.6368569,
+       -23.5343026
+      ],
+      [
+       -46.6368692,
+       -23.5342865
+      ],
+      [
+       -46.6368826,
+       -23.5342711
+      ],
+      [
+       -46.6368971,
+       -23.5342565
+      ],
+      [
+       -46.6369126,
+       -23.5342429
+      ],
+      [
+       -46.6369225,
+       -23.5342352
+      ],
+      [
+       -46.6369177,
+       -23.5342442
+      ],
+      [
+       -46.6369052,
+       -23.5342721
+      ],
+      [
+       -46.6368949,
+       -23.5343008
+      ],
+      [
+       -46.6368867,
+       -23.53433
+      ],
+      [
+       -46.6368807,
+       -23.5343597
+      ],
+      [
+       -46.636877,
+       -23.5343898
+      ],
+      [
+       -46.6368756,
+       -23.53442
+      ],
+      [
+       -46.6368764,
+       -23.5344502
+      ],
+      [
+       -46.6368794,
+       -23.5344802
+      ],
+      [
+       -46.6368847,
+       -23.5345101
+      ],
+      [
+       -46.6368923,
+       -23.5345395
+      ],
+      [
+       -46.6368923,
+       -23.5345395
+      ],
+      [
+       -46.6369818,
+       -23.5348419
+      ],
+      [
+       -46.6369818,
+       -23.5348419
+      ],
+      [
+       -46.6369877,
+       -23.5348598
+      ],
+      [
+       -46.636995,
+       -23.5348773
+      ],
+      [
+       -46.6370035,
+       -23.5348943
+      ],
+      [
+       -46.6370131,
+       -23.5349107
+      ],
+      [
+       -46.6370239,
+       -23.5349266
+      ],
+      [
+       -46.6370358,
+       -23.5349417
+      ],
+      [
+       -46.6370488,
+       -23.5349561
+      ],
+      [
+       -46.6370628,
+       -23.5349697
+      ],
+      [
+       -46.6370777,
+       -23.5349824
+      ],
+      [
+       -46.6370934,
+       -23.5349942
+      ],
+      [
+       -46.63711,
+       -23.535005
+      ],
+      [
+       -46.6371273,
+       -23.5350148
+      ],
+      [
+       -46.6371453,
+       -23.5350235
+      ],
+      [
+       -46.6371638,
+       -23.5350311
+      ],
+      [
+       -46.6371829,
+       -23.5350375
+      ],
+      [
+       -46.6372023,
+       -23.5350428
+      ],
+      [
+       -46.6372222,
+       -23.5350469
+      ],
+      [
+       -46.6372422,
+       -23.5350498
+      ],
+      [
+       -46.6372624,
+       -23.5350515
+      ],
+      [
+       -46.6372827,
+       -23.535052
+      ],
+      [
+       -46.637303,
+       -23.5350512
+      ],
+      [
+       -46.6401055,
+       -23.5348593
+      ],
+      [
+       -46.6401388,
+       -23.534858
+      ],
+      [
+       -46.6401722,
+       -23.5348588
+      ],
+      [
+       -46.6402054,
+       -23.5348616
+      ],
+      [
+       -46.6402383,
+       -23.5348664
+      ],
+      [
+       -46.6402708,
+       -23.5348732
+      ],
+      [
+       -46.6403028,
+       -23.5348819
+      ],
+      [
+       -46.640334,
+       -23.5348926
+      ],
+      [
+       -46.6403645,
+       -23.5349052
+      ],
+      [
+       -46.6403939,
+       -23.5349196
+      ],
+      [
+       -46.6404223,
+       -23.5349357
+      ],
+      [
+       -46.6404494,
+       -23.5349535
+      ],
+      [
+       -46.6404494,
+       -23.5349535
+      ],
+      [
+       -46.6415251,
+       -23.5357107
+      ],
+      [
+       -46.6415251,
+       -23.5357107
+      ],
+      [
+       -46.6415351,
+       -23.5357179
+      ],
+      [
+       -46.6415449,
+       -23.5357254
+      ],
+      [
+       -46.6415545,
+       -23.5357331
+      ],
+      [
+       -46.6415639,
+       -23.5357411
+      ],
+      [
+       -46.641573,
+       -23.5357493
+      ],
+      [
+       -46.6415818,
+       -23.5357577
+      ],
+      [
+       -46.6415905,
+       -23.5357663
+      ],
+      [
+       -46.6415905,
+       -23.5357663
+      ],
+      [
+       -46.6415997,
+       -23.5357755
+      ],
+      [
+       -46.6416091,
+       -23.5357845
+      ],
+      [
+       -46.6416189,
+       -23.5357932
+      ],
+      [
+       -46.6416289,
+       -23.5358017
+      ],
+      [
+       -46.6416391,
+       -23.53581
+      ],
+      [
+       -46.6416495,
+       -23.535818
+      ],
+      [
+       -46.6416602,
+       -23.5358257
+      ],
+      [
+       -46.6416602,
+       -23.5358257
+      ],
+      [
+       -46.6458643,
+       -23.5387814
+      ],
+      [
+       -46.6458771,
+       -23.538791
+      ],
+      [
+       -46.645889,
+       -23.5388014
+      ],
+      [
+       -46.6459003,
+       -23.5388124
+      ],
+      [
+       -46.6459106,
+       -23.5388241
+      ],
+      [
+       -46.6459202,
+       -23.5388365
+      ],
+      [
+       -46.6459287,
+       -23.5388494
+      ],
+      [
+       -46.6459364,
+       -23.5388628
+      ],
+      [
+       -46.645943,
+       -23.5388767
+      ],
+      [
+       -46.6459486,
+       -23.5388909
+      ],
+      [
+       -46.6459532,
+       -23.5389054
+      ],
+      [
+       -46.6459567,
+       -23.5389202
+      ],
+      [
+       -46.6459591,
+       -23.5389352
+      ],
+      [
+       -46.6459604,
+       -23.5389503
+      ],
+      [
+       -46.6459607,
+       -23.5389654
+      ],
+      [
+       -46.6459598,
+       -23.5389805
+      ],
+      [
+       -46.6459578,
+       -23.5389956
+      ],
+      [
+       -46.6459548,
+       -23.5390104
+      ],
+      [
+       -46.6459506,
+       -23.5390251
+      ],
+      [
+       -46.6459454,
+       -23.5390395
+      ],
+      [
+       -46.6459392,
+       -23.5390535
+      ],
+      [
+       -46.645932,
+       -23.5390671
+      ],
+      [
+       -46.6459238,
+       -23.5390802
+      ],
+      [
+       -46.6459146,
+       -23.5390928
+      ],
+      [
+       -46.6459046,
+       -23.5391047
+      ],
+      [
+       -46.6458937,
+       -23.5391161
+      ],
+      [
+       -46.6458821,
+       -23.5391267
+      ],
+      [
+       -46.6458696,
+       -23.5391366
+      ],
+      [
+       -46.6458565,
+       -23.5391457
+      ],
+      [
+       -46.6458428,
+       -23.539154
+      ],
+      [
+       -46.6450331,
+       -23.5396064
+      ],
+      [
+       -46.6450331,
+       -23.5396064
+      ],
+      [
+       -46.6450048,
+       -23.5396223
+      ],
+      [
+       -46.6449767,
+       -23.5396384
+      ],
+      [
+       -46.6449486,
+       -23.5396546
+      ],
+      [
+       -46.6449207,
+       -23.5396711
+      ],
+      [
+       -46.6448929,
+       -23.5396877
+      ],
+      [
+       -46.6448652,
+       -23.5397045
+      ],
+      [
+       -46.6448376,
+       -23.5397215
+      ],
+      [
+       -46.6442581,
+       -23.5400809
+      ],
+      [
+       -46.6442306,
+       -23.5400978
+      ],
+      [
+       -46.6442029,
+       -23.5401146
+      ],
+      [
+       -46.6441751,
+       -23.5401313
+      ],
+      [
+       -46.6441471,
+       -23.5401477
+      ],
+      [
+       -46.6441191,
+       -23.540164
+      ],
+      [
+       -46.6440909,
+       -23.5401801
+      ],
+      [
+       -46.6440626,
+       -23.540196
+      ]
+     ],
+     [
+      [
+       -46.6386075,
+       -23.5318049
+      ],
+      [
+       -46.6386027,
+       -23.5318137
+      ],
+      [
+       -46.6385978,
+       -23.5318224
+      ],
+      [
+       -46.638593,
+       -23.5318312
+      ],
+      [
+       -46.6385882,
+       -23.53184
+      ],
+      [
+       -46.6385834,
+       -23.5318487
+      ],
+      [
+       -46.6385786,
+       -23.5318575
+      ],
+      [
+       -46.6385738,
+       -23.5318663
+      ],
+      [
+       -46.6385738,
+       -23.5318663
+      ],
+      [
+       -46.6380175,
+       -23.5328822
+      ],
+      [
+       -46.6380136,
+       -23.5328894
+      ],
+      [
+       -46.6380095,
+       -23.5328964
+      ],
+      [
+       -46.6380053,
+       -23.5329034
+      ],
+      [
+       -46.638001,
+       -23.5329103
+      ],
+      [
+       -46.6379965,
+       -23.5329172
+      ],
+      [
+       -46.637992,
+       -23.532924
+      ],
+      [
+       -46.6379873,
+       -23.5329307
+      ],
+      [
+       -46.6379873,
+       -23.5329307
+      ],
+      [
+       -46.6375292,
+       -23.5335819
+      ],
+      [
+       -46.6375292,
+       -23.5335819
+      ],
+      [
+       -46.6375232,
+       -23.5335901
+      ],
+      [
+       -46.637517,
+       -23.5335983
+      ],
+      [
+       -46.6375106,
+       -23.5336063
+      ],
+      [
+       -46.6375041,
+       -23.5336142
+      ],
+      [
+       -46.6374973,
+       -23.533622
+      ],
+      [
+       -46.6374903,
+       -23.5336296
+      ],
+      [
+       -46.6374832,
+       -23.5336371
+      ],
+      [
+       -46.6374749,
+       -23.5336457
+      ],
+      [
+       -46.6374669,
+       -23.5336545
+      ],
+      [
+       -46.6374591,
+       -23.5336635
+      ],
+      [
+       -46.6374516,
+       -23.5336727
+      ],
+      [
+       -46.6374443,
+       -23.5336821
+      ],
+      [
+       -46.6374372,
+       -23.5336916
+      ],
+      [
+       -46.6374304,
+       -23.5337013
+      ],
+      [
+       -46.6374304,
+       -23.5337013
+      ],
+      [
+       -46.6371816,
+       -23.5340658
+      ],
+      [
+       -46.6371816,
+       -23.5340658
+      ],
+      [
+       -46.6371711,
+       -23.5340803
+      ],
+      [
+       -46.6371596,
+       -23.5340941
+      ],
+      [
+       -46.6371473,
+       -23.5341072
+      ],
+      [
+       -46.6371341,
+       -23.5341196
+      ],
+      [
+       -46.6371201,
+       -23.5341313
+      ],
+      [
+       -46.6371053,
+       -23.5341421
+      ],
+      [
+       -46.6370899,
+       -23.5341521
+      ],
+      [
+       -46.6370738,
+       -23.5341613
+      ],
+      [
+       -46.6370572,
+       -23.5341695
+      ],
+      [
+       -46.63704,
+       -23.5341767
+      ],
+      [
+       -46.6370224,
+       -23.534183
+      ],
+      [
+       -46.6370224,
+       -23.534183
+      ],
+      [
+       -46.6370025,
+       -23.5341901
+      ],
+      [
+       -46.6369831,
+       -23.5341985
+      ],
+      [
+       -46.6369643,
+       -23.5342079
+      ],
+      [
+       -46.6369462,
+       -23.5342185
+      ],
+      [
+       -46.636929,
+       -23.5342302
+      ],
+      [
+       -46.6369225,
+       -23.5342352
+      ],
+      [
+       -46.6369322,
+       -23.5342171
+      ],
+      [
+       -46.6370756,
+       -23.5339716
+      ],
+      [
+       -46.6370867,
+       -23.5339508
+      ],
+      [
+       -46.6370962,
+       -23.5339294
+      ],
+      [
+       -46.637104,
+       -23.5339074
+      ],
+      [
+       -46.6371102,
+       -23.533885
+      ],
+      [
+       -46.6371147,
+       -23.5338622
+      ],
+      [
+       -46.6371174,
+       -23.5338392
+      ],
+      [
+       -46.6371184,
+       -23.5338161
+      ],
+      [
+       -46.6371176,
+       -23.533793
+      ],
+      [
+       -46.637115,
+       -23.5337699
+      ],
+      [
+       -46.6371107,
+       -23.5337471
+      ],
+      [
+       -46.6371047,
+       -23.5337247
+      ],
+      [
+       -46.6371047,
+       -23.5337247
+      ],
+      [
+       -46.6365097,
+       -23.5317957
+      ],
+      [
+       -46.6365097,
+       -23.5317957
+      ],
+      [
+       -46.636502,
+       -23.5317688
+      ],
+      [
+       -46.6364955,
+       -23.5317417
+      ],
+      [
+       -46.6364901,
+       -23.5317143
+      ],
+      [
+       -46.6364859,
+       -23.5316868
+      ],
+      [
+       -46.6364829,
+       -23.5316591
+      ],
+      [
+       -46.6364811,
+       -23.5316314
+      ],
+      [
+       -46.6364804,
+       -23.5316036
+      ],
+      [
+       -46.6364804,
+       -23.5316036
+      ],
+      [
+       -46.6364799,
+       -23.5314072
+      ],
+      [
+       -46.6364799,
+       -23.5314072
+      ],
+      [
+       -46.6364796,
+       -23.5313922
+      ],
+      [
+       -46.6364785,
+       -23.5313771
+      ],
+      [
+       -46.6364769,
+       -23.5313621
+      ],
+      [
+       -46.6364745,
+       -23.5313472
+      ],
+      [
+       -46.6364716,
+       -23.5313324
+      ],
+      [
+       -46.636468,
+       -23.5313177
+      ],
+      [
+       -46.6364637,
+       -23.5313032
+      ],
+      [
+       -46.6364637,
+       -23.5313032
+      ],
+      [
+       -46.6347131,
+       -23.5257581
+      ],
+      [
+       -46.6347131,
+       -23.5257581
+      ],
+      [
+       -46.634709,
+       -23.525743
+      ],
+      [
+       -46.634706,
+       -23.5257278
+      ],
+      [
+       -46.6347041,
+       -23.5257123
+      ],
+      [
+       -46.6347034,
+       -23.5256968
+      ],
+      [
+       -46.6347038,
+       -23.5256813
+      ],
+      [
+       -46.6347054,
+       -23.5256658
+      ],
+      [
+       -46.6347082,
+       -23.5256505
+      ],
+      [
+       -46.6347121,
+       -23.5256354
+      ],
+      [
+       -46.6347171,
+       -23.5256206
+      ],
+      [
+       -46.6347232,
+       -23.5256061
+      ],
+      [
+       -46.6347304,
+       -23.525592
+      ],
+      [
+       -46.6347385,
+       -23.5255784
+      ],
+      [
+       -46.6347477,
+       -23.5255654
+      ],
+      [
+       -46.6347579,
+       -23.525553
+      ],
+      [
+       -46.6347689,
+       -23.5255413
+      ],
+      [
+       -46.6347808,
+       -23.5255303
+      ],
+      [
+       -46.6347935,
+       -23.5255201
+      ],
+      [
+       -46.6348069,
+       -23.5255107
+      ],
+      [
+       -46.634821,
+       -23.5255021
+      ],
+      [
+       -46.6348357,
+       -23.5254945
+      ],
+      [
+       -46.6348509,
+       -23.5254879
+      ],
+      [
+       -46.6348665,
+       -23.5254822
+      ],
+      [
+       -46.6348826,
+       -23.5254775
+      ],
+      [
+       -46.6348826,
+       -23.5254775
+      ],
+      [
+       -46.6384336,
+       -23.5245668
+      ],
+      [
+       -46.6384336,
+       -23.5245668
+      ],
+      [
+       -46.6384554,
+       -23.5245604
+      ],
+      [
+       -46.6384766,
+       -23.5245525
+      ],
+      [
+       -46.6384972,
+       -23.5245432
+      ],
+      [
+       -46.6385169,
+       -23.5245325
+      ],
+      [
+       -46.6385357,
+       -23.5245206
+      ],
+      [
+       -46.6385535,
+       -23.5245073
+      ],
+      [
+       -46.6385702,
+       -23.5244929
+      ],
+      [
+       -46.639629,
+       -23.5235093
+      ],
+      [
+       -46.6396441,
+       -23.5234962
+      ],
+      [
+       -46.63966,
+       -23.5234841
+      ],
+      [
+       -46.6396769,
+       -23.523473
+      ],
+      [
+       -46.6396944,
+       -23.5234629
+      ],
+      [
+       -46.6397127,
+       -23.523454
+      ],
+      [
+       -46.6397316,
+       -23.5234462
+      ],
+      [
+       -46.639751,
+       -23.5234396
+      ],
+      [
+       -46.6397708,
+       -23.5234342
+      ],
+      [
+       -46.639791,
+       -23.52343
+      ],
+      [
+       -46.6398115,
+       -23.5234271
+      ],
+      [
+       -46.6398321,
+       -23.5234254
+      ],
+      [
+       -46.6398527,
+       -23.5234251
+      ],
+      [
+       -46.6398734,
+       -23.523426
+      ],
+      [
+       -46.639894,
+       -23.5234281
+      ],
+      [
+       -46.6399143,
+       -23.5234316
+      ],
+      [
+       -46.6399344,
+       -23.5234363
+      ],
+      [
+       -46.639954,
+       -23.5234422
+      ],
+      [
+       -46.6399732,
+       -23.5234493
+      ],
+      [
+       -46.6399919,
+       -23.5234575
+      ],
+      [
+       -46.6404143,
+       -23.5236614
+      ],
+      [
+       -46.640423,
+       -23.5236656
+      ],
+      [
+       -46.6404317,
+       -23.5236696
+      ],
+      [
+       -46.6404405,
+       -23.5236736
+      ],
+      [
+       -46.6404493,
+       -23.5236776
+      ],
+      [
+       -46.6404582,
+       -23.5236814
+      ],
+      [
+       -46.6404671,
+       -23.5236851
+      ],
+      [
+       -46.6404761,
+       -23.5236888
+      ],
+      [
+       -46.640485,
+       -23.5236925
+      ],
+      [
+       -46.640494,
+       -23.5236962
+      ],
+      [
+       -46.6405028,
+       -23.5237001
+      ],
+      [
+       -46.6405116,
+       -23.523704
+      ],
+      [
+       -46.6405204,
+       -23.523708
+      ],
+      [
+       -46.6405292,
+       -23.5237121
+      ],
+      [
+       -46.6405378,
+       -23.5237162
+      ],
+      [
+       -46.6413241,
+       -23.5240977
+      ],
+      [
+       -46.6413445,
+       -23.5241085
+      ],
+      [
+       -46.641364,
+       -23.5241206
+      ],
+      [
+       -46.6413826,
+       -23.524134
+      ],
+      [
+       -46.6414,
+       -23.5241486
+      ],
+      [
+       -46.6414163,
+       -23.5241643
+      ],
+      [
+       -46.6414313,
+       -23.524181
+      ],
+      [
+       -46.641445,
+       -23.5241987
+      ],
+      [
+       -46.6414572,
+       -23.5242173
+      ],
+      [
+       -46.641468,
+       -23.5242366
+      ],
+      [
+       -46.6414772,
+       -23.5242566
+      ],
+      [
+       -46.6414849,
+       -23.5242771
+      ],
+      [
+       -46.6414909,
+       -23.5242981
+      ],
+      [
+       -46.6414953,
+       -23.5243195
+      ],
+      [
+       -46.641498,
+       -23.524341
+      ],
+      [
+       -46.641499,
+       -23.5243627
+      ],
+      [
+       -46.641499,
+       -23.5243627
+      ],
+      [
+       -46.6415147,
+       -23.5265002
+      ],
+      [
+       -46.6415147,
+       -23.5265002
+      ],
+      [
+       -46.6415147,
+       -23.5265002
+      ],
+      [
+       -46.6415147,
+       -23.5265002
+      ],
+      [
+       -46.6415141,
+       -23.5265202
+      ],
+      [
+       -46.641512,
+       -23.52654
+      ],
+      [
+       -46.6415084,
+       -23.5265597
+      ],
+      [
+       -46.6415033,
+       -23.526579
+      ],
+      [
+       -46.6414967,
+       -23.526598
+      ],
+      [
+       -46.6414888,
+       -23.5266166
+      ],
+      [
+       -46.6414794,
+       -23.5266345
+      ],
+      [
+       -46.640987,
+       -23.5275008
+      ],
+      [
+       -46.640987,
+       -23.5275008
+      ],
+      [
+       -46.6409795,
+       -23.527514
+      ],
+      [
+       -46.640972,
+       -23.5275272
+      ],
+      [
+       -46.6409646,
+       -23.5275404
+      ],
+      [
+       -46.6409572,
+       -23.5275536
+      ],
+      [
+       -46.6409498,
+       -23.5275668
+      ],
+      [
+       -46.6409424,
+       -23.5275801
+      ],
+      [
+       -46.6409351,
+       -23.5275933
+      ],
+      [
+       -46.6409351,
+       -23.5275933
+      ],
+      [
+       -46.6386075,
+       -23.5318049
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "camada": "linhas",
+    "Código": "54",
+    "Meta": 54,
+    "Eixo": "Universo SP",
+    "Tipo": "Meta",
+    "Ação Estratégica": null,
+    "Descrição da Meta": "Ordem de serviço de obra emitida.",
+    "Descrição Projeto": "Bonde São Paulo",
+    "Trecho": "Linha 2 (azul)",
+    "Secretaria": "SMUL; SP URBANISMO; SMT; SPTRANS",
+    "Subprefeitura": "Sé",
+    "Distrito": "Sé, República; Bom Retiro",
+    "Subprefeituras": null,
+    "Distritos": null,
+    "Endereço": "Avenida Cásper Líbero, República",
+    "Latitude_WGS": -23.54303,
+    "Longitude_WGS": -46.635669,
+    "Latitude_UTM": 7395412.777,
+    "Longitude_UTM": 333036.628,
+    "Meta é regionalizável?": "Sim, no planejamento",
+    "Já tem local(is) definido(s)?": "Sim",
+    "Localização é públicável?": "Sim",
+    "Status Regionalização": "Regionalizada",
+    "Status Execução": "Planejado",
+    "Tipo de Mapa": "Zoom",
+    "Tipo de Dado": "Linha",
+    "Temos arquivo georreferenciado?": "Sim",
+    "Arquivo Geo": "metas_pdm_2026_11.gpkg",
+    "Informações complementares": null,
+    "Extensão (km)": 6.17,
+    "Área (ha)": null,
+    "WKT": "MULTILINESTRING ((-46.63517514 -23.55199626, -46.63519451 -23.55198849, -46.63521442 -23.55198195, -46.63523477 -23.55197668, -46.63525546 -23.55197271, -46.63527640 -23.55197004, -46.63529749 -23.55196871, -46.63531862 -23.55196870, -46.63533971 -23.55197002, -46.63536065 -23.55197267, -46.63538134 -23.55197663, -46.63540169 -23.55198188, -46.63759562 -23.55262351, -46.63762990 -23.55263232, -46.63766477 -23.55263889, -46.63770005 -23.55264318, -46.63773557 -23.55264516, -46.63777116 -23.55264484, -46.63780663 -23.55264221, -46.63784181 -23.55263728, -46.63787653 -23.55263008, -46.63791061 -23.55262064, -46.63794389 -23.55260902, -46.63797620 -23.55259526, -46.64184171 -23.55079453, -46.64184171 -23.55079453, -46.64188227 -23.55077399, -46.64192119 -23.55075091, -46.64195830 -23.55072541, -46.64199341 -23.55069761, -46.64202635 -23.55066764, -46.64205698 -23.55063565, -46.64208513 -23.55060178, -46.64211068 -23.55056621, -46.64213351 -23.55052909, -46.64215350 -23.55049061, -46.64217057 -23.55045095, -46.64218462 -23.55041030, -46.64219560 -23.55036885, -46.64268441 -23.54820122, -46.64268833 -23.54818639, -46.64269332 -23.54817184, -46.64269936 -23.54815764, -46.64270644 -23.54814385, -46.64271450 -23.54813053, -46.64272353 -23.54811774, -46.64273347 -23.54810554, -46.64274428 -23.54809399, -46.64275591 -23.54808314, -46.64276832 -23.54807304, -46.64278143 -23.54806373, -46.64279520 -23.54805526, -46.64280955 -23.54804767, -46.64282443 -23.54804099, -46.64283976 -23.54803525, -46.64285548 -23.54803048, -46.64287152 -23.54802670, -46.64574962 -23.54744270, -46.64576486 -23.54743913, -46.64577981 -23.54743467, -46.64579443 -23.54742933, -46.64580865 -23.54742314, -46.64582240 -23.54741612, -46.64583564 -23.54740830, -46.64584830 -23.54739971, -46.64586035 -23.54739039, -46.64587171 -23.54738038, -46.64588236 -23.54736972, -46.64589225 -23.54735844, -46.64590133 -23.54734661, -46.64590956 -23.54733426, -46.64591692 -23.54732145, -46.64592338 -23.54730824, -46.64592890 -23.54729467, -46.64593346 -23.54728079, -46.64593346 -23.54728079, -46.64595716 -23.54719946, -46.64596074 -23.54718539, -46.64596333 -23.54717113, -46.64596493 -23.54715675, -46.64596553 -23.54714230, -46.64596513 -23.54712785, -46.64596372 -23.54711345, -46.64596131 -23.54709916, -46.64595792 -23.54708504, -46.64595356 -23.54707116, -46.64594824 -23.54705756, -46.64594198 -23.54704430, -46.64593482 -23.54703144, -46.64592678 -23.54701902, -46.64591790 -23.54700711, -46.64590820 -23.54699575, -46.64589774 -23.54698498, -46.64588655 -23.54697485, -46.64372218 -23.54513721, -46.64370769 -23.54512407, -46.64369416 -23.54511008, -46.64368167 -23.54509530, -46.64367025 -23.54507980, -46.64365996 -23.54506364, -46.64365085 -23.54504689, -46.64364295 -23.54502963, -46.64363629 -23.54501192, -46.64363092 -23.54499386, -46.64362684 -23.54497550, -46.64362408 -23.54495694, -46.64362264 -23.54493824, -46.64362254 -23.54491951, -46.64362378 -23.54490080, -46.64362634 -23.54488222, -46.64363023 -23.54486382, -46.64363542 -23.54484571, -46.64364188 -23.54482794, -46.64364960 -23.54481061, -46.64365853 -23.54479378, -46.64366865 -23.54477753, -46.64367990 -23.54476192, -46.64369224 -23.54474704, -46.64370561 -23.54473293, -46.64371996 -23.54471966, -46.64426963 -23.54424373, -46.64428657 -23.54422794, -46.64430219 -23.54421106, -46.64431643 -23.54419316, -46.64432921 -23.54417434, -46.64434045 -23.54415471, -46.64435010 -23.54413438, -46.64435809 -23.54411344, -46.64436440 -23.54409202, -46.64436898 -23.54407022, -46.64438884 -23.54395280, -46.64439135 -23.54393391, -46.64439250 -23.54391491, -46.64439230 -23.54389588, -46.64439074 -23.54387691, -46.64438783 -23.54385807, -46.64438358 -23.54383944, -46.64437801 -23.54382112, -46.64437115 -23.54380317, -46.64436302 -23.54378568, -46.64435366 -23.54376871, -46.64434311 -23.54375236, -46.64433142 -23.54373667, -46.64431863 -23.54372173, -46.64430481 -23.54370760, -46.64429000 -23.54369434, -46.64361209 -23.54312568, -46.64359995 -23.54311583, -46.64358749 -23.54310634, -46.64357469 -23.54309722, -46.64356159 -23.54308848, -46.64354820 -23.54308014, -46.64353451 -23.54307219, -46.64352057 -23.54306465, -46.64350747 -23.54305757, -46.64349462 -23.54305011, -46.64348204 -23.54304228, -46.64346974 -23.54303408, -46.64345773 -23.54302551, -46.64344603 -23.54301660, -46.64343464 -23.54300735, -46.64258305 -23.54229301, -46.64256794 -23.54228117, -46.64255198 -23.54227032, -46.64253525 -23.54226050, -46.64251783 -23.54225176, -46.64249981 -23.54224413, -46.64248126 -23.54223767, -46.64246228 -23.54223238, -46.64244294 -23.54222831, -46.64242335 -23.54222547, -46.64240360 -23.54222386, -46.64238377 -23.54222351, -46.64236397 -23.54222441, -46.64234427 -23.54222656, -46.64232478 -23.54222994, -46.64230559 -23.54223455, -46.64228679 -23.54224036, -46.64226846 -23.54224734, -46.64225069 -23.54225545, -46.64223356 -23.54226467, -46.64221716 -23.54227495, -46.64220157 -23.54228624, -46.64143492 -23.54288131, -46.64142186 -23.54289077, -46.64140813 -23.54289939, -46.64139380 -23.54290713, -46.64137893 -23.54291396, -46.64136360 -23.54291985, -46.64134787 -23.54292476, -46.64133181 -23.54292868, -46.64131550 -23.54293159, -46.64129902 -23.54293347, -46.64128243 -23.54293431, -46.64126582 -23.54293412, -46.64124927 -23.54293289, -46.64123284 -23.54293062, -46.64121662 -23.54292734, -46.64120067 -23.54292305, -46.64118508 -23.54291777, -46.64116991 -23.54291153, -46.64115524 -23.54290435, -46.64114113 -23.54289628, -46.64112764 -23.54288734, -46.64111484 -23.54287758, -46.64058474 -23.54244453, -46.64057012 -23.54243335, -46.64055475 -23.54242306, -46.64053869 -23.54241371, -46.64052201 -23.54240533, -46.64050478 -23.54239796, -46.64048707 -23.54239164, -46.64046895 -23.54238638, -46.64045050 -23.54238222, -46.64043180 -23.54237916, -46.64041292 -23.54237723, -46.64039394 -23.54237642, -46.64037495 -23.54237674, -46.64035602 -23.54237820, -46.64023580 -23.54239106, -46.64020576 -23.54239514, -46.64017606 -23.54240093, -46.64014681 -23.54240841, -46.64011811 -23.54241755, -46.64009008 -23.54242831, -46.64006283 -23.54244065, -46.64003646 -23.54245452, -46.63904621 -23.54301366, -46.63903588 -23.54301920, -46.63902530 -23.54302432, -46.63901447 -23.54302900, -46.63900344 -23.54303323, -46.63899221 -23.54303701, -46.63898081 -23.54304032, -46.63896927 -23.54304317, -46.63869325 -23.54310514, -46.63868269 -23.54310774, -46.63867227 -23.54311077, -46.63866201 -23.54311423, -46.63865193 -23.54311810, -46.63864204 -23.54312239, -46.63863238 -23.54312708, -46.63862294 -23.54313216, -46.63805580 -23.54345361, -46.63803476 -23.54346655, -46.63801481 -23.54348088, -46.63799606 -23.54349653, -46.63797861 -23.54351341, -46.63796257 -23.54353143, -46.63794800 -23.54355050, -46.63793501 -23.54357050, -46.63793501 -23.54357050, -46.63792200 -23.54359050, -46.63790743 -23.54360957, -46.63789136 -23.54362759, -46.63787390 -23.54364446, -46.63785513 -23.54366010, -46.63783516 -23.54367442, -46.63781409 -23.54368733, -46.63667000 -23.54433375, -46.63665093 -23.54434369, -46.63663114 -23.54435236, -46.63661074 -23.54435971, -46.63658983 -23.54436571, -46.63656851 -23.54437034, -46.63654688 -23.54437356, -46.63652507 -23.54437536, -46.63650317 -23.54437573, -46.63648129 -23.54437467, -46.63645955 -23.54437219, -46.63643806 -23.54436830, -46.63641692 -23.54436301, -46.63639624 -23.54435636, -46.63637612 -23.54434837, -46.63635667 -23.54433909, -46.63633797 -23.54432856, -46.63632013 -23.54431685, -46.63630324 -23.54430399, -46.63628738 -23.54429007, -46.63627262 -23.54427514, -46.63625905 -23.54425929, -46.63624673 -23.54424260, -46.63623572 -23.54422514, -46.63614289 -23.54406515, -46.63612329 -23.54402912, -46.63610577 -23.54399219, -46.63609038 -23.54395446, -46.63607716 -23.54391604, -46.63606615 -23.54387703, -46.63605737 -23.54383755, -46.63605086 -23.54379769, -46.63604403 -23.54375590, -46.63603480 -23.54371451, -46.63602322 -23.54367363, -46.63600930 -23.54363336, -46.63599310 -23.54359383, -46.63597465 -23.54355515, -46.63595400 -23.54351742, -46.63559096 -23.54289549, -46.63558125 -23.54287927, -46.63557118 -23.54286323, -46.63556074 -23.54284740, -46.63554995 -23.54283177, -46.63553881 -23.54281635, -46.63552733 -23.54280114, -46.63551550 -23.54278616, -46.63535023 -23.54258136, -46.63533047 -23.54255812, -46.63530948 -23.54253582, -46.63528730 -23.54251452, -46.63526400 -23.54249426, -46.63523962 -23.54247511, -46.63521423 -23.54245711, -46.63518789 -23.54244031, -46.63513676 -23.54240939, -46.63509829 -23.54238430, -46.63506182 -23.54235678, -46.63502754 -23.54232697, -46.63499561 -23.54229500, -46.63496621 -23.54226105, -46.63493946 -23.54222528, -46.63491550 -23.54218786, -46.63431876 -23.54117597, -46.63430601 -23.54115284, -46.63429468 -23.54112908, -46.63428480 -23.54110479, -46.63427640 -23.54108002, -46.63426951 -23.54105486, -46.63426416 -23.54102939, -46.63426035 -23.54100368, -46.63411397 -23.53975798, -46.63411139 -23.53973591, -46.63410884 -23.53971383, -46.63410632 -23.53969174, -46.63410383 -23.53966966, -46.63410137 -23.53964757, -46.63409893 -23.53962548, -46.63409653 -23.53960338, -46.63408432 -23.53949036, -46.63408136 -23.53947028, -46.63407687 -23.53945044, -46.63407085 -23.53943095, -46.63406335 -23.53941190, -46.63405441 -23.53939338, -46.63404405 -23.53937551, -46.63403235 -23.53935835, -46.63401936 -23.53934200, -46.63400513 -23.53932655, -46.63398976 -23.53931207, -46.63397330 -23.53929863, -46.63395586 -23.53928630, -46.63393750 -23.53927515, -46.63391834 -23.53926523, -46.63389845 -23.53925658, -46.63387796 -23.53924926, -46.63385695 -23.53924331, -46.63383553 -23.53923874, -46.63381382 -23.53923559, -46.63379191 -23.53923386, -46.63376994 -23.53923358, -46.63275656 -23.53925372, -46.63274012 -23.53925430, -46.63272370 -23.53925539, -46.63270733 -23.53925699, -46.63269103 -23.53925909, -46.63267482 -23.53926170, -46.63265871 -23.53926481, -46.63264272 -23.53926842, -46.62986813 -23.53994021, -46.62984571 -23.53994641, -46.62982379 -23.53995399, -46.62980249 -23.53996294, -46.62978190 -23.53997321, -46.62976212 -23.53998475, -46.62974324 -23.53999751, -46.62972535 -23.54001143, -46.62800747 -23.54144295, -46.62799669 -23.54145180, -46.62798577 -23.54146051, -46.62797471 -23.54146906, -46.62796351 -23.54147747, -46.62795218 -23.54148572, -46.62794072 -23.54149382, -46.62792913 -23.54150176, -46.62791666 -23.54151031, -46.62790433 -23.54151905, -46.62789216 -23.54152797, -46.62788014 -23.54153707, -46.62786828 -23.54154634, -46.62785658 -23.54155578, -46.62784504 -23.54156539, -46.62728580 -23.54203890, -46.62725209 -23.54206846, -46.62721952 -23.54209909, -46.62718814 -23.54213074, -46.62715797 -23.54216339, -46.62712906 -23.54219699, -46.62710143 -23.54223150, -46.62707514 -23.54226688, -46.62699391 -23.54238037, -46.62698963 -23.54238645, -46.62698547 -23.54239260, -46.62698141 -23.54239880, -46.62697747 -23.54240507, -46.62697365 -23.54241140, -46.62696993 -23.54241778, -46.62696634 -23.54242422, -46.62696183 -23.54243249, -46.62695735 -23.54244077, -46.62695290 -23.54244907, -46.62694848 -23.54245737, -46.62694409 -23.54246569, -46.62693973 -23.54247403, -46.62693540 -23.54248237, -46.62692686 -23.54250049, -46.62691970 -23.54251912, -46.62691395 -23.54253815, -46.62690965 -23.54255751, -46.62690682 -23.54257710, -46.62690546 -23.54259682, -46.62690559 -23.54261657, -46.62690720 -23.54263628, -46.62691028 -23.54265583, -46.62691314 -23.54267348, -46.62691478 -23.54269126, -46.62691522 -23.54270910, -46.62691445 -23.54272693, -46.62691247 -23.54274468, -46.62690929 -23.54276228, -46.62690492 -23.54277967, -46.62660065 -23.54383850, -46.62659619 -23.54385404, -46.62659175 -23.54386960, -46.62658734 -23.54388515, -46.62658294 -23.54390071, -46.62657856 -23.54391628, -46.62657420 -23.54393185, -46.62656987 -23.54394743, -46.62656987 -23.54394743, -46.62641389 -23.54450901, -46.62640765 -23.54453017, -46.62640073 -23.54455114, -46.62639313 -23.54457191, -46.62638487 -23.54459247, -46.62637595 -23.54461279, -46.62636638 -23.54463286, -46.62635616 -23.54465265, -46.62633357 -23.54469889, -46.62631462 -23.54474651, -46.62629942 -23.54479525, -46.62628805 -23.54484487, -46.62628055 -23.54489511, -46.62627698 -23.54494572, -46.62627734 -23.54499644, -46.62631332 -23.54577820, -46.62631374 -23.54578777, -46.62631412 -23.54579733, -46.62631447 -23.54580690, -46.62631478 -23.54581647, -46.62631506 -23.54582604, -46.62631529 -23.54583561, -46.62631549 -23.54584518, -46.62631668 -23.54586562, -46.62631945 -23.54588593, -46.62632380 -23.54590600, -46.62632970 -23.54592574, -46.62633712 -23.54594503, -46.62634602 -23.54596378, -46.62635636 -23.54598190, -46.62636808 -23.54599928, -46.62638112 -23.54601585, -46.62639542 -23.54603151, -46.62641090 -23.54604618, -46.62642654 -23.54606102, -46.62644097 -23.54607686, -46.62645412 -23.54609363, -46.62646592 -23.54611123, -46.62647630 -23.54612958, -46.62648520 -23.54614857, -46.62649260 -23.54616810, -46.62649843 -23.54618808, -46.62650268 -23.54620840, -46.62657037 -23.54660998, -46.62657037 -23.54660998, -46.62657260 -23.54662323, -46.62657480 -23.54663649, -46.62657698 -23.54664976, -46.62657914 -23.54666302, -46.62658128 -23.54667629, -46.62658340 -23.54668956, -46.62658549 -23.54670284, -46.62677694 -23.54792197, -46.62680055 -23.54804403, -46.62683277 -23.54816442, -46.62687345 -23.54828260, -46.62692242 -23.54839808, -46.62697947 -23.54851036, -46.62704436 -23.54861897, -46.62711681 -23.54872343, -46.62721766 -23.54885887, -46.62724810 -23.54889752, -46.62728073 -23.54893464, -46.62731543 -23.54897012, -46.62735213 -23.54900386, -46.62739070 -23.54903575, -46.62743106 -23.54906573, -46.62747308 -23.54909369, -46.62758305 -23.54916288, -46.62769813 -23.54922986, -46.62781810 -23.54928913, -46.62794234 -23.54934036, -46.62807022 -23.54938331, -46.62820110 -23.54941775, -46.62833430 -23.54944352, -46.62846916 -23.54946047, -46.62860498 -23.54946853, -46.62874108 -23.54946764, -46.62917637 -23.54945051, -46.62927612 -23.54944971, -46.62937570 -23.54945515, -46.62947465 -23.54946680, -46.62957251 -23.54948462, -46.62966884 -23.54950852, -46.62976319 -23.54953840, -46.62985511 -23.54957410, -46.63155460 -23.55029774, -46.63160720 -23.55032210, -46.63165795 -23.55034959, -46.63170664 -23.55038008, -46.63175305 -23.55041346, -46.63179699 -23.55044957, -46.63183827 -23.55048826, -46.63187670 -23.55052936, -46.63191213 -23.55057269, -46.63194440 -23.55061808, -46.63197337 -23.55066532, -46.63199892 -23.55071421, -46.63255392 -23.55187201, -46.63256045 -23.55188560, -46.63256700 -23.55189919, -46.63257358 -23.55191276, -46.63258018 -23.55192632, -46.63258681 -23.55193988, -46.63259346 -23.55195342, -46.63260014 -23.55196696, -46.63295425 -23.55268322, -46.63296368 -23.55270068, -46.63297438 -23.55271750, -46.63298630 -23.55273361, -46.63299939 -23.55274893, -46.63301358 -23.55276339, -46.63302881 -23.55277693, -46.63304501 -23.55278947, -46.63306211 -23.55280096, -46.63308001 -23.55281134, -46.63309864 -23.55282058, -46.63311792 -23.55282861, -46.63313774 -23.55283542, -46.63315802 -23.55284096, -46.63317867 -23.55284521, -46.63319958 -23.55284814, -46.63322067 -23.55284975, -46.63324182 -23.55285003, -46.63326294 -23.55284898, -46.63328394 -23.55284660, -46.63330471 -23.55284290, -46.63332515 -23.55283790, -46.63334518 -23.55283162, -46.63336470 -23.55282409, -46.63405861 -23.55253044, -46.63407758 -23.55252194, -46.63409611 -23.55251267, -46.63411419 -23.55250265, -46.63413176 -23.55249190, -46.63414879 -23.55248044, -46.63416525 -23.55246829, -46.63418112 -23.55245548, -46.63419722 -23.55244245, -46.63421391 -23.55243006, -46.63423115 -23.55241834, -46.63424892 -23.55240730, -46.63426718 -23.55239696, -46.63428590 -23.55238735, -46.63430504 -23.55237847, -46.63517514 -23.55199626))",
+    "auxiliary_storage_labeling_positionx": null,
+    "auxiliary_storage_labeling_positiony": null
+   },
+   "geometry": {
+    "type": "MultiLineString",
+    "coordinates": [
+     [
+      [
+       -46.6351751,
+       -23.5519963
+      ],
+      [
+       -46.6351945,
+       -23.5519885
+      ],
+      [
+       -46.6352144,
+       -23.5519819
+      ],
+      [
+       -46.6352348,
+       -23.5519767
+      ],
+      [
+       -46.6352555,
+       -23.5519727
+      ],
+      [
+       -46.6352764,
+       -23.55197
+      ],
+      [
+       -46.6352975,
+       -23.5519687
+      ],
+      [
+       -46.6353186,
+       -23.5519687
+      ],
+      [
+       -46.6353397,
+       -23.55197
+      ],
+      [
+       -46.6353606,
+       -23.5519727
+      ],
+      [
+       -46.6353813,
+       -23.5519766
+      ],
+      [
+       -46.6354017,
+       -23.5519819
+      ],
+      [
+       -46.6375956,
+       -23.5526235
+      ],
+      [
+       -46.6376299,
+       -23.5526323
+      ],
+      [
+       -46.6376648,
+       -23.5526389
+      ],
+      [
+       -46.6377001,
+       -23.5526432
+      ],
+      [
+       -46.6377356,
+       -23.5526452
+      ],
+      [
+       -46.6377712,
+       -23.5526448
+      ],
+      [
+       -46.6378066,
+       -23.5526422
+      ],
+      [
+       -46.6378418,
+       -23.5526373
+      ],
+      [
+       -46.6378765,
+       -23.5526301
+      ],
+      [
+       -46.6379106,
+       -23.5526206
+      ],
+      [
+       -46.6379439,
+       -23.552609
+      ],
+      [
+       -46.6379762,
+       -23.5525953
+      ],
+      [
+       -46.6418417,
+       -23.5507945
+      ],
+      [
+       -46.6418417,
+       -23.5507945
+      ],
+      [
+       -46.6418823,
+       -23.550774
+      ],
+      [
+       -46.6419212,
+       -23.5507509
+      ],
+      [
+       -46.6419583,
+       -23.5507254
+      ],
+      [
+       -46.6419934,
+       -23.5506976
+      ],
+      [
+       -46.6420264,
+       -23.5506676
+      ],
+      [
+       -46.642057,
+       -23.5506356
+      ],
+      [
+       -46.6420851,
+       -23.5506018
+      ],
+      [
+       -46.6421107,
+       -23.5505662
+      ],
+      [
+       -46.6421335,
+       -23.5505291
+      ],
+      [
+       -46.6421535,
+       -23.5504906
+      ],
+      [
+       -46.6421706,
+       -23.5504509
+      ],
+      [
+       -46.6421846,
+       -23.5504103
+      ],
+      [
+       -46.6421956,
+       -23.5503688
+      ],
+      [
+       -46.6426844,
+       -23.5482012
+      ],
+      [
+       -46.6426883,
+       -23.5481864
+      ],
+      [
+       -46.6426933,
+       -23.5481718
+      ],
+      [
+       -46.6426994,
+       -23.5481576
+      ],
+      [
+       -46.6427064,
+       -23.5481438
+      ],
+      [
+       -46.6427145,
+       -23.5481305
+      ],
+      [
+       -46.6427235,
+       -23.5481177
+      ],
+      [
+       -46.6427335,
+       -23.5481055
+      ],
+      [
+       -46.6427443,
+       -23.548094
+      ],
+      [
+       -46.6427559,
+       -23.5480831
+      ],
+      [
+       -46.6427683,
+       -23.548073
+      ],
+      [
+       -46.6427814,
+       -23.5480637
+      ],
+      [
+       -46.6427952,
+       -23.5480553
+      ],
+      [
+       -46.6428096,
+       -23.5480477
+      ],
+      [
+       -46.6428244,
+       -23.548041
+      ],
+      [
+       -46.6428398,
+       -23.5480352
+      ],
+      [
+       -46.6428555,
+       -23.5480305
+      ],
+      [
+       -46.6428715,
+       -23.5480267
+      ],
+      [
+       -46.6457496,
+       -23.5474427
+      ],
+      [
+       -46.6457649,
+       -23.5474391
+      ],
+      [
+       -46.6457798,
+       -23.5474347
+      ],
+      [
+       -46.6457944,
+       -23.5474293
+      ],
+      [
+       -46.6458086,
+       -23.5474231
+      ],
+      [
+       -46.6458224,
+       -23.5474161
+      ],
+      [
+       -46.6458356,
+       -23.5474083
+      ],
+      [
+       -46.6458483,
+       -23.5473997
+      ],
+      [
+       -46.6458603,
+       -23.5473904
+      ],
+      [
+       -46.6458717,
+       -23.5473804
+      ],
+      [
+       -46.6458824,
+       -23.5473697
+      ],
+      [
+       -46.6458922,
+       -23.5473584
+      ],
+      [
+       -46.6459013,
+       -23.5473466
+      ],
+      [
+       -46.6459096,
+       -23.5473343
+      ],
+      [
+       -46.6459169,
+       -23.5473215
+      ],
+      [
+       -46.6459234,
+       -23.5473082
+      ],
+      [
+       -46.6459289,
+       -23.5472947
+      ],
+      [
+       -46.6459335,
+       -23.5472808
+      ],
+      [
+       -46.6459335,
+       -23.5472808
+      ],
+      [
+       -46.6459572,
+       -23.5471995
+      ],
+      [
+       -46.6459607,
+       -23.5471854
+      ],
+      [
+       -46.6459633,
+       -23.5471711
+      ],
+      [
+       -46.6459649,
+       -23.5471567
+      ],
+      [
+       -46.6459655,
+       -23.5471423
+      ],
+      [
+       -46.6459651,
+       -23.5471278
+      ],
+      [
+       -46.6459637,
+       -23.5471134
+      ],
+      [
+       -46.6459613,
+       -23.5470992
+      ],
+      [
+       -46.6459579,
+       -23.547085
+      ],
+      [
+       -46.6459536,
+       -23.5470712
+      ],
+      [
+       -46.6459482,
+       -23.5470576
+      ],
+      [
+       -46.645942,
+       -23.5470443
+      ],
+      [
+       -46.6459348,
+       -23.5470314
+      ],
+      [
+       -46.6459268,
+       -23.547019
+      ],
+      [
+       -46.6459179,
+       -23.5470071
+      ],
+      [
+       -46.6459082,
+       -23.5469957
+      ],
+      [
+       -46.6458977,
+       -23.546985
+      ],
+      [
+       -46.6458866,
+       -23.5469748
+      ],
+      [
+       -46.6437222,
+       -23.5451372
+      ],
+      [
+       -46.6437077,
+       -23.5451241
+      ],
+      [
+       -46.6436942,
+       -23.5451101
+      ],
+      [
+       -46.6436817,
+       -23.5450953
+      ],
+      [
+       -46.6436703,
+       -23.5450798
+      ],
+      [
+       -46.64366,
+       -23.5450636
+      ],
+      [
+       -46.6436508,
+       -23.5450469
+      ],
+      [
+       -46.6436429,
+       -23.5450296
+      ],
+      [
+       -46.6436363,
+       -23.5450119
+      ],
+      [
+       -46.6436309,
+       -23.5449939
+      ],
+      [
+       -46.6436268,
+       -23.5449755
+      ],
+      [
+       -46.6436241,
+       -23.5449569
+      ],
+      [
+       -46.6436226,
+       -23.5449382
+      ],
+      [
+       -46.6436225,
+       -23.5449195
+      ],
+      [
+       -46.6436238,
+       -23.5449008
+      ],
+      [
+       -46.6436263,
+       -23.5448822
+      ],
+      [
+       -46.6436302,
+       -23.5448638
+      ],
+      [
+       -46.6436354,
+       -23.5448457
+      ],
+      [
+       -46.6436419,
+       -23.5448279
+      ],
+      [
+       -46.6436496,
+       -23.5448106
+      ],
+      [
+       -46.6436585,
+       -23.5447938
+      ],
+      [
+       -46.6436687,
+       -23.5447775
+      ],
+      [
+       -46.6436799,
+       -23.5447619
+      ],
+      [
+       -46.6436922,
+       -23.544747
+      ],
+      [
+       -46.6437056,
+       -23.5447329
+      ],
+      [
+       -46.64372,
+       -23.5447197
+      ],
+      [
+       -46.6442696,
+       -23.5442437
+      ],
+      [
+       -46.6442866,
+       -23.5442279
+      ],
+      [
+       -46.6443022,
+       -23.5442111
+      ],
+      [
+       -46.6443164,
+       -23.5441932
+      ],
+      [
+       -46.6443292,
+       -23.5441743
+      ],
+      [
+       -46.6443405,
+       -23.5441547
+      ],
+      [
+       -46.6443501,
+       -23.5441344
+      ],
+      [
+       -46.6443581,
+       -23.5441134
+      ],
+      [
+       -46.6443644,
+       -23.544092
+      ],
+      [
+       -46.644369,
+       -23.5440702
+      ],
+      [
+       -46.6443888,
+       -23.5439528
+      ],
+      [
+       -46.6443913,
+       -23.5439339
+      ],
+      [
+       -46.6443925,
+       -23.5439149
+      ],
+      [
+       -46.6443923,
+       -23.5438959
+      ],
+      [
+       -46.6443907,
+       -23.5438769
+      ],
+      [
+       -46.6443878,
+       -23.5438581
+      ],
+      [
+       -46.6443836,
+       -23.5438394
+      ],
+      [
+       -46.644378,
+       -23.5438211
+      ],
+      [
+       -46.6443711,
+       -23.5438032
+      ],
+      [
+       -46.644363,
+       -23.5437857
+      ],
+      [
+       -46.6443537,
+       -23.5437687
+      ],
+      [
+       -46.6443431,
+       -23.5437524
+      ],
+      [
+       -46.6443314,
+       -23.5437367
+      ],
+      [
+       -46.6443186,
+       -23.5437217
+      ],
+      [
+       -46.6443048,
+       -23.5437076
+      ],
+      [
+       -46.64429,
+       -23.5436943
+      ],
+      [
+       -46.6436121,
+       -23.5431257
+      ],
+      [
+       -46.6436,
+       -23.5431158
+      ],
+      [
+       -46.6435875,
+       -23.5431063
+      ],
+      [
+       -46.6435747,
+       -23.5430972
+      ],
+      [
+       -46.6435616,
+       -23.5430885
+      ],
+      [
+       -46.6435482,
+       -23.5430801
+      ],
+      [
+       -46.6435345,
+       -23.5430722
+      ],
+      [
+       -46.6435206,
+       -23.5430647
+      ],
+      [
+       -46.6435075,
+       -23.5430576
+      ],
+      [
+       -46.6434946,
+       -23.5430501
+      ],
+      [
+       -46.643482,
+       -23.5430423
+      ],
+      [
+       -46.6434697,
+       -23.5430341
+      ],
+      [
+       -46.6434577,
+       -23.5430255
+      ],
+      [
+       -46.643446,
+       -23.5430166
+      ],
+      [
+       -46.6434346,
+       -23.5430073
+      ],
+      [
+       -46.6425831,
+       -23.542293
+      ],
+      [
+       -46.6425679,
+       -23.5422812
+      ],
+      [
+       -46.642552,
+       -23.5422703
+      ],
+      [
+       -46.6425353,
+       -23.5422605
+      ],
+      [
+       -46.6425178,
+       -23.5422518
+      ],
+      [
+       -46.6424998,
+       -23.5422441
+      ],
+      [
+       -46.6424813,
+       -23.5422377
+      ],
+      [
+       -46.6424623,
+       -23.5422324
+      ],
+      [
+       -46.6424429,
+       -23.5422283
+      ],
+      [
+       -46.6424234,
+       -23.5422255
+      ],
+      [
+       -46.6424036,
+       -23.5422239
+      ],
+      [
+       -46.6423838,
+       -23.5422235
+      ],
+      [
+       -46.642364,
+       -23.5422244
+      ],
+      [
+       -46.6423443,
+       -23.5422266
+      ],
+      [
+       -46.6423248,
+       -23.5422299
+      ],
+      [
+       -46.6423056,
+       -23.5422346
+      ],
+      [
+       -46.6422868,
+       -23.5422404
+      ],
+      [
+       -46.6422685,
+       -23.5422473
+      ],
+      [
+       -46.6422507,
+       -23.5422555
+      ],
+      [
+       -46.6422336,
+       -23.5422647
+      ],
+      [
+       -46.6422172,
+       -23.542275
+      ],
+      [
+       -46.6422016,
+       -23.5422862
+      ],
+      [
+       -46.6414349,
+       -23.5428813
+      ],
+      [
+       -46.6414219,
+       -23.5428908
+      ],
+      [
+       -46.6414081,
+       -23.5428994
+      ],
+      [
+       -46.6413938,
+       -23.5429071
+      ],
+      [
+       -46.6413789,
+       -23.542914
+      ],
+      [
+       -46.6413636,
+       -23.5429198
+      ],
+      [
+       -46.6413479,
+       -23.5429248
+      ],
+      [
+       -46.6413318,
+       -23.5429287
+      ],
+      [
+       -46.6413155,
+       -23.5429316
+      ],
+      [
+       -46.641299,
+       -23.5429335
+      ],
+      [
+       -46.6412824,
+       -23.5429343
+      ],
+      [
+       -46.6412658,
+       -23.5429341
+      ],
+      [
+       -46.6412493,
+       -23.5429329
+      ],
+      [
+       -46.6412328,
+       -23.5429306
+      ],
+      [
+       -46.6412166,
+       -23.5429273
+      ],
+      [
+       -46.6412007,
+       -23.542923
+      ],
+      [
+       -46.6411851,
+       -23.5429178
+      ],
+      [
+       -46.6411699,
+       -23.5429115
+      ],
+      [
+       -46.6411552,
+       -23.5429044
+      ],
+      [
+       -46.6411411,
+       -23.5428963
+      ],
+      [
+       -46.6411276,
+       -23.5428873
+      ],
+      [
+       -46.6411148,
+       -23.5428776
+      ],
+      [
+       -46.6405847,
+       -23.5424445
+      ],
+      [
+       -46.6405701,
+       -23.5424333
+      ],
+      [
+       -46.6405548,
+       -23.5424231
+      ],
+      [
+       -46.6405387,
+       -23.5424137
+      ],
+      [
+       -46.640522,
+       -23.5424053
+      ],
+      [
+       -46.6405048,
+       -23.542398
+      ],
+      [
+       -46.6404871,
+       -23.5423916
+      ],
+      [
+       -46.6404689,
+       -23.5423864
+      ],
+      [
+       -46.6404505,
+       -23.5423822
+      ],
+      [
+       -46.6404318,
+       -23.5423792
+      ],
+      [
+       -46.6404129,
+       -23.5423772
+      ],
+      [
+       -46.6403939,
+       -23.5423764
+      ],
+      [
+       -46.640375,
+       -23.5423767
+      ],
+      [
+       -46.640356,
+       -23.5423782
+      ],
+      [
+       -46.6402358,
+       -23.5423911
+      ],
+      [
+       -46.6402058,
+       -23.5423951
+      ],
+      [
+       -46.6401761,
+       -23.5424009
+      ],
+      [
+       -46.6401468,
+       -23.5424084
+      ],
+      [
+       -46.6401181,
+       -23.5424175
+      ],
+      [
+       -46.6400901,
+       -23.5424283
+      ],
+      [
+       -46.6400628,
+       -23.5424406
+      ],
+      [
+       -46.6400365,
+       -23.5424545
+      ],
+      [
+       -46.6390462,
+       -23.5430137
+      ],
+      [
+       -46.6390359,
+       -23.5430192
+      ],
+      [
+       -46.6390253,
+       -23.5430243
+      ],
+      [
+       -46.6390145,
+       -23.543029
+      ],
+      [
+       -46.6390034,
+       -23.5430332
+      ],
+      [
+       -46.6389922,
+       -23.543037
+      ],
+      [
+       -46.6389808,
+       -23.5430403
+      ],
+      [
+       -46.6389693,
+       -23.5430432
+      ],
+      [
+       -46.6386932,
+       -23.5431051
+      ],
+      [
+       -46.6386827,
+       -23.5431077
+      ],
+      [
+       -46.6386723,
+       -23.5431108
+      ],
+      [
+       -46.638662,
+       -23.5431142
+      ],
+      [
+       -46.6386519,
+       -23.5431181
+      ],
+      [
+       -46.638642,
+       -23.5431224
+      ],
+      [
+       -46.6386324,
+       -23.5431271
+      ],
+      [
+       -46.6386229,
+       -23.5431322
+      ],
+      [
+       -46.6380558,
+       -23.5434536
+      ],
+      [
+       -46.6380348,
+       -23.5434666
+      ],
+      [
+       -46.6380148,
+       -23.5434809
+      ],
+      [
+       -46.6379961,
+       -23.5434965
+      ],
+      [
+       -46.6379786,
+       -23.5435134
+      ],
+      [
+       -46.6379626,
+       -23.5435314
+      ],
+      [
+       -46.637948,
+       -23.5435505
+      ],
+      [
+       -46.637935,
+       -23.5435705
+      ],
+      [
+       -46.637935,
+       -23.5435705
+      ],
+      [
+       -46.637922,
+       -23.5435905
+      ],
+      [
+       -46.6379074,
+       -23.5436096
+      ],
+      [
+       -46.6378914,
+       -23.5436276
+      ],
+      [
+       -46.6378739,
+       -23.5436445
+      ],
+      [
+       -46.6378551,
+       -23.5436601
+      ],
+      [
+       -46.6378352,
+       -23.5436744
+      ],
+      [
+       -46.6378141,
+       -23.5436873
+      ],
+      [
+       -46.63667,
+       -23.5443338
+      ],
+      [
+       -46.6366509,
+       -23.5443437
+      ],
+      [
+       -46.6366311,
+       -23.5443524
+      ],
+      [
+       -46.6366107,
+       -23.5443597
+      ],
+      [
+       -46.6365898,
+       -23.5443657
+      ],
+      [
+       -46.6365685,
+       -23.5443703
+      ],
+      [
+       -46.6365469,
+       -23.5443736
+      ],
+      [
+       -46.6365251,
+       -23.5443754
+      ],
+      [
+       -46.6365032,
+       -23.5443757
+      ],
+      [
+       -46.6364813,
+       -23.5443747
+      ],
+      [
+       -46.6364596,
+       -23.5443722
+      ],
+      [
+       -46.6364381,
+       -23.5443683
+      ],
+      [
+       -46.6364169,
+       -23.544363
+      ],
+      [
+       -46.6363962,
+       -23.5443564
+      ],
+      [
+       -46.6363761,
+       -23.5443484
+      ],
+      [
+       -46.6363567,
+       -23.5443391
+      ],
+      [
+       -46.636338,
+       -23.5443286
+      ],
+      [
+       -46.6363201,
+       -23.5443168
+      ],
+      [
+       -46.6363032,
+       -23.544304
+      ],
+      [
+       -46.6362874,
+       -23.5442901
+      ],
+      [
+       -46.6362726,
+       -23.5442751
+      ],
+      [
+       -46.636259,
+       -23.5442593
+      ],
+      [
+       -46.6362467,
+       -23.5442426
+      ],
+      [
+       -46.6362357,
+       -23.5442251
+      ],
+      [
+       -46.6361429,
+       -23.5440651
+      ],
+      [
+       -46.6361233,
+       -23.5440291
+      ],
+      [
+       -46.6361058,
+       -23.5439922
+      ],
+      [
+       -46.6360904,
+       -23.5439545
+      ],
+      [
+       -46.6360772,
+       -23.543916
+      ],
+      [
+       -46.6360661,
+       -23.543877
+      ],
+      [
+       -46.6360574,
+       -23.5438375
+      ],
+      [
+       -46.6360509,
+       -23.5437977
+      ],
+      [
+       -46.636044,
+       -23.5437559
+      ],
+      [
+       -46.6360348,
+       -23.5437145
+      ],
+      [
+       -46.6360232,
+       -23.5436736
+      ],
+      [
+       -46.6360093,
+       -23.5436334
+      ],
+      [
+       -46.6359931,
+       -23.5435938
+      ],
+      [
+       -46.6359746,
+       -23.5435552
+      ],
+      [
+       -46.635954,
+       -23.5435174
+      ],
+      [
+       -46.635591,
+       -23.5428955
+      ],
+      [
+       -46.6355812,
+       -23.5428793
+      ],
+      [
+       -46.6355712,
+       -23.5428632
+      ],
+      [
+       -46.6355607,
+       -23.5428474
+      ],
+      [
+       -46.63555,
+       -23.5428318
+      ],
+      [
+       -46.6355388,
+       -23.5428163
+      ],
+      [
+       -46.6355273,
+       -23.5428011
+      ],
+      [
+       -46.6355155,
+       -23.5427862
+      ],
+      [
+       -46.6353502,
+       -23.5425814
+      ],
+      [
+       -46.6353305,
+       -23.5425581
+      ],
+      [
+       -46.6353095,
+       -23.5425358
+      ],
+      [
+       -46.6352873,
+       -23.5425145
+      ],
+      [
+       -46.635264,
+       -23.5424943
+      ],
+      [
+       -46.6352396,
+       -23.5424751
+      ],
+      [
+       -46.6352142,
+       -23.5424571
+      ],
+      [
+       -46.6351879,
+       -23.5424403
+      ],
+      [
+       -46.6351368,
+       -23.5424094
+      ],
+      [
+       -46.6350983,
+       -23.5423843
+      ],
+      [
+       -46.6350618,
+       -23.5423568
+      ],
+      [
+       -46.6350275,
+       -23.542327
+      ],
+      [
+       -46.6349956,
+       -23.542295
+      ],
+      [
+       -46.6349662,
+       -23.5422611
+      ],
+      [
+       -46.6349395,
+       -23.5422253
+      ],
+      [
+       -46.6349155,
+       -23.5421879
+      ],
+      [
+       -46.6343188,
+       -23.541176
+      ],
+      [
+       -46.634306,
+       -23.5411528
+      ],
+      [
+       -46.6342947,
+       -23.5411291
+      ],
+      [
+       -46.6342848,
+       -23.5411048
+      ],
+      [
+       -46.6342764,
+       -23.54108
+      ],
+      [
+       -46.6342695,
+       -23.5410549
+      ],
+      [
+       -46.6342642,
+       -23.5410294
+      ],
+      [
+       -46.6342603,
+       -23.5410037
+      ],
+      [
+       -46.634114,
+       -23.539758
+      ],
+      [
+       -46.6341114,
+       -23.5397359
+      ],
+      [
+       -46.6341088,
+       -23.5397138
+      ],
+      [
+       -46.6341063,
+       -23.5396917
+      ],
+      [
+       -46.6341038,
+       -23.5396697
+      ],
+      [
+       -46.6341014,
+       -23.5396476
+      ],
+      [
+       -46.6340989,
+       -23.5396255
+      ],
+      [
+       -46.6340965,
+       -23.5396034
+      ],
+      [
+       -46.6340843,
+       -23.5394904
+      ],
+      [
+       -46.6340814,
+       -23.5394703
+      ],
+      [
+       -46.6340769,
+       -23.5394504
+      ],
+      [
+       -46.6340709,
+       -23.5394309
+      ],
+      [
+       -46.6340634,
+       -23.5394119
+      ],
+      [
+       -46.6340544,
+       -23.5393934
+      ],
+      [
+       -46.6340441,
+       -23.5393755
+      ],
+      [
+       -46.6340324,
+       -23.5393584
+      ],
+      [
+       -46.6340194,
+       -23.539342
+      ],
+      [
+       -46.6340051,
+       -23.5393266
+      ],
+      [
+       -46.6339898,
+       -23.5393121
+      ],
+      [
+       -46.6339733,
+       -23.5392986
+      ],
+      [
+       -46.6339559,
+       -23.5392863
+      ],
+      [
+       -46.6339375,
+       -23.5392751
+      ],
+      [
+       -46.6339183,
+       -23.5392652
+      ],
+      [
+       -46.6338985,
+       -23.5392566
+      ],
+      [
+       -46.633878,
+       -23.5392493
+      ],
+      [
+       -46.6338569,
+       -23.5392433
+      ],
+      [
+       -46.6338355,
+       -23.5392387
+      ],
+      [
+       -46.6338138,
+       -23.5392356
+      ],
+      [
+       -46.6337919,
+       -23.5392339
+      ],
+      [
+       -46.6337699,
+       -23.5392336
+      ],
+      [
+       -46.6327566,
+       -23.5392537
+      ],
+      [
+       -46.6327401,
+       -23.5392543
+      ],
+      [
+       -46.6327237,
+       -23.5392554
+      ],
+      [
+       -46.6327073,
+       -23.539257
+      ],
+      [
+       -46.632691,
+       -23.5392591
+      ],
+      [
+       -46.6326748,
+       -23.5392617
+      ],
+      [
+       -46.6326587,
+       -23.5392648
+      ],
+      [
+       -46.6326427,
+       -23.5392684
+      ],
+      [
+       -46.6298681,
+       -23.5399402
+      ],
+      [
+       -46.6298457,
+       -23.5399464
+      ],
+      [
+       -46.6298238,
+       -23.539954
+      ],
+      [
+       -46.6298025,
+       -23.5399629
+      ],
+      [
+       -46.6297819,
+       -23.5399732
+      ],
+      [
+       -46.6297621,
+       -23.5399848
+      ],
+      [
+       -46.6297432,
+       -23.5399975
+      ],
+      [
+       -46.6297253,
+       -23.5400114
+      ],
+      [
+       -46.6280075,
+       -23.541443
+      ],
+      [
+       -46.6279967,
+       -23.5414518
+      ],
+      [
+       -46.6279858,
+       -23.5414605
+      ],
+      [
+       -46.6279747,
+       -23.5414691
+      ],
+      [
+       -46.6279635,
+       -23.5414775
+      ],
+      [
+       -46.6279522,
+       -23.5414857
+      ],
+      [
+       -46.6279407,
+       -23.5414938
+      ],
+      [
+       -46.6279291,
+       -23.5415018
+      ],
+      [
+       -46.6279167,
+       -23.5415103
+      ],
+      [
+       -46.6279043,
+       -23.5415191
+      ],
+      [
+       -46.6278922,
+       -23.541528
+      ],
+      [
+       -46.6278801,
+       -23.5415371
+      ],
+      [
+       -46.6278683,
+       -23.5415463
+      ],
+      [
+       -46.6278566,
+       -23.5415558
+      ],
+      [
+       -46.627845,
+       -23.5415654
+      ],
+      [
+       -46.6272858,
+       -23.5420389
+      ],
+      [
+       -46.6272521,
+       -23.5420685
+      ],
+      [
+       -46.6272195,
+       -23.5420991
+      ],
+      [
+       -46.6271881,
+       -23.5421307
+      ],
+      [
+       -46.627158,
+       -23.5421634
+      ],
+      [
+       -46.6271291,
+       -23.542197
+      ],
+      [
+       -46.6271014,
+       -23.5422315
+      ],
+      [
+       -46.6270751,
+       -23.5422669
+      ],
+      [
+       -46.6269939,
+       -23.5423804
+      ],
+      [
+       -46.6269896,
+       -23.5423865
+      ],
+      [
+       -46.6269855,
+       -23.5423926
+      ],
+      [
+       -46.6269814,
+       -23.5423988
+      ],
+      [
+       -46.6269775,
+       -23.5424051
+      ],
+      [
+       -46.6269736,
+       -23.5424114
+      ],
+      [
+       -46.6269699,
+       -23.5424178
+      ],
+      [
+       -46.6269663,
+       -23.5424242
+      ],
+      [
+       -46.6269618,
+       -23.5424325
+      ],
+      [
+       -46.6269574,
+       -23.5424408
+      ],
+      [
+       -46.6269529,
+       -23.5424491
+      ],
+      [
+       -46.6269485,
+       -23.5424574
+      ],
+      [
+       -46.6269441,
+       -23.5424657
+      ],
+      [
+       -46.6269397,
+       -23.542474
+      ],
+      [
+       -46.6269354,
+       -23.5424824
+      ],
+      [
+       -46.6269269,
+       -23.5425005
+      ],
+      [
+       -46.6269197,
+       -23.5425191
+      ],
+      [
+       -46.626914,
+       -23.5425382
+      ],
+      [
+       -46.6269097,
+       -23.5425575
+      ],
+      [
+       -46.6269068,
+       -23.5425771
+      ],
+      [
+       -46.6269055,
+       -23.5425968
+      ],
+      [
+       -46.6269056,
+       -23.5426166
+      ],
+      [
+       -46.6269072,
+       -23.5426363
+      ],
+      [
+       -46.6269103,
+       -23.5426558
+      ],
+      [
+       -46.6269131,
+       -23.5426735
+      ],
+      [
+       -46.6269148,
+       -23.5426913
+      ],
+      [
+       -46.6269152,
+       -23.5427091
+      ],
+      [
+       -46.6269145,
+       -23.5427269
+      ],
+      [
+       -46.6269125,
+       -23.5427447
+      ],
+      [
+       -46.6269093,
+       -23.5427623
+      ],
+      [
+       -46.6269049,
+       -23.5427797
+      ],
+      [
+       -46.6266006,
+       -23.5438385
+      ],
+      [
+       -46.6265962,
+       -23.543854
+      ],
+      [
+       -46.6265918,
+       -23.5438696
+      ],
+      [
+       -46.6265873,
+       -23.5438852
+      ],
+      [
+       -46.6265829,
+       -23.5439007
+      ],
+      [
+       -46.6265786,
+       -23.5439163
+      ],
+      [
+       -46.6265742,
+       -23.5439319
+      ],
+      [
+       -46.6265699,
+       -23.5439474
+      ],
+      [
+       -46.6265699,
+       -23.5439474
+      ],
+      [
+       -46.6264139,
+       -23.544509
+      ],
+      [
+       -46.6264076,
+       -23.5445302
+      ],
+      [
+       -46.6264007,
+       -23.5445511
+      ],
+      [
+       -46.6263931,
+       -23.5445719
+      ],
+      [
+       -46.6263849,
+       -23.5445925
+      ],
+      [
+       -46.626376,
+       -23.5446128
+      ],
+      [
+       -46.6263664,
+       -23.5446329
+      ],
+      [
+       -46.6263562,
+       -23.5446527
+      ],
+      [
+       -46.6263336,
+       -23.5446989
+      ],
+      [
+       -46.6263146,
+       -23.5447465
+      ],
+      [
+       -46.6262994,
+       -23.5447952
+      ],
+      [
+       -46.626288,
+       -23.5448449
+      ],
+      [
+       -46.6262806,
+       -23.5448951
+      ],
+      [
+       -46.626277,
+       -23.5449457
+      ],
+      [
+       -46.6262773,
+       -23.5449964
+      ],
+      [
+       -46.6263133,
+       -23.5457782
+      ],
+      [
+       -46.6263137,
+       -23.5457878
+      ],
+      [
+       -46.6263141,
+       -23.5457973
+      ],
+      [
+       -46.6263145,
+       -23.5458069
+      ],
+      [
+       -46.6263148,
+       -23.5458165
+      ],
+      [
+       -46.6263151,
+       -23.545826
+      ],
+      [
+       -46.6263153,
+       -23.5458356
+      ],
+      [
+       -46.6263155,
+       -23.5458452
+      ],
+      [
+       -46.6263167,
+       -23.5458656
+      ],
+      [
+       -46.6263195,
+       -23.5458859
+      ],
+      [
+       -46.6263238,
+       -23.545906
+      ],
+      [
+       -46.6263297,
+       -23.5459257
+      ],
+      [
+       -46.6263371,
+       -23.545945
+      ],
+      [
+       -46.626346,
+       -23.5459638
+      ],
+      [
+       -46.6263564,
+       -23.5459819
+      ],
+      [
+       -46.6263681,
+       -23.5459993
+      ],
+      [
+       -46.6263811,
+       -23.5460158
+      ],
+      [
+       -46.6263954,
+       -23.5460315
+      ],
+      [
+       -46.6264109,
+       -23.5460462
+      ],
+      [
+       -46.6264265,
+       -23.546061
+      ],
+      [
+       -46.626441,
+       -23.5460769
+      ],
+      [
+       -46.6264541,
+       -23.5460936
+      ],
+      [
+       -46.6264659,
+       -23.5461112
+      ],
+      [
+       -46.6264763,
+       -23.5461296
+      ],
+      [
+       -46.6264852,
+       -23.5461486
+      ],
+      [
+       -46.6264926,
+       -23.5461681
+      ],
+      [
+       -46.6264984,
+       -23.5461881
+      ],
+      [
+       -46.6265027,
+       -23.5462084
+      ],
+      [
+       -46.6265704,
+       -23.54661
+      ],
+      [
+       -46.6265704,
+       -23.54661
+      ],
+      [
+       -46.6265726,
+       -23.5466232
+      ],
+      [
+       -46.6265748,
+       -23.5466365
+      ],
+      [
+       -46.626577,
+       -23.5466498
+      ],
+      [
+       -46.6265791,
+       -23.546663
+      ],
+      [
+       -46.6265813,
+       -23.5466763
+      ],
+      [
+       -46.6265834,
+       -23.5466896
+      ],
+      [
+       -46.6265855,
+       -23.5467028
+      ],
+      [
+       -46.6267769,
+       -23.547922
+      ],
+      [
+       -46.6268006,
+       -23.548044
+      ],
+      [
+       -46.6268328,
+       -23.5481644
+      ],
+      [
+       -46.6268734,
+       -23.5482826
+      ],
+      [
+       -46.6269224,
+       -23.5483981
+      ],
+      [
+       -46.6269795,
+       -23.5485104
+      ],
+      [
+       -46.6270444,
+       -23.548619
+      ],
+      [
+       -46.6271168,
+       -23.5487234
+      ],
+      [
+       -46.6272177,
+       -23.5488589
+      ],
+      [
+       -46.6272481,
+       -23.5488975
+      ],
+      [
+       -46.6272807,
+       -23.5489346
+      ],
+      [
+       -46.6273154,
+       -23.5489701
+      ],
+      [
+       -46.6273521,
+       -23.5490039
+      ],
+      [
+       -46.6273907,
+       -23.5490358
+      ],
+      [
+       -46.6274311,
+       -23.5490657
+      ],
+      [
+       -46.6274731,
+       -23.5490937
+      ],
+      [
+       -46.627583,
+       -23.5491629
+      ],
+      [
+       -46.6276981,
+       -23.5492299
+      ],
+      [
+       -46.6278181,
+       -23.5492891
+      ],
+      [
+       -46.6279423,
+       -23.5493404
+      ],
+      [
+       -46.6280702,
+       -23.5493833
+      ],
+      [
+       -46.6282011,
+       -23.5494178
+      ],
+      [
+       -46.6283343,
+       -23.5494435
+      ],
+      [
+       -46.6284692,
+       -23.5494605
+      ],
+      [
+       -46.628605,
+       -23.5494685
+      ],
+      [
+       -46.6287411,
+       -23.5494676
+      ],
+      [
+       -46.6291764,
+       -23.5494505
+      ],
+      [
+       -46.6292761,
+       -23.5494497
+      ],
+      [
+       -46.6293757,
+       -23.5494551
+      ],
+      [
+       -46.6294747,
+       -23.5494668
+      ],
+      [
+       -46.6295725,
+       -23.5494846
+      ],
+      [
+       -46.6296688,
+       -23.5495085
+      ],
+      [
+       -46.6297632,
+       -23.5495384
+      ],
+      [
+       -46.6298551,
+       -23.5495741
+      ],
+      [
+       -46.6315546,
+       -23.5502977
+      ],
+      [
+       -46.6316072,
+       -23.5503221
+      ],
+      [
+       -46.6316579,
+       -23.5503496
+      ],
+      [
+       -46.6317066,
+       -23.5503801
+      ],
+      [
+       -46.6317531,
+       -23.5504135
+      ],
+      [
+       -46.631797,
+       -23.5504496
+      ],
+      [
+       -46.6318383,
+       -23.5504883
+      ],
+      [
+       -46.6318767,
+       -23.5505294
+      ],
+      [
+       -46.6319121,
+       -23.5505727
+      ],
+      [
+       -46.6319444,
+       -23.5506181
+      ],
+      [
+       -46.6319734,
+       -23.5506653
+      ],
+      [
+       -46.6319989,
+       -23.5507142
+      ],
+      [
+       -46.6325539,
+       -23.551872
+      ],
+      [
+       -46.6325604,
+       -23.5518856
+      ],
+      [
+       -46.632567,
+       -23.5518992
+      ],
+      [
+       -46.6325736,
+       -23.5519128
+      ],
+      [
+       -46.6325802,
+       -23.5519263
+      ],
+      [
+       -46.6325868,
+       -23.5519399
+      ],
+      [
+       -46.6325935,
+       -23.5519534
+      ],
+      [
+       -46.6326001,
+       -23.551967
+      ],
+      [
+       -46.6329543,
+       -23.5526832
+      ],
+      [
+       -46.6329637,
+       -23.5527007
+      ],
+      [
+       -46.6329744,
+       -23.5527175
+      ],
+      [
+       -46.6329863,
+       -23.5527336
+      ],
+      [
+       -46.6329994,
+       -23.5527489
+      ],
+      [
+       -46.6330136,
+       -23.5527634
+      ],
+      [
+       -46.6330288,
+       -23.5527769
+      ],
+      [
+       -46.633045,
+       -23.5527895
+      ],
+      [
+       -46.6330621,
+       -23.552801
+      ],
+      [
+       -46.63308,
+       -23.5528113
+      ],
+      [
+       -46.6330986,
+       -23.5528206
+      ],
+      [
+       -46.6331179,
+       -23.5528286
+      ],
+      [
+       -46.6331377,
+       -23.5528354
+      ],
+      [
+       -46.633158,
+       -23.552841
+      ],
+      [
+       -46.6331787,
+       -23.5528452
+      ],
+      [
+       -46.6331996,
+       -23.5528481
+      ],
+      [
+       -46.6332207,
+       -23.5528498
+      ],
+      [
+       -46.6332418,
+       -23.55285
+      ],
+      [
+       -46.6332629,
+       -23.552849
+      ],
+      [
+       -46.6332839,
+       -23.5528466
+      ],
+      [
+       -46.6333047,
+       -23.5528429
+      ],
+      [
+       -46.6333252,
+       -23.5528379
+      ],
+      [
+       -46.6333452,
+       -23.5528316
+      ],
+      [
+       -46.6333647,
+       -23.5528241
+      ],
+      [
+       -46.6340586,
+       -23.5525304
+      ],
+      [
+       -46.6340776,
+       -23.5525219
+      ],
+      [
+       -46.6340961,
+       -23.5525127
+      ],
+      [
+       -46.6341142,
+       -23.5525026
+      ],
+      [
+       -46.6341318,
+       -23.5524919
+      ],
+      [
+       -46.6341488,
+       -23.5524804
+      ],
+      [
+       -46.6341653,
+       -23.5524683
+      ],
+      [
+       -46.6341811,
+       -23.5524555
+      ],
+      [
+       -46.6341972,
+       -23.5524425
+      ],
+      [
+       -46.6342139,
+       -23.5524301
+      ],
+      [
+       -46.6342312,
+       -23.5524183
+      ],
+      [
+       -46.6342489,
+       -23.5524073
+      ],
+      [
+       -46.6342672,
+       -23.552397
+      ],
+      [
+       -46.6342859,
+       -23.5523873
+      ],
+      [
+       -46.634305,
+       -23.5523785
+      ],
+      [
+       -46.6351751,
+       -23.5519963
+      ]
+     ]
+    ]
+   }
+  }
+ ]
+}

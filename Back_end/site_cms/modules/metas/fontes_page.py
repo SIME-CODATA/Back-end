@@ -108,6 +108,7 @@ def _conteudo() -> rx.Component:
     return rx.vstack(
         rx.link(rx.button("Voltar para ficha", variant="outline"),
                 href="/admin/site/metas/" + FontesMetaState.codigo_fonte),
+        rx.link( rx.button( rx.icon("layers"), "Gerenciar camadas GEO", color_scheme="blue", variant="solid", cursor="pointer",),href="/admin/site/camadas-geo",),
         rx.heading("Mapa e arquivos da Meta " + FontesMetaState.codigo_fonte, size="6"),
         rx.text("Fontes originais da planilha e dos GeoJSON. Visualização administrativa, sem alterar o SMAE."),
         rx.cond(FontesMetaState.texto_erro != "", rx.text(FontesMetaState.texto_erro, color="red")),

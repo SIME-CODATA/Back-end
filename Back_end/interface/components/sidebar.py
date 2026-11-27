@@ -268,6 +268,11 @@ def site_submenu() -> rx.Component:
             ),
 
             rx.cond(
+                SidebarState.visible_items["site_metas"],
+                site_submenu_link("Camadas GEO", "/admin/site/camadas-geo"),
+            ),
+
+            rx.cond(
                 SidebarState.visible_items["site_regionalization"],
                 site_submenu_link(
                     "Regionalização",
